@@ -47,8 +47,7 @@ class theme_stardust_mod_quiz_renderer extends mod_quiz_renderer {
      * @param int $id The ID of an attempt
      * @param int $nextpage The number of the next page
      */
-    public function attempt_page($attemptobj, $page, $accessmanager, $messages, $slots, $id,
-            $nextpage) {
+    public function attempt_page($attemptobj, $page, $accessmanager, $messages, $slots, $id, $nextpage) {
         global $PAGE;
         // $PAGE->set_pagelayout('quizattempt');
         $navbc = new quiz_attempt_nav_panel($attemptobj, $attemptobj->get_display_options(true), $page, $showall);
@@ -57,7 +56,7 @@ class theme_stardust_mod_quiz_renderer extends mod_quiz_renderer {
         $output .= $this->quiz_notices($messages);
         $output .= $this->navigation_panel($navbc);
         $output .= html_writer::start_tag('div', array('class' => 'quiz_header'));
-
+        $output .= html_writer::tag('p', $attemptobj->get_quiz_name(), array('class' => 'quiz_name'));
 
         // $output .= $this->navigation_panel($navbc);
         // $output .= html_writer::link(new moodle_url('/mod/quiz/summary.php', array('attempt' => $attemptobj->get_attemptid())), get_string('quizattemptfinishlink', 'theme_stardust'), array('class' => 'finish_quiz'));
