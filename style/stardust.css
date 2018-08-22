@@ -3146,7 +3146,15 @@ header .nav {
         margin-bottom: 20px; }
         #page-mod-quiz-attempt #page-wrapper section#region-main.has-blocks [role="main"] .quiz_header {
           display: -ms-flexbox;
-          display: flex; }
+          display: flex;
+          border-bottom: 1px solid #D5D5D4;
+          margin-bottom: 50px; }
+          #page-mod-quiz-attempt #page-wrapper section#region-main.has-blocks [role="main"] .quiz_header .quiz_name {
+            color: #3C3C3C;
+            font-family: 'NextExitRound';
+            font-size: 48px;
+            line-height: 48px;
+            text-align: right; }
           #page-mod-quiz-attempt #page-wrapper section#region-main.has-blocks [role="main"] .quiz_header .qn_buttons {
             transform: translate(0);
             position: static; }

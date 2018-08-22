@@ -47,7 +47,6 @@
       .finish_quiz {
         cursor: pointer;
         line-height: 48px;
-        // width: 180px;
         border-radius: 21px;
         background-color: $primary-color;
         color: #fff;
@@ -74,6 +73,15 @@
         margin-bottom: 20px;
         .quiz_header {
           display: flex;
+          border-bottom: 1px solid #D5D5D4;
+          margin-bottom: 50px;
+          .quiz_name {
+          	color: #3C3C3C;
+          	font-family: 'NextExitRound';
+          	font-size: 48px;
+          	line-height: 48px;
+          	text-align: right;
+          }
           .qn_buttons {
             transform: translate(0);
             position: static;
