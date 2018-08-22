@@ -1,0 +1,97 @@
+<div class="incourse-header">
+  <div class="top-wrapper">
+      <div class="top">
+          <div class="subtitle">
+              <span class="home-icon"></span>
+              <span class="route"><a href="{{backtocourseurl}}">{{#str}}backtocourse, theme_stardust{{/str}}</a></span>
+              <!-- <span class="route">{{backtocourse}}</span> -->
+          </div>
+          <ul class="blocks-list">
+              <li class="block">
+                  <div class="allcourses-wrapper">
+                      <div id="allsections" class = "allsections">
+                          <span class = "section-name">{{#allcoursesections}}{{current}}{{/allcoursesections}}</span>
+                        <span class="select-icon"></span>
+                      </div>
+                      <div class = "section-wrap">
+                        <div class = "section-items">
+                          {{#allcoursesections}}
+                            {{^current}}
+                                <div class = "section-item">
+                                    <a href = "{{{url}}}">{{{name}}}</a>
+                                </div>
+                            {{/current}}
+                          {{/allcoursesections}}
+                          {{^allcoursesections}}no sections{{/allcoursesections}}
+                        </div>
+                      </div>
+                  </div>
+              </li>
+              <li class="block">
+
+                  <div class="allsection-wrapper">
+                    <div id="allactivities" class = "allactivities">
+                      <span class = "section-name">{{#allsectionactivities}}{{current}}{{/allsectionactivities}}</span>
+                      <span class="select-icon"></span>
+                    </div>
+                    <div class = "section-wrap">
+                      <div class = "section-items">
+                        {{#allsectionactivities}}
+                          {{^current}}
+                              <div class = "section-item">
+                                <a href = "{{{url}}}">{{{name}}}</a>
+                              </div>
+                          {{/current}}
+                        {{/allsectionactivities}}
+                        {{^allsectionactivities}}no activities{{/allsectionactivities}}
+                      </div>
+                    </div>
+
+                  </div>
+              </li>
+              {{#allcoursesectionspinned}}
+                    <li class="block pinned">
+                        <span class="block-icon"></span>
+                        <a href = "{{{url}}}" class="block-label">{{{name}}}</a>
+                    </li>
+              {{/allcoursesectionspinned}}
+          </ul>
+      </div>
+  </div>
+
+  <div class="main-wrapper">
+      <div class="main">
+          <div class="help-block">
+                {{#helplink}}
+                    {{>theme_stardust/help-link}}
+                {{/helplink}}
+                {{^helplink}}
+                    {{>theme_stardust/help-menu}}
+                {{/helplink}}
+          </div>
+      </div>
+  </div>
+
+</div>
+
+{{#js}}
+require(['jquery'], function($){
+
+    $('#allsections').click(function() {
+        $(this).next().slideToggle(300);
+    });
+
+    $('#allactivities').click(function() {
+        $(this).next().slideToggle(300);
+    });
+
+    // close by esc
+    $(document).keydown(function(e) {
+      if (e.keyCode == 27) {
+        $('#allsections').next().slideUp();
+        $('#allactivities').next().slideUp();
+      }
+    });
+
+});
+{{/js}}

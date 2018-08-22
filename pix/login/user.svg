@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="15px" height="16px" viewBox="0 0 15 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: sketchtool 48.1 (47250) - http://www.bohemiancoding.com/sketch -->
+    <title>045A446C-F9B5-4EA5-8FA7-1F1EA69F65D6</title>
+    <desc>Created with sketchtool.</desc>
+    <defs></defs>
+    <g id="LOGIN-2" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(-1003.000000, -350.000000)">
+        <g id="USER-NAME" transform="translate(732.000000, 346.000000)" fill="#E4E4E3">
+            <path d="M279,12 C276.794,12 275,10.206 275,8 C275,5.794 276.794,4 279,4 C281.206,4 283,5.794 283,8 C283,10.206 281.206,12 279,12 Z M278.5,13 C282.915625,13 286,15.467 286,19 L286,20 L271,20 L271,19 C271,15.467 274.084375,13 278.5,13 Z" id="ICONS/USER"></path>
+        </g>
+    </g>
+</svg>

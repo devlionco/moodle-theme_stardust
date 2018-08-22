@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: sketchtool 50.2 (55047) - http://www.bohemiancoding.com/sketch -->
+    <title>2067D27B-BDC2-47A6-B0CA-63893CF389D7</title>
+    <desc>Created with sketchtool.</desc>
+    <defs></defs>
+    <g id="COURSE" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="COURSE-1-HELP-BUTTON-HOVER-B" transform="translate(-244.000000, -602.000000)" fill="#FFFFFF">
+            <g id="HELP-OPEN" transform="translate(48.000000, 403.000000)">
+                <g id="ICONS/STUDENT_FORUM" transform="translate(197.000000, 199.000000)">
+                    <path d="M6,0 C5.4475,0 5,0.448 5,1 L5,7 C5,7.552 5.4475,8 6,8 L7.4995,8 L7.4995,10 L9.5,8 L14,8 C14.5525,8 15,7.552 15,7 L15,1 C15,0.448 14.5525,0 14,0 L6,0 Z" id="Fill-110-Copy" transform="translate(10.000000, 5.000000) scale(-1, 1) translate(-10.000000, -5.000000) "></path>
+                    <path d="M4.23636316,13.65 L1.79955,16.0862041 L1.79955,13.65 L0.9,13.65 C0.154342452,13.65 -0.45,13.0454488 -0.45,12.3 L-0.45,6.9 C-0.45,6.15455121 0.154342452,5.55 0.9,5.55 L8.1,5.55 C8.84565755,5.55 9.45,6.15455121 9.45,6.9 L9.45,12.3 C9.45,13.0454488 8.84565755,13.65 8.1,13.65 L4.23636316,13.65 Z" id="Fill-110" stroke="#0096DB" stroke-width="0.9"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

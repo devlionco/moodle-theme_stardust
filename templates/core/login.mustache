@@ -1,0 +1,235 @@
+{{!
+    This file is part of Moodle - http://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+}}
+{{!
+    @template core/loginform
+
+    Moodle template for the login page.
+
+    Context variables required for this template:
+    * autofocusform: Auto focus on form ?,
+    * canloginasguest - Is guest login allowed?,
+    * canloginbyemail - Is login by email allowed?,
+    * cansignup - Signup allowed?,
+    * cookieshelpicon - cookies help icon details
+    * error - Any errors in the form?,
+    * forgotpasswordurl - Forgot password url,
+    * hasidentityproviders - Flag, set to true to hide identity providers,
+    * hasinstructions - Flag, set to true to show instructions,
+    * identityproviders - List of identiy providers,
+    * instructions - Instructions,
+    * instructionsformat - Format of instructions,
+    * loginurl - Login url,
+    * rememberusername - Remeber username?,
+    * signupurl - Signup url,
+    * cookieshelpiconformatted - Formatted html of cookies help icon,
+    * errorformatted - Formatted error,
+    * logourl - Flag, logo url,
+    * sitename - Name of site.
+
+    Example context (json):
+    {
+        "autofocusform": false,
+        "canloginasguest": "1",
+        "canloginbyemail": false,
+        "cansignup": true,
+        "cookieshelpicon": {
+            "heading": "Cookies must be enabled in your browser",
+            "text": "<div class=\"no-overflow\">Two cookies are used on this site. Both died..</div>",
+            "icon": {
+                "attributes": [
+                    {
+                        "name": "class",
+                        "value": "iconhelp"
+                    },
+                    {
+                        "name": "alt",
+                        "value": "Help with Cookies must be enabled in your browser"
+                    },
+                    {
+                        "name": "title",
+                        "value": "Help with Cookies must be enabled in your browser"
+                    },
+                    {
+                        "name": "src",
+                        "value": "http://localhost/stable_master/theme/image.php?theme=boost&component=core&image=help"
+                    }
+                ]
+            },
+            "linktext": null,
+            "title": "Help with Cookies must be enabled in your browser",
+            "url": "http://localhost/stable_master/help.php?component=core&identifier=cookiesenabled&lang=en",
+            "ltr": true
+        },
+        "error": "",
+        "forgotpasswordurl": "http://localhost/stable_master/login/forgot_password.php",
+        "hasidentityproviders": false,
+        "hasinstructions": true,
+        "identityproviders": [],
+        "instructions": "For full access to this site, you first need to create an account.",
+        "instructionsformat": "1",
+        "loginurl": "http://localhost/stable_master/login/index.php",
+        "rememberusername": true,
+        "signupurl": "http://localhost/stable_master/login/signup.php",
+        "cookieshelpiconformatted": "",
+        "errorformatted": "",
+        "logourl": false,
+        "sitename": "Beer & Chips"
+    }
+}}
+
+<div class="hidden-sm-down"></div>
+<div class="row">
+    <div class="dlogin__flex">
+      <div class="card">
+        <div class="card-block">
+
+          <div class = "dlogin__container">
+            <div class = "dlogin__title">{{#str}}entrance_to_moodle, theme_stardust{{/str}}</div>
+            {{#error}}
+                <div class="loginerrors m-t-1">
+                    <a href="#" id="loginerrormessage" class="accesshide">{{error}}</a>
+                    <div class="error" role="alert">{{error}}</div>
+                </div>
+            {{/error}}
+            <div class = "dlogin__main">
+              <form class = "dlogin__form" action="{{loginurl}}" method="post" id="login">
+                <label class = "dlogin__label dlogin__label--username">
+                  <input class = "dlogin__input" type="text" name="username" id="username" value = "{{username}}" placeholder="{{#str}}username, theme_stardust{{/str}}">
+                </label>
+                <!-- <a href = "{{forgotpasswordurl}}" class = "dlogin__forget">{{#str}}forgot_username, theme_stardust{{/str}}</a> -->
+                <a href = "{{forgotpasswordurl}}" class = "dlogin__forget"> </a>
+                <label class = "dlogin__label dlogin__label--password">
+                  <input class = "dlogin__input" type="password" name="password" id="password" value = "" placeholder="{{#str}}password, theme_stardust{{/str}}">
+                </label>
+                <a href = "{{forgotpasswordurl}}" class = "dlogin__forget">{{#str}}forgot_password, theme_stardust{{/str}}</a>
+                {{#rememberusername}}
+                    <div class="rememberpass">
+                        <input type="checkbox" name="rememberusername" id="rememberusername" value="1" {{#username}}checked="checked"{{/username}} />
+                        <label for="rememberusername">{{#str}} rememberusername, admin {{/str}}</label>
+                    </div>
+                {{/rememberusername}}
+                <button id="loginbtn" class = "dlogin__submit" type = "submit">{{#str}}enter, theme_stardust{{/str}}</button>
+
+              </form>
+              <div class = "dlogin__enter">
+                {{#hasidentityproviders}}
+                  {{#identityproviders}}
+                    <a
+                      href = "{{url}}"
+                      class = "dlogin__link dlogin__link--google"
+                      title={{#quote}}{{name}}{{/quote}}
+                      >
+                      <span>{{#str}}sign_google, theme_stardust{{/str}}</span>
+                    </a>
+                  {{/identityproviders}}
+                {{/hasidentityproviders}}
+                <a href ="" class = "dlogin__link dlogin__link--facebook"><span>{{#str}}sign_facebook, theme_stardust{{/str}}<span></a>
+                <a href ="" class = "dlogin__link dlogin__link--office"><span>{{#str}}entry_ministry_education, theme_stardust{{/str}}</span></a>
+              </div>
+            </div>
+            <div class = "dlogin__bottom">
+              <a
+                href = ""
+                class = "dlogin__bottom-link">{{#str}}to_list_courses, theme_stardust{{/str}}
+              </a>
+              <a
+                href = ""
+                class = "dlogin__bottom-link">{{#str}}stardust_website, theme_stardust{{/str}}
+              </a>
+            </div>
+          </div>
+
+
+          {{#cansignup}}
+              <div class="sr-only">
+                  <a href="{{signupurl}}">{{#str}} tocreatenewaccount {{/str}}</a>
+              </div>
+          {{/cansignup}}
+
+
+          <div class = "display__none temp">
+          {{#hasidentityproviders}}
+                  <h6 class="m-t-2">{{#str}} potentialidps, auth {{/str}}</h6>
+                  <div class="potentialidplist" class="m-t-1">
+                      {{#identityproviders}}
+                          <div class="potentialidp">
+                              <a href="{{url}}" title={{#quote}}{{name}}{{/quote}} class="btn btn-secondary btn-block">
+                                  {{#iconurl}}
+                                      <img src="{{iconurl}}" alt="" width="24" height="24"/>
+                                  {{/iconurl}}
+                                  {{name}}
+                              </a>
+                          </div>
+                      {{/identityproviders}}
+                  </div>
+          {{/hasidentityproviders}}
+          </div>
+              </div>
+          </div>
+      </div>
+  </div>
+  <div class = "row">
+    <div class = "dlogin__footer">
+      <a href = "" class = "dglogin__footer-link">{{#str}}about, theme_stardust{{/str}}</a>
+      <a href = "" class = "dglogin__footer-link">{{#str}}copyright, theme_stardust{{/str}}</a>
+      <a href = "" class = "dglogin__footer-link">{{#str}}policy, theme_stardust{{/str}}</a>
+    </div>
+  </div>
+</div>
+</div>
+
+
+{{#hasinstructions}}
+<div class="row">
+<div class="col-xl-6 push-xl-3 m-2-md col-sm-8 push-sm-2">
+<div class="card">
+    <div class="card-block">
+        <div class="card-title">
+            <h2>{{#str}}firsttime{{/str}}</h2>
+        </div>
+        <div>
+        {{{instructions}}}
+        {{#cansignup}}
+            <form class="m-t-1" action="{{signupurl}}" method="get" id="signup">
+                <button type="submit" class="btn btn-secondary">{{#str}}startsignup{{/str}}</button>
+            </form>
+        {{/cansignup}}
+        </div>
+    </div>
+</div>
+</div>
+</div>
+{{/hasinstructions}}
+
+{{#js}}
+    {{#error}}
+        require(['jquery'], function($) {
+            $('#loginerrormessage').focus();
+        });
+    {{/error}}
+    {{^error}}
+        {{#autofocusform}}
+            require(['jquery'], function($) {
+                if ($('#username').val()) {
+                    $('#password').focus();
+                } else {
+                    $('#username').focus();
+                }
+            });
+        {{/autofocusform}}
+    {{/error}}
+{{/js}}

@@ -1,0 +1,195 @@
+.incourse-header {
+
+
+  .main-wrapper {
+    display: flex;
+    justify-content: center;
+    padding: 56px 0 0;
+    background: #f4f3f0;
+    .main {
+      max-width: 1344px;
+      width: 100%;
+      position: relative;
+      .help-block {
+        position: absolute;
+        right: 0;
+        top: -115px;
+      }
+    }
+  }
+  .top-wrapper {
+    height: 100%;
+    background: lightskyblue;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    background: url([[pix:theme|background]]) no-repeat center;
+    background-size: cover;
+    &:before {
+      content: "";
+      display: block;
+      width: 50%;
+      height: 0;
+      border-style: solid;
+      border-width: 0px 30px 30px 0px;
+      border-color: transparent transparent $gray_light transparent;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+    }
+    &:after {
+      content: "";
+      display: block;
+      width: 50%;
+      height: 0;
+      border-style: solid;
+      border-width: 0 0px 30px 30px;
+      border-color: transparent transparent $gray_light transparent;
+      position: absolute;
+      bottom: 0;
+      right: 0;
+    }
+    .top {
+      width: 1344px;
+      margin-bottom: 46px;
+      .subtitle {
+        margin-bottom: 16px;
+        margin-top: 42px;
+        font-size: 18px;
+        display: flex;
+        color: $white;
+        .route > a{
+          font-size: 18px;
+          font-weight: $bold;
+          line-height: 18px;
+          color: $white;
+          &:hover {
+            text-decoration: none;
+          }
+        }
+        .home-icon {
+          background: url([[pix:theme|course/home]]) no-repeat center center;
+          width: 28px;
+          height: 28px;
+        }
+      }
+      .blocks-list {
+        padding: 0;
+        list-style: none;
+        display: flex;
+        flex-wrap: wrap;
+        // justify-content: center;
+        .block {
+          cursor: pointer;
+          width: 204px;
+          height: 48px;
+          background: $white;
+          box-shadow: 0 0 10px 3px rgba(0,0,0,0.3);
+          border-radius: 2px;
+          margin-right: 24px;
+          margin-bottom: 24px;
+          .allcourses-wrapper,
+          .allsection-wrapper {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            .select-icon {
+              transition: .2s;
+              border: none;
+              width: 36px;
+              height: 36px;
+              background: url([[pix:theme|course/open-blue]]) no-repeat center;
+              background-size: 36px;
+              position: absolute;
+              right: 6px;
+              margin: 0;
+              top: 50%;
+              transform: translate(0, -50%);
+            }
+            .allactivities,
+            .allsections {
+              cursor: pointer;
+              width: 100%;
+              height: 100%;
+              border:none;
+              background: none;
+              border: none;
+              font-size: 18px;
+              font-weight: bold;
+              line-height: 18px;
+              color: $primary-color;
+              padding-left: 20px;
+              display: flex;
+              align-items: center;
+              -webkit-appearance: none;
+              -moz-appearance: none;
+              .section-name {
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                overflow: hidden;
+                width: 83%;
+              }
+              &:active .select-icon {
+                top: 60%;
+              }
+            }
+            .section-wrap {
+              background-color: #fff;
+              display: none;
+              margin-top: 5px;
+              border-radius: 2px;
+              z-index: 1000;
+              position: relative;
+              max-height: 40vh;
+              overflow: auto;
+              box-shadow: 0px 2px 5px 2px #b8b8b8;
+              .section-items {
+                display: flex;
+                flex-direction: column;
+                box-shadow: 0 0 7px #9c9c9c;
+                .section-item {
+                  font-size: 18px;
+                  line-height: 40px;
+                  a {
+                    transition: .2s;
+                    padding-left: 20px;
+                    display: block;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+                    overflow: hidden;
+                  }
+                  a:hover {
+                    color: #fff;
+                    cursor: pointer;
+                    text-decoration: none;
+                    background-color: #0096db;
+                  }
+                }
+              }
+            }
+          }
+        }
+        .block.pinned {
+          background: $primary-color;
+          display: flex;
+          align-items: center;
+          padding-left: 18px;
+          .block-icon {
+            display: block;
+            width: 24px;
+            height: 24px;
+            background: url([[pix:theme|course/pushpin]]) no-repeat center;
+            background-size: 24px;
+            margin-right: 14px;
+          }
+          .block-label {
+            color: $white;
+            font-size: 18px;
+            font-weight: bold;
+            line-height: 18px;
+          }
+        }
+      }
+    }
+  }
+}

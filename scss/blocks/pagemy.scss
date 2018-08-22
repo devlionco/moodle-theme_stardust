@@ -1,0 +1,228 @@
+@import "../variables";
+
+$progress-height: 2px;
+$padding-blocks: 20px 27px 24px 24px;
+
+#my-page {
+  color: $text-color;
+  font-family: "openSans";
+  .document-icon {
+    height: 40px;
+    width: 40px;
+  }
+
+  .mod_complete {
+    // width: 40px;
+    width: 100%;
+    height: 40px;
+    background: url([[pix:theme|pagemy/v_green]]) no-repeat center;
+  }
+
+  .icon-mod_gray {
+    background-image:url([[pix:theme|pagemy/document]]);
+    &~.status {
+      color: $text-color-light;
+    }
+  }
+  .icon-mod_green {
+    background-image:url([[pix:theme|pagemy/document-green]]);
+    &~.status {
+      color: $text-color-light;
+    }
+  }
+  .icon-mod_red {
+    background-image:url([[pix:theme|pagemy/document-red]]);
+    &~.status {
+      color: $doc-red;
+    }
+  }
+  .icon-mod_orange{
+    background-image:url([[pix:theme|pagemy/document-orange]]);
+    &~.status {
+      color: $doc-orange;
+    }
+  }
+  .documents {
+    background-image:url([[pix:theme|pagemy/documents]]);
+    &~.status {
+      color: $text-color-light;
+    }
+  }
+  .main-wrapper {
+    position: relative;
+    height: 100%;
+    max-height: 100%;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .help-block {
+      position: absolute;
+      bottom: -38px;
+      right: 46px;
+    }
+    .main {
+      width: 100%;
+      max-width: 78%;
+      &-header {
+        padding-top: 40px;
+        margin-bottom: 35px;
+        height: $content-header-height;
+        color: $white;
+        display: flex;
+        justify-content: space-between;
+        .block-left {
+          width: 90%;
+          .subtitle {
+            font-size: 18px;
+            font-weight:$bold;
+          }
+          .title {
+            font-size: 72px;
+            font-family: 'NextExitRound';
+            text-shadow: 0 0 10px 0 rgba(0,0,0,0.1);
+            margin-bottom: 0;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            width: 100%;
+          }
+        }
+        .block-right {
+          display: flex;
+          align-items: flex-end;
+          .icon-camera {
+            display: none;
+            width: 20px;
+            height: 18px;
+            background-image:url([[pix:theme|pagemy/camera]]);
+            transition: .2s;
+          }
+        }
+      }
+      &-content {
+        height: 100%;
+        max-height: 100%;
+        display: grid;
+        grid-template-columns: 1fr 312px;
+        grid-gap: 24px;
+        margin-bottom: 103px;
+        .tasks-container {
+          width: 100%;
+          min-height: 501px;
+          background: $white;
+          box-shadow: 0 0 10px 3px rgba(0,0,0,0.3);
+        }
+        .tasks {
+          height: 100%;
+          width: 100%;
+          padding: 20px 16px 24px 31px;
+          .tab-links {
+            display: flex;
+            margin-bottom: 30px;
+            .nav-item {
+              margin-right: 37px;
+            }
+            .tab-link {
+              opacity: 0.5;
+              color: $primary-color;
+              font-size: 18px;
+              font-weight:$bold;
+              text-decoration: none;
+              padding-bottom: 3px;
+              &.active {
+                opacity: 1;
+                border-bottom: 2px solid $primary-color;
+              }
+            }
+          }
+        }
+        .messages-block {
+          width: 318px;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+        }
+        .achievements-block {
+          height: calc(50% - 12px);
+          background: $white;
+          box-shadow: 0 0 10px 3px rgba(0,0,0,0.3);
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          padding: 24px;
+        }
+      }
+    }
+  }
+}
+
+
+  /* scrollbar */
+  /* width */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #FFFFFF;
+  }
+
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #D5D5D4;
+  }
+
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: $dark_dark_gray;
+  }
+
+
+@media #{$is-tablet} {
+  #my-page {
+    .main-wrapper {
+      .main {
+        max-width: 95%;
+        &-content {
+          grid-template-columns: 1fr;
+        }
+        .messages-block {
+          width: 100%;
+          .achievements-block,
+          .messages-container {
+            height: 213px;
+            width: 100%;
+            margin-bottom: 24px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media #{$is-mobile} {
+  #my-page {
+    .main-wrapper {
+      .main {
+        max-width: 100%;
+        &-content {
+          grid-template-columns: 1fr;
+        }
+        .messages-block {
+          width: 100%;
+          .achievements-block,
+          .messages-container {
+            height: 213px;
+            width: 100%;
+            margin-bottom: 24px;
+          }
+        }
+      }
+    }
+  }
+}

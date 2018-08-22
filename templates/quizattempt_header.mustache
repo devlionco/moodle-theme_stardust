@@ -1,0 +1,67 @@
+<div id="course-main-content" class="incourse-header">
+
+  <div class="top-wrapper">
+      <div class="top">
+          <div class="subtitle">
+              <span class="home-icon"></span>
+              <span class="route"><a href="{{config.wwwroot}}/my/">{{#str}}gohome, theme_stardust{{/str}}</a></span>
+          </div>
+          <ul class="blocks-list">
+              <li class="block">
+                  <div class="allcourses-wrapper">
+                      <label class="select-icon" for="allcourses"></label>
+                      <select name="allcourses" id="allcourses">
+                          <option value="value1">value 1</option>
+                          <option value="value2" selected>value 22</option>
+                          <option value="value3">value 3</option>
+                          <option value="value4">value 41</option>
+                      </select>
+                  </div>
+              </li>
+              <li class="block">
+                  <div class="allsection-wrapper">
+                      <label class="select-icon" for="allsection"></label>
+                      <select name="allsection" id="allsection">
+                          <option value="value1">value 1</option>
+                          <option value="value2" selected>value 22</option>
+                          <option value="value3">value 3</option>
+                          <option value="value4">value 41</option>
+                      </select>
+                  </div>
+              </li>
+              <li class="block pinned">
+                  <span class="block-icon"></span>
+                  <span class="block-label">Some Title</span>
+              </li>
+              <li class="block pinned">
+                  <span class="block-icon"></span>
+                  <span class="block-label">Some Title</span>
+              </li>
+              <li class="block pinned">
+                  <span class="block-icon"></span>
+                  <span class="block-label">Some Title</span>
+              </li>
+              <li class="block pinned">
+                  <span class="block-icon"></span>
+                  <span class="block-label">Some Title</span>
+              </li>
+          </ul>
+          <!--
+          <h1 class="title">{{coursename}}</h1>
+            <h3>Write header right here</h3>
+            {{{backtocourse}}}<br>
+            {{{backtosection}}}<br>
+            {{{backtoactivity}}}<br>
+            -->
+      </div>
+  </div>
+
+  <div class="main-wrapper">
+      <div class="main">
+          <div class="help-block">
+              {{>theme_stardust/help-menu}}
+          </div>
+      </div>
+  </div>
+
+</div>

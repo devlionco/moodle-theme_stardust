@@ -1,0 +1,69 @@
+<div class="messages-container">
+    <div class="messages" id = "custom-message">
+        <p class="messages-title">{{#str}}messages, theme_stardust{{/str}}</p>
+        <div class="messages-list-wrapper">
+            <ul class="messages-list">
+
+                {{#output.get_all_messages.messages}}
+                    {{#.}}
+                        <li class="message"><a href="{{config.wwwroot}}/message/index.php?user={{useridto}}&id{{useridfrom}}">{{subject}}</a></li>
+                    {{/.}}
+                {{/output.get_all_messages.messages}}
+                {{^output.get_all_messages.messages}}
+                    {{#.}}
+                        <li class="message">{{#str}}no_messages, theme_stardust{{/str}}</li>
+                    {{/.}}
+                {{/output.get_all_messages.messages}}
+                {{#output.get_all_messages.warnings}}
+                    {{#.}}
+                        <li class="message"><a href="{{config.wwwroot}}/message/output/popup/notifications.php?notificationid={{id}}">{{subject}}</a></li>
+                    {{/.}}
+                {{/output.get_all_messages.warnings}}
+            </ul>
+        </div>
+        <div class="messages-dots-wrapper">
+            <ul class="messages-dots">
+
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+
+{{#js}}
+require(['jquery'], function($){
+    const messageHeight = $('.messages .messages-list .message')[0].clientHeight;
+    const messagesListHeight = $('.messages .messages-list-wrapper')[0].clientHeight;
+    const showNum = messagesListHeight / messageHeight;
+    const num = $('.messages .messages-list .message').length;
+
+    // add dots tags
+    if ($('#course-main-content').length > 0) {
+
+        let n = 0;
+        while (n < num) {
+            $('.messages .messages-dots').append('<li class="dot"></li>');
+            n += 1;
+        }
+
+        function animate() {
+            $('.messages .messages-list')
+            .css({ top: 0, opacity: 0 })
+            .animate({ opacity: 1 }, 800)
+            .animate({
+                top: -(messageHeight * num),
+            }, num * 5000, 'linear', function() {
+                animate();
+            });
+        }
+
+        if (num > showNum) {
+            animate();
+        }
+
+    }
+
+
+});
+{{/js}}

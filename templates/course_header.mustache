@@ -1,0 +1,53 @@
+<div id="course-main-content">
+
+  <div class="top-wrapper">
+      <div class="top">
+          <div class="subtitle">
+              <span class="home-icon"></span>
+              <span class="route"><a href="{{config.wwwroot}}/my/">{{#str}}gohome, theme_stardust{{/str}}</a></span>
+          </div>
+          <h1 class="title">{{coursename}}</h1>
+          <ul class="top-content">
+            
+            {{#display_units}}
+              <li class="top-content-item course-presence">
+                {{>theme_stardust/presence}}
+              </li>
+            {{/display_units}}
+
+            {{#display_messages}}
+              <li class="top-content-item course-messages">
+                  {{>theme_stardust/messages}}
+              </li>
+            {{/display_messages}}
+
+              {{#attendanceinfo}}
+                <li class="top-content-item course-presence">
+                    {{>theme_stardust/attendance}}
+                </li>
+              {{/attendanceinfo}}
+
+            {{#display_grades}}
+              <li class="top-content-item">
+                  {{>theme_stardust/achievements}}
+              </li>
+            {{/display_grades}}
+
+          </ul>
+      </div>
+  </div>
+
+  <div class="main-wrapper">
+      <div class="main">
+          <div class="help-block">
+                {{#helplink}}
+                    {{>theme_stardust/help-link}}
+                {{/helplink}}
+                {{^helplink}}
+                    {{>theme_stardust/help-menu}}
+                {{/helplink}}
+          </div>
+      </div>
+  </div>
+
+</div>

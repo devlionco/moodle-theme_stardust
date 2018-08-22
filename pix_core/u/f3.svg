@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="33px" height="33px" viewBox="0 0 33 33" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: sketchtool 48.1 (47250) - http://www.bohemiancoding.com/sketch -->
+    <title>F57C95B9-9E7B-48EE-9904-824C50DF6C0B</title>
+    <desc>Created with sketchtool.</desc>
+    <defs>
+        <path d="M31,15.5 C31,6.93989196 24.060108,0 15.5,0 C6.93989196,0 0,6.93989196 0,15.5 C0,24.060108 6.93989196,31 15.5,31 C24.060108,31 31,24.060108 31,15.5 Z" id="path-1"></path>
+    </defs>
+    <g id="HEADER-FULL" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(-1279.000000, -20.000000)">
+        <g id="USER" transform="translate(1194.000000, 21.000000)">
+            <g id="ICONS/USER" transform="translate(86.000000, 0.000000)">
+                <path d="M31,15.5 C31,6.93989196 24.060108,0 15.5,0 C6.93989196,0 0,6.93989196 0,15.5 C0,24.060108 6.93989196,31 15.5,31 C24.060108,31 31,24.060108 31,15.5 Z" id="User-Image" stroke="#0096DB" fill="#0096DB"></path>
+                <mask id="mask-2" fill="white">
+                    <use xlink:href="#path-1"></use>
+                </mask>
+                <g id="Mask"></g>
+                <path d="M15.5,21 C11.91525,21 9,18.08475 9,14.5 C9,10.91525 11.91525,8 15.5,8 C19.08475,8 22,10.91525 22,14.5 C22,18.08475 19.08475,21 15.5,21 Z M15,21 C22.065,21 27,24.8767143 27,30.4285714 L27,32 L3,32 L3,30.4285714 C3,24.8767143 7.935,21 15,21 Z" id="USER" fill="#F3F2F0" mask="url(#mask-2)"></path>
+            </g>
+        </g>
+    </g>
+</svg>

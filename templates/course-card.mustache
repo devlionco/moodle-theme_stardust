@@ -1,0 +1,40 @@
+<li
+  class="course"
+  data-coursename = "{{{shortname}}}"
+  data-date = "{{{startdate}}}"
+>
+    <a href = "{{ config.wwwroot}}/course/view.php?id={{id}}">
+      <div class="course-image" style="background: url({{coursecoverimg}}) no-repeat center; background-size: cover;"></div>
+    </a>
+    <div class="course-header">
+        <p class="course-name"><a href = "{{ config.wwwroot}}/course/view.php?id={{id}}">{{{shortname}}}</a></p>
+        <div class="course-progress">
+            <div
+                class="progress-bar"
+                role="progressbar"
+                style="width: {{{progress}}}%;"
+                aria-valuenow="{{{progress}}}"
+                aria-valuemin="0"
+                aria-valuemax="100"
+            ></div>
+        </div>
+    </div>
+    <div class="table-container">
+        <table class="table">
+            <tbody>
+
+            {{#relevantactivities}}
+                {{#.}}
+                    <tr>
+                        <td class="table-column-document-icon"><div class="course-icon icon-{{modstyle}}"></div></td>
+                        <td class="table-column-name-assigment"><a href = "{{ config.wwwroot}}/mod/{{modname}}/view.php?id={{cmid}}" class="name-assigment" title = "{{{name}}}">{{{name}}}</a></td>
+                        <td class="name-unit"><p>{{unitname}}</p></td>
+                        <td class="table-column-date"><p>{{{modstatus}}}</p></td>
+                    </tr>
+                {{/.}}
+            {{/relevantactivities}}
+
+            </tbody>
+        </table>
+    </div>
+</li>

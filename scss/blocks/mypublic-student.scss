@@ -1,0 +1,274 @@
+@import "../variables";
+
+
+$avatar-tooltip-height: 53px;
+$avatar-wrapper-margin-top: 66px;
+$achivement-margin-top: 42px;
+
+#mypublic-student {
+  color: $text-color;
+  font-family: "openSans";
+  .main-wrapper {
+    position: relative;
+    padding-left: 162px;
+    padding-right: 162px;
+    background: lightskyblue;
+    .icon-help {
+      width: 64px;
+      height: 60px;
+      background-image:url([[pix:theme|pagemy/help]]);
+      position: absolute;
+      bottom: -31px;
+      right: 43px;
+    }
+    .main {
+      padding-bottom: 87px;
+      &-header {
+        padding-top: 44px;
+        margin-bottom: 39px;
+        color: $white;
+        display: flex;
+        justify-content: space-between;
+        .block-left {
+          .subtitle {
+            font-size: 18px;
+            font-weight:$bold;
+            margin-bottom: 0;
+          }
+          .title {
+            font-size: 72px;
+            height: 65px;
+            font-family: 'NextExitRound';
+            text-shadow: 0 0 10px rgba(0,0,0,0.1);
+            margin-bottom: 0;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            // width: 600px;
+          }
+        }
+        .block-right {
+          display: flex;
+          align-items: flex-end;
+          .icon-camera {
+            width: 20px;
+            height: 18px;
+            background-image:url([[pix:theme|pagemy/camera]]);
+          }
+        }
+      }
+      &-content {
+        display: grid;
+        grid-template-columns: 205px minmax(350px, 3fr) 205px;
+        grid-gap: 24px;
+        justify-content: space-between;
+        .profile {
+          background: $white;
+          display: flex;
+          flex-direction: column;
+          padding: 20px 32px 40px;
+          .title {
+            font-size: 18px;
+            font-weight:$bold;
+            color: $primary-color;
+            width: 100%;
+          }
+          .btn-blue {
+            background: $primary-color;
+            min-width: 115px;
+            height: 36px;
+            border: none;
+            border-radius: 50px;
+            color:$white;
+          }
+          &-picture {
+            align-items: center;
+            .avatar-wrapper {
+              position: relative;
+              margin-top: $avatar-wrapper-margin-top;
+              border-radius: 50%;
+              width: 147px;
+              height: 147px;
+              overflow: hidden;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              &:hover {
+                .avatar-tooltip {
+                  bottom: 0,
+                }
+              }
+              .avatar {
+                width: 100%;
+                height: 100%;
+              }
+              .avatar-tooltip {
+                position: absolute;
+                bottom: -#{$avatar-tooltip-height};
+                width: 100%;
+                height: $avatar-tooltip-height;
+                display: flex;
+                justify-content: center;
+                background-color: rgba(0,0,0,0.6);
+                font-size: 12px;
+                color: $white;
+                display: flex;
+                justify-content: center;
+                padding-top: 12px;
+                transition: all 0.2s ease;
+                cursor: pointer;
+
+                & > div {
+                  margin: 0 4px;
+                }
+                .icon-camera {
+                  width: 20px;
+                  height: 18px;
+                  background-image:url([[pix:theme|pagemy/camera]]);
+                }
+              }
+            }
+            .avatar-info {
+              margin-top: 29px;
+              font-size: 12px;
+              width: 100%;
+            }
+            .btn-blue {
+              margin-top: 59px;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+            }
+          }
+          &-info {
+            display: grid;
+            grid-gap: 24px;
+            grid-template-columns: repeat(auto-fit, minmax(285px, 1fr));
+            .column {
+              display: flex;
+              flex-direction: column;
+              .title {
+                margin-bottom: 11px;
+              }
+              .info-list {
+                list-style: none;
+                padding: 0;
+                .info {
+                  margin-top: 22px;
+                  display: flex;
+                  flex-direction: column;
+                  .input {
+                    border: none;
+                    border-bottom: 2px solid $primary-color;
+                    font-size: 18px;
+                    color: $gray_input;
+                    padding-bottom: 10px;
+                    outline: none;
+                  }
+                  .input:-webkit-autofill {
+                    -webkit-box-shadow: 0 0 0 30px white inset;
+                  }
+                  .input-label {
+                    font-size: 12px;
+                    color: $primary-color;
+                    margin-top: 8px;
+                  }
+                  &.submit {
+                    align-items: flex-end;
+                    .btn-blue {
+                      margin-top: 23px;
+                      width: 140px;
+                    }
+                  }
+                }
+              }
+            }
+          }
+          &-medals {
+            align-items: center;
+            .achievments {
+              width: 100%;
+              margin-top: calc(#{$avatar-wrapper-margin-top} - #{$achivement-margin-top});
+              list-style: none;
+              padding: 0;
+              display: grid;
+              grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+              .achievment {
+                display: flex;
+                align-items: center;
+                justify-content: flex-start;
+                margin-top: $achivement-margin-top;
+                .icon-label {
+                  margin: 0 19px;
+                  color: $text-color;
+                }
+                .icon-grades {
+                  height: 60px;
+                  width: 40px;
+                  margin: 0 5px;
+                  background:url([[pix:theme|pagemy/grades]]) no-repeat center center;
+                  background-size: contain;
+                }
+                .icon-medal {
+                  height: 60px;
+                  width: 49px;
+                  background:url([[pix:theme|pagemy/medal]])  no-repeat center center;
+                  background-size: contain;
+                  position: relative;
+                  .icon-counter {
+                    position: absolute;
+                    top: -3px;
+                    height: 22px;
+                    width: 22px;
+                    border-radius: 50%;
+                    color: #646464;
+                    background: $gray;
+                    border: 1.28px solid $white;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    font-size: 12px;
+                  }
+                }
+                .icon-diplom {
+                  height: 53px;
+                  width: 46px;
+                  margin: 0 2px;
+                  background:url([[pix:theme|pagemy/diplom]]) no-repeat center center;
+                  background-size: contain;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width : 992px) {
+  #mypublic-student {
+    .main-wrapper {
+      .main-content {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 100%));
+        //.profile-medals {
+        //  .achievments {
+        //    margin-top: 0;
+        //    .achievment {
+        //      margin-top: 42px;
+        //    }
+        //  }
+        //}
+      }
+    }
+  }
+}
+
+// rewrite default style
+#page-user-profile {
+  #page-wrapper {
+    padding-bottom: 1rem;
+    margin-bottom: -146px;
+    min-height: unset;
+  }
+}

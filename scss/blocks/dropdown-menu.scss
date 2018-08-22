@@ -1,0 +1,13 @@
+@import "../variables";
+
+.usermenu {
+  position: relative;
+  .stardust {
+    position: static;
+    .dropdown-menu-right {
+      left: 16px;
+      right: auto;
+    }
+  }
+
+}

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="40px" height="40px" viewBox="0 0 40 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: sketchtool 48.1 (47250) - http://www.bohemiancoding.com/sketch -->
+    <title>529CBFDE-64AB-46BF-A190-804E0D70135B</title>
+    <desc>Created with sketchtool.</desc>
+    <defs>
+        <circle id="path-1" cx="20.2096565" cy="20.2096565" r="20.2096565"></circle>
+    </defs>
+    <g id="MY-PAGE---WEEK-VIEW" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(-1010.000000, -355.000000)">
+        <g id="WEEK-OVERVIEW" transform="translate(-3.000000, 0.000000)">
+            <g id="CALENDAR" transform="translate(507.000000, 227.000000)">
+                <g id="ASIGNMENT-ICON" transform="translate(506.000000, 128.000000)">
+                    <g>
+                        <g id="Oval">
+                            <use fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-1"></use>
+                            <circle stroke="#B4C1C7" stroke-width="1.09468973" cx="20.2096565" cy="20.2096565" r="19.6623117"></circle>
+                        </g>
+                        <g id="Page-1" transform="translate(13.473104, 9.730575)" fill="#B4C1C7">
+                            <g id="Group-3">
+                                <path d="M10.4223043,4.77589331 C10.2207554,4.77589331 10.0571795,4.61843372 10.0571795,4.42442102 L10.0571795,0.471060733 C10.0571795,0.276872294 9.89360357,0.119588446 9.6920547,0.119588446 L0.365124779,0.119588446 C0.163575901,0.119588446 0,0.276872294 0,0.471060733 L0,19.8580964 C0,20.0522848 0.163575901,20.2095686 0.365124779,20.2095686 L14.4704427,20.2095686 C14.6721741,20.2095686 14.8355675,20.0522848 14.8355675,19.8580964 L14.8355675,5.12736559 C14.8355675,4.93335289 14.6721741,4.77589331 14.4704427,4.77589331 L10.4223043,4.77589331 Z" id="Fill-1"></path>
+                            </g>
+                            <polygon id="Fill-4" points="11.227587 0.748505797 11.227587 3.74252898 14.2216101 3.74252898"></polygon>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

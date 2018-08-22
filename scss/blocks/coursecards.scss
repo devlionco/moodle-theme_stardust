@@ -1,0 +1,49 @@
+@import "../variables";
+
+.course-cards {
+  background: $gray_light;
+  min-height: 100vh;
+  padding: 75px 41px 40px 47px;
+  &-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 32px;
+    .tab-links {
+      display: flex;
+      .nav-item {
+        margin-right: 32px;
+      }
+      .tab-link {
+        opacity: 0.6;
+        color: $primary-color;
+        font-size: 24px;
+        font-size: 21px;
+        font-weight:$bold;
+        text-decoration: none;
+        padding-bottom: 3px;
+        &.active {
+          opacity: 1;
+          border-bottom: 2px solid $primary-color;
+        }
+      }
+    }
+    .filters {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      .filter {
+        cursor: pointer;
+        font-size: 14px;
+        padding: 0 8px;
+        border-right: 1px solid $text-color;
+        line-height: 16px;
+        &.active {
+          text-shadow: 0 0 1px black;
+        }
+        &:last-child {
+          border: none;
+        }
+      }
+    }
+  }
+}

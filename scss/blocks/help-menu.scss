@@ -1,0 +1,78 @@
+@import "../variables";
+
+#help-menu {
+  position: relative;
+  .btn-help {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: none;
+    padding: 0;
+    background: url([[pix:theme|pagemy/help]]) no-repeat center;
+    outline: none;
+  }
+  .menu {
+    z-index: 121;
+    margin-top: 0;
+    top: -15px;
+    padding: 24px 24px 36px;
+    background: $primary-color;
+    // min-height: 331px;
+    min-height: 200px;
+    min-width: 242px;
+    border: none;
+    position: absolute;
+    right: 0;
+    border-radius: 2px;
+    display: none;
+    box-shadow: 0 2px 5px 1px rgba(0, 0, 0, 0.5);
+    .menu-header {
+      display: flex;
+      justify-content: flex-end;
+      .btn-close {
+        width: 32px;
+        height: 32px;
+        background: url([[pix:theme|pagemy/close]]) no-repeat center;
+        border: none;
+        outline: none;
+        background-size: contain;
+        padding: 0;
+      }
+    }
+    .menu-content {
+      .item {
+        display: flex;
+        align-items: center;
+        border-bottom: 1px solid $gray_2;
+        padding-left: 5px;
+        background: none;
+        &:hover {
+          text-decoration: none;
+        }
+        .item-icon {
+          min-width: 20px;
+          min-height: 20px;
+          &-teacher-hat {
+            background: url([[pix:theme|pagemy/teacher-hat]]) no-repeat center;
+          }
+          &-tech-support {
+            background: url([[pix:theme|pagemy/tech-support]]) no-repeat center;
+          }
+          &-forum {
+            background: url([[pix:theme|pagemy/forum]]) no-repeat center;
+          }
+          &-info {
+            background: url([[pix:theme|pagemy/info]]) no-repeat center;
+          }
+        }
+        .item-name {
+          font-size: 18px;
+          color: $white;
+          padding-top: 16px;
+          padding-left: 20px;
+          padding-bottom: 18px;
+        }
+      }
+    }
+  }
+}

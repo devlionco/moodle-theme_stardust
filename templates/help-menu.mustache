@@ -1,0 +1,103 @@
+{{!
+    This file is part of Moodle - http://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+}}
+{{!
+    @template theme_boost/columns2
+
+    Admin time setting template.
+
+    Boost 2 column layout template.
+
+    Context variables required for this template:
+    * sitename - The name of the site
+    * output - The core renderer for the page
+    * bodyattributes - attributes for the body tag as a string of html attributes
+    * sidepreblocks - HTML for the blocks
+    * hasblocks - true if there are blocks on this page
+    * navdraweropen - true if the nav drawer should be open on page load
+    * regionmainsettingsmenu - HTML for the region main settings menu
+    * hasregionmainsettingsmenu - There is a region main settings menu on this page.
+
+    Example context (json):
+    {
+        "sitename": "Moodle",
+        "output": {
+            "doctype": "<!DOCTYPE html>",
+            "page_title": "Test page",
+            "favicon": "favicon.ico",
+            "main_content": "<h1>Headings make html validators happier</h1>"
+         },
+        "bodyattributes":"",
+        "sidepreblocks": "<h2>Blocks html goes here</h2>",
+        "hasblocks":true,
+        "navdraweropen":true,
+        "regionmainsettingsmenu": "",
+        "hasregionmainsettingsmenu": false
+    }
+}}
+
+<div id="help-menu">
+    <button
+        type="button"
+        id="btn-help"
+        class="btn-help"
+    ></button>
+    <div class="menu">
+        <div class="menu-header">
+            <button id="btn-close" class="btn-close"></button>
+        </div>
+        <div class="menu-content">
+            <a class="item" href="#">
+                <div class="item-icon item-icon-teacher-hat"></div>
+                <div class="item-name">פניה למורה</div>
+            </a>
+            <a class="item" href="mailto:moodle.davidson@weizmann.ac.il">
+                <div class="item-icon item-icon-tech-support"></div>
+                <div class="item-name">תמיכה טכנית</div>
+            </a>
+            <!-- <a class="item" href="#">
+                <div class="item-icon item-icon-forum"></div>
+                <div class="item-name">פורום תלמידים</div>
+            </a>
+            <a class="item" href="#">
+                <div class="item-icon item-icon-info"></div>
+                <div class="item-name">אודות הקורס וצוות</div>
+            </a> -->
+        </div>
+    </div>
+</div>
+
+{{#js}}
+const KEYCODE_ESC = 27;
+
+require(['jquery'], function($){
+    function handleEsc(e) {
+        if (e.keyCode == KEYCODE_ESC) {
+            $('#help-menu .menu').fadeToggle('fast');
+            $(document).off('keyup', handleEsc);
+        };
+    };
+
+    $('#help-menu #btn-help').on('click', function() {
+        $('#help-menu .menu').fadeToggle('fast');
+        $(document).on('keyup', handleEsc);
+    });
+    $('#help-menu #btn-close').on('click', function() {
+        $('#help-menu .menu').fadeToggle('fast');
+        $(document).off('keyup', handleEsc);
+    });
+});
+{{/js}}

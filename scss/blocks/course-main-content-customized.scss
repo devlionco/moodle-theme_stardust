@@ -1,0 +1,412 @@
+@import "../variables";
+
+// main styles what made difference
+// section || section-selected
+// activity || activity-green || activity-orange || activity-red
+
+$icon-block-width: 98px;
+$action-margin: 30px;
+$course-title-margin-left: 40px;
+$doc-icon-size: 40px;
+
+$progress-height-close: 4px;
+$progress-height-open: 12px;
+
+// #page-course-view-topcoll {
+.format-stardust {
+  #page-content {
+    #region-main {
+      display: flex;
+      justify-content: center;
+      width: 100%;
+      // background: #f4f3f0;
+      .card {
+        max-width: 1344px;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 0;
+        margin: 0;
+        border: none;
+        background: inherit;
+        .course-content {
+          .accesshide {
+            display: none;
+          }
+          .accesshide + ul.ctopics {
+            display: none;
+          }
+        }
+        .completionprogress {
+          display: none;
+        }
+        .section-0 {
+          display: none;
+        }
+        [role='main'] {
+          width: 100%;
+          .topics {
+            .section {
+              display: flex;
+              flex-direction: column;
+              margin-bottom: 15px;
+              &>.left,
+              &>.right {
+                display: none;
+              }
+              .content {
+                margin: 0;
+                .sectionhead {
+                  border: 1px solid $gray_2;
+                  border-radius: 0;
+                  height: 94px;
+                  display: flex;
+                  flex-direction: column;
+                  justify-content: center;
+                  background: $white;
+                  position: relative;
+
+                  .the_toggle {
+                    padding: 0 98px 0 98px;
+                    background: none;
+                    display: flex;
+                    margin: 0;
+                    & > span {
+                      width: 98px;
+                      height: 100%;
+                      position: absolute;
+                      top: 0;
+                      left: 0;
+                      font-size: 27px;
+                      font-weight:$bold;
+                      display: flex;
+                      justify-content: center;
+                      align-items: center;
+                    }
+                    &>h3,
+                    .sectionname {
+                      font-size: 27px;
+                      line-height: 50px;
+                      font-weight:$bold;
+                      padding: 0;
+                      padding-left: 40px;
+                      margin: 0;
+                      border-left: 2px solid $gray_2
+                    }
+                    &::after {
+                      content: '';
+                      width: 98px;
+                      height: 100%;
+                      position: absolute;
+                      top: 0;
+                      right: 0;
+                      border: none;
+                      background: url([[pix:theme|course/open]]) no-repeat right center;
+                      background-size: 50px;
+                      outline: none;
+                      margin: 0 $action-margin 0 0;
+                    }
+                  }
+                  .toggle_closed {
+                    &::after {
+                      right: -11px;
+                    }
+                  }
+                  .toggle_open {
+                    & > span {
+                      color: $primary-color;
+                    }
+                    .sectionname {
+                      color: $primary-color;
+                    }
+                    &::after {
+                      background: url([[pix:theme|course/close]]) no-repeat right center;
+                      background-size: 26px;
+                    }
+                  }
+                  .course-icon-block {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    min-width: $icon-block-width;
+                    height: 100%;
+                    .course-icon {
+                      display: none;
+                    }
+                    .course-number {
+                      font-size: 27px;
+                      font-weight:$bold;
+                      border-right: 2px solid $gray_2;
+                      width: 100%;
+                      text-align: center;
+                    }
+                  }
+                  .course-title-block {
+                    width: 100%;
+                    margin-left: $course-title-margin-left;
+                    .course-title {
+                      font-size: 27px;
+                      font-weight:$bold;
+                      padding: 0;
+                      margin: 0;
+                    }
+                  }
+                  .course-toggle-block {
+                    display: flex;
+                    justify-content: flex-end;
+                    align-items: center;
+                    min-width: $icon-block-width;
+                    height: 100%;
+                    .btn-toggle-course {
+                      width: 50px;
+                      height: 50px;
+                      border: none;
+                      background: url([[pix:theme|course/open]]) no-repeat center center;
+                      background-size: contain;
+                      outline: none;
+                      margin: 0 $action-margin 0 0;
+                    }
+                  }
+                }
+                .sectionprogress {
+                  height: $progress-height-close;
+                  background: $progress;
+                  &-percent {
+                    display: none;
+                  }
+                  &-bar {
+                    height: $progress-height-close;
+                    background: $progress-bar;
+                    border-top-right-radius: $progress-height-open / 2;
+                    border-bottom-right-radius: $progress-height-open / 2;
+                  }
+                }
+                .sectionbody {
+                  .section {
+                    list-style: none;
+                    margin: 0;
+                    padding: 0;
+                    .activity {
+                      width: 100%;
+                      height: 72px;
+                      margin-top: 8px;
+                      padding: 0;
+                      border: 1px solid $gray_2;
+                      display: flex;
+                      justify-content: flex-start;
+                      background: $white;
+                      &>div {
+                        padding: 0;
+                        width: 100%;
+                        display: flex;
+                        align-items: center;
+                        position: relative;
+                        .activityinstance {
+                          position: absolute;
+                          top: 0;
+                          left: 0;
+                          width: 100%;
+                          height: 100%;
+                          padding: 0;
+                          &>a {
+                            height: 100%;
+                            padding: 0;
+                            margin: 0;
+                            display: flex;
+                            align-items: center;
+                            text-indent: 0;
+                            &:hover {
+                              text-decoration: none;
+                            }
+                            .activityicon {
+                              margin-left: 28px;
+                              width: 40px;
+                              height: 40px;
+                              // display: none;
+                            }
+                            .instancename {
+                              // padding-left: $course-title-margin-left;
+                              // margin-left: $icon-block-width;
+                              margin-left: 57px;
+                              // margin-right: 2 * $icon-block-width;
+                              margin-right: 20px;
+                              overflow: hidden;
+                              white-space: nowrap;
+                              text-overflow: ellipsis;
+                              color: $text-color;
+                              font-weight: bold;
+                              text-decoration: none;
+                              &::before {
+                                // content: '';
+                                display: block;
+                                width: $icon-block-width;
+                                height: 100%;
+                                background: url([[pix:theme|pagemy/document]]) no-repeat center center;
+                                background-size: $doc-icon-size;
+                                position: absolute;
+                                top: 0;
+                                left: 0;
+                              }
+                            }
+                            .mstatus {
+                              margin-left: auto;
+                              margin-right: 34px;
+                              color: $text-color;
+                              font-size: 18px;
+                              font-weight:$bold;
+                            }
+                            .mstatus.cutoffdate {
+                              color: red;
+                            }
+                            .mstatus.grey {
+                              color: #ddd;
+                              font-weight:$regular;
+                            }
+                          }
+                        }
+                        .actions {
+                          position: absolute;
+                          top: 0;
+                          right: 0;
+                          width: $icon-block-width;
+                          height: 100%;
+                          display: flex;
+                          align-items: center;
+                          justify-content: flex-end;
+                          margin-right: $action-margin;
+                          .togglecompletion {
+                            display: none;
+                          }
+                        }
+                      }
+                    }
+                    .activity-green {
+                      &>div {
+                        .activityinstance {
+                          &>a {
+                            .activityicon {
+                              // display: none;
+                            }
+                            .instancename {
+                              &::before {
+                                background: url([[pix:theme|pagemy/document-green]]) no-repeat center center;
+                                background-size: $doc-icon-size;
+                              }
+                            }
+                          }
+                        }
+                        .actions {
+                          background: url([[pix:theme|course/check]]) no-repeat right center;
+                          background-size: 30px;
+                        }
+                      }
+                    }
+                    .activity-orange {
+                      &>div {
+                        .activityinstance {
+                          &>a {
+                            .activityicon {
+                              // display: none;
+                            }
+                            .instancename {
+                              &::before {
+                                background: url([[pix:theme|pagemy/document-orange]]) no-repeat center center;
+                                background-size: $doc-icon-size;
+                              }
+                            }
+                          }
+                        }
+                        .actions {
+                          color: $doc-orange;
+                          font-weight: bold;
+                        }
+                      }
+                    }
+                    .activity-red {
+                      &>div {
+                        .activityinstance {
+                          &>a {
+                            .activityicon {
+                              // display: none;
+                            }
+                            .instancename {
+                              &::before {
+                                background: url([[pix:theme|pagemy/document-red]]) no-repeat center center;
+                                background-size: $doc-icon-size;
+                              }
+                            }
+                          }
+                        }
+                        .actions {
+                          color: $doc-red;
+                          font-weight: bold;
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+              .content.sectionopen {
+                .sectionprogress {
+                  height: $progress-height-open;
+                  background: $progress;
+                  position: relative;
+                  &-percent {
+                    display: block;
+                    position: absolute;
+                    font-size: 12px;
+                    top: -20px;
+                    width: 30px;
+                    text-align: right;
+                  }
+                  &-bar {
+                    height: $progress-height-open;
+                    background: $progress-bar;
+                    border-top-right-radius: $progress-height-open / 2;
+                    border-bottom-right-radius: $progress-height-open / 2;
+                  }
+                }
+              }
+            }
+            .section-selected {
+              .content {
+                .sectionhead {
+                  border: 1px solid $primary-color;
+                  .the_toggle {
+                    & > span {
+                      content: '';
+                      background: $primary-color url([[pix:theme|course/pushpin]]) no-repeat center center;
+                      background-size: 30px;
+                    }
+                    .sectionname {
+                      color: $primary-color;
+                      border: none;
+                    }
+                  }
+                }
+                .sectionprogress {
+                  display: none;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  &.editing {
+    .editing_move {
+      top: 21px;
+    }
+    .inplaceeditable {
+      height: 100%;
+      display: flex;
+      align-items: center;
+      padding-left: 30px;
+      .cutoffdate {
+        display: none;
+      }
+    }
+  }
+}

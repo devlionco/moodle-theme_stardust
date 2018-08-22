@@ -1,0 +1,127 @@
+<?php
+// This file is part of Moodle - http://moodle.org/
+//
+// Moodle is free software: you can redistribute it and/or modify
+// it under the terms of the GNU General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+//
+// Moodle is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU General Public License for more details.
+//
+// You should have received a copy of the GNU General Public License
+// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
+/**
+ * A two column layout for the boost theme.
+ *
+ * @package   theme_boost
+ * @copyright 2016 Damyon Wiese
+ * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ */
+
+defined('MOODLE_INTERNAL') || die();
+user_preference_allow_ajax_update('drawer-open-nav', PARAM_ALPHA);
+require_once($CFG->libdir . '/behat/lib.php');
+require_once($CFG->dirroot.'/course/lib.php');
+//if we are on module view page, return links 'back to course, section and activity'
+
+if ($PAGE->context && $PAGE->context->contextlevel == CONTEXT_MODULE && $PAGE->cm) {
+    $courseformat = course_get_format($PAGE->course);
+    $courselink = $courseformat->get_view_url(0);
+    $currentsectionnum = $PAGE->cm->sectionnum;
+    $sectionlink = $courseformat->get_view_url($currentsectionnum);
+    $textbacktosection = new lang_string('backtosection', 'theme_stardust', $courseformat->get_section_name($currentsectionnum));
+    $activitylink = $PAGE->cm->url;
+    $textbacktoactivity = new lang_string('backtoactivity', 'theme_stardust');
+
+    //get sections info
+    $courseinfo = $PAGE->cm->get_modinfo();
+    $allcoursesectionsinfo = $courseinfo->get_section_info_all();
+    $allcoursesections = array();
+    $allcoursesectionspinned = array();
+    // var_dump($courseformat); exit();
+    foreach ($allcoursesectionsinfo as $secnum => $secinfo) {
+        $secname = $courseformat->get_section_name($secnum);
+        //$securl = $courseformat->get_view_url($secnum)->out();
+        $securl = new moodle_url('/course/view.php', array('id' => $PAGE->course->id));
+        $securl->set_anchor('section-'.$secnum);
+        $allcoursesections[$secnum]['name'] = $secname;
+        $allcoursesections[$secnum]['url'] = $securl;
+        if ($secnum == $currentsectionnum) {
+            // $allcoursesections[]['current'] = true;
+            $allcoursesections[$secnum]['current'] = $secname;
+        }
+        if ($secinfo->pinned) {
+            $allcoursesectionspinned[$secnum]['name'] = $secname;
+            $allcoursesectionspinned[$secnum]['url'] = $securl;
+            if ($secnum == $currentsectionnum) {
+                $allcoursesectionspinned[$secnum]['current'] = true;
+            }
+        }
+    }
+
+    // get activitie in current section
+    $allactivitiesarr = $courseinfo->get_sections();
+    $allsectionactivities = array();
+    foreach ($allactivitiesarr[$currentsectionnum] as $key => $activid) {
+        $activinfo = $courseinfo->cms[$activid];
+        $allsectionactivities[$key]['name'] = $activinfo->name;
+        $allsectionactivities[$key]['type'] = $activinfo->modname;
+        $allsectionactivities[$key]['url'] = $activinfo->url ? $activinfo->url->out() : '';
+        if ($activid == $PAGE->cm->id) {
+            // $allsectionactivities[]['current'] = true;
+            $allsectionactivities[$key]['current'] = $activinfo->name;
+        }
+    }
+}
+
+// print_object($PAGE);
+
+
+$hasfhsdrawer = isset($PAGE->theme->settings->shownavdrawer) && $PAGE->theme->settings->shownavdrawer == 1;
+if (isloggedin() && $hasfhsdrawer && isset($PAGE->theme->settings->shownavclosed) && $PAGE->theme->settings->shownavclosed == 0) {
+    $navdraweropen = (get_user_preferences('drawer-open-nav', 'true') == 'true');
+} else {
+    $navdraweropen = false;
+}
+$extraclasses = [];
+if ($navdraweropen) {
+    $extraclasses[] = 'drawer-open-left';
+}
+$bodyattributes = $OUTPUT->body_attributes($extraclasses);
+$blockshtml = $OUTPUT->blocks('side-pre');
+$hasblocks = strpos($blockshtml, 'data-block=') !== false;
+$regionmainsettingsmenu = $OUTPUT->region_main_settings_menu();
+$templatecontext = [
+    'sitename' => format_string($SITE->shortname, true, ['context' => context_course::instance(SITEID) , "escape" => false]) ,
+    'output' => $OUTPUT,
+    'showbacktotop' => isset($PAGE->theme->settings->showbacktotop) && $PAGE->theme->settings->showbacktotop == 1,
+    'sidepreblocks' => $blockshtml,
+    'hasblocks' => $hasblocks,
+    'bodyattributes' => $bodyattributes,
+    'navdraweropen' => $navdraweropen,
+    'hasfhsdrawer' => $hasfhsdrawer,
+    'regionmainsettingsmenu' => $regionmainsettingsmenu,
+    'hasregionmainsettingsmenu' => !empty($regionmainsettingsmenu),
+    'sitesettingsbutton' => true,
+    'backtocourseurl' => $courselink,
+    'backtosection' => html_writer::link($sectionlink, $textbacktosection),
+    'backtoactivity' => html_writer::link($activitylink, $textbacktoactivity),
+    'allcoursesections' => $allcoursesections,
+    'allcoursesectionspinned' => $allcoursesectionspinned = array_values($allcoursesectionspinned),
+    'allsectionactivities' => $allsectionactivities
+];
+
+$PAGE->requires->jquery();
+if (isset($PAGE->theme->settings->showbacktotop) && $PAGE->theme->settings->showbacktotop == 1) {
+    $PAGE->requires->js('/theme/fordson/javascript/scrolltotop.js');
+    $PAGE->requires->js('/theme/fordson/javascript/scrollspy.js');
+}
+$PAGE->requires->js('/theme/fordson/javascript/tooltipfix.js');
+
+$templatecontext['flatnavigation'] = $PAGE->flatnav;
+
+echo $OUTPUT->render_from_template('theme_stardust/incourse', $templatecontext);

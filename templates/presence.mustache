@@ -1,0 +1,33 @@
+<div class="presence">
+    <p class="presence-title">{{#str}}study_units, theme_stardust{{/str}}</p>
+    <div class="presence-content">
+        <div class="circle-wrapper">
+            <div class="circle" id="circle-progress" data-value="{{sectionscompletion.percent}}">
+                <span class="circle-label">{{sectionscompletion.allsections}}</span>
+            </div>
+            <div
+            class="circle-small-wrapper"
+            style = "transform: rotate({{sectionscompletion.angle}}rad)"
+            >
+                <div
+                class="circle-small"
+                style = "transform: rotate(-{{sectionscompletion.angle}}rad)"
+                >
+                    <span class="circle-small-label">{{sectionscompletion.completed}}</span>
+                </div>
+            </div>
+        </div>
+        <div class="presence-label">{{sectionscompletion.completed}} {{#str}}out_of, theme_stardust{{/str}} {{sectionscompletion.allsections}} {{#str}}points, theme_stardust{{/str}}</div>
+    </div>
+</div>
+
+{{#js}}
+    require(['jquery', 'theme_stardust/circle-progress'], function($, circleProgress) {
+        $('#circle-progress').circleProgress({
+            startAngle: -Math.PI / 2,
+            size: 52,
+            fill: '#00DB7C',
+            animation: false,
+        });
+    });
+{{/js}}

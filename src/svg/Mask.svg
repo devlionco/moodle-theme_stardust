@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="31px" height="31px" viewBox="0 0 31 31" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: sketchtool 48.1 (47250) - http://www.bohemiancoding.com/sketch -->
+    <title>AC936149-D592-4799-BAAB-BA09D02FBB75</title>
+    <desc>Created with sketchtool.</desc>
+    <defs>
+        <path d="M31,15.5 C31,6.93989196 24.060108,0 15.5,0 C6.93989196,0 0,6.93989196 0,15.5 C0,24.060108 6.93989196,31 15.5,31 C24.060108,31 31,24.060108 31,15.5 Z" id="path-1"></path>
+    </defs>
+    <g id="HEADER-FULL" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(-1280.000000, -21.000000)">
+        <g id="USER" transform="translate(1194.000000, 21.000000)">
+            <g id="ICONS/USER" transform="translate(86.000000, 0.000000)">
+                <mask id="mask-2" fill="white">
+                    <use xlink:href="#path-1"></use>
+                </mask>
+                <g id="Mask"></g>
+            </g>
+        </g>
+    </g>
+</svg>

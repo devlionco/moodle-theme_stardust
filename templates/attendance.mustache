@@ -1,0 +1,33 @@
+<div class="presence">
+    <p class="presence-title">{{#str}}attendance, theme_stardust{{/str}}</p>
+    <div class="presence-content">
+        <div class="circle-wrapper">
+            <div class="circle" id="circle-progress-attendance" data-value="{{attendanceinfo.percent}}">
+                <span class="circle-label">{{{attendanceinfo.allsessionsmaxpoints}}}</span>
+            </div>
+            <div
+              class="circle-small-wrapper"
+              style = "transform: rotate({{attendanceinfo.angle}}rad)"
+            >
+                <div
+                  class="circle-small"
+                  style = "transform: rotate(-{{attendanceinfo.angle}}rad)"
+                >
+                    <span class="circle-small-label">{{attendanceinfo.takensessionspoints}}</span>
+                </div>
+            </div>
+        </div>
+        <div class="presence-label">{{attendanceinfo.takensessionspoints}} {{#str}}out_of, theme_stardust{{/str}} {{attendanceinfo.allsessionsmaxpoints}} {{#str}}classes, theme_stardust{{/str}}</div>
+    </div>
+</div>
+
+{{#js}}
+    require(['jquery', 'theme_stardust/circle-progress'], function($, circleProgress) {
+        $('#circle-progress-attendance').circleProgress({
+            startAngle: -Math.PI / 2,
+            size: 52,
+            fill: '#00DB7C',
+            animation: false,
+        });
+    });
+{{/js}}

@@ -1,0 +1,63 @@
+.display__none {
+  display: none !important;
+}
+
+#page {
+  margin-top: 72px;
+}
+.visuallyhidden {
+  position: absolute;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  height: 1px; width: 1px;
+  margin: -1px; padding: 0; border: 0;
+}
+.test {
+  color: red;
+}
+
+.coursecontrols {
+  .teacherdash,
+  .siteadminlink  {
+    padding: 0;
+    margin: 0 5px !important;
+  }
+}
+.modal-dialog {
+  max-width: 80%;
+}
+
+.row {
+  background: none;
+  display: block;
+}
+.modal-body {
+  .row  {
+    display: flex;
+  }
+  i {
+    margin-right: 10px;
+  }
+}
+
+.btn-secondary {
+  border-color: #bebebe;
+}
+
+#page-footer {
+  // background-color: #e1e1e1;
+  background-color: #fff;
+  .container {
+    justify-content: space-between;
+    max-width: 1140px;
+    display: flex;
+    align-items: center;
+  }
+  a {
+    color: #373a3c;
+  }
+}
+
+#region-main>.card {
+  overflow-x: unset;
+}

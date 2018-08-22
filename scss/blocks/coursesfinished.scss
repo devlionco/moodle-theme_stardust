@@ -1,0 +1,80 @@
+.courses-finished {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(32%, 32%));
+  grid-gap: 24px;
+  list-style: none;
+  padding: 0;
+  .course-noimage {
+    width: 200px;
+  }
+  .course {
+    padding: 24px;
+    background: $white;
+    border: 1px solid $gray_2;
+    &-image {
+      height: 240px;
+      background: url('https://andreyex.ru/wp-content/uploads/2017/03/Kak-ustanovit-Moodle-na-Ubuntu-16.04.png') no-repeat center;
+      background-size: cover;
+      margin-bottom: 20px;
+    }
+    &-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+      .course-name {
+        color: $primary-color;
+        font-size: 24px;
+        font-size: 21px;
+        font-weight:$bold;
+        margin: 0;
+        a {
+          color: inherit;
+          &:hover {
+            text-decoration: none;
+          }
+        }
+      }
+      .course-progress {
+        width: 45%;
+        display: flex;
+        align-items: center;
+        height: 2px;
+        background: $progress;
+        .progress-bar {
+          height: 6px;
+          background: $progress-bar;
+        }
+      }
+    }
+    .table {
+      margin-bottom: 0;
+      width: 100%;
+      tr:last-child {
+        border-bottom: 1px solid $gray_light;
+      }
+      td {
+        vertical-align: middle;
+        &:last-child {
+          text-align: end;
+          min-width: 100px;
+        }
+        p {
+          margin: 0;
+          font-size: 12px;
+        }
+        .course-icon {
+          width: 30px;
+          height: 30px;
+          background-size: cover;
+        }
+        .name-assigment {
+          font-weight:$bold;
+        }
+      }
+      .name-unit {
+        width: 100%
+      }
+    }
+  }
+}

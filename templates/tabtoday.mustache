@@ -1,0 +1,206 @@
+ {{!
+    This file is part of Moodle - http://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+}}
+{{!
+    @template theme_boost/columns2
+
+    Admin time setting template.
+
+    Boost 2 column layout template.
+
+    Context variables required for this template:
+    * sitename - The name of the site
+    * output - The core renderer for the page
+    * bodyattributes - attributes for the body tag as a string of html attributes
+    * sidepreblocks - HTML for the blocks
+    * hasblocks - true if there are blocks on this page
+    * navdraweropen - true if the nav drawer should be open on page load
+    * regionmainsettingsmenu - HTML for the region main settings menu
+    * hasregionmainsettingsmenu - There is a region main settings menu on this page.
+
+    Example context (json):
+    {
+        "sitename": "Moodle",
+        "output": {
+            "doctype": "<!DOCTYPE html>",
+            "page_title": "Test page",
+            "favicon": "favicon.ico",
+            "main_content": "<h1>Headings make html validators happier</h1>"
+         },
+        "bodyattributes":"",
+        "sidepreblocks": "<h2>Blocks html goes here</h2>",
+        "hasblocks":true,
+        "navdraweropen":true,
+        "regionmainsettingsmenu": "",
+        "hasregionmainsettingsmenu": false
+    }
+}}
+
+<table id="tabtoday" class="table">
+    <thead>
+    <tr>
+        <th id="sort_type" scope="col" class="sorted header-document-icon" title = "{{#str}}sort_type, theme_stardust{{/str}}">
+            <div class="table-header-item">
+                <span class="icon-sort-down"></span>
+                <div>{{#str}}type, theme_stardust{{/str}}</div>
+            </div>
+        </th>
+        <th id="sort_modname" scope="col" class="header-name-assigment" title = "{{#str}}sort_assignname, theme_stardust{{/str}}">
+            <div class="table-header-item">
+                <span class="icon-sort-down"></span>
+                <span>{{#str}}name, theme_stardust{{/str}}</span>
+            </div>
+        </th>
+        <th id="sort_cutofdate" scope="col" class="header-date" title = "{{#str}}sort_cutofdate, theme_stardust{{/str}}">
+            <div class="table-header-item">
+                <span class="icon-sort-down"></span>
+                <span>{{#str}}date_of_submission, theme_stardust{{/str}}</span>
+            </div>
+        </th>
+        <th id="sort_coursename" scope="col" class="header-name-course" title = "{{#str}}sort_coursename, theme_stardust{{/str}}">
+            <div class="table-header-item">
+                <span class="icon-sort-down"></span>
+                <span>{{#str}}course, theme_stardust{{/str}}</span>
+            </div>
+        </th>
+
+    </tr>
+    </thead>
+    <tbody>
+
+    {{#allactivities.courses}}
+        {{#.}}
+          {{#courseactive}}
+            {{#.}}
+              {{#activities}}
+                    {{#.}}
+                            <tr
+                            data-modname = "{{{name}}}"
+                            data-coursename = "{{{shortname}}}"
+                            data-cutofdate  = "{{{mincutoffdate}}}"
+                            data-type = "{{modname}}"
+                            >
+                                <th class="column-document-icon" scope="row">
+                                    <div class="document-icon icon-{{modstyle}}"></div>
+                                </th>
+                                <td class="column-name-assigment">
+                                    <a
+                                    href ="{{config.wwwroot}}/mod/{{modname}}/view.php?id={{cmid}}"
+                                    class="name-assigment">
+                                    {{{name}}}
+                                    </a>
+                                    <p class="name-unit">{{unitname}}</p>
+                                </td>
+                                <td class="column-date">
+                                  <p>{{{modstatus}}}</p>
+                                  {{#openforsubmission}}
+                                    <a class = "submit-assigment" href = "{{config.wwwroot}}/mod/{{modname}}/view.php?id={{cmid}}">
+                                      {{#str}}submission_of_assignment, theme_stardust{{/str}}
+                                    </a>
+                                  {{/openforsubmission}}
+                                  {{#actionwithtask}}
+                                    {{#isteacher}}
+                                        {{#isassign}}
+                                            <a class = "submit-assigment" href = "{{config.wwwroot}}/mod/{{modname}}/view.php?id={{cmid}}&action=grading">{{#str}}actionwithtask, theme_stardust{{/str}}</a>
+                                        {{/isassign}}
+                                        {{#isquiz}}
+                                            <a class = "submit-assigment" href = "{{config.wwwroot}}/mod/{{modname}}/report.php?id={{cmid}}&mod=overview">{{#str}}actionwithtask, theme_stardust{{/str}}</a>
+                                        {{/isquiz}}
+                                    {{/isteacher}}
+                                    {{^isteacher}}
+                                         <a class = "submit-assigment" href = "{{config.wwwroot}}/mod/{{modname}}/view.php?id={{cmid}}">{{#str}}actionwithtask, theme_stardust{{/str}}</a>
+                                    {{/isteacher}}
+                                  {{/actionwithtask}}
+                                  {{#turntotheteacher}}
+                                    {{#isteacher}}
+                                        {{#isassign}}
+                                            <a class = "submit-assigment" href = "{{config.wwwroot}}/mod/{{modname}}/view.php?id={{cmid}}&action=grading">{{#str}}turntotheteacher, theme_stardust{{/str}}</a>
+                                        {{/isassign}}
+                                        {{#isquiz}}
+                                            <a class = "submit-assigment" href = "{{config.wwwroot}}/mod/{{modname}}/report.php?id={{cmid}}&mod=overview">{{#str}}turntotheteacher, theme_stardust{{/str}}</a>
+                                        {{/isquiz}}
+                                    {{/isteacher}}
+                                    {{^isteacher}}
+                                         <a class = "submit-assigment" href = "{{config.wwwroot}}/mod/{{modname}}/view.php?id={{cmid}}">{{#str}}turntotheteacher, theme_stardust{{/str}}</a>
+                                    {{/isteacher}}
+                                  {{/turntotheteacher}}
+                                </td>
+                                <td class="column-name-course">
+                                    <p class="name-course">
+                                      <a class = "name-assigment" href = "{{ config.wwwroot}}/course/view.php?id={{course}}">{{{shortname}}}</a>
+                                    </p>
+                                    <div class="progress">
+                                        <div
+                                                class="progress-bar"
+                                                role="progressbar"
+                                                style="width: {{timeline}}%;"
+                                                aria-valuenow="25"
+                                                aria-valuemin="0"
+                                                aria-valuemax="100"
+                                        ></div>
+                                    </div>
+                                </td>
+                            </tr>
+                        {{/.}}
+                    {{/activities}}
+                {{/.}}
+            {{/courseactive}}
+        {{/.}}
+    {{/allactivities.courses}}
+    <!--{{#allactivities.courses}}
+        {{#.}}
+            {{#courseactive}}
+                {{#.}}
+                    {{^activities}}
+                        <tr>
+                            <td></td>
+                            <td>
+                                {{#str}} noanyactivities, theme_stardust {{/str}}
+                            </td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    {{/activities}}
+                {{/.}}
+            {{/courseactive}}
+        {{/.}}
+    {{/allactivities.courses}} -->
+    {{#allactivities.courses}}
+        {{#.}}
+            {{^courseactive}}
+                <tr>
+                    <td></td>
+                    <td>
+                        {{#str}} noanyactivities, theme_stardust {{/str}}
+                    </td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            {{/courseactive}}
+        {{/.}}
+    {{/allactivities.courses}}
+    {{^allactivities.courses}}
+        <tr>
+            <td></td>
+            <td>
+                {{#str}} noanyactivities, theme_stardust {{/str}}
+            </td>
+            <td></td>
+            <td></td>
+        </tr>
+    {{/allactivities.courses}}
+    </tbody>
+</table>

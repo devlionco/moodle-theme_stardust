@@ -1,0 +1,65 @@
+@import "../variables";
+
+.popover-region-notifications {
+  .popover-region-toggle {
+    outline: none;
+    &::before {
+      display: none;
+    }
+    &::after {
+      content: "";
+      display: inline-block;
+      border-left: 12px solid #fff;
+      border-right: 12px solid transparent;
+      border-top: 12px solid transparent;
+      border-bottom: 12px solid #fff;
+      position: absolute;
+      bottom: -18px;
+      right: -10px;
+      z-index: 2;
+    }
+  }
+  .popover-region-container {
+    width: 580px;
+    top: 55px;
+    left: 10px;
+    box-shadow: 0 5px 10px 3px rgba(0,0,0,0.3);
+    .popover-region-content {
+      &>p:nth-child(1) {
+        display: none;
+      }
+      &>p:nth-child(2) {
+        font-size: 24px;
+        font-weight: bold;
+        color: $pink;
+        margin: 32px 32px 16px;
+      }
+    }
+  }
+  .all-notifications {
+    margin: 0;
+    .notification {
+      margin: 0;
+      padding: 10px 32px;
+      outline: none;
+      .content-item {
+        .profile-image-container {
+          display: none;
+        }
+        .content-item-body {
+          padding: 0;
+          &>h3 {
+            font-size: 18px;
+            line-height: 24px;
+            color: $primary-color;
+          }
+          &>p {
+            font-size: 18px;
+            line-height: 24px;
+            color: $text-color;
+          }
+        }
+      }
+    }
+  }
+}

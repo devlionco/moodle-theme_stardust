@@ -1,0 +1,130 @@
+@import "../variables";
+
+#{$LTR} #tabweek {
+  .week-btn {
+    transform: none;
+  }
+  .week-btn-tr {
+    transform: rotate(180deg);
+  }
+}
+
+#tabweek {
+  .week-empty {
+    position: absolute;
+    top: 70px;
+    left: 10px;
+  }
+  display: flex;
+  position: relative;
+  padding: 0 0px;
+  justify-content: space-between;
+  .week-btn {
+    width: 19px;
+    height: 36px;
+    border: none;
+    padding: 0;
+    background-position: center;
+    background:url([[pix:theme|pagemy/slider-prev]]) no-repeat;
+    transform: rotate(180deg);
+    background-position: center;
+    background-size: 30px;
+
+    &:active,
+    &:focus {
+      outline: none;
+    }
+  }
+  .week-btn-tr {
+    transform: none;
+  }
+  .week-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+    max-height: 370px;
+    overflow: auto;
+  }
+  .week {
+    max-width: 980px;
+    display: flex;
+    flex-grow: 1;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 4px 58px;
+  }
+  .day {
+    display: flex;
+    // flex-grow: 1;
+    flex-direction: column;
+    width: 90px;
+    &-header {
+      display: flex;
+      justify-content: space-between;
+      // justify-content: space-evenly;
+      margin-bottom: 16px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid $gray_light;
+      .title {
+        font-size: 15px;
+        font-weight:$bold;
+        max-width: 100px;
+        display: inline-block;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+      }
+      .value {
+        font-size: 15px;
+        color: $text-color-light;
+      }
+    }
+    .task-list {
+      display: flex;
+      flex-direction: column;
+      .task {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        margin-bottom: 16px;
+        padding-bottom: 8px;
+        border-bottom: 1px solid $gray_light;
+        &-icon {
+          height: 40px;
+          width: 40px;
+          margin-bottom: 8px;
+        }
+        .name-assignment {
+          width: 90px;
+          font-size: 15px;
+          font-weight:$bold;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          overflow: hidden;
+          a {
+            color: inherit;
+          }
+        }
+        .name-course {
+          width: 90px;
+          font-size: 12px;
+          color: $text-color-light;
+          margin-bottom: 8px;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          overflow: hidden;
+        }
+        .status {
+          font-size: 12px;
+          max-width: 90px;
+          display: inline-block;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          overflow: hidden;
+
+        }
+      }
+    }
+  }
+}

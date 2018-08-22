@@ -1,0 +1,38 @@
+// Import moodle.scss from Boost to bring in all Boostrap/FA/Moodle scss components
+// @import "../../boost/scss/bootstrap/bootstrap";
+// // @import "../../boost/scss/fontawesome/moodle-path";
+// @import "../../boost/scss/fontawesome/font-awesome";
+// @import "../../boost/scss/moodle";
+
+@import "globals/font";
+@import "variables";
+
+@import "blocks/login";
+@import "blocks/footer";
+@import "blocks/header";
+@import "blocks/allpages";
+@import "blocks/pagemy";
+@import "blocks/achievements";
+@import "blocks/messages";
+@import "blocks/presence";
+@import "blocks/tabtoday";
+@import "blocks/tabweek";
+@import "blocks/coursecards";
+@import "blocks/coursesactive";
+@import "blocks/coursesfinished";
+@import "blocks/help-menu";
+
+@import "blocks/mypublic-student";
+@import "blocks/accomplishments";
+@import "blocks/accomplishments-medals";
+@import "blocks/accomplishments-grades";
+
+@import "blocks/course-main-content";
+@import "blocks/format-stardust";
+// @import "blocks/course-main-content-customized";
+@import "blocks/format-cards";
+@import "blocks/incourse-header";
+@import "blocks/quizattempt";
+@import "blocks/messages-popup";
+@import "blocks/notifications-popup";
+@import "blocks/dropdown-menu";

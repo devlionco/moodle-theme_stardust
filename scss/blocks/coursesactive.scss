@@ -1,0 +1,142 @@
+@import '../variables';
+
+#{$RTL} .courses-active {
+  .table-container {
+    direction: rtl;
+    .table {
+      direction: ltr;
+    }
+  }
+}
+
+#{$LTR} .courses-active {
+  .table-container {
+    direction: ltr;
+    .table {
+      direction: ltr;
+    }
+  }
+}
+
+.courses-active {
+  display: grid;
+  // grid-template-columns: repeat(auto-fill, minmax(434px, auto));
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  grid-gap: 24px;
+  list-style: none;
+  padding: 0;
+  .course-noimage {
+    width: 200px;
+  }
+  .course {
+    padding: 24px;
+    background: $white;
+    border: 1px solid $gray_2;
+    &-image {
+      height: 215px;
+      background: url('https://andreyex.ru/wp-content/uploads/2017/03/Kak-ustanovit-Moodle-na-Ubuntu-16.04.png') no-repeat center;
+      background-size: cover;
+      margin-bottom: 14px;
+    }
+    &-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 14px;
+      .course-name {
+        color: $primary-color;
+        font-size: 24px;
+        font-size: 21px;
+        font-weight:$bold;
+        margin: 0;
+        max-width: 45%;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        a {
+          color: inherit;
+          &:hover {
+            text-decoration: none;
+          }
+        }
+      }
+      .course-progress {
+        width: 50%;
+        display: flex;
+        align-items: center;
+        height: 2px;
+        background: $progress;
+        .progress-bar {
+          height: 4px;
+          background: $progress-bar;
+          border-radius: 50px;
+        }
+      }
+    }
+    .table-container {
+      display: block;
+      // height: 160px;
+      // height: 260px;
+      margin-bottom: 0;
+      width: 100%;
+      overflow-y: auto;
+    }
+    .table {
+      margin-bottom: 0;
+      width: 100%;
+      tr:last-child {
+        border-bottom: 1px solid $gray_light;
+      }
+      td {
+        vertical-align: middle;
+        padding: 10px 0px;
+        &:last-child {
+          text-align: end;
+          min-width: 100px;
+        }
+        p {
+          margin: 0;
+          font-size: 12px;
+        }
+        .course-icon {
+          width: 30px;
+          height: 30px;
+          background-size: cover;
+        }
+        .name-assigment {
+          color: $text-color;
+          margin-bottom: 0;
+          font-size: 15px;
+          font-weight:$bold;
+          white-space: nowrap;
+          display: inline-block;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          max-width: 135px;
+          &:hover {
+            color: $primary-color;
+            cursor: pointer;
+            text-decoration: none;
+          }
+        }
+      }
+      .table-column {
+        &-name-assigment {
+          max-width: 80px;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+        &-document-icon {
+          width: 18%;
+        }
+        &-name-assigment {
+          width: 40%;
+        }
+      }
+      .name-unit {
+        width: 100%
+      }
+    }
+  }
+}

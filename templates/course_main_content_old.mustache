@@ -1,0 +1,264 @@
+<div id="course-main-content">
+    <div class="top-wrapper">
+        <div class="top">
+            <div class="subtitle">
+                <span class="home-icon"></span>
+                <span class="route"><a href="{{config.wwwroot}}/my/">{{#str}}gohome, theme_stardust{{/str}}</a></span>
+            </div>
+            <h1 class="title">{{coursename}}</h1>
+            <ul class="top-content">
+
+                <li class="top-content-item course-presence">
+                  {{>theme_stardust/presence}}
+                </li>
+
+                <li class="top-content-item course-messages">
+                    {{>theme_stardust/messages}}
+                </li>
+                {{#attendanceinfo}}
+                  <li class="top-content-item course-presence">
+                      {{>theme_stardust/attendance}}
+                  </li>
+                {{/attendanceinfo}}
+                <li class="top-content-item">
+                    {{>theme_stardust/achievements}}
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="main-wrapper">
+        <div class="main">
+            <div class="help-block">
+                {{>theme_stardust/help-menu}}
+            </div>
+
+            <ul class="courses-list">
+                <li class="course course-selected">
+                    <div class="course-header">
+                        <div class="course-icon-block">
+                            <span class="course-icon"></span>
+                            <span class="course-number">1</span>
+                        </div>
+                        <div class="course-title-block">
+                            <p class="course-title">Unit name</p>
+                        </div>
+                        <div class="course-toggle-block">
+                            <button class="btn-toggle-course"></button>
+                        </div>
+                    </div>
+                    <div class="course-progress">
+                        <span class="course-progress-percent">25%</span>
+                        <div
+                                class="course-progress-bar"
+                                role="progressbar"
+                                style="width: 25%"
+                                aria-valuenow="25"
+                                aria-valuemin="0"
+                                aria-valuemax="100"
+                        ></div>
+                    </div>
+                    <ul class="course-items">
+                        <li class="course-item">
+                            <div class="course-item-icon-block">
+                                <span class="icon-document"></span>
+                            </div>
+                            <div class="course-item-content">
+                                <p class="course-item-title">Task 1</p>
+                                <p class="course-item-desctiption">Details about the activity Colores Monfred Endendum Lorem Ipsum Dolor Sit Emmet, Consecrator Adipising Elit. Almancone Details about the activity Colores Monfred Endendum Lorem Ipsum Dolor Sit Emmet, Consecrator Adipising Elit. Almancone</p>
+                            </div>
+                            <div class="course-item-status-block">
+                                <p class="course-item-status">24.8.18</p>
+                            </div>
+                        </li>
+                        <li class="course-item course-item-green">
+                            <div class="course-item-icon-block">
+                                <span class="icon-document"></span>
+                            </div>
+                            <div class="course-item-content">
+                                <p class="course-item-title">Task 1</p>
+                                <p class="course-item-desctiption">Details about the activity Colores Monfred Endendum Lorem Ipsum Dolor Sit Emmet, Consecrator Adipising Elit. Almancone Details about the activity Colores Monfred Endendum Lorem Ipsum Dolor Sit Emmet, Consecrator Adipising Elit. Almancone</p>
+                            </div>
+                            <div class="course-item-status-block">
+                                <p class="course-item-status"></p>
+                            </div>
+                        </li>
+                        <li class="course-item course-item-orange">
+                            <div class="course-item-icon-block">
+                                <span class="icon-document"></span>
+                            </div>
+                            <div class="course-item-content">
+                                <p class="course-item-title">Task 1</p>
+                                <p class="course-item-desctiption">Details about the activity Colores Monfred Endendum Lorem Ipsum Dolor Sit Emmet, Consecrator Adipising Elit. Almancone Details about the activity Colores Monfred Endendum Lorem Ipsum Dolor Sit Emmet, Consecrator Adipising Elit. Almancone</p>
+                            </div>
+                            <div class="course-item-status-block">
+                                <p class="course-item-status">Two days to be served</p>
+                            </div>
+                        </li>
+                        <li class="course-item course-item-red">
+                            <div class="course-item-icon-block">
+                                <span class="icon-document"></span>
+                            </div>
+                            <div class="course-item-content">
+                                <p class="course-item-title">Task 1</p>
+                                <p class="course-item-desctiption">Details about the activity Colores Monfred Endendum Lorem Ipsum Dolor Sit Emmet, Consecrator Adipising Elit. Almancone Details about the activity Colores Monfred Endendum Lorem Ipsum Dolor Sit Emmet, Consecrator Adipising Elit. Almancone</p>
+                            </div>
+                            <div class="course-item-status-block">
+                                <p class="course-item-status">error</p>
+                            </div>
+                        </li>
+                    </ul>
+                </li>
+                <li class="course course-selected">
+                    <div class="course-header">
+                        <div class="course-icon-block">
+                            <span class="course-icon"></span>
+                            <span class="course-number">1</span>
+                        </div>
+                        <div class="course-title-block">
+                            <p class="course-title">Unit name</p>
+                        </div>
+                        <div class="course-toggle-block">
+                            <button class="btn-toggle-course"></button>
+                        </div>
+                    </div>
+                    <div class="course-progress">
+                        <span class="course-progress-percent">25%</span>
+                        <div
+                                class="course-progress-bar"
+                                role="progressbar"
+                                style="width: 25%"
+                                aria-valuenow="25"
+                                aria-valuemin="0"
+                                aria-valuemax="100"
+                        ></div>
+                    </div>
+                    <ul class="course-items">
+                        <li class="course-item"></li>
+                        <li class="course-item"></li>
+                    </ul>
+                </li>
+            </ul>
+            <div class="all-course-list">
+                <p class="all-course-title">יחידת על</p>
+                <button class="btn-open-all">Open all</button>
+            </div>
+            <ul class="courses-list">
+                <li class="course">
+                    <div class="course-header">
+                        <div class="course-icon-block">
+                            <span class="course-icon"></span>
+                            <span class="course-number">1</span>
+                        </div>
+                        <div class="course-title-block">
+                            <p class="course-title">Unit name</p>
+                        </div>
+                        <div class="course-toggle-block">
+                            <button class="btn-toggle-course"></button>
+                        </div>
+                    </div>
+                    <div class="course-progress">
+                        <span class="course-progress-percent">25%</span>
+                        <div
+                                class="course-progress-bar"
+                                role="progressbar"
+                                style="width: 25%"
+                                aria-valuenow="25"
+                                aria-valuemin="0"
+                                aria-valuemax="100"
+                        ></div>
+                    </div>
+                    <ul class="course-items">
+                        <li class="course-item"></li>
+                        <li class="course-item"></li>
+                    </ul>
+                </li>
+                <li class="course">
+                    <div class="course-header">
+                        <div class="course-icon-block">
+                            <span class="course-icon"></span>
+                            <span class="course-number">1</span>
+                        </div>
+                        <div class="course-title-block">
+                            <p class="course-title">Unit name</p>
+                        </div>
+                        <div class="course-toggle-block">
+                            <button class="btn-toggle-course"></button>
+                        </div>
+                    </div>
+                    <div class="course-progress">
+                        <span class="course-progress-percent">25%</span>
+                        <div
+                                class="course-progress-bar"
+                                role="progressbar"
+                                style="width: 25%"
+                                aria-valuenow="25"
+                                aria-valuemin="0"
+                                aria-valuemax="100"
+                        ></div>
+                    </div>
+                    <ul class="course-items">
+                        <li class="course-item">
+                            <div class="course-item-icon-block">
+                                <span class="icon-document"></span>
+                            </div>
+                            <div class="course-item-content">
+                                <p class="course-item-title">Task 1</p>
+                                <p class="course-item-desctiption">Details about the activity Colores Monfred Endendum Lorem Ipsum Dolor Sit Emmet, Consecrator Adipising Elit. Almancone Details about the activity Colores Monfred Endendum Lorem Ipsum Dolor Sit Emmet, Consecrator Adipising Elit. Almancone</p>
+                            </div>
+                            <div class="course-item-status-block">
+                                <p class="course-item-status">24.8.18</p>
+                            </div>
+                        </li>
+                        <li class="course-item course-item-green">
+                            <div class="course-item-icon-block">
+                                <span class="icon-document"></span>
+                            </div>
+                            <div class="course-item-content">
+                                <p class="course-item-title">Task 1</p>
+                                <p class="course-item-desctiption">Details about the activity Colores Monfred Endendum Lorem Ipsum Dolor Sit Emmet, Consecrator Adipising Elit. Almancone Details about the activity Colores Monfred Endendum Lorem Ipsum Dolor Sit Emmet, Consecrator Adipising Elit. Almancone</p>
+                            </div>
+                            <div class="course-item-status-block">
+                                <p class="course-item-status"></p>
+                            </div>
+                        </li>
+                        <li class="course-item course-item-orange">
+                            <div class="course-item-icon-block">
+                                <span class="icon-document"></span>
+                            </div>
+                            <div class="course-item-content">
+                                <p class="course-item-title">Task 1</p>
+                                <p class="course-item-desctiption">Details about the activity Colores Monfred Endendum Lorem Ipsum Dolor Sit Emmet, Consecrator Adipising Elit. Almancone Details about the activity Colores Monfred Endendum Lorem Ipsum Dolor Sit Emmet, Consecrator Adipising Elit. Almancone</p>
+                            </div>
+                            <div class="course-item-status-block">
+                                <p class="course-item-status">Two days to be served</p>
+                            </div>
+                        </li>
+                        <li class="course-item course-item-red">
+                            <div class="course-item-icon-block">
+                                <span class="icon-document"></span>
+                            </div>
+                            <div class="course-item-content">
+                                <p class="course-item-title">Task 1</p>
+                                <p class="course-item-desctiption">Details about the activity Colores Monfred Endendum Lorem Ipsum Dolor Sit Emmet, Consecrator Adipising Elit. Almancone Details about the activity Colores Monfred Endendum Lorem Ipsum Dolor Sit Emmet, Consecrator Adipising Elit. Almancone</p>
+                            </div>
+                            <div class="course-item-status-block">
+                                <p class="course-item-status">error</p>
+                            </div>
+                        </li>
+                    </ul>
+                </li>
+            </ul>-->
+
+        </div>
+    </div>
+
+</div>
+
+{{#js}}
+require(['jquery'], function($){
+    $('#course-main-content .course .btn-toggle-course').click(function() {
+        $(this).closest('.course').toggleClass('opened');
+        $(this).closest('.course-header').siblings('.course-items').slideToggle();
+    });
+});
+{{/js}}
