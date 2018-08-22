@@ -524,6 +524,22 @@ header .nav {
 .btn-secondary {
   border-color: #bebebe; }
 
+#page-footer {
+  background-color: #fff; }
+  #page-footer .container {
+    -ms-flex-pack: justify;
+        justify-content: space-between;
+    max-width: 1140px;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+        align-items: center; }
+  #page-footer a {
+    color: #373a3c; }
+
+#region-main > .card {
+  overflow-x: unset; }
+
 #my-page {
   color: #3C3C3C;
   font-family: "openSans"; }
@@ -2408,7 +2424,7 @@ header .nav {
   display: none; }
 
 .format-stardust .no-overflow,
-.format-stardust .actions {
+.format-stardust .activity .actions {
   display: none; }
 
 .format-stardust #section-0.section.main > .controls {
@@ -2427,7 +2443,7 @@ header .nav {
   display: block; }
 
 .format-stardust.editing .no-overflow,
-.format-stardust.editing .actions {
+.format-stardust.editing .activity .actions {
   display: block; }
 
 .format-stardust.editing .section .activity .availabilityinfo,
@@ -2499,6 +2515,9 @@ header .nav {
 
 [dir="rtl"] .format-cards .course-content .section .content .wrapper-open .activities {
   transform: translate(50%, -50%) !important; }
+
+.format-cards .controls .hide {
+  display: inline-block; }
 
 .format-cards .section .activity.label {
   display: none; }
@@ -2622,7 +2641,7 @@ header .nav {
         display: block; }
   .format-cards .course-content .sections > .section {
     margin: 0;
-    margin-right: 25px;
+    margin-right: 22px;
     margin-bottom: 25px;
     width: 23%;
     height: 264px;
@@ -3088,8 +3107,6 @@ header .nav {
 #page-mod-quiz-attempt {
   background: #F3F2F0;
   position: relative;
-  min-height: 100%;
-  padding-bottom: 144px;
   height: auto; }
   #page-mod-quiz-attempt #page-wrapper {
     min-height: auto;
@@ -3179,6 +3196,11 @@ header .nav {
               border: none;
               margin: 0;
               padding: 0; }
+              #page-mod-quiz-attempt #page-wrapper section#region-main.has-blocks [role="main"] .que .content .formulation .qtext img {
+                max-width: 50%;
+                text-align: center;
+                margin: 0 auto;
+                display: block; }
               #page-mod-quiz-attempt #page-wrapper section#region-main.has-blocks [role="main"] .que .content .formulation .ablock .answer {
                 display: -ms-flexbox;
                 display: flex;
@@ -3272,9 +3294,7 @@ header .nav {
               justify-content: center;
           box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.3); }
   #page-mod-quiz-attempt #page-footer {
-    position: absolute;
-    bottom: 0;
-    width: 100%; }
+    background-color: #f4f3f0; }
 
 .popover-region-messages .popover-region-toggle {
   outline: none; }

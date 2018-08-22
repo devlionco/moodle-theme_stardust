@@ -20,8 +20,8 @@
 #page-mod-quiz-attempt {
   background: $gray_light;
   position: relative;
-  min-height: 100%;
-  padding-bottom: 144px;
+  // min-height: 100%;
+  // padding-bottom: 144px;
   height: auto;
   #page-wrapper {
     min-height: auto;
@@ -138,6 +138,12 @@
               border: none;
               margin: 0;
               padding: 0;
+              .qtext img {
+                  max-width: 50%;
+                  text-align: center;
+                  margin: 0 auto;
+                  display: block;
+              }
               .ablock {
                 .answer {
                   display: flex;
@@ -252,8 +258,8 @@
   }
   #page-footer {
     background-color: #f4f3f0;
-    position: absolute;
-    bottom: 0;
-    width: 100%;
+    // position: absolute;
+    // bottom: 0;
+    // width: 100%;
   }
 }
