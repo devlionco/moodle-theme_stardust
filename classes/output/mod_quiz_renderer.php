@@ -51,10 +51,12 @@ class theme_stardust_mod_quiz_renderer extends mod_quiz_renderer {
         global $PAGE;
         // $PAGE->set_pagelayout('quizattempt');
         $navbc = new quiz_attempt_nav_panel($attemptobj, $attemptobj->get_display_options(true), $page, $showall);
+        // $navbc = new quiz_attempt_nav_panel($attemptobj, $attemptobj->get_display_options(t), $page, false);
         $output = '';
         $output .= $this->header();
         $output .= $this->quiz_notices($messages);
-        $output .= $this->navigation_panel($navbc);
+        // $output .= $this->navigation_panel($navbc);
+
         $output .= html_writer::start_tag('div', array('class' => 'quiz_header'));
         $output .= html_writer::tag('p', $attemptobj->get_quiz_name(), array('class' => 'quiz_name'));
 
@@ -64,6 +66,50 @@ class theme_stardust_mod_quiz_renderer extends mod_quiz_renderer {
         $output .= $this->attempt_form($attemptobj, $page, $slots, $id, $nextpage);
         $output .= $this->navigation_panel($navbc);
         $output .= $this->footer();
+        return $output;
+    }
+
+    /**
+     * Outputs the navigation block panel
+     *
+     * @param quiz_nav_panel_base $panel instance of quiz_nav_panel_base
+     */
+    public function navigation_panel(quiz_nav_panel_base $panel) {
+
+        $output = '';
+        $userpicture = $panel->user_picture();
+        if ($userpicture) {
+            $fullname = fullname($userpicture->user);
+            if ($userpicture->size === true) {
+                $fullname = html_writer::div($fullname);
+            }
+            $output .= html_writer::tag('div', $this->render($userpicture) . $fullname,
+                    array('id' => 'user-picture', 'class' => 'clearfix'));
+        }
+        $output .= $panel->render_before_button_bits($this);
+
+        $bcc = $panel->get_button_container_class();
+        $output .= html_writer::start_tag('div', array('class' => "qn_buttons clearfix $bcc"));
+        foreach ($panel->get_question_buttons() as $button) {
+            $button->navmethod = $panel->get_attemptobj()->get_navigation_method(); // nadavkav 15/7/2014
+            // if ($button->stateclass != ' qpage') {
+            if (!strpos($button->stateclass, 'qpage')) {
+              $output .= $this->render($button);
+            }
+        }
+        $output .= html_writer::end_tag('div');
+
+        $output .= html_writer::tag('div', $panel->render_end_bits($this),
+                array('class' => 'othernav'));
+
+        if (empty($_GET['page'])) {
+            $quiznavpage = 1;
+        } else {
+            $quiznavpage = $_GET['page'];
+        }
+        $this->page->requires->js_init_call('M.mod_quiz.nav.init', array($quiznavpage), false,
+                quiz_get_js_module());
+
         return $output;
     }
 

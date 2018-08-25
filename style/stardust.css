@@ -3137,8 +3137,13 @@ header .nav {
         margin-left: auto; }
         #page-mod-quiz-attempt #page-wrapper section#region-main.has-blocks .finish_quiz:hover {
           text-decoration: none; }
+      #page-mod-quiz-attempt #page-wrapper section#region-main.has-blocks .btn-primary {
+        background-color: #0096DB !important;
+        color: #fff !important; }
       #page-mod-quiz-attempt #page-wrapper section#region-main.has-blocks .card {
-        min-height: auto; }
+        min-height: auto;
+        width: 1344px;
+        margin: 0 auto; }
       #page-mod-quiz-attempt #page-wrapper section#region-main.has-blocks .course-content-header {
         display: none; }
       #page-mod-quiz-attempt #page-wrapper section#region-main.has-blocks [role="main"] {
@@ -3178,17 +3183,19 @@ header .nav {
             padding: 0;
             margin-bottom: 20px;
             border-bottom: 1px solid #ddd; }
-            #page-mod-quiz-attempt #page-wrapper section#region-main.has-blocks [role="main"] .que .info .questionflag,
             #page-mod-quiz-attempt #page-wrapper section#region-main.has-blocks [role="main"] .que .info .editquestion {
               display: none; }
+            #page-mod-quiz-attempt #page-wrapper section#region-main.has-blocks [role="main"] .que .info .questionflag,
             #page-mod-quiz-attempt #page-wrapper section#region-main.has-blocks [role="main"] .que .info .state,
             #page-mod-quiz-attempt #page-wrapper section#region-main.has-blocks [role="main"] .que .info .grade {
               margin-top: 0;
               margin-left: 40px;
               font-size: 16px;
-              font-weight: bold; }
+              font-weight: 600; }
             #page-mod-quiz-attempt #page-wrapper section#region-main.has-blocks [role="main"] .que .info .grade {
               color: #3C3C3C; }
+            #page-mod-quiz-attempt #page-wrapper section#region-main.has-blocks [role="main"] .que .info .questionflag {
+              color: #FF7E99; }
             #page-mod-quiz-attempt #page-wrapper section#region-main.has-blocks [role="main"] .que .info .no {
               margin-right: auto;
               color: #3C3C3C;

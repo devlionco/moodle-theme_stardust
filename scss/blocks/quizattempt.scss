@@ -16,7 +16,6 @@
   }
 }
 
-
 #page-mod-quiz-attempt {
   background: $gray_light;
   position: relative;
@@ -61,9 +60,15 @@
           text-decoration: none;
         }
       }
+      .btn-primary {
+        background-color: $primary-color !important;
+        color: #fff !important;
+      }
       width: 100%;
       .card {
         min-height: auto;
+        width: 1344px;
+        margin: 0 auto;
       }
       .course-content-header {
         display: none;
@@ -112,20 +117,23 @@
             border-bottom: 1px solid #ddd;
             // .state,
             // .grade,
-            .questionflag,
+            // .questionflag,
             .editquestion {
               display: none;
             }
+            .questionflag,
             .state,
             .grade {
               margin-top: 0;
               margin-left: 40px;
               font-size: 16px;
-              font-weight: bold;
-
+              font-weight: $bold;
             }
             .grade {
               color: #3C3C3C;
+            }
+            .questionflag {
+              color: #FF7E99;
             }
             .no {
               margin-right: auto;
