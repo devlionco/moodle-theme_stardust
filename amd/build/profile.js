@@ -26,18 +26,7 @@ define(['jquery', 'jqueryui', 'core/str'], function($, jqui, str) {
                     {key: 'wrongpassword', component: 'theme_remui'}
 
                 ]).done(function(){});
-            // alert('called');
-                        // Edit Profile Page
-            /*$('#editprofile #first_name').focusout(function() {
-              var fname = $('#first_name').val();
-              if(fname == ''){
-                alert('called focusout event');
-                $(this).parent('div.form-group').addClass('has-danger');
-              }else{
-                //alert(fname);
-              }
 
-            });*/
             $('#editprofile .form-horizontal #btn-save-profile').click(function() {
                 $('div#error-message').show();
                 $('div#error-message').removeClass('alert-danger').addClass('alert-success');
@@ -131,13 +120,7 @@ define(['jquery', 'jqueryui', 'core/str'], function($, jqui, str) {
                     $('#fullname').focus();
                     return false;
                 }
-                // if (username === '') {
-                //     $('div#error-message').show();
-                //     $('div#error-message').removeClass('alert-success').addClass('alert-danger');
-                //     $('div#error-message p').html(M.util.get_string('enterusername', 'theme_remui'));
-                //     $('#username').focus();
-                //     return false;
-                // }
+
                 if (teudatzeut === '') {
                     $('div#error-message').show();
                     $('div#error-message').removeClass('alert-success').addClass('alert-danger');

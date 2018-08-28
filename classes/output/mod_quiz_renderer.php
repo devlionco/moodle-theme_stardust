@@ -49,6 +49,7 @@ class theme_stardust_mod_quiz_renderer extends mod_quiz_renderer {
      */
     public function attempt_page($attemptobj, $page, $accessmanager, $messages, $slots, $id, $nextpage) {
         global $PAGE;
+        // $PAGE->requires->js_call_amd('theme_stardust/swipepaging', 'init'); // slider for paging
         // $PAGE->set_pagelayout('quizattempt');
         $navbc = new quiz_attempt_nav_panel($attemptobj, $attemptobj->get_display_options(true), $page, $showall);
         // $navbc = new quiz_attempt_nav_panel($attemptobj, $attemptobj->get_display_options(t), $page, false);
@@ -60,6 +61,9 @@ class theme_stardust_mod_quiz_renderer extends mod_quiz_renderer {
 
         $output .= html_writer::start_tag('div', array('class' => 'quiz_header'));
         $output .= html_writer::tag('p', $attemptobj->get_quiz_name(), array('class' => 'quiz_name'));
+        $output .= html_writer::tag('div', $PAGE->activityrecord->intro, array('class' => 'quiz_description'));
+
+
         $output .= '<div class = "filter"><span>answered</span>
           <span>not answerd</span>
           <span>flaged</span>
@@ -70,6 +74,7 @@ class theme_stardust_mod_quiz_renderer extends mod_quiz_renderer {
         $output .= $this->attempt_form($attemptobj, $page, $slots, $id, $nextpage);
         $output .= $this->navigation_panel($navbc);
         $output .= $this->footer();
+
         return $output;
     }
 
@@ -94,13 +99,13 @@ class theme_stardust_mod_quiz_renderer extends mod_quiz_renderer {
 
         $bcc = $panel->get_button_container_class();
         $output .= html_writer::start_tag('div', array('class' => "qn_buttons clearfix $bcc"));
-        foreach ($panel->get_question_buttons() as $button) {
-            $button->navmethod = $panel->get_attemptobj()->get_navigation_method(); // nadavkav 15/7/2014
-            // if ($button->stateclass != ' qpage') {
-            if (!strpos($button->stateclass, 'qpage')) {
-              $output .= $this->render($button);
-            }
-        }
+          foreach ($panel->get_question_buttons() as $button) {
+              $button->navmethod = $panel->get_attemptobj()->get_navigation_method(); // nadavkav 15/7/2014
+              // if ($button->stateclass != ' qpage') {
+              if (!strpos($button->stateclass, 'qpage')) {
+                $output .= $this->render($button);
+              }
+          }
         $output .= html_writer::end_tag('div');
 
         $output .= html_writer::tag('div', $panel->render_end_bits($this),
