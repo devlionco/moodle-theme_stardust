@@ -188,7 +188,7 @@ class course_renderer extends \core_course_renderer {
         $sectionstyle = '';
         if ($course->format == "stardust") {
             $sectionstyle = '';
-            $sectionstyle = ($section->collapsed == FORMAT_STARDUST_COLLAPSED) ? 'display:none;' : 'display:block;';  // 0 is for FORMAT_STARDUST_COLLAPSED
+            $sectionstyle = ($section->collapsed == FORMAT_STARDUST_COLLAPSED && $section->section != 0) ? 'display:none;' : 'display:block;';  // 0 is for FORMAT_STARDUST_COLLAPSED
         }
         $activityheader = '';
 
