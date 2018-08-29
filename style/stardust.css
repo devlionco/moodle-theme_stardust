@@ -3297,6 +3297,12 @@ header .nav {
 [dir="rtl"] #page-mod-quiz-attempt section#region-main.has-blocks .qn_buttons {
   transform: translateX(50%); }
 
+[dir="rtl"] #page-mod-quiz-attempt section#region-main.has-blocks .filter_toggle .filter_pin {
+  transform: translateX(2px); }
+
+[dir="rtl"] #page-mod-quiz-attempt section#region-main.has-blocks .filter_toggle.filter_active .filter_pin {
+  transform: translateX(-7px); }
+
 [dir="ltr"] #page-mod-quiz-attempt section#region-main.has-blocks .qn_buttons {
   transform: translateX(-50%); }
 

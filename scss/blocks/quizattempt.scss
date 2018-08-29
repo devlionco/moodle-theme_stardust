@@ -5,6 +5,12 @@
     .qn_buttons {
       transform: translateX(50%);
     }
+    .filter_toggle .filter_pin {
+      transform: translateX(2px);
+    }
+    .filter_toggle.filter_active .filter_pin {
+      transform: translateX(-7px);
+    }
   }
 }
 
@@ -15,6 +21,7 @@
     }
   }
 }
+
 
 #page-mod-quiz-attempt {
   background: $gray_light;
