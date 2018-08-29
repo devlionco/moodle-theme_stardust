@@ -155,5 +155,17 @@ require(['jquery'], function($){
     $('section#region-main .course-content .section .content').click(function() {
         $(this).toggleClass('sectionopen');
     });
+
+    // open section on course format cards after redirection
+    let result = window.location.href.match(/section-\d+/i);
+    if(result) {
+      $('#'+result +' .wrapper').addClass('wrapper-open');
+      var currentURL = window.location.href;
+      var afterDomain = currentURL.replace(window.location.origin,'');
+      var newUrlString = afterDomain.replace(/#section-\d+/i,'');
+
+      window.history.pushState("object or string", "Title", newUrlString );
+    }
+
 });
 {{/js}}

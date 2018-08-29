@@ -104,20 +104,11 @@ foreach ($sections as $secid=>$scms) {
     }
     $cmsinsectioncount = count($scms);
 
-    //echo ("+++++++++");
-    //var_dump($completedactivitiescount);
-    //echo ("========");
-    //var_dump($cmsinsectioncount);
-
     if ($cmsinsectioncount == $completedactivitiescount) {
         $completedsectionscount++; // if competable cms are all competed - count section as competed
     }
 }
 
-//echo ("+++========++++");
-//var_dump($completedsectionscount);
-//echo ("********");
-//var_dump($sectionscount);
 $percent = 0;
 $angle = 0;
 if ($sectionscount) {
