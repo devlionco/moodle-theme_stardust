@@ -49,6 +49,7 @@ class theme_stardust_mod_quiz_renderer extends mod_quiz_renderer {
      */
     public function attempt_page($attemptobj, $page, $accessmanager, $messages, $slots, $id, $nextpage) {
         global $PAGE;
+        $PAGE->requires->js_call_amd('theme_stardust/quizfilter', 'init'); // slider for paging
         // $PAGE->requires->js_call_amd('theme_stardust/swipepaging', 'init'); // slider for paging
         // $PAGE->set_pagelayout('quizattempt');
         $navbc = new quiz_attempt_nav_panel($attemptobj, $attemptobj->get_display_options(true), $page, $showall);
@@ -57,20 +58,14 @@ class theme_stardust_mod_quiz_renderer extends mod_quiz_renderer {
 
         $output .= $this->header();
         $output .= $this->quiz_notices($messages);
-        // $output .= $this->navigation_panel($navbc);
 
         $output .= html_writer::start_tag('div', array('class' => 'quiz_header'));
+        $output .= html_writer::start_tag('div', array('class' => 'quiz_header_wrap'));
         $output .= html_writer::tag('p', $attemptobj->get_quiz_name(), array('class' => 'quiz_name'));
-        $output .= html_writer::tag('div', $PAGE->activityrecord->intro, array('class' => 'quiz_description'));
-
-
-        $output .= '<div class = "filter"><span>answered</span>
-          <span>not answerd</span>
-          <span>flaged</span>
-          </div>';
-        // $output .= $this->navigation_panel($navbc);
-        // $output .= html_writer::link(new moodle_url('/mod/quiz/summary.php', array('attempt' => $attemptobj->get_attemptid())), get_string('quizattemptfinishlink', 'theme_stardust'), array('class' => 'finish_quiz'));
+        $output .= $this->quiestion_filter();
         $output .= html_writer::end_tag('div');
+        $output .= html_writer::end_tag('div');
+        $output .= html_writer::tag('div', $PAGE->activityrecord->intro, array('class' => 'quiz_description'));
         $output .= $this->attempt_form($attemptobj, $page, $slots, $id, $nextpage);
         $output .= $this->navigation_panel($navbc);
         $output .= $this->footer();
@@ -120,6 +115,25 @@ class theme_stardust_mod_quiz_renderer extends mod_quiz_renderer {
                 quiz_get_js_module());
 
         return $output;
+    }
+
+    /**
+     * Outputs the navigation block panel
+     *
+     * @param quiz_nav_panel_base $panel instance of quiz_nav_panel_base
+     */
+    public function quiestion_filter() {
+      $output = '';
+      $output .= html_writer::start_tag('div', array('class' => 'filter_wrap'));
+
+      $output .= html_writer::tag('span', get_string('quiz_filter', 'theme_stardust') , array('class' => 'filter_legend'));
+      $output .= html_writer::tag('button', '<span class = "filter_pin"></span>', array('data-handler' => 'filter_flag', 'class' => 'filter_toggle filter_flag'));
+      $output .= html_writer::tag('button', '<span class = "filter_pin"></span>', array('data-handler' => 'filter_answered', 'class' => 'filter_toggle filter_answered'));
+      $output .= html_writer::tag('button', '<span class = "filter_pin"></span>', array('data-handler' => 'filter_notanswered', 'class' => 'filter_toggle filter_notanswered'));
+
+      $output .= html_writer::end_tag('div');
+
+      return $output;
     }
 
 }

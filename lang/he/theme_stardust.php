@@ -157,3 +157,4 @@ $string['quizattemptbacktocourse'] = 'Back to course';
 $string['quizattemptbacktosection'] = 'Back to section - {$a}';
 $string['quizattemptbacktoactivity'] = 'Back to quiz';
 $string['quizattemptfinishlink'] = 'הגשת המבחן';
+$string['quiz_filter'] = 'לפי סימון:';
