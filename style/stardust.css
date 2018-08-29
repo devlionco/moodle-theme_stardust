@@ -3333,7 +3333,7 @@ header .nav {
         margin-left: auto; }
         #page-mod-quiz-attempt #page-wrapper section#region-main.has-blocks .finish_quiz:hover {
           text-decoration: none; }
-      #page-mod-quiz-attempt #page-wrapper section#region-main.has-blocks .btn-primary {
+      #page-mod-quiz-attempt #page-wrapper section#region-main.has-blocks .quiz_endtest {
         background-color: #0096DB !important;
         color: #fff !important; }
       #page-mod-quiz-attempt #page-wrapper section#region-main.has-blocks .card {
@@ -3357,7 +3357,7 @@ header .nav {
           display: -ms-flexbox;
           display: flex;
           border-bottom: 1px solid #D5D5D4;
-          margin-bottom: 50px; }
+          margin-bottom: 20px; }
           #page-mod-quiz-attempt #page-wrapper section#region-main.has-blocks [role="main"] .quiz_header .quiz_name {
             color: #3C3C3C;
             font-family: 'NextExitRound';
@@ -3368,6 +3368,13 @@ header .nav {
           #page-mod-quiz-attempt #page-wrapper section#region-main.has-blocks [role="main"] .quiz_header .qn_buttons {
             transform: translate(0);
             position: static; }
+        #page-mod-quiz-attempt #page-wrapper section#region-main.has-blocks [role="main"] .quiz_description {
+          color: #3c3c3c;
+          font-family: "NextExitRound";
+          font-size: 40px;
+          line-height: 40px;
+          margin: 0;
+          margin-bottom: 15px; }
         #page-mod-quiz-attempt #page-wrapper section#region-main.has-blocks [role="main"] .que {
           background: white;
           display: -ms-flexbox;
