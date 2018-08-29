@@ -2726,9 +2726,20 @@ header .nav {
 [dir="rtl"] .format-cards .course-content .section .content .wrapper-open .activities {
   transform: translate(50%, -50%) !important; }
 
+.format-cards .section.main.current .content {
+  border: 2px solid #1177d1; }
+
 .format-cards .controls .hide {
   display: inline-block; }
 
+.format-cards .controls .marker i {
+  margin: 0;
+  font-size: 16px;
+  width: unset;
+  margin-right: .5rem;
+  color: inherit; }
+
+.format-cards .section.main.current::before,
 .format-cards .section .activity.label {
   display: none; }
 
