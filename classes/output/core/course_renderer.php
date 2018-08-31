@@ -211,8 +211,10 @@ class course_renderer extends \core_course_renderer {
           $output .= html_writer::start_tag('div', array('class' => 'wrapper'));
           $output .= html_writer::tag('ul', $activitcontent, array('class' => 'activities img-text'));
           $output .= html_writer::end_tag('div');
-        }elseif ($course->format == 'stardust') {
+        } elseif ($course->format == 'stardust') {
           $output .= html_writer::tag('ul', $sectionoutput, array('class' => 'section img-text', 'style' => $sectionstyle));
+        } else {
+            $output .= html_writer::tag('ul', $sectionoutput, array('class' => 'section img-text'));
         }
 
         return $output;
