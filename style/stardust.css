@@ -2757,8 +2757,8 @@ header .nav {
 .format-cards .course-content ul.section {
   margin: 0; }
 
-.format-cards .no-overflow,
-.format-cards .actions {
+.format-cards .sections .no-overflow,
+.format-cards .sections .actions {
   display: none; }
 
 .format-cards .sections {
