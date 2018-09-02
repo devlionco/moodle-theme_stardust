@@ -3366,7 +3366,6 @@ header .nav {
         #page-mod-quiz-attempt #page-wrapper section#region-main.has-blocks .finish_quiz:hover {
           text-decoration: none; }
       #page-mod-quiz-attempt #page-wrapper section#region-main.has-blocks .quiz_endtest {
-        background-color: #0096DB !important;
         color: #fff !important; }
       #page-mod-quiz-attempt #page-wrapper section#region-main.has-blocks .card {
         min-height: auto;
@@ -3567,13 +3566,16 @@ header .nav {
           height: 48px;
           width: 180px;
           border-radius: 21px;
-          background-color: #B4C1C7;
+          background-color: #0096DB;
           color: #FFFFFF;
           border: none;
           font-size: 18px;
           font-weight: bold;
           letter-spacing: 0.5px;
-          outline: none; }
+          outline: none;
+          transition: .2s; }
+          #page-mod-quiz-attempt #page-wrapper section#region-main.has-blocks [role="main"] .submitbtns [type="submit"]:hover {
+            box-shadow: 0 0 4px 2px #19b7ff; }
         #page-mod-quiz-attempt #page-wrapper section#region-main.has-blocks [role="main"] .endtestlink,
         #page-mod-quiz-attempt #page-wrapper section#region-main.has-blocks [role="main"] .singlebutton {
           display: none; }

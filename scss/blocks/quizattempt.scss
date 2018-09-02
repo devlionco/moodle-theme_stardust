@@ -68,7 +68,7 @@
         }
       }
       .quiz_endtest {
-        background-color: $primary-color !important;
+        // background-color: $primary-color !important;
         color: #fff !important;
       }
       width: 100%;
@@ -306,13 +306,18 @@
             height: 48px;
             width: 180px;
             border-radius: 21px;
-            background-color: #B4C1C7;
+            // background-color: #B4C1C7;
+            background-color: $primary-color;
             color: $white;
             border: none;
             font-size: 18px;
             font-weight: bold;
             letter-spacing: 0.5px;
             outline: none;
+            transition: .2s;
+            &:hover {
+              box-shadow: 0 0 4px 2px #19b7ff;
+            }
           }
         }
         .endtestlink,
