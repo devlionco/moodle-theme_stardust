@@ -1611,6 +1611,7 @@ header .nav {
 #help-menu {
   position: relative; }
   #help-menu .btn-help {
+    display: inline-block;
     width: 60px;
     height: 60px;
     border-radius: 50%;
