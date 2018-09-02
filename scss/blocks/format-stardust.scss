@@ -338,10 +338,11 @@
     display: none;
   }
 
-  .no-overflow,
+  .section .no-overflow,
   .activity .actions {
     display: none;
   }
+  
   #section-0.section.main {
     &> .controls {
       display: none;

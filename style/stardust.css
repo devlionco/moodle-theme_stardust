@@ -2628,7 +2628,7 @@ header .nav {
 .format-stardust .contentafterlink img {
   display: none; }
 
-.format-stardust .no-overflow,
+.format-stardust .section .no-overflow,
 .format-stardust .activity .actions {
   display: none; }
 
