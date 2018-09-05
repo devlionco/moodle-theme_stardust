@@ -736,6 +736,10 @@ header .nav {
 #region-main > .card {
   overflow-x: unset; }
 
+#region-main .card.card-block {
+  background: none;
+  border: none; }
+
 #my-page {
   color: #3C3C3C;
   font-family: "openSans"; }
