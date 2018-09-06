@@ -362,8 +362,8 @@ function stardust_activity_status($module) {
     $activitystatus = array();
 
     $added = $module->added;
-    $cutoffdate = $module->cutoffdate;
-    $duedate = $module->duedate;
+    $cutoffdate = isset($module->cutoffdate) ? $module->cutoffdate : null;
+    $duedate = isset($module->duedate) ? $module->duedate : null;
     $currenttime = time();
     $openforsubmission = false;
     $actionwithtask = false;
@@ -459,7 +459,7 @@ function set_icon_style_for_activity ($module) {
   $activityinfo['cutoffdate'] = $activitystatus['cutoffdate'];
   // $activityinfo['cutoffdate'] = date("m.d.y", $cutoffdate);
   $activityinfo['timeline'] = $activitystatus['timeline'];
-  $activityinfo['iconstyle'] = $activitystatus['iconstyle'];
+  $activityinfo['iconstyle'] = isset($activitystatus['iconstyle']) ? $activitystatus['iconstyle'] : false;
   $activityinfo['modstatus'] = $activitystatus['modstatus'];
   $activityinfo['mincutoffdate'] = $activitystatus['mincutoffdate'];
   $activityinfo['unitname'] = $sectionname;

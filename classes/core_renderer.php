@@ -134,7 +134,7 @@ class core_renderer extends \theme_boost\output\core_renderer {
         $html .= html_writer::start_div('card');
         $html .= html_writer::start_div('headerfade');
         $html .= html_writer::start_div('card-block');
-        if (!$PAGE->theme->settings->coursemanagementtoggle) {
+        if (!isset($PAGE->theme->settings->coursemanagementtoggle)) {
             $html .= html_writer::div($this->context_header_settings_menu() , 'pull-xs-right context-header-settings-menu');
         }
         else if (isset($COURSE->id) && $COURSE->id == 1) {
@@ -1093,7 +1093,7 @@ class core_renderer extends \theme_boost\output\core_renderer {
         // $showincourseonly = isset($COURSE->id) && $COURSE->id > 1 && $PAGE->theme->settings->coursemanagementtoggle && isloggedin() && !isguestuser();
         // $showincourseonly = isset($COURSE->id) && $COURSE->id > 1  && isloggedin() && !isguestuser();
         $showincourseonly = isset($COURSE->id) && $COURSE->id > 1  && has_capability('moodle/course:update', $context);
-        $haspermission = has_capability('enrol/category:config', $context) && $PAGE->theme->settings->coursemanagementtoggle && isset($COURSE->id) && $COURSE->id > 1;
+        $haspermission = has_capability('enrol/category:config', $context) && isset($PAGE->theme->settings->coursemanagementtoggle) && isset($COURSE->id) && $COURSE->id > 1;
 
         $togglebutton = '';
         $togglebuttonstudent = '';
@@ -1134,7 +1134,7 @@ class core_renderer extends \theme_boost\output\core_renderer {
             }
         }
 
-        $haseditcog = $PAGE->theme->settings->courseeditingcog;
+        $haseditcog = isset($PAGE->theme->settings->courseeditingcog) ? $PAGE->theme->settings->courseeditingcog : null;
         // $editcog = html_writer::div($this->context_header_settings_menu() , 'pull-xs-right context-header-settings-menu');
 
         $siteadmintitle = get_string('siteadminquicklink', 'theme_fordson');
@@ -1156,7 +1156,7 @@ class core_renderer extends \theme_boost\output\core_renderer {
             'siteadmintitle' => $siteadmintitle,
             'siteadminurl' => $siteadminurl,
             'haseditcog' => $haseditcog,
-            'editcog' => $editcog,
+            'editcog' => isset($editcog) ? $editcog : null,
         ];
 // echo '<pre>'.print_r($dashmenu,1).'</pre>'; exit();
         // Attach easy enrollment links if active.
@@ -1213,7 +1213,7 @@ class core_renderer extends \theme_boost\output\core_renderer {
         }
 
         // Link catagories.
-        $haspermission = has_capability('enrol/category:config', $context) && $PAGE->theme->settings->coursemanagementtoggle && isset($COURSE->id) && $COURSE->id > 1;
+        $haspermission = has_capability('enrol/category:config', $context) && isset($PAGE->theme->settings->coursemanagementtoggle) && isset($COURSE->id) && $COURSE->id > 1;
         $userlinks = get_string('userlinks', 'theme_fordson');
         $userlinksdesc = get_string('userlinks_desc', 'theme_fordson');
         $qbank = get_string('qbank', 'theme_fordson');

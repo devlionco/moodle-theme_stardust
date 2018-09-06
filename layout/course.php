@@ -159,7 +159,7 @@ $templatecontext = [
     'display_grades' => (isset($courseformat['displaygrades'])) ? $courseformat['displaygrades'] : false,
     'showbagestag' => (isset($courseformat['showbagestag'])) ? $courseformat['showbagestag'] : false,
     'showcertificatestag' => (isset($courseformat['showcertificatestag'])) ? $courseformat['showcertificatestag'] : false,
-    'attendanceinfo' => $attendanceinfo,
+    'attendanceinfo' => isset($attendanceinfo) ? $attendanceinfo : null,
     'sectionscompletion' => $sectionscompletion,
     'showgrades' => isset($course->showgrades) ? $course->showgrades: false
 ];

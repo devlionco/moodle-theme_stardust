@@ -78,7 +78,7 @@ require_once($CFG->libdir . '/behat/lib.php');
 
 $hasfhsdrawer = true;
 $extraclasses = [];
-if ($navdraweropen) {
+if (isset($navdraweropen)) {
     $extraclasses[] = 'drawer-open-left';
 }
 $bodyattributes = $OUTPUT->body_attributes($extraclasses);
@@ -93,7 +93,7 @@ $templatecontext = [
     'sidepreblocks' => $blockshtml,
     'hasblocks' => $hasblocks,
     'bodyattributes' => $bodyattributes,
-    'navdraweropen' => $navdraweropen,
+    'navdraweropen' => isset($navdraweropen) ? $navdraweropen : '',
     'hasfhsdrawer' => $hasfhsdrawer,
     // 'hasfhsdrawer' => false,
     'sitesettingsbutton' => false,
@@ -101,7 +101,7 @@ $templatecontext = [
     'allactivities' => get_activities_mydashboard($activitiesconf, 3), // second argument is for num of relevant activities for course cards
     'defaultbg' => $OUTPUT->image_url('default-bg', 'theme'),
     'imagenocourse' => $OUTPUT->image_url('courses', 'theme'),
-    'bgcolor'=> $PAGE->theme->settings->mydashboardbgcolor,
+    'bgcolor'=> isset($PAGE->theme->settings->mydashboardbgcolor) ? $PAGE->theme->settings->mydashboardbgcolor : null,
     'bgimage'=> $urlbackground ? $urlbackground : $OUTPUT->image_url('default-bg', 'theme'),
     'time' => time(),
     'helplink' => true
