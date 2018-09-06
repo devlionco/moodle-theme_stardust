@@ -26,42 +26,61 @@ defined('MOODLE_INTERNAL') || die();
 user_preference_allow_ajax_update('drawer-open-nav', PARAM_ALPHA);
 require_once($CFG->libdir . '/behat/lib.php');
 require_once($CFG->dirroot.'/course/lib.php');
-//if we are on module view page, return links 'back to course, section and activity'
 
-if ($PAGE->context && $PAGE->context->contextlevel == CONTEXT_MODULE && $PAGE->cm) {
-    $courseformat = course_get_format($PAGE->course);
-    $courselink = $courseformat->get_view_url(0);
+/**
+ * Returns info about course sections. Is used in header qick navigation
+ * 
+ * @param course_modinfo $courseinfo
+ * @param int $currentsectionnum
+ * 
+ * @return array $sectionsinfo - multilevel array with all course sections and pinned sections info (name, url and current if provided)
+ */
+function get_all_course_sections_info($courseinfo, $currentsectionnum = null) {
+    global $PAGE;
+    $allcoursesectionsinfo = $courseinfo->get_section_info_all();
+    $sectionsinfo = array();
+    foreach ($allcoursesectionsinfo as $secnum => $secinfo) {
+        $secname = course_get_format($PAGE->course)->get_section_name($secnum);
+        $securl = new moodle_url('/course/view.php', array('id' => $PAGE->course->id));
+        $securl->set_anchor('section-'.$secnum);
+        $sectionsinfo['allcoursesections'][$secnum]['name'] = $secname;
+        $sectionsinfo['allcoursesections'][$secnum]['url'] = $securl;
+        if ($secnum == $currentsectionnum) {
+            $sectionsinfo['allcoursesections'][$secnum]['current'] = $secname;
+        }
+        if ($secinfo->pinned) {
+            $sectionsinfo['allcoursesectionspinned'][$secnum]['name'] = $secname;
+            $sectionsinfo['allcoursesectionspinned'][$secnum]['url'] = $securl;
+            if ($secnum == $currentsectionnum) {
+                $sectionsinfo['allcoursesectionspinned'][$secnum]['current'] = true;
+            }
+        }
+    }
+    return $sectionsinfo;
+}
+
+// get course back link
+$courseformat = course_get_format($PAGE->course);
+$courselink = $courseformat->get_view_url(0);
+
+// get info for header in course level pages
+if ($PAGE->context && $PAGE->context->contextlevel == CONTEXT_COURSE) {  
+    // get all course sections info here
+    $allcoursesectionsinfo = get_all_course_sections_info(get_fast_modinfo($PAGE->course));
+}
+
+// get info for header in cm level pages
+if ($PAGE->context && $PAGE->context->contextlevel == CONTEXT_MODULE && $PAGE->cm) {  
+    // defibe current section
     $currentsectionnum = $PAGE->cm->sectionnum;
     $sectionlink = $courseformat->get_view_url($currentsectionnum);
     $textbacktosection = new lang_string('backtosection', 'theme_stardust', $courseformat->get_section_name($currentsectionnum));
     $activitylink = $PAGE->cm->url;
     $textbacktoactivity = new lang_string('backtoactivity', 'theme_stardust');
 
-    //get sections info
+    // get all course sections info here
     $courseinfo = $PAGE->cm->get_modinfo();
-    $allcoursesectionsinfo = $courseinfo->get_section_info_all();
-    $allcoursesections = array();
-    $allcoursesectionspinned = array();
-    // var_dump($courseformat); exit();
-    foreach ($allcoursesectionsinfo as $secnum => $secinfo) {
-        $secname = $courseformat->get_section_name($secnum);
-        //$securl = $courseformat->get_view_url($secnum)->out();
-        $securl = new moodle_url('/course/view.php', array('id' => $PAGE->course->id));
-        $securl->set_anchor('section-'.$secnum);
-        $allcoursesections[$secnum]['name'] = $secname;
-        $allcoursesections[$secnum]['url'] = $securl;
-        if ($secnum == $currentsectionnum) {
-            // $allcoursesections[]['current'] = true;
-            $allcoursesections[$secnum]['current'] = $secname;
-        }
-        if ($secinfo->pinned) {
-            $allcoursesectionspinned[$secnum]['name'] = $secname;
-            $allcoursesectionspinned[$secnum]['url'] = $securl;
-            if ($secnum == $currentsectionnum) {
-                $allcoursesectionspinned[$secnum]['current'] = true;
-            }
-        }
-    }
+    $allcoursesectionsinfo = get_all_course_sections_info($courseinfo, $currentsectionnum);
 
     // get activitie in current section
     $allactivitiesarr = $courseinfo->get_sections();
@@ -72,14 +91,10 @@ if ($PAGE->context && $PAGE->context->contextlevel == CONTEXT_MODULE && $PAGE->c
         $allsectionactivities[$key]['type'] = $activinfo->modname;
         $allsectionactivities[$key]['url'] = $activinfo->url ? $activinfo->url->out() : '';
         if ($activid == $PAGE->cm->id) {
-            // $allsectionactivities[]['current'] = true;
             $allsectionactivities[$key]['current'] = $activinfo->name;
         }
     }
-}
-
-// print_object($PAGE);
-
+} 
 
 $hasfhsdrawer = isset($PAGE->theme->settings->shownavdrawer) && $PAGE->theme->settings->shownavdrawer == 1;
 if (isloggedin() && $hasfhsdrawer && isset($PAGE->theme->settings->shownavclosed) && $PAGE->theme->settings->shownavclosed == 0) {
@@ -110,8 +125,8 @@ $templatecontext = [
     'backtocourseurl' => $courselink,
     'backtosection' => html_writer::link($sectionlink, $textbacktosection),
     'backtoactivity' => html_writer::link($activitylink, $textbacktoactivity),
-    'allcoursesections' => $allcoursesections,
-    'allcoursesectionspinned' => $allcoursesectionspinned = array_values($allcoursesectionspinned),
+    'allcoursesections' => $allcoursesectionsinfo['allcoursesections'],
+    'allcoursesectionspinned' => $allcoursesectionsinfo['allcoursesectionspinned'] = array_values($allcoursesectionsinfo['allcoursesectionspinned']),
     'allsectionactivities' => $allsectionactivities
 ];
 
