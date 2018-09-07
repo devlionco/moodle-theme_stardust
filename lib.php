@@ -85,9 +85,30 @@ function theme_stardust_set_logo($css, $logo) {
  */
 function theme_stardust_pluginfile($course, $cm, $context, $filearea, $args, $forcedownload, array $options = array()) {
     //if ($context->contextlevel == CONTEXT_SYSTEM and ($filearea === 'logo' || $filearea === 'smalllogo')) {
-    if ($context->contextlevel == CONTEXT_SYSTEM) {
+    if ($context->contextlevel == CONTEXT_SYSTEM || $context->contextlevel == CONTEXT_USER) {
         $theme = theme_config::load('stardust');
         // By default, theme files must be cache-able by both browsers and proxies.
+            
+        // serve background image at mypublic page
+        if ($filearea === 'backgroundimg') {
+            $itemid = array_shift($args);
+            $filename = array_pop($args); // The last item in the $args array.
+            if (!$args) {
+                $filepath = '/'; // $args is empty => the path is '/'
+            } else {
+                $filepath = '/'.implode('/', $args).'/'; // $args contains elements of the filepath
+            }
+        
+            // Retrieve the file from the Files API.
+            $fs = get_file_storage();
+            $file = $fs->get_file($context->id, 'theme_stardust', $filearea, $itemid, $filepath, $filename);
+            if (!$file) {
+                return false; // The file does not exist.
+            }
+            send_file($file, 86400, 0, $forcedownload, $options);
+        }
+
+
         if (!array_key_exists('cacheability', $options)) {
             $options['cacheability'] = 'public';
         }

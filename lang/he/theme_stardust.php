@@ -138,6 +138,11 @@ $string['nomedals'] = 'אין מדליות';
 $string['nogrades'] = 'אין ציונים';
 $string['nocertificates'] = 'אין תעודות';
 $string['gohomepage'] = 'דף הבית';
+$string['save_user_avatar'] = 'Save avatar';
+$string['mypublic_background_img_hdr'] = 'Background image';
+$string['mypublic_new_background_img'] = 'Upload new image';
+$string['mypublic_deletebackgroundimg'] = 'Remove image';
+$string['mypublic_save_backgroundimg'] = 'Save image';
 
 // course page
 $string['gohome'] = '< עמוד הבית';

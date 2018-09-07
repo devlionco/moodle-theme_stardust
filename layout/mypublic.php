@@ -23,6 +23,9 @@
  */
 use core_completion\progress;
 
+require_once('mypublic_avatar_form.php');
+require_once('mypublic_background_form.php');
+
 defined('MOODLE_INTERNAL') || die();
 
 global $user;
@@ -41,6 +44,17 @@ $usercoursesprogress = array_values(enrol_get_users_courses($USER->id, true));
 foreach ($usercoursesprogress as $course) {
     //get course progress info
     $course->percentage = round(progress::get_course_progress_percentage($course));
+}
+
+// get background image for mypublic page
+$usercontext = context_user::instance($user->id);
+$fs = get_file_storage();
+if ($files = $fs->get_area_files($usercontext->id, 'theme_stardust', 'backgroundimg', $user->id)) {
+    foreach ($files as $file) {
+        if ($file->get_filename() != '.'){
+            $backgroundimg = moodle_url::make_pluginfile_url($file->get_contextid(), $file->get_component(), $file->get_filearea(), $file->get_itemid(), $file->get_filepath(), $file->get_filename());
+        }
+    }
 }
 
 user_preference_allow_ajax_update('drawer-open-nav', PARAM_ALPHA);
@@ -75,7 +89,8 @@ $templatecontext = [
     'canedit' => $canedit,
     'userpictureurl' => $userpictureurl,
     'usercoursesprogress' => $usercoursesprogress,
-    'helplink' => true
+    'helplink' => true,
+    'backgroundimg' => isset($backgroundimg) ? $backgroundimg : null
 ];
 
 $PAGE->requires->jquery();
@@ -87,3 +102,80 @@ $PAGE->requires->js('/theme/fordson/javascript/tooltipfix.js');
 
 $templatecontext['flatnavigation'] = $PAGE->flatnav;
 echo $OUTPUT->render_from_template('theme_stardust/mypublic', $templatecontext);
+
+// Add form to update user avatar
+
+// Prepare filemanager draft area.
+$draftitemid = 0;
+$usercontext = context_user::instance($user->id);
+$filemanagercontext =  $usercontext;
+$filemanageroptions = array('maxbytes'       => $CFG->maxbytes,
+                             'subdirs'        => 0,
+                             'maxfiles'       => 1,
+                             'accepted_types' => 'web_image');
+file_prepare_draft_area($draftitemid, $filemanagercontext->id, 'user', 'newicon', 0, $filemanageroptions);
+
+// Create form.
+$useravatarform = new mypublic_avatar_form(new moodle_url($PAGE->url), array(
+    //'editoroptions' => $editoroptions,
+    'filemanageroptions' => $filemanageroptions,
+    'user' => $user));
+
+if ($useravatarformdata = $useravatarform->get_data()) {
+    core_user::update_picture($useravatarformdata);
+    
+} else {
+  $useravatarform->display();
+}
+
+// Add form to update user background img at mypublic page
+
+// Prepare filemanager draft area.
+$draftitemid = 0;
+$usercontext = context_user::instance($user->id);
+$filemanagercontext =  $usercontext;
+$filemanageroptions = array('maxbytes'       => $CFG->maxbytes,
+                             'subdirs'        => 0,
+                             'maxfiles'       => 1,
+                             'accepted_types' => 'web_image');
+file_prepare_draft_area($draftitemid, $filemanagercontext->id, 'theme_stardust', 'backgroundimg', $user->id, $filemanageroptions);
+
+// Create form.
+$userbackgroundform = new mypublic_background_form(new moodle_url($PAGE->url), array(
+    //'editoroptions' => $editoroptions,
+    'filemanageroptions' => $filemanageroptions,
+    'user' => $user));
+
+if ($userbackgroundformdata = $userbackgroundform->get_data()) {
+    update_background_img($userbackgroundformdata);
+} else {
+  $userbackgroundform->display();
+}
+
+/**
+ * Updates the provided users backround image at mypublic page
+ *
+ * @param stdClass $formdata An object that contains  information from form
+ * @param array $filemanageroptions
+ * @return bool True if the user was updated, false if it stayed the same.
+ */
+function update_background_img(stdClass $formdata, $filemanageroptions = array()) {
+    global $CFG, $DB;
+
+    $context = context_user::instance($formdata->id, MUST_EXIST);
+    $user = core_user::get_user($formdata->id, 'id', MUST_EXIST);
+
+    // Get file_storage to process files.
+    $fs = get_file_storage();
+    if (!empty($formdata->deletebackgroundimg)) {
+        // The user has chosen to delete the selected background
+        $fs->delete_area_files($context->id, 'theme_stardust', 'backgroundimg', $formdata->id); // Drop all images in area.
+
+    } else {
+        // Save newly uploaded file, this will avoid context mismatch for newly created users.
+        $fs->delete_area_files($context->id, 'theme_stardust', 'backgroundimg', $formdata->id); // Drop all images in area.
+        file_save_draft_area_files($formdata->backgroundimg, $context->id, 'theme_stardust', 'backgroundimg', $formdata->id, $filemanageroptions);
+    }
+
+}
+
