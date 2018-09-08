@@ -573,7 +573,8 @@ body#page-login-signup {
     -ms-flex-direction: row;
         flex-direction: row;
     -ms-flex-pack: start !important;
-        justify-content: flex-start !important; }
+        justify-content: flex-start !important;
+    max-width: 1344px; }
   .dheader .dheader__logo {
     margin: 0;
     background: none;
@@ -3180,8 +3181,20 @@ header .nav {
     bottom: 0;
     right: 0; }
   .incourse-header .top-wrapper .top {
-    width: 1344px;
-    margin-bottom: 46px; }
+    max-width: 1344px;
+    margin-bottom: 46px;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+        flex-direction: column;
+    -ms-flex-align: start;
+        align-items: flex-start;
+    overflow-x: hidden; }
+    .incourse-header .top-wrapper .top:before {
+      content: '';
+      position: relative;
+      display: block;
+      width: 1344px; }
     .incourse-header .top-wrapper .top .subtitle {
       margin-bottom: 16px;
       margin-top: 42px;
@@ -3373,7 +3386,7 @@ header .nav {
         color: #fff !important; }
       #page-mod-quiz-attempt #page-wrapper section#region-main.has-blocks .card {
         min-height: auto;
-        width: 1344px;
+        max-width: 1344px;
         margin: 0 auto; }
       #page-mod-quiz-attempt #page-wrapper section#region-main.has-blocks .course-content-header {
         display: none; }

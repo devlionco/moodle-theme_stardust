@@ -50,8 +50,18 @@
       right: 0;
     }
     .top {
-      width: 1344px;
+      max-width: 1344px;
       margin-bottom: 46px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      overflow-x: hidden;
+      &:before{
+        content:'';
+        position: relative;
+        display: block;
+        width:1344px;
+      }
       .subtitle {
         margin-bottom: 16px;
         margin-top: 42px;
