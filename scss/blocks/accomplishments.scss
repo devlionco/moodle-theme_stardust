@@ -12,12 +12,6 @@
       display: flex;
       .nav-item {
         margin-right: 40px;
-        &.active {
-          .tab-link {
-            opacity: 1;
-            border-bottom: 2px solid $primary-color;
-          }
-        }
       }
       .tab-link {
         opacity: 0.6;
@@ -27,6 +21,10 @@
         font-weight:$bold;
         text-decoration: none;
         padding-bottom: 3px;
+        &.active {
+          opacity: 1;
+          border-bottom: 2px solid $primary-color;
+        }
       }
     }
     .filters {
