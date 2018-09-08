@@ -3664,6 +3664,18 @@ header .nav {
   #page-mod-quiz-attempt #page-footer {
     background-color: #f4f3f0; }
 
+#page-mod-quiz-summary #region-main-box:after,
+#page-mod-quiz-view #region-main-box:after {
+  content: '';
+  display: block !important;
+  clear: both; }
+
+#page-mod-quiz-summary #region-main-box section::after,
+#page-mod-quiz-view #region-main-box section::after {
+  content: '';
+  display: block !important;
+  clear: both; }
+
 .popover-region-messages .popover-region-toggle {
   outline: none; }
   .popover-region-messages .popover-region-toggle::before {

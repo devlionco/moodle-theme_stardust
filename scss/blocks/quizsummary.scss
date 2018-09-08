@@ -1,0 +1,15 @@
+#page-mod-quiz-summary,
+#page-mod-quiz-view{
+  #region-main-box{
+    &:after{
+      content:'';
+      display: block!important;
+      clear: both;
+    }
+    section::after {
+      content: '';
+      display: block!important;
+      clear: both;
+    }
+  }
+}
