@@ -82,8 +82,8 @@ class course_renderer extends \core_course_renderer {
             //     $tmod->cutoffdate = $mextra->cutoffdate;
             // }
 
-            $tmod->duedate = $mextra->duedate ? $mextra->duedate : 0;
-            $tmod->cutoffdate= $mextra->cutoffdate ? $mextra->cutoffdate : 0;
+            $tmod->duedate = isset($mextra->duedate) ? $mextra->duedate : 0;
+            $tmod->cutoffdate= isset($mextra->cutoffdate) ? $mextra->cutoffdate : 0;
 
             if ($mod->modname == 'quiz'){
               $tmod->cutoffdate= $mextra->timeclose ? : 0;
