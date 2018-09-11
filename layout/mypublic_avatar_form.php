@@ -118,5 +118,3 @@ class mypublic_avatar_form extends moodleform {
     }
 
 }
-
-

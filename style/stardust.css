@@ -1685,7 +1685,10 @@ header .nav {
     position: relative;
     padding-left: 162px;
     padding-right: 162px;
-    background: lightskyblue; }
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-color: #0096db; }
     #mypublic-student .main-wrapper .icon-help {
       width: 64px;
       height: 60px;
@@ -1722,6 +1725,7 @@ header .nav {
           -ms-flex-align: end;
               align-items: flex-end; }
           #mypublic-student .main-wrapper .main-header .block-right .icon-camera {
+            cursor: pointer;
             width: 20px;
             height: 18px;
             background-image: url([[pix:theme|pagemy/camera]]); }
@@ -1906,6 +1910,17 @@ header .nav {
                   margin: 0 2px;
                   background: url([[pix:theme|pagemy/diplom]]) no-repeat center center;
                   background-size: contain; }
+
+#page-user-profile .mform {
+  display: none;
+  position: fixed;
+  top: 20vh;
+  width: 60%;
+  right: 20%;
+  background: #fff;
+  border: 1px solid #ddd;
+  padding: 10px;
+  box-shadow: 0 0 5px 2px #bababa; }
 
 #page-user-profile #page-wrapper {
   padding-bottom: 1rem;

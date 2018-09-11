@@ -123,7 +123,7 @@ $useravatarform = new mypublic_avatar_form(new moodle_url($PAGE->url), array(
 
 if ($useravatarformdata = $useravatarform->get_data()) {
     core_user::update_picture($useravatarformdata);
-    
+
 } else {
   $useravatarform->display();
 }
@@ -178,4 +178,3 @@ function update_background_img(stdClass $formdata, $filemanageroptions = array()
     }
 
 }
-

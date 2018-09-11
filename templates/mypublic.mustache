@@ -116,7 +116,7 @@
 {{/showbacktotop}}
 
 <div id="mypublic-student">
-    <div class="main-wrapper" style="background:url({{{backgroundimg}}});">
+    <div class="main-wrapper" style="background-image:url({{{backgroundimg}}});">
         <div class="icon-help">
                 {{#helplink}}
                     {{>theme_stardust/help-link}}
@@ -132,7 +132,11 @@
                     <h1 class="title">{{userinfo.firstname}} {{userinfo.lastname}}</h1>
                 </div>
                 <div class="block-right">
-                    <div class="icon-camera"></div>
+                    <div
+                      id = "change_background"
+                      class="icon-camera"
+                      data-tooltip = "{{#str}} change_background, theme_stardust{{/str}}"
+                    ></div>
                 </div>
             </div>
             <div class="main-content">
@@ -140,7 +144,8 @@
                     <div class="title">{{#str}} profile_picture, theme_stardust{{/str}}</div>
                     <div id="avatar-wrapper" class="avatar-wrapper">
                         <img src="{{userpictureurl}}" class="avatar" alt="avatar">
-                        <a class="avatar-tooltip" href = "{{config.wwwroot}}/user/editadvanced.php?id={{userinfo.id}}">
+                        <!-- <a class="avatar-tooltip" href = "{{config.wwwroot}}/user/editadvanced.php?id={{userinfo.id}}"> -->
+                        <a id = "change_picture" class="avatar-tooltip" href = "javascript:void(0)">
                               <div class="icon-camera"></div>
                               <div>{{#str}} change_picture, theme_stardust{{/str}}</div>
                         </a>
@@ -264,5 +269,34 @@ require(['theme_boost/drawer'], function(mod) {
     mod.init();
 });
 {{/hasfhsdrawer}}
-require(['jquery', 'theme_stardust/mypublicpage']);
+
+require(['jquery'], function($) {
+
+  $('#page-user-profile').on('click', function(e){
+    if (!$(e.target).parents('form.mform').length && !$(e.target).hasClass('fp-upload-btn') && !$(e.target).parents('div.moodle-dialogue-base').length) {
+      $('.mform').fadeOut();
+    };
+  });
+
+  $(document).keyup(function(e) {
+    if (e.keyCode == 27) { // esc keycode
+        $('.mform').fadeOut();
+    }
+  });
+
+  $('.mform-close').on('click', function(e){
+    $(e.target).parent().fadeOut();
+  });
+
+  $('#change_picture').on('click', function(e){
+    e.stopPropagation();
+    $('#mform1').fadeToggle();
+  });
+
+  $('#change_background').on('click', function(e){
+    e.stopPropagation();
+    $('#mform2').fadeToggle();
+  });
+
+});
 {{/js}}
