@@ -22,7 +22,6 @@
   }
 }
 
-
 #page-mod-quiz-attempt {
   background: $gray_light;
   position: relative;
@@ -408,5 +407,17 @@
     // position: absolute;
     // bottom: 0;
     // width: 100%;
+  }
+}
+
+@media #{$less_1344} {
+  #page-mod-quiz-attempt {
+    #page-wrapper {
+      section#region-main.has-blocks {
+        .card {
+          margin: 0 4%;
+        }
+      }
+    }
   }
 }
