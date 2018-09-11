@@ -3550,9 +3550,17 @@ header .nav {
           position: absolute;
           bottom: 0;
           left: 50%;
-          display: -ms-flexbox;
-          display: flex;
+          display: block;
+          float: left;
           overflow-x: auto; }
+          #page-mod-quiz-attempt #page-wrapper section#region-main.has-blocks [role="main"] .qn_buttons .qn_buttons-inner {
+            display: -ms-flexbox;
+            display: flex;
+            -ms-flex-direction: row;
+                flex-direction: row;
+            -ms-flex-wrap: nowrap;
+                flex-wrap: nowrap;
+            box-sizing: content-box; }
           #page-mod-quiz-attempt #page-wrapper section#region-main.has-blocks [role="main"] .qn_buttons::-webkit-scrollbar {
             width: 1px;
             height: 5px;
@@ -3587,6 +3595,8 @@ header .nav {
                 justify-content: center;
             margin-left: 30px;
             overflow: unset; }
+            #page-mod-quiz-attempt #page-wrapper section#region-main.has-blocks [role="main"] .qn_buttons .qnbutton:first-of-type {
+              margin-left: 0; }
             #page-mod-quiz-attempt #page-wrapper section#region-main.has-blocks [role="main"] .qn_buttons .qnbutton:after {
               content: '';
               position: absolute;

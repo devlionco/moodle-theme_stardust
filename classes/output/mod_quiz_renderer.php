@@ -49,7 +49,8 @@ class theme_stardust_mod_quiz_renderer extends mod_quiz_renderer {
      */
     public function attempt_page($attemptobj, $page, $accessmanager, $messages, $slots, $id, $nextpage) {
         global $PAGE;
-        $PAGE->requires->js_call_amd('theme_stardust/quizfilter', 'init'); // slider for paging
+        $PAGE->requires->js_call_amd('theme_stardust/quizfilter', 'init'); // filter
+        $PAGE->requires->js_call_amd('theme_stardust/questionsnav', 'init'); // slider for paging
         // $PAGE->requires->js_call_amd('theme_stardust/swipepaging', 'init'); // slider for paging
         // $PAGE->set_pagelayout('quizattempt');
         $navbc = new quiz_attempt_nav_panel($attemptobj, $attemptobj->get_display_options(true), $page, $showall);
@@ -94,6 +95,7 @@ class theme_stardust_mod_quiz_renderer extends mod_quiz_renderer {
 
         $bcc = $panel->get_button_container_class();
         $output .= html_writer::start_tag('div', array('class' => "qn_buttons clearfix $bcc"));
+        $output .= html_writer::start_tag('div', array('class' => "qn_buttons-inner"));
           foreach ($panel->get_question_buttons() as $button) {
               $button->navmethod = $panel->get_attemptobj()->get_navigation_method(); // nadavkav 15/7/2014
               // if ($button->stateclass != ' qpage') {
@@ -101,6 +103,7 @@ class theme_stardust_mod_quiz_renderer extends mod_quiz_renderer {
                 $output .= $this->render($button);
               }
           }
+        $output .= html_writer::end_tag('div');
         $output .= html_writer::end_tag('div');
 
         $output .= html_writer::tag('div', $panel->render_end_bits($this),
