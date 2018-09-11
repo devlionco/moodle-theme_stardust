@@ -3363,6 +3363,21 @@ header .nav {
 [dir="ltr"] #page-mod-quiz-attempt section#region-main.has-blocks .qn_buttons {
   transform: translateX(-50%); }
 
+#page-mod-quiz-summary .endtestlink {
+  display: none; }
+
+#page-mod-quiz-summary .m-t-2.m-b-1 {
+  padding: 0 4%;
+  background-color: rgba(0, 0, 0, 0.05); }
+  #page-mod-quiz-summary .m-t-2.m-b-1 > .row {
+    display: -ms-flexbox;
+    display: flex; }
+
+#page-mod-quiz-summary #page-wrapper section#region-main.has-blocks .card {
+  min-height: auto;
+  max-width: 1344px;
+  margin: 0 auto; }
+
 #page-mod-quiz-attempt {
   background: #F3F2F0;
   position: relative;
@@ -3843,5 +3858,6 @@ header .nav {
   .incourse-header .top-wrapper .top{
     margin-left: 4%;
     margin-right: 4%; }
+  #page-mod-quiz-summary #page-wrapper section#region-main.has-blocks .card,
   #page-mod-quiz-attempt #page-wrapper section#region-main.has-blocks .card{
     margin: 0 4%; } }
