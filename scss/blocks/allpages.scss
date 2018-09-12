@@ -65,3 +65,18 @@
   background: none;
   border: none;
 }
+
+
+.card.card-block {
+  min-height: auto;
+  max-width: 1344px;
+  margin: 0 auto;
+}
+
+@media #{$less_1344} {
+  .card.card-block  {
+    min-height: auto;
+    max-width: 1344px;
+    margin: 0 4%;
+  }
+}

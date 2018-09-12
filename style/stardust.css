@@ -740,6 +740,11 @@ header .nav {
   background: none;
   border: none; }
 
+.card.card-block {
+  min-height: auto;
+  max-width: 1344px;
+  margin: 0 auto; }
+
 #my-page {
   color: #3C3C3C;
   font-family: "openSans"; }
@@ -3809,6 +3814,8 @@ header .nav {
       left: 16px;
       right: auto; }
     @media only screen and (min-width: 576px) and (max-width: 992px){
+  .dheader__tutorial{
+    display: none; }
   #my-page .main-wrapper .main{
     max-width: 95%; }
   #my-page .main-wrapper .main-content{
@@ -3830,6 +3837,8 @@ header .nav {
     -ms-grid-columns: 1fr 1fr;
     grid-template-columns: 1fr 1fr; } }
     @media only screen and (max-width: 576px){
+  .dheader__tutorial{
+    display: none; }
   #my-page .main-wrapper .main{
     max-width: 100%; }
   #my-page .main-wrapper .main-content{
@@ -3850,14 +3859,18 @@ header .nav {
   .format-cards .sections{
     -ms-grid-columns: 1fr;
     grid-template-columns: 1fr; } }
-    @media only screen and (max-width: 992px){
-  #mypublic-student .main-wrapper .main-content{
-    -ms-grid-columns: (minmax(200px, 100%))[auto-fill];
-    grid-template-columns: repeat(auto-fill, minmax(200px, 100%)); } }
     @media only screen and (max-width: 1344px){
+  .card.card-block{
+    min-height: auto;
+    max-width: 1344px;
+    margin: 0 4%; }
   .incourse-header .top-wrapper .top{
     margin-left: 4%;
     margin-right: 4%; }
   #page-mod-quiz-summary #page-wrapper section#region-main.has-blocks .card,
   #page-mod-quiz-attempt #page-wrapper section#region-main.has-blocks .card{
     margin: 0 4%; } }
+    @media only screen and (max-width: 992px){
+  #mypublic-student .main-wrapper .main-content{
+    -ms-grid-columns: (minmax(200px, 100%))[auto-fill];
+    grid-template-columns: repeat(auto-fill, minmax(200px, 100%)); } }

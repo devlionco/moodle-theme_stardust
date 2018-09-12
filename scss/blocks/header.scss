@@ -157,3 +157,15 @@ header .nav {
     display: none;
   }
 }
+
+@media #{$is-tablet} {
+  .dheader__tutorial {
+    display: none;
+  }
+}
+
+@media #{$is-mobile} {
+  .dheader__tutorial {
+    display: none;
+  }
+}
