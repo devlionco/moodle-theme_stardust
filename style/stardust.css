@@ -3623,20 +3623,26 @@ header .nav {
               color: #ff7e99 !important;
               border-color: #ff7e99 !important;
               border-width: 2px; }
-        #page-mod-quiz-attempt #page-wrapper section#region-main.has-blocks [role="main"] .submitbtns [type="submit"] {
-          height: 48px;
-          width: 180px;
-          border-radius: 21px;
-          background-color: #0096DB;
-          color: #FFFFFF;
-          border: none;
-          font-size: 18px;
-          font-weight: bold;
-          letter-spacing: 0.5px;
-          outline: none;
-          transition: .2s; }
-          #page-mod-quiz-attempt #page-wrapper section#region-main.has-blocks [role="main"] .submitbtns [type="submit"]:hover {
-            box-shadow: 0 0 4px 2px #19b7ff; }
+        #page-mod-quiz-attempt #page-wrapper section#region-main.has-blocks [role="main"] .submitbtns {
+          min-height: 70px; }
+          #page-mod-quiz-attempt #page-wrapper section#region-main.has-blocks [role="main"] .submitbtns:after {
+            content: '';
+            display: block;
+            clear: both; }
+          #page-mod-quiz-attempt #page-wrapper section#region-main.has-blocks [role="main"] .submitbtns [type="submit"] {
+            height: 48px;
+            width: 180px;
+            border-radius: 21px;
+            background-color: #0096DB;
+            color: #FFFFFF;
+            border: none;
+            font-size: 18px;
+            font-weight: bold;
+            letter-spacing: 0.5px;
+            outline: none;
+            transition: .2s; }
+            #page-mod-quiz-attempt #page-wrapper section#region-main.has-blocks [role="main"] .submitbtns [type="submit"]:hover {
+              box-shadow: 0 0 4px 2px #19b7ff; }
         #page-mod-quiz-attempt #page-wrapper section#region-main.has-blocks [role="main"] .endtestlink,
         #page-mod-quiz-attempt #page-wrapper section#region-main.has-blocks [role="main"] .singlebutton {
           display: none; }
@@ -3880,7 +3886,10 @@ header .nav {
   #page-mod-quiz-summary #page-wrapper section#region-main.has-blocks .card,
   #page-mod-quiz-attempt #page-wrapper section#region-main.has-blocks .card{
     margin: 0 4%; } }
-    @media only screen and (max-width: 992px){
-  #mypublic-student .main-wrapper .main-content{
-    -ms-grid-columns: (minmax(200px, 100%))[auto-fill];
-    grid-template-columns: repeat(auto-fill, minmax(200px, 100%)); } }
+    @media screen and (max-width: 800px){
+  #page-mod-quiz-summary #page-wrapper section#region-main.has-blocks .card,
+  #page-mod-quiz-attempt #page-wrapper section#region-main.has-blocks .card{
+    margin: 0 4%; }
+  #page-mod-quiz-summary #page-wrapper section#region-main.has-blocks .card #responseform,
+    #page-mod-quiz-attempt #page-wrapper section#region-main.has-blocks .card #responseform{
+    margin-bottom: 80px; } }

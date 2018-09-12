@@ -333,6 +333,12 @@
           }
         }
         .submitbtns {
+          min-height:70px;
+          &:after{
+            content:'';
+            display: block;
+            clear: both;
+          }
           [type="submit"] {
             height: 48px;
             width: 180px;
@@ -449,6 +455,21 @@
       section#region-main.has-blocks {
         .card {
           margin: 0 4%;
+        }
+      }
+    }
+  }
+}
+@media screen and (max-width:800px) {
+  #page-mod-quiz-summary,
+  #page-mod-quiz-attempt {
+    #page-wrapper {
+      section#region-main.has-blocks {
+        .card {
+          margin: 0 4%;
+          #responseform{
+            margin-bottom: 80px;
+          }
         }
       }
     }
