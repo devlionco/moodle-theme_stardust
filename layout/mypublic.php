@@ -104,18 +104,6 @@ $templatecontext['flatnavigation'] = $PAGE->flatnav;
 echo $OUTPUT->render_from_template('theme_stardust/mypublic', $templatecontext);
 
 // Add form to update user avatar
-
-// Prepare filemanager draft area.
-$draftitemid = 0;
-$usercontext = context_user::instance($user->id);
-$filemanagercontext =  $usercontext;
-$filemanageroptions = array('maxbytes'       => $CFG->maxbytes,
-                             'subdirs'        => 0,
-                             'maxfiles'       => 1,
-                             'accepted_types' => 'web_image');
-file_prepare_draft_area($draftitemid, $filemanagercontext->id, 'user', 'newicon', 0, $filemanageroptions);
-
-// Create form.
 $useravatarform = new mypublic_avatar_form(new moodle_url($PAGE->url), array(
     //'editoroptions' => $editoroptions,
     'filemanageroptions' => $filemanageroptions,
@@ -129,25 +117,14 @@ if ($useravatarformdata = $useravatarform->get_data()) {
 }
 
 // Add form to update user background img at mypublic page
-
-// Prepare filemanager draft area.
-$draftitemid = 0;
-$usercontext = context_user::instance($user->id);
-$filemanagercontext =  $usercontext;
-$filemanageroptions = array('maxbytes'       => $CFG->maxbytes,
-                             'subdirs'        => 0,
-                             'maxfiles'       => 1,
-                             'accepted_types' => 'web_image');
-file_prepare_draft_area($draftitemid, $filemanagercontext->id, 'theme_stardust', 'backgroundimg', $user->id, $filemanageroptions);
-
-// Create form.
 $userbackgroundform = new mypublic_background_form(new moodle_url($PAGE->url), array(
     //'editoroptions' => $editoroptions,
-    'filemanageroptions' => $filemanageroptions,
+    //'filemanageroptions' => $filemanageroptions,
     'user' => $user));
 
 if ($userbackgroundformdata = $userbackgroundform->get_data()) {
     update_background_img($userbackgroundformdata);
+    redirect(new moodle_url('/user/profile.php', array('id' => $user->id)));
 } else {
   $userbackgroundform->display();
 }
@@ -175,6 +152,7 @@ function update_background_img(stdClass $formdata, $filemanageroptions = array()
         // Save newly uploaded file, this will avoid context mismatch for newly created users.
         $fs->delete_area_files($context->id, 'theme_stardust', 'backgroundimg', $formdata->id); // Drop all images in area.
         file_save_draft_area_files($formdata->backgroundimg, $context->id, 'theme_stardust', 'backgroundimg', $formdata->id, $filemanageroptions);
+        redirect(new moodle_url('/user/profile.php', array('id' => $user->id)));
     }
 
 }

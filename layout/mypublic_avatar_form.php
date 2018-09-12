@@ -43,16 +43,17 @@ class mypublic_avatar_form extends moodleform {
         global $USER, $CFG;
 
         $mform = $this->_form;
-        $editoroptions = null;
-        $filemanageroptions = null;
-
         if (!is_array($this->_customdata)) {
             throw new coding_exception('invalid custom data for user_edit_form');
         }
-        //$editoroptions = $this->_customdata['editoroptions'];
-        //$filemanageroptions = $this->_customdata['filemanageroptions'];
         $user = $this->_customdata['user'];
         $userid = $user->id;
+
+        $filemanageroptions = array('subdirs' => false, 'maxfiles' => 1, 'accepted_types' => 'web_image');
+        // $context = context_user::instance($userid);
+        // $avatardraftid = file_get_submitted_draft_itemid('imagefile');
+        // file_prepare_draft_area($avatardraftid , $context->id, 'user', 'icon', 0,
+        //                 array('subdirs' => false));
 
         // example source /user/editlib.php
         //useredit_shared_definition($mform, $editoroptions, $filemanageroptions, $user);
@@ -65,11 +66,13 @@ class mypublic_avatar_form extends moodleform {
 
         $mform->addElement('filemanager', 'imagefile', get_string('newpicture'), '', $filemanageroptions);
         $mform->addHelpButton('imagefile', 'newpicture');
+        // $mform->setDefault('imagefile', $avatardraftid); 
 
         $mform->addElement('checkbox', 'deletepicture', get_string('deletepicture'));
         $mform->setDefault('deletepicture', 0);
 
-        $this->add_action_buttons(false, get_string('save_user_avatar', 'theme_stardust'));
+        $mform->addElement('submit', 'submitbackground', get_string('savechanges'));
+        $mform->closeHeaderBefore('submitbackground');
 
         $this->set_data($user);
     }
