@@ -3,15 +3,21 @@ define(['jquery'], function ($) {
 
   const filter = document.querySelector(`.filter_wrap`);
 
+
+
   return {
     init: function () {
 
       filter.addEventListener('click', function(e){
+
         let target = e.target;
         while(target != filter) {
 
           if (target.dataset.handler === `filter_flag`) {
-            // $(target).sibling().removeClass('filter_active');
+            $.each($('.filter_toggle.filter_active:not(.filter_flag)'), function(){
+              this.click();
+            });
+
             if (target.classList.contains('filter_active')) {
               $.each($('form input[alt="Flagged"]'), function(key, value){
                 $(value).parents('.que').fadeOut();
@@ -28,7 +34,9 @@ define(['jquery'], function ($) {
           }
 
           if (target.dataset.handler === `filter_answered`) {
-            // $(target).sibling().removeClass('filter_active');
+            $.each($('.filter_toggle.filter_active:not(.filter_answered)'), function(){
+              this.click();
+            });
             if (target.classList.contains('filter_active')) {
               $.each($('form .answersaved'), function(key, value){
                 $(value).fadeOut();
@@ -44,7 +52,9 @@ define(['jquery'], function ($) {
           }
 
           if (target.dataset.handler === `filter_notanswered`) {
-            // $(target).sibling().removeClass('filter_active');
+            $.each($('.filter_toggle.filter_active:not(.filter_notanswered)'), function(){
+              this.click();
+            });
             if (target.classList.contains('filter_active')) {
               $.each($('form .notyetanswered'), function(key, value){
                 $(value).fadeOut();
