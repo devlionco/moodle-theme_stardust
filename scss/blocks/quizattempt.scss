@@ -256,8 +256,15 @@
           position: absolute;
           bottom: 0;
           left: 50%;
-          display: flex;
+          display: block;
+          float: left;
           overflow-x: auto;
+          .qn_buttons-inner{
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            box-sizing: content-box;
+          }
           &::-webkit-scrollbar {
               width: 1px;
               height: 5px;
@@ -293,6 +300,9 @@
             justify-content: center;
             margin-left: 30px;
             overflow: unset;
+            &:first-of-type{
+              margin-left: 0;
+            }
             &:after {
               content: '';
               position: absolute;
