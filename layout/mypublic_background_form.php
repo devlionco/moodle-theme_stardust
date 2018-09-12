@@ -43,29 +43,33 @@ class mypublic_background_form extends moodleform {
         global $USER, $CFG;
 
         $mform = $this->_form;
-        $editoroptions = null;
-        $filemanageroptions = null;
-
         if (!is_array($this->_customdata)) {
             throw new coding_exception('invalid custom data for user_edit_form');
         }
-        //$editoroptions = $this->_customdata['editoroptions'];
-        //$filemanageroptions = $this->_customdata['filemanageroptions'];
         $user = $this->_customdata['user'];
         $userid = $user->id;
 
-        $mform->addElement('header', 'moodle_picture', get_string('mypublic_background_img_hdr', 'theme_stardust'));
-        $mform->setExpanded('moodle_picture', true);
+        $filemanageroptions = array('subdirs' => false, 'maxfiles' => 1, 'accepted_types' => 'web_image');
+        $context = context_user::instance($userid);
+        $backgroundimgdraftid = file_get_submitted_draft_itemid('backgroundimg');
+        file_prepare_draft_area($backgroundimgdraftid, $context->id, 'theme_stardust', 'backgroundimg', $userid,
+                        array('subdirs' => false));
+
+
+        $mform->addElement('header', 'background_img', get_string('mypublic_background_img_hdr', 'theme_stardust'));
+        $mform->setExpanded('background_img', true);
 
         $mform->addElement('hidden', 'id');
         $mform->setType('id', core_user::get_property_type('id'));
 
         $mform->addElement('filemanager', 'backgroundimg', get_string('mypublic_new_background_img', 'theme_stardust'), '', $filemanageroptions);
+        $mform->setDefault('backgroundimg', $backgroundimgdraftid); 
 
         $mform->addElement('checkbox', 'deletebackgroundimg', get_string('mypublic_deletebackgroundimg', 'theme_stardust'));
         $mform->setDefault('deletebackgroundimg', 0);
 
-        $this->add_action_buttons(false, get_string('mypublic_save_backgroundimg', 'theme_stardust'));
+        $mform->addElement('submit', 'submitavatar', get_string('savechanges'));
+        $mform->closeHeaderBefore('submitavatar');
 
         $this->set_data($user);
     }
