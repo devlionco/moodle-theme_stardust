@@ -3368,16 +3368,28 @@ header .nav {
 [dir="ltr"] #page-mod-quiz-attempt section#region-main.has-blocks .qn_buttons {
   transform: translateX(-50%); }
 
+#page-mod-quiz-edit #page-content.row {
+  display: -ms-flexbox;
+  display: flex; }
+
+#page-mod-quiz-edit #region-main-box {
+  -ms-flex-positive: 1;
+      flex-grow: 1; }
+
+#page-mod-quiz-edit .endtestlink,
 #page-mod-quiz-summary .endtestlink {
   display: none; }
 
+#page-mod-quiz-edit .m-t-2.m-b-1,
 #page-mod-quiz-summary .m-t-2.m-b-1 {
   padding: 0 4%;
   background-color: rgba(0, 0, 0, 0.05); }
+  #page-mod-quiz-edit .m-t-2.m-b-1 > .row,
   #page-mod-quiz-summary .m-t-2.m-b-1 > .row {
     display: -ms-flexbox;
     display: flex; }
 
+#page-mod-quiz-edit #page-wrapper section#region-main.has-blocks .card,
 #page-mod-quiz-summary #page-wrapper section#region-main.has-blocks .card {
   min-height: auto;
   max-width: 1344px;
@@ -3886,6 +3898,10 @@ header .nav {
   #page-mod-quiz-summary #page-wrapper section#region-main.has-blocks .card,
   #page-mod-quiz-attempt #page-wrapper section#region-main.has-blocks .card{
     margin: 0 4%; } }
+    @media only screen and (max-width: 992px){
+  #mypublic-student .main-wrapper .main-content{
+    -ms-grid-columns: (minmax(200px, 100%))[auto-fill];
+    grid-template-columns: repeat(auto-fill, minmax(200px, 100%)); } }
     @media screen and (max-width: 800px){
   #page-mod-quiz-summary #page-wrapper section#region-main.has-blocks .card,
   #page-mod-quiz-attempt #page-wrapper section#region-main.has-blocks .card{
