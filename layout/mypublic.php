@@ -57,6 +57,15 @@ if ($files = $fs->get_area_files($usercontext->id, 'theme_stardust', 'background
     }
 }
 
+// get user's interests - tags
+$interests = core_tag_tag::get_item_tags_array('core', 'user', $user->id, core_tag_tag::BOTH_STANDARD_AND_NOT, 0, false);
+if ($interests) {
+    $user->interests = join(', ', $interests);
+}
+
+// upload custom user fields (birthday) to user object
+profile_load_data($user);
+
 user_preference_allow_ajax_update('drawer-open-nav', PARAM_ALPHA);
 require_once($CFG->libdir . '/behat/lib.php');
 // $hasfhsdrawer = isset($PAGE->theme->settings->shownavdrawer) && $PAGE->theme->settings->shownavdrawer == 1;

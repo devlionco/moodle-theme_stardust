@@ -22,6 +22,10 @@ function save_mypublicpage_shortform() {
     $institution = optional_param('institution', '', PARAM_TEXT);
     $address = optional_param('address', '', PARAM_TEXT);
     $phone2 = optional_param('phone2', '', PARAM_TEXT);
+    $icq = optional_param('icq', '', PARAM_INT);
+    $birthday = optional_param('birthday', '', PARAM_INT);
+    $interests = optional_param('interests', '', PARAM_RAW);
+
 
         $fullname = preg_replace('/\s+/', ' ',$fullname);
         $arrname = explode(' ', $fullname);
@@ -56,8 +60,23 @@ function save_mypublicpage_shortform() {
         if(!empty($address)){
             $user->address = $address;
         }
+        if(!empty($icq)){
+            $user->icq = $icq;
+        }
 
         $result = $DB->update_record('user', $user, $bulk=false); 
+
+        // update birthday
+        if(!empty($birthday)){
+            // SG - TODO save birthday 
+            
+        }
+
+        // update interests
+        if(!empty($interests)){
+            // SG - TODO save interests
+            
+        }
 
     return $result;
 };
