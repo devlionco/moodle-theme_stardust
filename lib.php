@@ -288,9 +288,9 @@ function get_activities_mydashboard($activitiesconf = array(), $numofrelevantact
                     // add additional content and modify added into activityinfo
                     $activityinfo = set_icon_style_for_activity($module);
 
-                    // filter modules. Show only visible to current user activities
+                    // filter modules. Show only visible and available to current user activities
                     $cminfo = get_fast_modinfo($course->id)->cms[$module->id];
-                    if (!$cminfo->is_visible_on_course_page()) {
+                    if (!$cminfo->uservisible || !$cminfo->is_visible_on_course_page()) {
                         continue;
                     }            
 
