@@ -706,13 +706,9 @@ header .nav {
 .modal-dialog {
   max-width: 80%; }
 
-.row {
-  background: none;
-  display: block; }
-
-.modal-body .row {
-  display: -ms-flexbox;
-  display: flex; }
+#region-main-box {
+  -ms-flex-positive: 1;
+      flex-grow: 1; }
 
 .modal-body i {
   margin-right: 10px; }
@@ -3366,14 +3362,6 @@ header .nav {
 
 [dir="ltr"] #page-mod-quiz-attempt section#region-main.has-blocks .qn_buttons {
   transform: translateX(-50%); }
-
-#page-mod-quiz-edit #page-content.row {
-  display: -ms-flexbox;
-  display: flex; }
-
-#page-mod-quiz-edit #region-main-box {
-  -ms-flex-positive: 1;
-      flex-grow: 1; }
 
 #page-mod-quiz-edit .endtestlink,
 #page-mod-quiz-summary .endtestlink {
