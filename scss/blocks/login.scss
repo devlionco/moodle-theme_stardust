@@ -11,7 +11,11 @@
   .login {
     display: none;
   }
+  .row {
+    background: none;
+  }
   .dlogin__flex {
+    flex-grow: 1;
     display: flex;
     justify-content: center;
   }
@@ -207,6 +211,7 @@
   .dlogin__footer {
     display: flex;
     justify-content: center;
+    flex-grow: 1;
   }
 
   .dglogin__footer-link {

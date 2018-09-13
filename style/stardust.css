@@ -277,7 +277,12 @@
 #page-login-index .login {
   display: none; }
 
+#page-login-index .row {
+  background: none; }
+
 #page-login-index .dlogin__flex {
+  -ms-flex-positive: 1;
+      flex-grow: 1;
   display: -ms-flexbox;
   display: flex;
   -ms-flex-pack: center;
@@ -484,7 +489,9 @@
   display: -ms-flexbox;
   display: flex;
   -ms-flex-pack: center;
-      justify-content: center; }
+      justify-content: center;
+  -ms-flex-positive: 1;
+      flex-grow: 1; }
 
 #page-login-index .dglogin__footer-link {
   cursor: pointer;
@@ -3371,10 +3378,6 @@ header .nav {
 #page-mod-quiz-summary .m-t-2.m-b-1 {
   padding: 0 4%;
   background-color: rgba(0, 0, 0, 0.05); }
-  #page-mod-quiz-edit .m-t-2.m-b-1 > .row,
-  #page-mod-quiz-summary .m-t-2.m-b-1 > .row {
-    display: -ms-flexbox;
-    display: flex; }
 
 #page-mod-quiz-edit #page-wrapper section#region-main.has-blocks .card,
 #page-mod-quiz-summary #page-wrapper section#region-main.has-blocks .card {
