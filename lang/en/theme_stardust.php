@@ -486,6 +486,7 @@ $string['phone'] = 'Phone';
 $string['school_details'] = 'School details';
 $string['school'] = 'School';
 $string['address'] = 'Address';
+$string['icq'] = 'ICQ';
 $string['accomplishments'] = 'Accomplishments';
 $string['update_details'] = 'Update details';
 $string['save'] = 'Save';

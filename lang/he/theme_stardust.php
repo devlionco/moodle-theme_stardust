@@ -131,6 +131,7 @@ $string['phone'] = 'טלפון';
 $string['school_details'] = 'פרטי בית הספר';
 $string['school'] = 'בית ספר';
 $string['address'] = 'כתובת';
+$string['icq'] = 'ICQ';
 $string['accomplishments'] = 'הישגים';
 $string['update_details'] = 'עדכון פרטים';
 $string['save'] = 'שמירה';
