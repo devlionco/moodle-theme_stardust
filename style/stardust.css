@@ -3207,8 +3207,7 @@ header .nav {
     -ms-flex-direction: column;
         flex-direction: column;
     -ms-flex-align: start;
-        align-items: flex-start;
-    overflow-x: hidden; }
+        align-items: flex-start; }
     .incourse-header .top-wrapper .top:before {
       content: '';
       position: relative;
