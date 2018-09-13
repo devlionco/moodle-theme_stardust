@@ -99,6 +99,7 @@ if (isset($PAGE->theme->settings->showbacktotop) && $PAGE->theme->settings->show
 }
 $PAGE->requires->js('/theme/fordson/javascript/scrolltotop.js');
 $PAGE->requires->js('/theme/fordson/javascript/tooltipfix.js');
+$PAGE->requires->js_call_amd('theme_stardust/mypablicpage', 'init');
 
 $templatecontext['flatnavigation'] = $PAGE->flatnav;
 echo $OUTPUT->render_from_template('theme_stardust/mypublic', $templatecontext);
