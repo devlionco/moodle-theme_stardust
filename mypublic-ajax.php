@@ -4,7 +4,7 @@ require_once(__DIR__.'/../../config.php');
 
 $action = required_param('action', PARAM_TEXT);
 
-//TODO: security checks, token implementation or use moodle webservices 
+//TODO: security checks, token implementation or use moodle webservices
 
 
 if ($action === "mypublicpage-save-shortform") {
@@ -13,15 +13,15 @@ if ($action === "mypublicpage-save-shortform") {
 
 function save_mypublicpage_shortform() {
     global $USER, $DB;
-    
+
     $userid = required_param('userid', PARAM_INT);
     $username = optional_param('username', '', PARAM_TEXT);
-    $password = optional_param('password', '', PARAM_RAW);
+    // $password = optional_param('password', '', PARAM_RAW);
     $fullname = optional_param('fullname', '', PARAM_TEXT);
     $phone1 = optional_param('phone1', '', PARAM_TEXT);
     $institution = optional_param('institution', '', PARAM_TEXT);
     $address = optional_param('address', '', PARAM_TEXT);
-    $phone2 = optional_param('phone2', '', PARAM_TEXT);
+    // $phone2 = optional_param('phone2', '', PARAM_TEXT);
     $icq = optional_param('icq', '', PARAM_INT);
     $birthday = optional_param('birthday', '', PARAM_INT);
     $interests = optional_param('interests', '', PARAM_RAW);
@@ -64,18 +64,18 @@ function save_mypublicpage_shortform() {
             $user->icq = $icq;
         }
 
-        $result = $DB->update_record('user', $user, $bulk=false); 
+        $result = $DB->update_record('user', $user, $bulk=false);
 
         // update birthday
         if(!empty($birthday)){
-            // SG - TODO save birthday 
-            
+            // SG - TODO save birthday
+
         }
 
         // update interests
         if(!empty($interests)){
             // SG - TODO save interests
-            
+
         }
 
     return $result;

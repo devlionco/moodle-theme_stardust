@@ -34,18 +34,39 @@ define(['jquery', 'jqueryui', 'core/str'], function($, jqui, str) {
       $('#mypublicpage-profile-shortform #mypublicprofile-save-btn').click(function() {
           var userid = $.trim($('#userid').val());
           var username = $.trim($('#username').val());
-          var password = $.trim($('#password').val());
+          // var password = $.trim($('#password').val());
           var fullname = $.trim($('#fullname').val());
           var phone1 = $.trim($('#phone1').val());
           var institution = $.trim($('#institution').val());
           var address = $.trim($('#address').val());
-          var phone2 = $.trim($('#phone2').val());
-
+          var icq = $.trim($('#icq').val());
+          var birthday = $.trim($('#birthday').val());
+          var interests = [];
+          var interestsElements = $('#tag-container .tag-item');
+          if (interestsElements.length) {
+            $.map(interestsElements, function(item){
+              interests.push($(item).text());
+              // interests.[] = $(item).text();
+            });
+            interests = JSON.stringify(interests);
+          }
           $.ajax({
               type: "POST",
               async: true,
               url: M.cfg.wwwroot + '/theme/stardust/mypublic-ajax.php',
-              data: {userid:userid, username:username, password:password, fullname:fullname, phone1:phone1, institution:institution, address:address, phone2:phone2, action:'mypublicpage-save-shortform'},
+              data: {
+                userid:userid,
+                username:username,
+                // password:password,
+                fullname:fullname,
+                phone1:phone1,
+                institution:institution,
+                address:address,
+                icq:icq,
+                birthday:birthday,
+                interests:interests,
+                action:'mypublicpage-save-shortform'
+              },
               success: function(data) {
                   alert("Profile is updated");
                   // $('div#error-message').show();
@@ -68,4 +89,4 @@ define(['jquery', 'jqueryui', 'core/str'], function($, jqui, str) {
     }
   };
 
-}); 
+});

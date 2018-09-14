@@ -164,17 +164,22 @@
                                 <input type="text" id="username" class="input" {{canedit}} value="{{userinfo.username}}" />
                                 <span class="input-label">{{#str}} username, theme_stardust{{/str}}</span>
                             </li>
-                            <li class="info">
+                            <!-- <li class="info">
                                 <input type="password" id="password" class="input" {{canedit}} value="" />
                                 <span class="input-label">{{#str}} password, theme_stardust{{/str}}</span>
-                            </li>
+                            </li> -->
                             <li class="info">
                                 <input type="text" id="fullname" class="input" {{canedit}} value="{{userinfo.firstname}} {{userinfo.lastname}}">
                                 <span class="input-label">{{#str}} lastname_firstname, theme_stardust{{/str}}</span>
                             </li>
                             <li class="info">
-                                <input type="text" id="phone1" class="input" {{canedit}} value="{{userinfo.phone1}}">
-                                <span class="input-label">{{#str}} phone, theme_stardust{{/str}}</span>
+                                <input type="text" id="birthday" class="input" {{canedit}} value="{{userinfo.profile_field_birthday}}">
+                                <span class="input-label">{{#str}} birthday, theme_stardust{{/str}}</span>
+                            </li>
+                            <li class="info">
+                                <input type="text" id="interests" class="input" {{canedit}} value="{{userinfo.interests}}" placeholder="put you tag here">
+                                <span class="input-label">{{#str}} interests, theme_stardust{{/str}}</span>
+                                <div id = "tag-container" class = "tag-container"></div>
                             </li>
                         </ul>
                     </div>
@@ -190,21 +195,14 @@
                                 <span class="input-label">{{#str}} address, theme_stardust{{/str}}</span>
                             </li>
                             <li class="info">
-                                <input type="text" id="phone2" class="input" {{canedit}} value="{{userinfo.phone2}}">
+                                <input type="text" id="phone1" class="input" {{canedit}} value="{{userinfo.phone2}}">
                                 <span class="input-label">{{#str}} phone, theme_stardust{{/str}}</span>
                             </li>
                             <li class="info">
                                 <input type="text" id="icq" class="input" {{canedit}} value="{{userinfo.icq}}">
                                 <span class="input-label">{{#str}} icq, theme_stardust{{/str}}</span>
                             </li>
-                            <li class="info">
-                                <input type="text" id="birthday" class="input" {{canedit}} value="{{userinfo.profile_field_birthday}}">
-                                <span class="input-label">{{#str}} birthday, theme_stardust{{/str}}</span>
-                            </li>
-                            <li class="info">
-                                <input type="text" id="interests" class="input" {{canedit}} value="{{userinfo.interests}}">
-                                <span class="input-label">{{#str}} interests, theme_stardust{{/str}}</span>
-                            </li>
+
 
                             <li class="info submit">
                                 <input type="button" id="mypublicprofile-save-btn" class="btn-blue" {{canedit}} value="{{#str}} update_details, theme_stardust{{/str}}">
@@ -284,6 +282,7 @@ require(['theme_boost/drawer'], function(mod) {
 {{/hasfhsdrawer}}
 
 require(['jquery'], function($) {
+  `use strict`;
 
   $('#page-user-profile').on('click', function(e){
     if (!$(e.target).parents('form.mform').length && !$(e.target).hasClass('fp-upload-btn') && !$(e.target).parents('div.moodle-dialogue-base').length) {
@@ -309,6 +308,30 @@ require(['jquery'], function($) {
   $('#change_background').on('click', function(e){
     e.stopPropagation();
     $('#mform2').fadeToggle();
+  });
+
+  // adding tags on the page
+  const mainBlock = document.querySelector(`#mypublicpage-profile-shortform`);
+  const interests = mainBlock.querySelector('#interests');
+  const tagContainer = mainBlock.querySelector('#tag-container');
+
+  const getRandColor = () => {
+    let color = Math.floor(Math.random() * Math.pow(256, 3)).toString(16);
+    while(color.length < 6) {
+        color = "0" + color;
+    }
+    return "#" + color;
+  }
+
+  function getNewTag (target) {
+    let tagText = target.value;
+    const tagItem = $(`<div class = "tag-item" style = "background-color: ${getRandColor()};" onClick = this.remove();>${tagText}</div>`);
+    tagItem.appendTo(tagContainer);
+  }
+
+  interests.addEventListener('change', function(e){
+    getNewTag(e.currentTarget);
+    e.currentTarget.value = '';
   });
 
 });

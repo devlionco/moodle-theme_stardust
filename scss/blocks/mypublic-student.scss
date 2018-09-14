@@ -248,6 +248,31 @@ $achivement-margin-top: 42px;
       }
     }
   }
+  .tag-item {
+    position: relative;
+    cursor: pointer;
+    display: inline-block;
+    line-height: 32px;
+    margin: 5px;
+    padding: 0 10px;
+    padding-right: 20px;
+    border-radius: 6px;
+    color: #fff;
+  }
+  .tag-item::after,
+  .tag-item::before {
+    position: absolute;
+    content: "";
+    right: 3px;
+    top: 15px;
+    width: 15px;
+    height: 2px;
+    background-color: #fff;
+    transform: rotate(45deg);
+  }
+  .tag-item::before {
+    transform: rotate(135deg);
+  }
 }
 
 #page-user-profile {
