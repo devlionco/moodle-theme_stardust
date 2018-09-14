@@ -1,6 +1,7 @@
 <?php
 
 require_once(__DIR__.'/../../config.php');
+require_once($CFG->dirroot . '/user/profile/lib.php');
 
 $action = required_param('action', PARAM_TEXT);
 
@@ -65,18 +66,31 @@ function save_mypublicpage_shortform() {
         }
 
         $result = $DB->update_record('user', $user, $bulk=false);
+        $response['user'] = ($result === true) ? 'OK' : $result;
 
         // update birthday
         if(!empty($birthday)){
-            // SG - TODO save birthday
-
+            $birthdayfieldid = $DB->get_field('user_info_field', 'id', array('shortname' => 'birthday'));  // SG - ugly hack to define birthday data field
+            if ($dataid = $DB->get_field('user_info_data', 'id', array('userid' => $userid, 'fieldid' => $birthdayfieldid))) {
+                $birthdayfielddata = new stdClass();
+                $birthdayfielddata->fieldid = $birthdayfieldid;
+                $birthdayfielddata->userid = $userid;
+                $birthdayfielddata->id = $dataid;
+                $birthdayfielddata->data = $birthday;
+                $result = $DB->update_record('user_info_data', $birthdayfielddata);
+            } else {
+                $result = $DB->insert_record('user_info_data', $birthdayfielddata);
+            }
+            $response['birthday'] = ($result === true) ? 'OK' : $result;
         }
 
         // update interests
         if(!empty($interests)){
-            // SG - TODO save interests
-
+            $interests = json_decode($interests);           // SG - if interests come as array
+            //$interests = explode(", ", $interests[0]);    //SG - if interests come in one line - I devide it for tags
+            $result = core_tag_tag::set_item_tags('core', 'user', $userid, context_user::instance($userid), $interests);
+            $response['interests'] = 'OK';
         }
 
-    return $result;
+    echo json_encode($response);
 };
