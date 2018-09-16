@@ -40,13 +40,12 @@ define(['jquery', 'jqueryui', 'core/str'], function($, jqui, str) {
           var institution = $.trim($('#institution').val());
           var address = $.trim($('#address').val());
           var icq = $.trim($('#icq').val());
-          var birthday = $.trim($('#birthday').val());
+          var birthday = $('#birthday').val();
           var interests = [];
           var interestsElements = $('#tag-container .tag-item');
           if (interestsElements.length) {
             $.map(interestsElements, function(item){
               interests.push($(item).text());
-              // interests.[] = $(item).text();
             });
             interests = JSON.stringify(interests);
           }

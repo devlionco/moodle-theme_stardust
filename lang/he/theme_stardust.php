@@ -132,8 +132,8 @@ $string['school_details'] = 'פרטי בית הספר';
 $string['school'] = 'בית ספר';
 $string['address'] = 'כתובת';
 $string['icq'] = 'ICQ';
-$string['birthday'] = 'Birthday';
-$string['interests'] = 'Interests';
+$string['birthday'] = 'תאריך לידה';
+$string['interests'] = 'תחומי עניין';
 $string['accomplishments'] = 'הישגים';
 $string['update_details'] = 'עדכון פרטים';
 $string['save'] = 'שמירה';
@@ -146,6 +146,7 @@ $string['mypublic_background_img_hdr'] = 'Background image';
 $string['mypublic_new_background_img'] = 'Upload new image';
 $string['mypublic_deletebackgroundimg'] = 'Remove image';
 $string['mypublic_save_backgroundimg'] = 'Save image';
+$string['write_tags'] = 'תרשום תחומי עניין';
 
 // course page
 $string['gohome'] = '< עמוד הבית';

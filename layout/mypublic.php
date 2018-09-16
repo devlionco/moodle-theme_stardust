@@ -101,7 +101,7 @@ $templatecontext = [
     'helplink' => true,
     'backgroundimg' => isset($backgroundimg) ? $backgroundimg : null
 ];
-
+// echo '<pre>'.print_r($user,1).'</pre>'; exit();
 $PAGE->requires->jquery();
 if (isset($PAGE->theme->settings->showbacktotop) && $PAGE->theme->settings->showbacktotop == 1) {
     $PAGE->requires->js('/theme/fordson/javascript/scrolltotop.js');

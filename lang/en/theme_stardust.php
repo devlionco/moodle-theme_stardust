@@ -501,6 +501,7 @@ $string['mypublic_background_img_hdr'] = 'Background image';
 $string['mypublic_new_background_img'] = 'Upload new image';
 $string['mypublic_deletebackgroundimg'] = 'Remove image';
 $string['mypublic_save_backgroundimg'] = 'Save image';
+$string['write_tags'] = 'write tags';
 
 // course page
 $string['gohome'] = 'Home ›';
