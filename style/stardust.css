@@ -748,12 +748,8 @@ header .nav {
   max-width: 1344px;
   margin: 0 auto; }
 
-#learningcontent .m-t-2.m-b-1,
-.header.backto {
+#learningcontent .m-t-2.m-b-1 {
   display: none; }
-
-.region_main_settings_menu_proxy {
-  background: none; }
 
 #my-page {
   color: #3C3C3C;
