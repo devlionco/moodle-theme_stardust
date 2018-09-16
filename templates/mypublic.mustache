@@ -173,24 +173,22 @@
                                 <span class="input-label">{{#str}} lastname_firstname, theme_stardust{{/str}}</span>
                             </li>
                             <li class="info">
-                                <!-- <input type="text" id="birthday" class="input" {{canedit}} value="{{userinfo.profile_field_birthday}}"> -->
-                                <input type="date" id="birthday" class="input" {{canedit}} value="">
+                                <input type="date" id="birthday" class="input" {{canedit}} value="{{#userdate}}{{userinfo.profile_field_birthday}}, %Y-%m-%d {{/userdate}}">
                                 <span class="input-label">{{#str}} birthday, theme_stardust{{/str}}</span>
                             </li>
                             <li class="info">
                                 <input type="text" id="interests" class="input" {{canedit}} value="" placeholder="{{#str}} write_tags, theme_stardust{{/str}}">
                                 <span class="input-label">{{#str}} interests, theme_stardust{{/str}}</span>
                                 <div id = "tag-container" class = "tag-container">
-
-
-                                  <div
-                                    class = "tag-item"
-                                    style="background-color: #0096db;"
-                                    onclick="this.remove();"
-                                    >
-                                  {{userinfo.interests}}
-                                  </div>
-
+                                  {{#userinfo.interests}}
+                                    <div
+                                        class = "tag-item"
+                                        style="background-color: #0096db;"
+                                        onclick="this.remove();"
+                                        >
+                                        {{{.}}}
+                                    </div>
+                                    {{/userinfo.interests}}
                                 </div>
                             </li>
                         </ul>

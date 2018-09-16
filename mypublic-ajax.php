@@ -24,7 +24,7 @@ function save_mypublicpage_shortform() {
     $address = optional_param('address', '', PARAM_TEXT);
     // $phone2 = optional_param('phone2', '', PARAM_TEXT);
     $icq = optional_param('icq', '', PARAM_INT);
-    $birthday = optional_param('birthday', '', PARAM_INT);
+    $birthday = optional_param('birthday', '', PARAM_RAW);
     $interests = optional_param('interests', '', PARAM_RAW);
 
 
@@ -70,13 +70,15 @@ function save_mypublicpage_shortform() {
 
         // update birthday
         if(!empty($birthday)){
+            $birthday = new DateTime($birthday, core_date::get_server_timezone_object());
+            $birthdayunix = $birthday->getTimestamp();
             $birthdayfieldid = $DB->get_field('user_info_field', 'id', array('shortname' => 'birthday'));  // SG - ugly hack to define birthday data field
             if ($dataid = $DB->get_field('user_info_data', 'id', array('userid' => $userid, 'fieldid' => $birthdayfieldid))) {
                 $birthdayfielddata = new stdClass();
                 $birthdayfielddata->fieldid = $birthdayfieldid;
                 $birthdayfielddata->userid = $userid;
                 $birthdayfielddata->id = $dataid;
-                $birthdayfielddata->data = $birthday;
+                $birthdayfielddata->data = $birthdayunix;
                 $result = $DB->update_record('user_info_data', $birthdayfielddata);
             } else {
                 $result = $DB->insert_record('user_info_data', $birthdayfielddata);

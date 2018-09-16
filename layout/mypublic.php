@@ -60,7 +60,7 @@ if ($files = $fs->get_area_files($usercontext->id, 'theme_stardust', 'background
 // get user's interests - tags
 $interests = core_tag_tag::get_item_tags_array('core', 'user', $user->id, core_tag_tag::BOTH_STANDARD_AND_NOT, 0, false);
 if ($interests) {
-    $user->interests = join(', ', $interests);
+    $user->interests = array_values($interests);
 }
 
 // upload custom user fields (birthday) to user object
