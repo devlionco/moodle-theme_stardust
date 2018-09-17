@@ -3,23 +3,18 @@
   <div class="top-wrapper">
       <div class="top">
           <div class="subtitle">
-              <span class="home-icon"></span>
-              <span class="route"><a href="{{config.wwwroot}}/my/">{{#str}}gohome, theme_stardust{{/str}}</a></span>
+              <!-- <span class="home-icon"></span> -->
+              <!-- <span class="route"><a href="{{config.wwwroot}}/my/">{{#str}}gohome, theme_stardust{{/str}}</a></span> -->
           </div>
           <h1 class="title">{{coursename}}</h1>
+          <p class="title">{{coursfullname}}</p>
           <ul class="top-content">
-            
+
             {{#display_units}}
               <li class="top-content-item course-presence">
                 {{>theme_stardust/presence}}
               </li>
             {{/display_units}}
-
-            {{#display_messages}}
-              <li class="top-content-item course-messages">
-                  {{>theme_stardust/messages}}
-              </li>
-            {{/display_messages}}
 
               {{#attendanceinfo}}
                 <li class="top-content-item course-presence">
@@ -27,14 +22,24 @@
                 </li>
               {{/attendanceinfo}}
 
-            {{#display_grades}}
-              <li class="top-content-item">
-                  {{>theme_stardust/achievements}}
-              </li>
-            {{/display_grades}}
-
           </ul>
       </div>
+  </div>
+  <div class = "bottom-wrapper">
+    <div class = "">
+      {{#display_messages}}
+        <li class="top-content-item course-messages">
+            {{>theme_stardust/messages}}
+        </li>
+      {{/display_messages}}
+    </div>
+    <div class = "">
+      {{#display_grades}}
+        <li class="top-content-item">
+            {{>theme_stardust/achievements}}
+        </li>
+      {{/display_grades}}
+    </div>
   </div>
 
   <div class="main-wrapper">

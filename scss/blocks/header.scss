@@ -7,8 +7,9 @@
   max-height: 72px;
   padding: 0;
   border-bottom: none;
-  background-color: $gray_light;
-  box-shadow: 0 0px 8px #b1b1b1;
+  // background-color: $gray_light;
+  background-color: $d_blue;
+  // box-shadow: 0 0px 8px #b1b1b1;
 
   .action-menu .userpicture {
     margin-left: 1rem;
@@ -40,7 +41,8 @@
     display: none;
   }
   .dheader__lang {
-    color: $text-color-gray !important;
+    // color: $text-color-gray !important;
+    color: #fff !important;
     font: $bold 12px 'openSans';
     padding-left: 27px;
     background-position: left;
@@ -51,12 +53,12 @@
 
   .dheader__tutorial {
     margin-left: 36px;
-    color: $text-color-gray;
+    color: #fff;
   }
 
   .dheader__tutorial-link {
     font: $bold 12px 'openSans';
-    color: $text-color-gray;
+    color: #fff;
     padding-left: 27px;
     background-position: left;
     background-repeat: no-repeat;
@@ -65,7 +67,7 @@
   }
   .dheader__tutorial-link:hover {
     text-decoration: none;
-    color: $text-color-gray;
+    color: #fff;
   }
 
   .img-wrap img{
@@ -85,7 +87,7 @@
       display: none;
     }
     .usertext {
-      color: $text-color-gray;
+      color: #fff;
       font: $bold 14px 'openSans';
       width: 96px;
       white-space: nowrap;

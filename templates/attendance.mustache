@@ -3,7 +3,10 @@
     <div class="presence-content">
         <div class="circle-wrapper">
             <div class="circle" id="circle-progress-attendance" data-value="{{attendanceinfo.percent}}">
-                <span class="circle-label">{{{attendanceinfo.allsessionsmaxpoints}}}</span>
+                <span class="circle-label">
+                  {{{attendanceinfo.allsessionsmaxpoints}}}
+
+                </span>
             </div>
             <div
               class="circle-small-wrapper"
@@ -17,7 +20,7 @@
                 </div>
             </div>
         </div>
-        <div class="presence-label">{{attendanceinfo.takensessionspoints}} {{#str}}out_of, theme_stardust{{/str}} {{attendanceinfo.allsessionsmaxpoints}} {{#str}}classes, theme_stardust{{/str}}</div>
+        <!-- <div class="presence-label">{{attendanceinfo.takensessionspoints}} {{#str}}out_of, theme_stardust{{/str}} {{attendanceinfo.allsessionsmaxpoints}} {{#str}}classes, theme_stardust{{/str}}</div> -->
     </div>
 </div>
 

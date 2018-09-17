@@ -5,7 +5,7 @@
     <desc>Created with sketchtool.</desc>
     <defs></defs>
     <g id="HEADER-LOGIN-BLACK" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(-1214.000000, -31.000000)">
-        <g id="INSTRUCTIONS" transform="translate(1139.000000, 29.000000)" fill="#717171">
+        <g id="INSTRUCTIONS" transform="translate(1139.000000, 29.000000)" fill="#FFFFFF">
             <path d="M92,12 C90.344,12 89,10.657 89,9 C89,7.343 90.344,6 92,6 C93.656,6 95,7.343 95,9 C95,10.657 93.656,12 92,12 M92,2 L82,2 C78.14,2 75,5.14 75,9 C75,12.86 78.14,16 82,16 L92,16 C95.86,16 99,12.86 99,9 C99,5.14 95.86,2 92,2" id="ICONS/TOGGLE"></path>
         </g>
     </g>

@@ -563,8 +563,7 @@ body#page-login-signup {
   max-height: 72px;
   padding: 0;
   border-bottom: none;
-  background-color: #F3F2F0;
-  box-shadow: 0 0px 8px #b1b1b1; }
+  background-color: #1928af; }
   .dheader .action-menu .userpicture {
     margin-left: 1rem; }
   .dheader .coursecontrols {
@@ -591,7 +590,7 @@ body#page-login-signup {
   .dheader .dheader__lang::after {
     display: none; }
   .dheader .dheader__lang {
-    color: #646464 !important;
+    color: #fff !important;
     font: 600 12px "openSans";
     padding-left: 27px;
     background-position: left;
@@ -600,10 +599,10 @@ body#page-login-signup {
     background-image: url([[pix:theme|header/lang]]); }
   .dheader .dheader__tutorial {
     margin-left: 36px;
-    color: #646464; }
+    color: #fff; }
   .dheader .dheader__tutorial-link {
     font: 600 12px "openSans";
-    color: #646464;
+    color: #fff;
     padding-left: 27px;
     background-position: left;
     background-repeat: no-repeat;
@@ -611,7 +610,7 @@ body#page-login-signup {
     background-image: url([[pix:theme|header/toggle]]); }
   .dheader .dheader__tutorial-link:hover {
     text-decoration: none;
-    color: #646464; }
+    color: #fff; }
   .dheader .img-wrap img {
     margin: 0;
     width: unset;
@@ -625,7 +624,7 @@ body#page-login-signup {
     .dheader .usermenu .dropdown-toggle::after {
       display: none; }
     .dheader .usermenu .usertext {
-      color: #646464;
+      color: #fff;
       font: 600 14px "openSans";
       width: 96px;
       white-space: nowrap;
@@ -1094,9 +1093,11 @@ header .nav {
   background: #787a7a; }
 
 .presence-title {
-  color: #0096DB;
-  font-size: 18px;
-  font-weight: 600; }
+  color: red;
+  font-size: 10px;
+  font-weight: 400;
+  margin: 0;
+  padding: 0; }
 
 .presence-content {
   display: -ms-flexbox;
@@ -2146,6 +2147,10 @@ header .nav {
         min-width: 204px;
         width: 100%;
         padding: 0; }
+
+#course-main-content .bottom-wrapper {
+  display: -ms-flexbox;
+  display: flex; }
 
 #course-main-content .main-wrapper {
   display: -ms-flexbox;
@@ -3382,6 +3387,10 @@ header .nav {
           font-size: 18px;
           font-weight: bold;
           line-height: 18px; }
+
+.incourse-header .bottom-wrapper {
+  display: -ms-flexbox;
+  display: flex; }
 
 [dir="rtl"] #page-mod-quiz-attempt section#region-main.has-blocks .qn_buttons {
   transform: translateX(50%); }

@@ -5,9 +5,11 @@
 
 .presence {
   &-title {
-    color: $primary-color;
-    font-size: 18px;
-    font-weight:$bold;
+    color: red;
+    font-size: 10px;
+    font-weight:$regular;
+    margin: 0;
+    padding: 0;
   }
   &-content {
     display: flex;

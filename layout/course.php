@@ -154,6 +154,7 @@ $templatecontext = [
     'hasregionmainsettingsmenu' => !empty($regionmainsettingsmenu),
     'sitesettingsbutton' => true,
     'coursename' => $course->shortname,
+    'coursfullname' => $course->fullname,
     'display_units' => (isset($courseformat['displayunits'])) ? $courseformat['displayunits'] : false,
     'display_messages' => (isset($courseformat['displaymessages'])) ? $courseformat['displaymessages'] : false,
     'display_grades' => (isset($courseformat['displaygrades'])) ? $courseformat['displaygrades'] : false,

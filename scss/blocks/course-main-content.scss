@@ -63,6 +63,9 @@ $progress-height-open: 12px;
       }
     }
   }
+  .bottom-wrapper {
+    display: flex;
+  }
   .main-wrapper {
     display: flex;
     justify-content: center;
