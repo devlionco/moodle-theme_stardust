@@ -1012,24 +1012,13 @@ header .nav {
       transform: translateX(-50%); }
 
 .messages-container {
-  height: 50px;
-  margin: 15px 0;
-  box-sizing: border-box;
-  border: 4px solid #83D3AE;
-  border-radius: 15px;
-  padding: 0 2rem;
-  overflow-y: hidden; }
+  height: calc(50% - 12px);
+  background: #FFFFFF;
+  box-shadow: 0 0 10px 3px rgba(0, 0, 0, 0.3);
+  overflow-y: scroll; }
   .messages-container .messages {
-    height: 100%;
-    position: relative;
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-flow: row nowrap;
-        flex-flow: row nowrap;
-    -ms-flex-align: center;
-        align-items: center;
-    -ms-flex-pack: start;
-        justify-content: flex-start; }
+    padding: 20px 27px 24px 24px;
+    min-height: 125px; }
     .messages-container .messages-title {
       color: #0096DB;
       font-size: 18px;
@@ -1047,15 +1036,6 @@ header .nav {
         position: absolute;
         top: 0; }
         .messages-container .messages-list-wrapper .messages-list .message {
-          display: -ms-flexbox;
-          display: flex;
-          -ms-flex-flow: row nowrap;
-              flex-flow: row nowrap;
-          -ms-flex-pack: start;
-              justify-content: flex-start;
-          -ms-flex-align: center;
-              align-items: center;
-          padding: 0 1rem;
           height: 50px;
           overflow: hidden;
           white-space: nowrap;
@@ -1098,11 +1078,53 @@ header .nav {
   height: auto;
   box-shadow: none; }
   #course-main-content .messages-container .messages .messages-list-wrapper {
-    height: 50px;
+    height: 25px;
     overflow: hidden; }
   #course-main-content .messages-container .messages .messages-title {
     line-height: 18px;
     margin-bottom: 0; }
+
+#course-main-content .course-messages {
+  max-width: 100%;
+  width: 100%;
+  padding: 0; }
+  #course-main-content .course-messages .messages-container {
+    height: 50px;
+    margin: 15px 0;
+    box-sizing: border-box;
+    border: 4px solid #83D3AE;
+    border-radius: 15px;
+    padding: 0 2rem;
+    overflow-y: hidden; }
+    #course-main-content .course-messages .messages-container .messages {
+      padding: 0;
+      height: 100%;
+      min-height: 42px;
+      position: relative;
+      display: -ms-flexbox;
+      display: flex;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
+      -ms-flex-align: center;
+          align-items: center;
+      -ms-flex-pack: start;
+          justify-content: flex-start; }
+      #course-main-content .course-messages .messages-container .messages-list-wrapper {
+        width: 100%;
+        height: 50px;
+        overflow: hidden; }
+        #course-main-content .course-messages .messages-container .messages-list-wrapper .message {
+          display: -ms-flexbox;
+          display: flex;
+          -ms-flex-flow: row nowrap;
+              flex-flow: row nowrap;
+          -ms-flex-pack: start;
+              justify-content: flex-start;
+          -ms-flex-align: center;
+              align-items: center;
+          padding: 0 1rem; }
+          #course-main-content .course-messages .messages-container .messages-list-wrapper .message .messages-title {
+            margin-bottom: 0; }
 
 /* scrollbar */
 /* width */
@@ -2225,10 +2247,6 @@ header .nav {
         list-style-type: none; }
         #course-main-content .top-wrapper .top-content-item:last-child {
           margin-right: 0; }
-      #course-main-content .top-wrapper .top-content .course-messages {
-        max-width: 100%;
-        width: 100%;
-        padding: 0; }
 
 #course-main-content .bottom-wrapper {
   width: 100%;
