@@ -1,6 +1,9 @@
 @import "../variables";
 
 .achievements {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
   a {
     color: inherit;
     display: flex;
@@ -26,13 +29,15 @@
       .icon-report {
         height: 57px;
         width: 40px;
-        background:url([[pix:theme|pagemy/grades]]) no-repeat center center;
+        background:url([[pix:theme|pagemy/course-grade]]) no-repeat center center;
+        // background:url([[pix:theme|pagemy/grades]]) no-repeat center center;
         background-size: contain;
       }
       .icon-medal {
         height: 60px;
         width: 49px;
-        background:url([[pix:theme|pagemy/medal]]) no-repeat center center;
+        background:url([[pix:theme|pagemy/course-medals]]) no-repeat center center;
+        // background:url([[pix:theme|pagemy/medal]]) no-repeat center center;
         background-size: contain;
         position: relative;
         .icon-counter {
@@ -53,7 +58,8 @@
       .icon-diplom {
         height: 57px;
         width: 46px;
-        background:url([[pix:theme|pagemy/diplom]]) no-repeat center center;
+        background:url([[pix:theme|pagemy/course-diplom]]) no-repeat center center;
+        // background:url([[pix:theme|pagemy/diplom]]) no-repeat center center;
         background-size: contain;
       }
     }
@@ -65,25 +71,28 @@
     margin: 0 1px;
     ul {
       .achievment {
-        margin: 0;
-        margin-right: 17px;
-        &:last-child {
-          margin: 0;
-        }
+        margin: 5px 17px;
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: center;
+        align-items: center;
+        // &:last-child {
+        //   margin: 0;
+        // }
         .icon-label {
-          margin-bottom: 13px;
+          margin-bottom:0;
         }
         .icon-report {
-          height: 40px;
-          width: 30px;
+          height: 42px;
+          width: 38px;
         }
         .icon-medal {
           height: 42px;
           width: 38px;
         }
         .icon-diplom {
-          height: 40px;
-          width: 32px;
+          height: 42px;
+          width: 38px;
         }
       }
     }

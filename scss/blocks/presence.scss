@@ -1,11 +1,11 @@
 @import "../variables";
-  $circle-size: 52px;
-  $small-circle-size: 18px;
+  $circle-size: 125px;
+  $small-circle-size: 50px;
   $percent: 0.9;
 
 .presence {
   &-title {
-    color: red;
+    color: #fff;
     font-size: 10px;
     font-weight:$regular;
     margin: 0;
@@ -18,6 +18,27 @@
     .circle-wrapper {
       position: relative;
       .circle {
+        canvas{
+          position: absolute;
+        }
+        .circle-inner{
+          position: relative;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          text-align: center;
+          width:$circle-size - 15px;
+          height:$circle-size - 15px;
+          border-radius: 50%;
+          background: rgba(3, 20, 109, .8);
+          // background: rgba(131, 211, 174, .8);
+          .circle-label{
+            position: relative;
+            color:#fff;
+            font-size: 38px;
+          }
+        }
         width: $circle-size;
         height: $circle-size;
         border-radius: 50%;
@@ -40,18 +61,20 @@
           .circle-small {
             position: absolute;
             top: -6px;
-            left: ($circle-size / 2) - ($small-circle-size / 2);
+            // right: ($circle-size / 2) - ($small-circle-size / 2);
+            right:0;
             width: $small-circle-size;
             height: $small-circle-size;
-            border-radius: 9px;
+            border-radius: 50%;
             border: 1px solid $progress-bar;
             display: flex;
             justify-content: center;
             align-items: center;
-            background: $white;
+            background: rgba(3, 20, 109, 1);
             transform: rotate(-360deg * 0.4);
             &-label {
-              font-size: 9px;
+              font-size: 22px;
+              color:#fff;
             }
           }
         }

@@ -1,12 +1,14 @@
 <div class="presence">
-    <p class="presence-title">{{#str}}attendance, theme_stardust{{/str}}</p>
     <div class="presence-content">
         <div class="circle-wrapper">
             <div class="circle" id="circle-progress-attendance" data-value="{{attendanceinfo.percent}}">
+              <div class="circle-inner">
                 <span class="circle-label">
                   {{{attendanceinfo.allsessionsmaxpoints}}}
 
                 </span>
+                <p class="presence-title">{{#str}}attendance, theme_stardust{{/str}}</p>
+              </div>
             </div>
             <div
               class="circle-small-wrapper"
@@ -28,7 +30,7 @@
     require(['jquery', 'theme_stardust/circle-progress'], function($, circleProgress) {
         $('#circle-progress-attendance').circleProgress({
             startAngle: -Math.PI / 2,
-            size: 52,
+            size: 125,
             fill: '#00DB7C',
             animation: false,
         });

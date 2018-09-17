@@ -1,9 +1,11 @@
 <div class="presence">
-    <p class="presence-title">{{#str}}study_units, theme_stardust{{/str}}</p>
     <div class="presence-content">
         <div class="circle-wrapper">
             <div class="circle" id="circle-progress" data-value="{{sectionscompletion.percent}}">
+              <div class="circle-inner">
                 <span class="circle-label">{{sectionscompletion.allsections}}</span>
+                <p class="presence-title">{{#str}}study_units, theme_stardust{{/str}}</p>
+              </div>
             </div>
             <div
             class="circle-small-wrapper"
@@ -25,7 +27,7 @@
     require(['jquery', 'theme_stardust/circle-progress'], function($, circleProgress) {
         $('#circle-progress').circleProgress({
             startAngle: -Math.PI / 2,
-            size: 52,
+            size: 125,
             fill: '#00DB7C',
             animation: false,
         });
