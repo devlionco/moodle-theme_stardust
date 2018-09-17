@@ -907,84 +907,95 @@ header .nav {
 ::-webkit-scrollbar-thumb:hover {
   background: #787a7a; }
 
-.achievements a {
-  color: inherit;
+.achievements {
   display: -ms-flexbox;
   display: flex;
-  -ms-flex-direction: column;
-      flex-direction: column;
-  -ms-flex-align: center;
-      align-items: center; }
-  .achievements a:hover {
-    text-decoration: none; }
-
-.achievements ul {
-  display: -ms-flexbox;
-  display: flex;
-  list-style: none;
-  padding-left: 0; }
-  .achievements ul .achievment {
-    margin: 0 14px;
+  -ms-flex-flow: row nowrap;
+      flex-flow: row nowrap;
+  -ms-flex-pack: center;
+      justify-content: center; }
+  .achievements a {
+    color: inherit;
     display: -ms-flexbox;
     display: flex;
     -ms-flex-direction: column;
         flex-direction: column;
     -ms-flex-align: center;
         align-items: center; }
-    .achievements ul .achievment .icon-label {
-      font-size: 15px;
-      margin-bottom: 30px; }
-    .achievements ul .achievment .icon-report {
-      height: 57px;
-      width: 40px;
-      background: url([[pix:theme|pagemy/grades]]) no-repeat center center;
-      background-size: contain; }
-    .achievements ul .achievment .icon-medal {
-      height: 60px;
-      width: 49px;
-      background: url([[pix:theme|pagemy/medal]]) no-repeat center center;
-      background-size: contain;
-      position: relative; }
-      .achievements ul .achievment .icon-medal .icon-counter {
-        position: absolute;
-        top: -3px;
-        height: 22px;
-        width: 22px;
-        border-radius: 50%;
-        color: #646464;
-        background: #e7e7e7;
-        border: 1.28px solid #FFFFFF;
-        display: -ms-flexbox;
-        display: flex;
-        -ms-flex-pack: center;
-            justify-content: center;
-        -ms-flex-align: center;
-            align-items: center;
-        font-size: 12px; }
-    .achievements ul .achievment .icon-diplom {
-      height: 57px;
-      width: 46px;
-      background: url([[pix:theme|pagemy/diplom]]) no-repeat center center;
-      background-size: contain; }
+    .achievements a:hover {
+      text-decoration: none; }
+  .achievements ul {
+    display: -ms-flexbox;
+    display: flex;
+    list-style: none;
+    padding-left: 0; }
+    .achievements ul .achievment {
+      margin: 0 14px;
+      display: -ms-flexbox;
+      display: flex;
+      -ms-flex-direction: column;
+          flex-direction: column;
+      -ms-flex-align: center;
+          align-items: center; }
+      .achievements ul .achievment .icon-label {
+        font-size: 15px;
+        margin-bottom: 30px; }
+      .achievements ul .achievment .icon-report {
+        height: 57px;
+        width: 40px;
+        background: url([[pix:theme|pagemy/course-grade]]) no-repeat center center;
+        background-size: contain; }
+      .achievements ul .achievment .icon-medal {
+        height: 60px;
+        width: 49px;
+        background: url([[pix:theme|pagemy/course-medals]]) no-repeat center center;
+        background-size: contain;
+        position: relative; }
+        .achievements ul .achievment .icon-medal .icon-counter {
+          position: absolute;
+          top: -3px;
+          height: 22px;
+          width: 22px;
+          border-radius: 50%;
+          color: #646464;
+          background: #e7e7e7;
+          border: 1.28px solid #FFFFFF;
+          display: -ms-flexbox;
+          display: flex;
+          -ms-flex-pack: center;
+              justify-content: center;
+          -ms-flex-align: center;
+              align-items: center;
+          font-size: 12px; }
+      .achievements ul .achievment .icon-diplom {
+        height: 57px;
+        width: 46px;
+        background: url([[pix:theme|pagemy/course-diplom]]) no-repeat center center;
+        background-size: contain; }
 
 #course-main-content .achievements {
   margin: 0 1px; }
   #course-main-content .achievements ul .achievment {
-    margin: 0;
-    margin-right: 17px; }
-    #course-main-content .achievements ul .achievment:last-child {
-      margin: 0; }
+    margin: 5px 17px;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-flow: column nowrap;
+        flex-flow: column nowrap;
+    -ms-flex-pack: center;
+        justify-content: center;
+    -ms-flex-align: center;
+        align-items: center; }
     #course-main-content .achievements ul .achievment .icon-label {
-      margin-bottom: 13px; }
+      margin-bottom: 0; }
     #course-main-content .achievements ul .achievment .icon-report {
-      height: 40px;
-      width: 30px; }
+      height: 42px;
+      width: 38px; }
     #course-main-content .achievements ul .achievment .icon-medal {
       height: 42px;
       width: 38px; }
     #course-main-content .achievements ul .achievment .icon-diplom {
-      height: 40px;
-      width: 32px; }
+      height: 42px;
+      width: 38px; }
 
 [dir="rtl"] .messages-container {
   direction: rtl; }
@@ -1001,15 +1012,24 @@ header .nav {
       transform: translateX(-50%); }
 
 .messages-container {
-  height: calc(50% - 12px);
-  background: #FFFFFF;
-  box-shadow: 0 0 10px 3px rgba(0, 0, 0, 0.3);
-  overflow-y: scroll; }
+  height: 50px;
+  margin: 15px 0;
+  box-sizing: border-box;
+  border: 4px solid #83D3AE;
+  border-radius: 15px;
+  padding: 0 2rem;
+  overflow-y: hidden; }
   .messages-container .messages {
-    padding: 20px 27px 24px 24px;
     height: 100%;
     position: relative;
-    min-height: 125px; }
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-flow: row nowrap;
+        flex-flow: row nowrap;
+    -ms-flex-align: center;
+        align-items: center;
+    -ms-flex-pack: start;
+        justify-content: flex-start; }
     .messages-container .messages-title {
       color: #0096DB;
       font-size: 18px;
@@ -1027,7 +1047,16 @@ header .nav {
         position: absolute;
         top: 0; }
         .messages-container .messages-list-wrapper .messages-list .message {
-          height: 25px;
+          display: -ms-flexbox;
+          display: flex;
+          -ms-flex-flow: row nowrap;
+              flex-flow: row nowrap;
+          -ms-flex-pack: start;
+              justify-content: flex-start;
+          -ms-flex-align: center;
+              align-items: center;
+          padding: 0 1rem;
+          height: 50px;
           overflow: hidden;
           white-space: nowrap;
           text-overflow: ellipsis;
@@ -1073,7 +1102,7 @@ header .nav {
     overflow: hidden; }
   #course-main-content .messages-container .messages .messages-title {
     line-height: 18px;
-    margin-bottom: 8px; }
+    margin-bottom: 0; }
 
 /* scrollbar */
 /* width */
@@ -1093,7 +1122,7 @@ header .nav {
   background: #787a7a; }
 
 .presence-title {
-  color: red;
+  color: #fff;
   font-size: 10px;
   font-weight: 400;
   margin: 0;
@@ -1109,8 +1138,8 @@ header .nav {
   .presence-content .circle-wrapper {
     position: relative; }
     .presence-content .circle-wrapper .circle {
-      width: 52px;
-      height: 52px;
+      width: 125px;
+      height: 125px;
       border-radius: 50%;
       display: -ms-flexbox;
       display: flex;
@@ -1119,6 +1148,27 @@ header .nav {
       -ms-flex-align: center;
           align-items: center;
       position: relative; }
+      .presence-content .circle-wrapper .circle canvas {
+        position: absolute; }
+      .presence-content .circle-wrapper .circle .circle-inner {
+        position: relative;
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-direction: column;
+            flex-direction: column;
+        -ms-flex-pack: center;
+            justify-content: center;
+        -ms-flex-align: center;
+            align-items: center;
+        text-align: center;
+        width: 110px;
+        height: 110px;
+        border-radius: 50%;
+        background: rgba(3, 20, 109, 0.8); }
+        .presence-content .circle-wrapper .circle .circle-inner .circle-label {
+          position: relative;
+          color: #fff;
+          font-size: 38px; }
       .presence-content .circle-wrapper .circle-label {
         font-size: 27px;
         color: #8A8A8A;
@@ -1132,10 +1182,10 @@ header .nav {
         .presence-content .circle-wrapper .circle-small-wrapper .circle-small {
           position: absolute;
           top: -6px;
-          left: 17px;
-          width: 18px;
-          height: 18px;
-          border-radius: 9px;
+          right: 0;
+          width: 50px;
+          height: 50px;
+          border-radius: 50%;
           border: 1px solid #00DB7C;
           display: -ms-flexbox;
           display: flex;
@@ -1143,10 +1193,11 @@ header .nav {
               justify-content: center;
           -ms-flex-align: center;
               align-items: center;
-          background: #FFFFFF;
+          background: #03146d;
           transform: rotate(-144deg); }
           .presence-content .circle-wrapper .circle-small-wrapper .circle-small-label {
-            font-size: 9px; }
+            font-size: 22px;
+            color: #fff; }
   .presence-content .presence-label {
     white-space: nowrap;
     overflow: hidden;
@@ -2097,17 +2148,44 @@ header .nav {
         font-size: 24px;
         margin: 29px; }
 
+[dir="ltr"] #course-main-content .top-wrapper:before {
+  background: linear-gradient(-90deg, transparent 0%, #03146D 75%, #19284F 100%); }
+
+[dir="rtl"] #course-main-content .top-wrapper:before {
+  background: linear-gradient(90deg, transparent 0%, #03146D 75%, #19284F 100%); }
+
 #course-main-content .top-wrapper {
   height: 100%;
-  background: url([[pix:theme|background]]) no-repeat center;
+  background: url([[pix:theme|banner]]);
+  background-repeat: no-repeat;
+  background-position: center;
   background-size: cover;
   display: -ms-flexbox;
   display: flex;
   -ms-flex-pack: center;
-      justify-content: center; }
+      justify-content: center;
+  position: relative;
+  box-sizing: border-box;
+  border-bottom: 10px solid #03146d; }
+  #course-main-content .top-wrapper:before {
+    content: '';
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0; }
   #course-main-content .top-wrapper .top {
-    width: 1122px;
-    margin: 37px 0 69px; }
+    max-width: 1344px;
+    width: 100%;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: row;
+        flex-direction: row;
+    -ms-flex-align: center;
+        align-items: center;
+    -ms-flex-pack: justify;
+        justify-content: space-between;
+    z-index: 2; }
     #course-main-content .top-wrapper .top .subtitle {
       font-size: 18px;
       display: -ms-flexbox;
@@ -2121,36 +2199,56 @@ header .nav {
         background: url([[pix:theme|course/home]]) no-repeat center center;
         width: 28px;
         height: 28px; }
-    #course-main-content .top-wrapper .top .title {
-      color: #FFFFFF;
-      font-size: 56px;
-      margin-bottom: 40px; }
+    #course-main-content .top-wrapper .top .title-wrapper {
+      -ms-flex-item-align: start;
+          align-self: flex-start;
+      padding: 37px 0 69px; }
+      #course-main-content .top-wrapper .top .title-wrapper h1 {
+        font-size: 75pt; }
+      #course-main-content .top-wrapper .top .title-wrapper p {
+        font-size: 35pt; }
+      #course-main-content .top-wrapper .top .title-wrapper .title {
+        color: #FFFFFF; }
     #course-main-content .top-wrapper .top-content {
       margin: 0;
       padding: 0;
       list-style: none;
       display: -ms-flexbox;
       display: flex;
-      -ms-flex-pack: start;
-          justify-content: flex-start; }
+      -ms-flex-pack: center;
+          justify-content: center; }
       #course-main-content .top-wrapper .top-content-item {
         min-width: 204px;
         margin-right: 24px;
         height: 128px;
-        background: #FFFFFF;
         padding: 19px 24px;
-        box-shadow: 0 0 10px 3px rgba(0, 0, 0, 0.3); }
+        list-style-type: none; }
         #course-main-content .top-wrapper .top-content-item:last-child {
           margin-right: 0; }
       #course-main-content .top-wrapper .top-content .course-messages {
         max-width: 100%;
-        min-width: 204px;
         width: 100%;
         padding: 0; }
 
 #course-main-content .bottom-wrapper {
+  width: 100%;
+  max-width: 1344px;
+  height: 80px;
+  margin: 0 auto;
   display: -ms-flexbox;
-  display: flex; }
+  display: flex;
+  -ms-flex-flow: row nowrap;
+      flex-flow: row nowrap;
+  -ms-flex-pack: justify;
+      justify-content: space-between; }
+  #course-main-content .bottom-wrapper > div:first-child {
+    -ms-flex-positive: 8;
+        flex-grow: 8; }
+  #course-main-content .bottom-wrapper > div:last-child {
+    -ms-flex-positive: 2;
+        flex-grow: 2; }
+  #course-main-content .bottom-wrapper .top-content-item {
+    list-style-type: none; }
 
 #course-main-content .main-wrapper {
   display: -ms-flexbox;
@@ -2165,7 +2263,7 @@ header .nav {
     position: relative; }
     #course-main-content .main-wrapper .main .help-block {
       position: absolute;
-      top: -89px;
+      top: -169px;
       right: 0; }
     #course-main-content .main-wrapper .main .courses-list {
       list-style: none;
