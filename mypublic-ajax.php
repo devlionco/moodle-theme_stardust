@@ -73,17 +73,18 @@ function save_mypublicpage_shortform() {
             $birthday = new DateTime($birthday, core_date::get_server_timezone_object());
             $birthdayunix = $birthday->getTimestamp();
             $birthdayfieldid = $DB->get_field('user_info_field', 'id', array('shortname' => 'birthday'));  // SG - ugly hack to define birthday data field
+            // create DB object for update or insert
+            $birthdayfielddata = new stdClass();
+            $birthdayfielddata->fieldid = $birthdayfieldid;
+            $birthdayfielddata->userid = $userid;
+            $birthdayfielddata->data = $birthdayunix;
             if ($dataid = $DB->get_field('user_info_data', 'id', array('userid' => $userid, 'fieldid' => $birthdayfieldid))) {
-                $birthdayfielddata = new stdClass();
-                $birthdayfielddata->fieldid = $birthdayfieldid;
-                $birthdayfielddata->userid = $userid;
                 $birthdayfielddata->id = $dataid;
-                $birthdayfielddata->data = $birthdayunix;
                 $result = $DB->update_record('user_info_data', $birthdayfielddata);
             } else {
                 $result = $DB->insert_record('user_info_data', $birthdayfielddata);
             }
-            $response['birthday'] = ($result === true) ? 'OK' : $result;
+            $response['birthday'] = ($result) ? 'OK. Row id:'.$result : $result;
         }
 
         // update interests
