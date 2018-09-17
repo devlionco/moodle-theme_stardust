@@ -13,13 +13,18 @@ define(['jquery'], function ($) {
           if (target.dataset.handler === `filter_flag`) {
             // $(target).sibling().removeClass('filter_active');
             if (target.classList.contains('filter_active')) {
-              $.each($('form input[alt="Flagged"]'), function(key, value){
-                $(value).parents('.que').fadeOut();
+              $.each($('form .que'), function(){
+                $(this).fadeIn();
               });
               target.classList.remove('filter_active');
             }else {
-              $.each($('form input[alt="Flagged"]'), function(key, value){
-                $(value).parents('.que').fadeIn();
+              $.each($('form .que'), function(){
+                var flaggedCollection = $(this).has('input[alt="Flagged"]');
+                if(flaggedCollection.length > 0){
+                  $(this).fadeIn();
+                } else {
+                  $(this).fadeOut();
+                }
               });
               target.classList.add('filter_active');
             }
@@ -30,13 +35,17 @@ define(['jquery'], function ($) {
           if (target.dataset.handler === `filter_answered`) {
             // $(target).sibling().removeClass('filter_active');
             if (target.classList.contains('filter_active')) {
-              $.each($('form .answersaved'), function(key, value){
-                $(value).fadeOut();
+              $.each($('form .que'), function(){
+                $(this).fadeIn();
               });
               target.classList.remove('filter_active');
             }else {
-              $.each($('form .answersaved'), function(key, value){
-                $(value).fadeIn();
+              $.each($('form .que'), function(){
+                if ($(this).hasClass('answersaved')){
+                  $(this).fadeIn();
+                } else {
+                  $(this).fadeOut();
+                }
               });
               target.classList.add('filter_active');
             }
@@ -46,13 +55,17 @@ define(['jquery'], function ($) {
           if (target.dataset.handler === `filter_notanswered`) {
             // $(target).sibling().removeClass('filter_active');
             if (target.classList.contains('filter_active')) {
-              $.each($('form .notyetanswered'), function(key, value){
-                $(value).fadeOut();
+              $.each($('form .que'), function(){
+                $(this).fadeIn();
               });
               target.classList.remove('filter_active');
-            }else {
-              $.each($('form .notyetanswered'), function(key, value){
-                $(value).fadeIn();
+            } else {
+              $.each($('form .que'), function(){
+                if ($(this).hasClass('notyetanswered')){
+                  $(this).fadeIn();
+                } else {
+                  $(this).fadeOut();
+                }
               });
               target.classList.add('filter_active');
             }
