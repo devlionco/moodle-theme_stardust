@@ -9,18 +9,19 @@ $progress-height-open: 12px;
 #{$LTR} {
   #course-main-content {
     .top-wrapper:before {
-      background: linear-gradient(-90deg,transparent 0%, #03146D 75%, #19284F 100%);
+      background: linear-gradient(-90deg,transparent 0%,transparent 50%, #03146D 85%, $d_blue 100%);
     }
   }
 }
 #{$RTL} {
   #course-main-content {
     .top-wrapper:before {
-      background: linear-gradient(90deg,transparent 0%, #03146D 75%, #19284F 100%);
+      background: linear-gradient(90deg,transparent 0%,transparent 50%, #03146D 85%, $d_blue 100%);
     }
   }
 }
 #course-main-content {
+  font-family: NextExitRound;
   .top-wrapper {
     height: 100%;
     background: url([[pix:theme|banner]]);
@@ -31,7 +32,7 @@ $progress-height-open: 12px;
     justify-content: center;
     position: relative;
     box-sizing: border-box;
-    border-bottom: 10px solid rgba(3, 20, 109, 1);
+    border-bottom: 10px solid $d_blue;
     &:before{
       content:'';
       width:100%;
@@ -96,7 +97,7 @@ $progress-height-open: 12px;
           &:last-child {
             margin-right: 0;
           }
-        }        
+        }
       }
     }
   }

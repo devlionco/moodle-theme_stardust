@@ -31,8 +31,7 @@
           width:$circle-size - 15px;
           height:$circle-size - 15px;
           border-radius: 50%;
-          background: rgba(3, 20, 109, .8);
-          // background: rgba(131, 211, 174, .8);
+          background: rgba(131, 211, 174, .8);
           .circle-label{
             position: relative;
             color:#fff;
@@ -62,7 +61,7 @@
             position: absolute;
             top: -6px;
             // right: ($circle-size / 2) - ($small-circle-size / 2);
-            right:0;
+            right:37px;
             width: $small-circle-size;
             height: $small-circle-size;
             border-radius: 50%;
@@ -70,7 +69,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            background: rgba(3, 20, 109, 1);
+            background: #fff;
             transform: rotate(-360deg * 0.4);
             &-label {
               font-size: 22px;
@@ -86,6 +85,34 @@
       text-overflow: ellipsis;
       margin-left: 10px;
       font-size: 12px;
+    }
+  }
+}
+#course-main-content {
+  .presence-content .circle-wrapper {
+    .circle-inner{
+      background: rgba($d_blue, .75);
+      .circle-label{
+        font-size: 50pt;
+        // font-size: 38pt;
+        // line-height: 38pt;
+        line-height: 30pt;
+        padding-top: 16px;
+      }
+      .presence-title{
+        font-size: 12pt;
+        line-height: 10pt;
+        max-width: 50%;
+      }
+    }
+    .circle-small-wrapper .circle-small{
+      top: -21px;
+      border:0;
+      background: $d_blue;
+      .circle-small-label{
+        font-size: 30pt;
+        // font-size: 22pt;
+      }
     }
   }
 }
