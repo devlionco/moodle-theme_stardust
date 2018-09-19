@@ -78,10 +78,15 @@
       color: inherit;
     }
   }
-  // hide label activity
-  .section.main.current::before,
-  .section .activity.label  {
+
+  .section.main.current::before {
     display: none;
+  }
+    // hide label activity
+  .section .activity.label .no-overflow {
+    display: block;
+    height: 62px;
+    overflow: hidden;
   }
   .activities-empty {
     margin: 50px;
@@ -145,7 +150,7 @@
     .card.card-block {
       background: none;
       border: none;
-      margin: 18px 28px 0;
+      margin: 18px auto 0;
     }
   }
   .notifications {
