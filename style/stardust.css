@@ -712,6 +712,9 @@ header .nav {
 .modal-dialog {
   max-width: 80%; }
 
+.row {
+  background: #f4f3f0; }
+
 #region-main-box {
   -ms-flex-positive: 1;
       flex-grow: 1; }
@@ -2303,7 +2306,6 @@ header .nav {
     display: flex;
     -ms-flex-pack: center;
         justify-content: center;
-    padding: 56px 0 0;
     background: #f4f3f0; }
     #course-main-content .main-wrapper .main {
       max-width: 1344px;
@@ -2311,7 +2313,7 @@ header .nav {
       position: relative; }
       #course-main-content .main-wrapper .main .help-block {
         position: absolute;
-        top: -169px;
+        top: -116px;
         right: 0; }
       #course-main-content .main-wrapper .main .courses-list {
         list-style: none;
