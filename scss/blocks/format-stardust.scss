@@ -1,8 +1,10 @@
 .format-stardust {
 
   // label activity
-  .section .activity.label  {
-    display: none;
+  .section .activity.label .no-overflow {
+    display: block;
+    height: 62px;
+    overflow: hidden;
   }
 
   li, ul {

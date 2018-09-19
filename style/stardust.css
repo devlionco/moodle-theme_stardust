@@ -2549,8 +2549,10 @@ header .nav {
           color: #3C3C3C;
           background: none; }
 
-.format-stardust .section .activity.label {
-  display: none; }
+.format-stardust .section .activity.label .no-overflow {
+  display: block;
+  height: 62px;
+  overflow: hidden; }
 
 .format-stardust li, .format-stardust ul {
   list-style-type: none; }
