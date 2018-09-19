@@ -173,6 +173,10 @@
                                 <span class="input-label">{{#str}} lastname_firstname, theme_stardust{{/str}}</span>
                             </li>
                             <li class="info">
+                                <input type="text" id="phone2" class="input" {{canedit}} value="{{userinfo.phone2}}">
+                                <span class="input-label">{{#str}} phone, theme_stardust{{/str}}</span>
+                            </li>
+                            <li class="info">
                                 <input type="date" id="birthday" class="input" {{canedit}} value="{{#userdate}}{{userinfo.profile_field_birthday}}, %Y-%m-%d {{/userdate}}">
                                 <span class="input-label">{{#str}} birthday, theme_stardust{{/str}}</span>
                             </li>
@@ -205,14 +209,13 @@
                                 <span class="input-label">{{#str}} address, theme_stardust{{/str}}</span>
                             </li>
                             <li class="info">
-                                <input type="text" id="phone1" class="input" {{canedit}} value="{{userinfo.phone2}}">
+                                <input type="text" id="phone1" class="input" {{canedit}} value="{{userinfo.phone1}}">
                                 <span class="input-label">{{#str}} phone, theme_stardust{{/str}}</span>
                             </li>
-                            <li class="info">
+                            <!-- <li class="info">
                                 <input type="text" id="icq" class="input" {{canedit}} value="{{userinfo.icq}}">
                                 <span class="input-label">{{#str}} icq, theme_stardust{{/str}}</span>
-                            </li>
-
+                            </li> -->
 
                             <li class="info submit">
                                 <input type="button" id="mypublicprofile-save-btn" class="btn-blue" {{canedit}} value="{{#str}} update_details, theme_stardust{{/str}}">

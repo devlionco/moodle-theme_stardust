@@ -37,6 +37,7 @@ define(['jquery', 'jqueryui', 'core/str'], function($, jqui, str) {
           // var password = $.trim($('#password').val());
           var fullname = $.trim($('#fullname').val());
           var phone1 = $.trim($('#phone1').val());
+          var phone2 = $.trim($('#phone2').val());
           var institution = $.trim($('#institution').val());
           var address = $.trim($('#address').val());
           var icq = $.trim($('#icq').val());
@@ -59,6 +60,7 @@ define(['jquery', 'jqueryui', 'core/str'], function($, jqui, str) {
                 // password:password,
                 fullname:fullname,
                 phone1:phone1,
+                phone2:phone2,
                 institution:institution,
                 address:address,
                 icq:icq,

@@ -22,7 +22,7 @@ function save_mypublicpage_shortform() {
     $phone1 = optional_param('phone1', '', PARAM_TEXT);
     $institution = optional_param('institution', '', PARAM_TEXT);
     $address = optional_param('address', '', PARAM_TEXT);
-    // $phone2 = optional_param('phone2', '', PARAM_TEXT);
+    $phone2 = optional_param('phone2', '', PARAM_TEXT);
     $icq = optional_param('icq', '', PARAM_INT);
     $birthday = optional_param('birthday', '', PARAM_RAW);
     $interests = optional_param('interests', '', PARAM_RAW);

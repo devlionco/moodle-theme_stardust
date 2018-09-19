@@ -7,7 +7,7 @@ include_once($CFG->dirroot . '/theme/stardust/lib.php');
 class classAjax
 {
 
-    private $metod;
+    private $method;
 
     public function __construct()
     {
@@ -16,7 +16,7 @@ class classAjax
 
     public function run()
     {
-        //call ajax metod
+        //call ajax method
         if (method_exists($this, $this->method)) {
             $method = $this->method;
             return $this->$method();
