@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<XMLDB PATH="theme/stardust/db" VERSION="20180919" COMMENT="XMLDB file for Moodle theme/stardust"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="../../../lib/xmldb/xmldb.xsd"
+>
+  <TABLES>
+    <TABLE NAME="theme_stardust_messages" COMMENT="Table to save course messages">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+        <FIELD NAME="courseid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+        <FIELD NAME="message" TYPE="text" NOTNULL="true" SEQUENCE="false" COMMENT="message body"/>
+        <FIELD NAME="userfrom" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false" COMMENT="user (tescher) id, who wrote the message"/>
+        <FIELD NAME="timecreated" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false" COMMENT="unixtime when message was created"/>
+        <FIELD NAME="timevalidbefore" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false" COMMENT="unixtime, message is valid before (optional for now)"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+      </KEYS>
+    </TABLE>
+  </TABLES>
+</XMLDB>
