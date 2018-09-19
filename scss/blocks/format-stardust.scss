@@ -306,8 +306,8 @@
       height: 100%;
       top: 0;
       right: 0;
-      background: url([[pix:format_stardust|close_black]]) no-repeat center;
-      background-size: 16px;
+      background: url([[pix:format_stardust|open_black]]) no-repeat center;
+      background-size: 34px;
     }
     .topunit_btn.section_opened {
       .closeall {
@@ -319,8 +319,8 @@
     }
 
     .topunit_btn.section_opened::after {
-      background: url([[pix:format_stardust|open_black]]) no-repeat center;
-      background-size: 34px;
+      background: url([[pix:format_stardust|close_black]]) no-repeat center;
+      background-size: 16px;
     }
   }
   // .topunit + .section.main .summary{
@@ -342,7 +342,7 @@
   .activity .actions {
     display: none;
   }
-  
+
   #section-0.section.main {
     &> .controls {
       display: none;

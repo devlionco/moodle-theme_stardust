@@ -2812,15 +2812,15 @@ header .nav {
     height: 100%;
     top: 0;
     right: 0;
-    background: url([[pix:format_stardust|close_black]]) no-repeat center;
-    background-size: 16px; }
+    background: url([[pix:format_stardust|open_black]]) no-repeat center;
+    background-size: 34px; }
   .format-stardust .topunit .topunit_btn.section_opened .closeall {
     display: inline-block; }
   .format-stardust .topunit .topunit_btn.section_opened .openall {
     display: none; }
   .format-stardust .topunit .topunit_btn.section_opened::after {
-    background: url([[pix:format_stardust|open_black]]) no-repeat center;
-    background-size: 34px; }
+    background: url([[pix:format_stardust|close_black]]) no-repeat center;
+    background-size: 16px; }
 
 .format-stardust .topunit + .section.main > .content > .summary {
   display: none; }
