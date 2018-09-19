@@ -11,7 +11,9 @@ define(['jquery'], function ($) {
         while(target != filter) {
 
           if (target.dataset.handler === `filter_flag`) {
-            // $(target).sibling().removeClass('filter_active');
+            $.each($('.filter_toggle.filter_active:not(.filter_flag)'), function(){
+              this.click();
+            });
             if (target.classList.contains('filter_active')) {
               $.each($('form .que'), function(){
                 $(this).fadeIn();
@@ -33,7 +35,9 @@ define(['jquery'], function ($) {
           }
 
           if (target.dataset.handler === `filter_answered`) {
-            // $(target).sibling().removeClass('filter_active');
+            $.each($('.filter_toggle.filter_active:not(.filter_answered)'), function(){
+              this.click();
+            });
             if (target.classList.contains('filter_active')) {
               $.each($('form .que'), function(){
                 $(this).fadeIn();
@@ -53,7 +57,9 @@ define(['jquery'], function ($) {
           }
 
           if (target.dataset.handler === `filter_notanswered`) {
-            // $(target).sibling().removeClass('filter_active');
+            $.each($('.filter_toggle.filter_active:not(.filter_notanswered)'), function(){
+              this.click();
+            });
             if (target.classList.contains('filter_active')) {
               $.each($('form .que'), function(){
                 $(this).fadeIn();
