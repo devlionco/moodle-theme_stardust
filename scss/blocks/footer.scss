@@ -1,0 +1,31 @@
+@import "../variables";
+
+#page-course-view-stardust{
+  #page-footer{
+    background-color: $d_blue;
+    .logo-wrapper{
+      width: 100%;
+      height:130px;
+      display: flex;
+      flex-flow: row nowrap;
+      justify-content: center;
+      align-items: baseline;
+      .logo-wiezmann{
+        width:150px;
+        height:118px;
+        background-image:url([[pix:theme|logo-weizmann]]);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: contain;
+      }
+      .logo-davidson{
+        width:100px;
+        height:100px;
+        background-image:url([[pix:theme|header/logo]]);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: contain;
+      }
+    }
+  }
+}
