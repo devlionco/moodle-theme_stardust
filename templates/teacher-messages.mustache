@@ -114,6 +114,10 @@ require(['jquery', 'theme_stardust/ajax'], function($, ajax){
     },1500);
   };
 
+  $('form.message').submit(function(e){
+    return false;
+  });
+
   message.addEventListener('focus', function(e){
     e.preventDefault();
     message.removeAttribute('readonly');
@@ -139,7 +143,7 @@ require(['jquery', 'theme_stardust/ajax'], function($, ajax){
   submit.addEventListener('click', function(){
 
     ajax.data = {
-      method: "POST",
+      method: "send_course_message",
       url: "{{config.wwwroot}}/theme/stardust/classes/classAjax.php",
       user: getUserId(),
       courseid: getCourseId(),
@@ -147,11 +151,11 @@ require(['jquery', 'theme_stardust/ajax'], function($, ajax){
       message: message.value
     };
     animation();
-    console.log("user: "+ getUserId());
-    console.log("courseid: "+getCourseId());
-    console.log("sesskey: "+getSessionKey());
-    console.log("url: "+ajax.data.url);
-    console.log("message: "+ajax.data.message);
+    //console.log("user: "+ getUserId());
+    //console.log("courseid: "+getCourseId());
+    //console.log("sesskey: "+getSessionKey());
+    //console.log("url: "+ajax.data.url);
+    //console.log("message: "+ajax.data.message);
     ajax.send();
 
 
