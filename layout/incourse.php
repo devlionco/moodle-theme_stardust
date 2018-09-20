@@ -43,10 +43,12 @@ function get_all_course_sections_info($courseinfo, $currentsectionnum = null) {
         $secname = course_get_format($PAGE->course)->get_section_name($secnum);
         $securl = new moodle_url('/course/view.php', array('id' => $PAGE->course->id));
         $securl->set_anchor('section-'.$secnum);
-        $sectionsinfo['allcoursesections'][$secnum]['name'] = $secname;
-        $sectionsinfo['allcoursesections'][$secnum]['url'] = $securl;
-        if ($secnum == $currentsectionnum) {
-            $sectionsinfo['allcoursesections'][$secnum]['current'] = $secname;
+        if (empty($secinfo->pinned)) {
+            $sectionsinfo['allcoursesections'][$secnum]['name'] = $secname;
+            $sectionsinfo['allcoursesections'][$secnum]['url'] = $securl;
+            if ($secnum == $currentsectionnum) {
+                $sectionsinfo['allcoursesections'][$secnum]['current'] = $secname;
+            }
         }
         if ($secinfo->pinned) {
             $sectionsinfo['allcoursesectionspinned'][$secnum]['name'] = $secname;
