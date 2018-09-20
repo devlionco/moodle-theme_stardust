@@ -4,30 +4,17 @@
         <div class="messages-list-wrapper">
           <div class="messages-list">
             {{#isteacher}}
-              <!-- output  for teacher-->
                   <form class="message">
                     <input type="text" name="message" value="{{coursemessage.message}}" maxlength="100" placeholder="" class="message-input" readonly>
                     <div class="message-controls">
                       <input type="button" name="" value="&rarr;" class="message-submit" title="submit">
-                      <!-- <input type="submit" name="" value="&rarr;" class="message-submit" title="submit"> -->
                       <input type="button" name="" value="&times;" class="message-clear" title="clear message">
                       <div class="submit-icons"></div>
                     </div>
                   </form>
             {{/isteacher}}
-              <!-- output for students -->
             {{^isteacher}}
-                <!-- <div class="message">{{#str}}no_messages, theme_stardust{{/str}}</div> -->
-                <!-- NOTE: next form is used for debugging only -->
-                <form class="message">
-                  <input type="text" name="message" value="{{coursemessage.message}}" disabled="disabled" maxlength="100" placeholder="" class="message-input" readonly>
-                  <div class="message-controls">
-                    <input type="button" name="" value="&rarr;" class="message-submit" title="submit">
-                    <!-- <input type="submit" name="" value="&rarr;" class="message-submit" title="submit"> -->
-                    <input type="button" name="" value="&times;" class="message-clear" title="clear message">
-                    <div class="submit-icons"></div>
-                  </div>
-                </form>
+                <div class="message">{{coursemessage.message}}</div>
             {{/isteacher}}
           </div>
         </div>
