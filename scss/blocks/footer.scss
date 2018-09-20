@@ -1,8 +1,11 @@
 @import "../variables";
 
-#page-course-view-stardust{
+#page-course-view-stardust, #page-course-view-cards{
   #page-footer{
-    background-color: $d_blue;
+    background-color: $d_blue !important;
+    .container{
+      display: none;
+    }
     .logo-wrapper{
       width: 100%;
       height:130px;
