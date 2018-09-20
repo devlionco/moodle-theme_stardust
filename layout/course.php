@@ -141,6 +141,14 @@ $regionmainsettingsmenu = $OUTPUT->region_main_settings_menu();
 //get course format
 $courseformat = course_get_format($course->id)->get_format_options();
 
+// get teacher's course message
+$coursemessage = $DB->get_record('theme_stardust_messages', array ('courseid' => $course->id));
+
+// is teacher marker
+$coursecontext = context_course::instance($course->id);
+$isteacher = (has_capability('moodle/course:update', $coursecontext)) ? true : false;
+
+
 $templatecontext = [
     'sitename' => format_string($SITE->shortname, true, ['context' => context_course::instance(SITEID) , "escape" => false]) ,
     'output' => $OUTPUT,
@@ -162,7 +170,9 @@ $templatecontext = [
     'showcertificatestag' => (isset($courseformat['showcertificatestag'])) ? $courseformat['showcertificatestag'] : false,
     'attendanceinfo' => isset($attendanceinfo) ? $attendanceinfo : null,
     'sectionscompletion' => $sectionscompletion,
-    'showgrades' => isset($course->showgrades) ? $course->showgrades: false
+    'showgrades' => isset($course->showgrades) ? $course->showgrades: false,
+    'coursemessage' => $coursemessage,
+    'isteacher' => $isteacher
 ];
 
 $PAGE->requires->jquery();

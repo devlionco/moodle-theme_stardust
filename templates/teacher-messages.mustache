@@ -3,27 +3,24 @@
         <p class="messages-title">{{#str}}messages, theme_stardust{{/str}}</p>
         <div class="messages-list-wrapper">
           <div class="messages-list">
-            <!-- output  for teacher-->
-            {{#output.get_all_messages.messages}}
-              {{#.}}
-                <form class="message">
-                  <input type="text" name="message" value="Type your message here." maxlength="100" placeholder="" class="message-input" readonly>
-                  <div class="message-controls">
-                    <input type="button" name="" value="&rarr;" class="message-submit" title="submit">
-                    <!-- <input type="submit" name="" value="&rarr;" class="message-submit" title="submit"> -->
-                    <input type="button" name="" value="&times;" class="message-clear" title="clear message">
-                    <div class="submit-icons"></div>
-                  </div>
-                </form>
-              {{/.}}
-            {{/output.get_all_messages.messages}}
-            <!-- output for students -->
-            {{^output.get_all_messages.messages}}
-              {{#.}}
+            {{#isteacher}}
+              <!-- output  for teacher-->
+                  <form class="message">
+                    <input type="text" name="message" value="{{coursemessage.message}}" maxlength="100" placeholder="" class="message-input" readonly>
+                    <div class="message-controls">
+                      <input type="button" name="" value="&rarr;" class="message-submit" title="submit">
+                      <!-- <input type="submit" name="" value="&rarr;" class="message-submit" title="submit"> -->
+                      <input type="button" name="" value="&times;" class="message-clear" title="clear message">
+                      <div class="submit-icons"></div>
+                    </div>
+                  </form>
+            {{/isteacher}}
+              <!-- output for students -->
+            {{^isteacher}}
                 <!-- <div class="message">{{#str}}no_messages, theme_stardust{{/str}}</div> -->
                 <!-- NOTE: next form is used for debugging only -->
                 <form class="message">
-                  <input type="text" name="message" value="Type your message here." maxlength="100" placeholder="" class="message-input" readonly>
+                  <input type="text" name="message" value="{{coursemessage.message}}" disabled="disabled" maxlength="100" placeholder="" class="message-input" readonly>
                   <div class="message-controls">
                     <input type="button" name="" value="&rarr;" class="message-submit" title="submit">
                     <!-- <input type="submit" name="" value="&rarr;" class="message-submit" title="submit"> -->
@@ -31,14 +28,8 @@
                     <div class="submit-icons"></div>
                   </div>
                 </form>
-              {{/.}}
-            {{/output.get_all_messages.messages}}
-            {{#output.get_all_messages.warnings}}
-              {{#.}}
-                <div class="message"><a href="{{config.wwwroot}}/message/output/popup/notifications.php?notificationid={{id}}">{{subject}}</a></div>
-              {{/.}}
-            {{/output.get_all_messages.warnings}}
-          </ul>
+            {{/isteacher}}
+          </div>
         </div>
     </div>
 </div>

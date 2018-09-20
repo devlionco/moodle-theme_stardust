@@ -219,11 +219,31 @@ class classAjax
         return $html;
     }
 
-    // public function teacherMessage () {
-    //   $userid  = optional_param('','', PARAM_INT);
-    //   $courseid = optional_param('','', PARAM_INT);
-    //   $sessid = optional_param('','', PARAM_RAW);
-    //   $message = = optional_param('','', PARAM_RAW);
-    // }
+    /**
+     * Funtion saves teachers course message to theme_stardust_messages table
+     * 
+     */
+    private function send_course_message() {
+        global $CFG, $DB;
+        $userid  = required_param('user', PARAM_INT);
+        $courseid = required_param('courseid', PARAM_INT);
+        $message = required_param('message', PARAM_RAW);
+
+        // prepare new DB record
+        $record = new stdClass();
+        $record->courseid        = $courseid;
+        $record->message         = $message;
+        $record->userfrom        = $userid;
+        $record->timecreated     = time();
+
+        // insert or update message
+        if ($messid = $DB->get_record('theme_stardust_messages', array ('courseid' => $courseid))) {
+            $record->id = $messid->id;
+            $DB->update_record('theme_stardust_messages', $record);
+        } else {
+            $DB->insert_record('theme_stardust_messages', $record); 
+        }
+
+    }
 
 }
