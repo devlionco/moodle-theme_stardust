@@ -4036,7 +4036,8 @@ header .nav {
       position: absolute;
       width: 10px;
       height: 4px;
-      transition: width .2s; }
+      transition: width .2s;
+      border-radius: 2px; }
     #page-mod-quiz-attempt .filter_toggle.filter_active .filter_pin {
       transform: translateX(8px); }
     #page-mod-quiz-attempt .filter_toggle.filter_flag {
@@ -4067,6 +4068,7 @@ header .nav {
       width: 0;
       height: 4px;
       transition: width .2s;
+      border-radius: 2px;
       background-color: #fff; }
   #page-mod-quiz-attempt #page-footer {
     background-color: #f4f3f0; }
