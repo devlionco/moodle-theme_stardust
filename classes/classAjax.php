@@ -219,4 +219,11 @@ class classAjax
         return $html;
     }
 
+    // public function teacherMessage () {
+    //   $userid  = optional_param('','', PARAM_INT);
+    //   $courseid = optional_param('','', PARAM_INT);
+    //   $sessid = optional_param('','', PARAM_RAW);
+    //   $message = = optional_param('','', PARAM_RAW);
+    // }
+
 }

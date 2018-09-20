@@ -1154,6 +1154,128 @@ header .nav {
 ::-webkit-scrollbar-thumb:hover {
   background: #787a7a; }
 
+@keyframes spinAjax {
+  to {
+    border-top-color: #19284f;
+    transform: rotate(360deg); } }
+
+@keyframes sussesAjax {
+  0% {
+    stroke-dashoffset: -100; }
+  100% {
+    stroke-dashoffset: 900; } }
+
+#course-main-content .messages-container {
+  font-size: 16pt;
+  line-height: 18pt;
+  height: auto;
+  box-shadow: none; }
+  #course-main-content .messages-container .messages .messages-list-wrapper {
+    height: 25px;
+    overflow: hidden;
+    color: #19284f; }
+  #course-main-content .messages-container .messages .messages-title {
+    line-height: 18pt;
+    margin-bottom: 0;
+    color: #19284f;
+    font-weight: normal; }
+
+#course-main-content .course-messages {
+  max-width: 100%;
+  width: 100%;
+  padding: 0; }
+  #course-main-content .course-messages .messages-container {
+    height: 50px;
+    margin: 15px 0;
+    box-sizing: border-box;
+    border: 4px solid #83D3AE;
+    border-radius: 15px;
+    padding: 0 2rem;
+    overflow-y: hidden; }
+    #course-main-content .course-messages .messages-container .messages {
+      padding: 0;
+      height: 100%;
+      min-height: 42px;
+      position: relative;
+      display: -ms-flexbox;
+      display: flex;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
+      -ms-flex-align: center;
+          align-items: center;
+      -ms-flex-pack: start;
+          justify-content: flex-start; }
+      #course-main-content .course-messages .messages-container .messages-list-wrapper {
+        width: 100%;
+        height: 50px;
+        overflow: hidden; }
+        #course-main-content .course-messages .messages-container .messages-list-wrapper .message {
+          display: -ms-flexbox;
+          display: flex;
+          -ms-flex-flow: row nowrap;
+              flex-flow: row nowrap;
+          -ms-flex-pack: start;
+              justify-content: flex-start;
+          -ms-flex-align: center;
+              align-items: center;
+          padding: 0 1rem; }
+          #course-main-content .course-messages .messages-container .messages-list-wrapper .message .messages-title {
+            margin-bottom: 0; }
+
+#course-main-content form.message {
+  position: relative;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-flow: row nowrap;
+      flex-flow: row nowrap;
+  width: 100%;
+  overflow: hidden; }
+  #course-main-content form.message input {
+    border: 0;
+    background: transparent;
+    outline: none;
+    cursor: pointer; }
+    #course-main-content form.message input.message-input {
+      width: calc(100% - 3em); }
+    #course-main-content form.message input[readonly] ~ .message-controls > .message-submit {
+      display: none; }
+    #course-main-content form.message input[readonly] ~ .message-controls > .message-clear {
+      display: none; }
+  #course-main-content form.message .message-controls {
+    position: relative;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-flow: row nowrap;
+        flex-flow: row nowrap;
+    -ms-flex-pack: center;
+        justify-content: center;
+    -ms-flex-align: center;
+        align-items: center;
+    height: 100%;
+    width: 3em; }
+    #course-main-content form.message .message-controls .message-submit, #course-main-content form.message .message-controls .message-clear {
+      font-size: 1.5em;
+      line-height: 1em;
+      font-weight: 700; }
+    #course-main-content form.message .message-controls .message-spin {
+      display: block;
+      width: 1em;
+      height: 1em;
+      border-radius: 50%;
+      animation: spinAjax 1s linear infinite;
+      border: 3px solid #ddd;
+      border-top: 3px solid #83D3AE; }
+    #course-main-content form.message .message-controls .message-sent {
+      width: 1.5em;
+      height: 1.5em;
+      display: block; }
+      #course-main-content form.message .message-controls .message-sent .path {
+        stroke-dasharray: 1000;
+        stroke-dashoffset: 0; }
+        #course-main-content form.message .message-controls .message-sent .path.check {
+          stroke-dashoffset: -100;
+          animation: sussesAjax .9s .35s ease-in-out forwards; }
+
 .presence-title {
   color: #fff;
   font-size: 10px;
