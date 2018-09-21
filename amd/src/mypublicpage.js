@@ -29,18 +29,22 @@ define(['jquery', 'jqueryui', 'core/str'], function($, jqui, str) {
 
   return {
     init: function() {
-
       //Process form at mypublicpage
       $('#mypublicpage-profile-shortform #mypublicprofile-save-btn').click(function() {
           var userid = $.trim($('#userid').val());
           var username = $.trim($('#username').val());
           // var password = $.trim($('#password').val());
+          var passport = $.trim($('#passport').val());
           var fullname = $.trim($('#fullname').val());
+          var email = $.trim($('#email').val());
+          var aim = $.trim($('#aim').val());
           var phone1 = $.trim($('#phone1').val());
           var phone2 = $.trim($('#phone2').val());
           var institution = $.trim($('#institution').val());
           var address = $.trim($('#address').val());
+          var skype = $.trim($('#skype').val());
           var icq = $.trim($('#icq').val());
+          var yahoo = $.trim($('#yahoo').val());
           var birthday = $('#birthday').val();
           var interests = [];
           var interestsElements = $('#tag-container .tag-item');
@@ -57,13 +61,18 @@ define(['jquery', 'jqueryui', 'core/str'], function($, jqui, str) {
               data: {
                 userid:userid,
                 username:username,
+                passport:passport,
                 // password:password,
                 fullname:fullname,
+                email:email,
+                aim:aim,
                 phone1:phone1,
                 phone2:phone2,
+                skype:skype,
                 institution:institution,
-                address:address,
+                // address:address,
                 icq:icq,
+                yahoo:yahoo,
                 birthday:birthday,
                 interests:interests,
                 action:'mypublicpage-save-shortform'

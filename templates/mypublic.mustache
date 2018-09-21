@@ -220,6 +220,9 @@
                                     {{/userinfo.interests}}
                                 </div>
                             </li>
+                            <li class="info submit">
+                                <input type="button" id="mypublicprofile-save-btn" class="btn-blue" {{canedit}} value="{{#str}} update_details, theme_stardust{{/str}}">
+                            </li>
                         </ul>
                     </div>
                     <div class="column">
@@ -233,13 +236,11 @@
                                 <input type="text" id="yahoo" class="input" {{canedit}} value="{{userinfo.yahoo}}">
                                 <span class="input-label">{{#str}} school_city, theme_stardust{{/str}}</span>
                             </li>
-                            <li class="info">
+                            <!-- <li class="info">
                                 <input type="text" id="address" class="input" {{canedit}} value="{{userinfo.address}}">
                                 <span class="input-label">{{#str}} address, theme_stardust{{/str}}</span>
-                            </li>
-                            <li class="info submit">
-                                <input type="button" id="mypublicprofile-save-btn" class="btn-blue" {{canedit}} value="{{#str}} update_details, theme_stardust{{/str}}">
-                            </li>
+                            </li> -->
+
                         </ul>
                     </div>
                 </form>
