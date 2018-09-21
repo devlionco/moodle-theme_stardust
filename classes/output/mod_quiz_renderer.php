@@ -66,7 +66,8 @@ class theme_stardust_mod_quiz_renderer extends mod_quiz_renderer {
         $output .= $this->quiestion_filter();
         $output .= html_writer::end_tag('div');
         $output .= html_writer::end_tag('div');
-        $output .= html_writer::tag('div', $PAGE->activityrecord->intro, array('class' => 'quiz_description'));
+        //$output .= html_writer::tag('div', $PAGE->activityrecord->intro, array('class' => 'quiz_description')); // SG -- show quiz description as sub geader
+        $output .= html_writer::tag('div', $attemptobj->get_heading_before_slot(1), array('class' => 'quiz_description')); // SG -- show slot section heading as sub header
         $output .= $this->attempt_form($attemptobj, $page, $slots, $id, $nextpage);
         $output .= $this->navigation_panel($navbc);
         $output .= $this->footer();
