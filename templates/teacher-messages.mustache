@@ -24,15 +24,13 @@
 
 
 {{#js}}
-require(['jquery', 'theme_stardust/ajax'], function($, ajax){
+require(['core/yui', 'jquery', 'theme_stardust/ajax'], function(Y, $, ajax){
 
   const message = document.querySelector('#course-main-content .message-input');
   const submit = document.querySelector('#course-main-content .message-submit');
   const clear = document.querySelector('#course-main-content .message-clear');
 
   // on send spinner
-  // const spinner = document.createElement('span');
-  // spinner.classList += 'message-spin';
   const spinner = '<span class="message-spin"></span>';
 
   // on send success
@@ -42,43 +40,16 @@ require(['jquery', 'theme_stardust/ajax'], function($, ajax){
   $(submit).css({'display':'none'});
   $(clear).css({'display':'none'});
 
-  const getUserId = function (){
-    // TODO: add data-userid to form.message
-    var source = document.querySelector('#course-main-content form.message');
-    var userid = source.dataset.userid;
-
-    return userid;
-  };
-  //console.log(getUserId());
-
   const getCourseId = function (){
     var queries = window.location.search.replace(/^\?/, '').split('&');
-    // console.log(queries);
     for( i = 0; i < queries.length; i++ ) {
       var q = queries[i].trim();
-      // console.log(q.indexOf('id'));
       if (q.indexOf('id') == 0){
         var courseid = q.substring(3, q.length);
       }
     }
     return courseid;
   };
-  // console.log(window.location.search);
-  // console.log(getCourseId());
-
-  const  getSessionKey = function (){
-    var cookies = document.cookie.split(';');
-    for(var i = 0; i < cookies.length; i++) {
-      var c = cookies[i].trim();
-      var name = 'MoodleSession';
-      if (c.indexOf(name) == 0) {
-        var session = c.substring(name.length+1, c.length);
-      }
-    }
-    return session;
-  };
-  // console.log(document.cookies);
-  // console.log(getSessionKey());
 
   const targetBlock = document.querySelector('.submit-icons');
 
@@ -100,8 +71,9 @@ require(['jquery', 'theme_stardust/ajax'], function($, ajax){
     e.preventDefault();
     message.removeAttribute('readonly');
   }, true);
-  // message.addEventListener('input', function(){
-  // }, true);
+  message.addEventListener('blur', function(e) {
+    submit.click();
+  }, true);
   clear.addEventListener('click', function(){
     message.value = "";
   });
@@ -123,17 +95,12 @@ require(['jquery', 'theme_stardust/ajax'], function($, ajax){
     ajax.data = {
       method: "send_course_message",
       url: "{{config.wwwroot}}/theme/stardust/classes/classAjax.php",
-      user: getUserId(),
+      user: document.querySelector('form.message').dataset.userid,
       courseid: getCourseId(),
-      sesskey: getSessionKey(),
+      sesskey: M.cfg.sesskey,
       message: message.value
     };
     animation();
-    //console.log("user: "+ getUserId());
-    //console.log("courseid: "+getCourseId());
-    //console.log("sesskey: "+getSessionKey());
-    //console.log("url: "+ajax.data.url);
-    //console.log("message: "+ajax.data.message);
     ajax.send();
 
 
