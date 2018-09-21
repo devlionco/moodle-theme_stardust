@@ -127,7 +127,7 @@ $templatecontext = [
     'backtocourseurl' => $courselink,
     'backtosection' => html_writer::link($sectionlink, $textbacktosection),
     'backtoactivity' => html_writer::link($activitylink, $textbacktoactivity),
-    'allcoursesections' => $allcoursesectionsinfo['allcoursesections'],
+    'allcoursesections' => $allcoursesectionsinfo['allcoursesections'] = array_values($allcoursesectionsinfo['allcoursesections']),
     'allcoursesectionspinned' => $allcoursesectionsinfo['allcoursesectionspinned'] = array_values($allcoursesectionsinfo['allcoursesectionspinned']),
     'allsectionactivities' => $allsectionactivities
 ];
