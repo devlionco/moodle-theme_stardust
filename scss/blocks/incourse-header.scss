@@ -1,3 +1,5 @@
+@import "../variables";
+
 @media #{$less_1344} {
   .incourse-header {
     .top-wrapper {
@@ -9,10 +11,8 @@
   }
 }
 
-
 .incourse-header {
-
-
+  margin-top: -7px;
   .main-wrapper {
     display: flex;
     justify-content: center;
@@ -35,7 +35,7 @@
     display: flex;
     justify-content: center;
     position: relative;
-    background: url([[pix:theme|background]]) no-repeat center;
+    background: linear-gradient(-90deg,transparent 0%,transparent 50%, #03146D 85%, $d_blue 100%), url(/theme/image.php/stardust/theme/1537542272/banner);
     background-size: cover;
     &:before {
       content: "";
