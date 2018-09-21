@@ -28,7 +28,7 @@ user_preference_allow_ajax_update('drawer-open-nav', PARAM_ALPHA);
 require_once($CFG->libdir . '/behat/lib.php');
 require_once($CFG->dirroot . '/mod/attendance/classes/summary.php');
 require_once($CFG->libdir . "/completionlib.php");
-global $DB,$COURSE;
+global $DB,$COURSE, $USER;
 $course = $PAGE->course;
 
 //get attednance info
@@ -148,7 +148,6 @@ $coursemessage = $DB->get_record('theme_stardust_messages', array ('courseid' =>
 $coursecontext = context_course::instance($course->id);
 $isteacher = (has_capability('moodle/course:update', $coursecontext)) ? true : false;
 
-
 $templatecontext = [
     'sitename' => format_string($SITE->shortname, true, ['context' => context_course::instance(SITEID) , "escape" => false]) ,
     'output' => $OUTPUT,
@@ -172,7 +171,8 @@ $templatecontext = [
     'sectionscompletion' => $sectionscompletion,
     'showgrades' => isset($course->showgrades) ? $course->showgrades: false,
     'coursemessage' => $coursemessage,
-    'isteacher' => $isteacher
+    'isteacher' => $isteacher,
+    'userid' => $USER->id
 ];
 
 $PAGE->requires->jquery();

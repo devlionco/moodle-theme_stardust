@@ -4,7 +4,7 @@
         <div class="messages-list-wrapper">
           <div class="messages-list">
             {{#isteacher}}
-                  <form class="message">
+                  <form class="message" data-userid={{userid}}>
                     <input type="text" name="message" value="{{coursemessage.message}}" maxlength="100" placeholder="" class="message-input" readonly>
                     <div class="message-controls">
                       <input type="button" name="" value="&rarr;" class="message-submit" title="submit">
@@ -44,7 +44,7 @@ require(['jquery', 'theme_stardust/ajax'], function($, ajax){
 
   const getUserId = function (){
     // TODO: add data-userid to form.message
-    var source = document.querySelector('.popover-region');
+    var source = document.querySelector('#course-main-content form.message');
     var userid = source.dataset.userid;
 
     return userid;
