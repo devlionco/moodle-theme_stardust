@@ -19,11 +19,16 @@ function save_mypublicpage_shortform() {
     $username = optional_param('username', '', PARAM_TEXT);
     // $password = optional_param('password', '', PARAM_RAW);
     $fullname = optional_param('fullname', '', PARAM_TEXT);
+    $passport = optional_param('passport', '', PARAM_TEXT); // TODO
+    $email = optional_param('email', '', PARAM_TEXT);
+    $aim = optional_param('aim', '', PARAM_TEXT);           // additional email
+    $skype = optional_param('skype', '', PARAM_TEXT);       // position
+    $yahoo = optional_param('yahoo', '', PARAM_TEXT);       // school city
     $phone1 = optional_param('phone1', '', PARAM_TEXT);
+    $phone2 = optional_param('phone2', '', PARAM_TEXT);     // additional phone
     $institution = optional_param('institution', '', PARAM_TEXT);
-    $address = optional_param('address', '', PARAM_TEXT);
-    $phone2 = optional_param('phone2', '', PARAM_TEXT);
-    $icq = optional_param('icq', '', PARAM_INT);
+    $address = optional_param('address', '', PARAM_TEXT);   // not in use for now
+    $icq = optional_param('icq', '', PARAM_INT);            // ???
     $birthday = optional_param('birthday', '', PARAM_RAW);
     $interests = optional_param('interests', '', PARAM_RAW);
 
@@ -54,6 +59,18 @@ function save_mypublicpage_shortform() {
         }
         if(!empty($phone2)){
              $user->phone2 = $phone2;
+        }
+        if(!empty($email)){
+            $user->email = $email;
+        }
+        if(!empty($aim)){
+            $user->aim = $aim;
+        }
+        if(!empty($skype)){
+            $user->skype = $skype;
+        }
+        if(!empty($yahoo)){
+            $user->yahoo = $yahoo;
         }
         if(!empty($institution)){
             $user->institution = $institution;
