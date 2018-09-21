@@ -127,11 +127,17 @@ $string['change_picture'] = 'תמונת פרופיל';
 $string['profile_icon_info'] = 'ניתן להעלות קובץ מסוג jpg ';
 $string['presonal_information'] = 'פרטים אישיים';
 $string['lastname_firstname'] = 'שם + שם משפחה';
+$string['passport'] = 'Passport';
 $string['phone'] = 'טלפון';
+$string['additional_phone'] = 'Additional phone';
+$string['email'] = 'Email';
+$string['additional_email'] = 'Additional email';
 $string['school_details'] = 'פרטי בית הספר';
 $string['school'] = 'בית ספר';
+$string['school_city'] = 'School city';
 $string['address'] = 'כתובת';
 $string['icq'] = 'ICQ';
+$string['position'] = 'Position';
 $string['birthday'] = 'תאריך לידה';
 $string['interests'] = 'תחומי עניין';
 $string['accomplishments'] = 'הישגים';
@@ -147,6 +153,8 @@ $string['mypublic_new_background_img'] = 'Upload new image';
 $string['mypublic_deletebackgroundimg'] = 'Remove image';
 $string['mypublic_save_backgroundimg'] = 'Save image';
 $string['write_tags'] = 'תרשום תחומי עניין';
+$string['change_password_link'] = 'Click here to change your password';
+
 
 // course page
 $string['gohome'] = '< עמוד הבית';

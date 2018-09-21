@@ -164,17 +164,42 @@
                                 <input type="text" id="username" class="input" {{canedit}} value="{{userinfo.username}}" />
                                 <span class="input-label">{{#str}} username, theme_stardust{{/str}}</span>
                             </li>
-                            <!-- <li class="info">
-                                <input type="password" id="password" class="input" {{canedit}} value="" />
+                            <li class="info">
+                                <!--<input type="password" id="password" class="input" {{canedit}} value="" />-->
+                                <span class="input"><a href="/login/change_password.php?id=1">{{#str}} change_password_link, theme_stardust{{/str}}</a></span>
                                 <span class="input-label">{{#str}} password, theme_stardust{{/str}}</span>
-                            </li> -->
+                            </li>
                             <li class="info">
                                 <input type="text" id="fullname" class="input" {{canedit}} value="{{userinfo.firstname}} {{userinfo.lastname}}">
                                 <span class="input-label">{{#str}} lastname_firstname, theme_stardust{{/str}}</span>
                             </li>
                             <li class="info">
-                                <input type="text" id="phone2" class="input" {{canedit}} value="{{userinfo.phone2}}">
+                                <input type="text" id="passport" class="input" {{canedit}} readonly value="{{userinfo.passport}}"> <!-- TODO!!! -->
+                                <span class="input-label">{{#str}} passport, theme_stardust{{/str}}</span>
+                            </li>
+                            <li class="info">
+                                <input type="text" id="email" class="input" {{canedit}} value="{{userinfo.email}}">
+                                <span class="input-label">{{#str}} email, theme_stardust{{/str}}</span>
+                            </li>
+                            <li class="info">
+                                <input type="text" id="aim" class="input" {{canedit}} value="{{userinfo.aim}}">
+                                <span class="input-label">{{#str}} additional_email, theme_stardust{{/str}}</span>
+                            </li>
+                            <li class="info">
+                                <input type="text" id="phone1" class="input" {{canedit}} value="{{userinfo.phone1}}">
                                 <span class="input-label">{{#str}} phone, theme_stardust{{/str}}</span>
+                            </li>
+                            <li class="info">
+                                <input type="text" id="phone2" class="input" {{canedit}} value="{{userinfo.phone2}}">
+                                <span class="input-label">{{#str}} additional_phone, theme_stardust{{/str}}</span>
+                            </li>
+                            <li class="info">
+                                <input type="text" id="skype" class="input" {{canedit}} value="{{userinfo.skype}}">
+                                <span class="input-label">{{#str}} position, theme_stardust{{/str}}</span>
+                            </li>
+                            <li class="info">
+                                <input type="text" id="icq" class="input" {{canedit}} value="{{userinfo.icq}}">
+                                <span class="input-label">{{#str}} icq, theme_stardust{{/str}}</span>
                             </li>
                             <li class="info">
                                 <input type="date" id="birthday" class="input" {{canedit}} value="{{#userdate}}{{userinfo.profile_field_birthday}}, %Y-%m-%d {{/userdate}}">
@@ -205,18 +230,13 @@
                                 <span class="input-label">{{#str}} school, theme_stardust{{/str}}</span>
                             </li>
                             <li class="info">
+                                <input type="text" id="yahoo" class="input" {{canedit}} value="{{userinfo.yahoo}}">
+                                <span class="input-label">{{#str}} school_city, theme_stardust{{/str}}</span>
+                            </li>
+                            <li class="info">
                                 <input type="text" id="address" class="input" {{canedit}} value="{{userinfo.address}}">
                                 <span class="input-label">{{#str}} address, theme_stardust{{/str}}</span>
                             </li>
-                            <li class="info">
-                                <input type="text" id="phone1" class="input" {{canedit}} value="{{userinfo.phone1}}">
-                                <span class="input-label">{{#str}} phone, theme_stardust{{/str}}</span>
-                            </li>
-                            <!-- <li class="info">
-                                <input type="text" id="icq" class="input" {{canedit}} value="{{userinfo.icq}}">
-                                <span class="input-label">{{#str}} icq, theme_stardust{{/str}}</span>
-                            </li> -->
-
                             <li class="info submit">
                                 <input type="button" id="mypublicprofile-save-btn" class="btn-blue" {{canedit}} value="{{#str}} update_details, theme_stardust{{/str}}">
                             </li>

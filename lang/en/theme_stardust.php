@@ -482,11 +482,17 @@ $string['change_picture'] = 'Change picture';
 $string['profile_icon_info'] = 'you can upload pictures in jpg format';
 $string['presonal_information'] = 'Presonal information';
 $string['lastname_firstname'] = 'Name + Last Name';
+$string['passport'] = 'Passport';
 $string['phone'] = 'Phone';
+$string['additional_phone'] = 'Additional phone';
+$string['email'] = 'Email';
+$string['additional_email'] = 'Additional email';
 $string['school_details'] = 'School details';
 $string['school'] = 'School';
+$string['school_city'] = 'School city';
 $string['address'] = 'Address';
 $string['icq'] = 'ICQ';
+$string['position'] = 'Position';
 $string['birthday'] = 'Birthday';
 $string['interests'] = 'Interests';
 $string['accomplishments'] = 'Accomplishments';
@@ -502,6 +508,8 @@ $string['mypublic_new_background_img'] = 'Upload new image';
 $string['mypublic_deletebackgroundimg'] = 'Remove image';
 $string['mypublic_save_backgroundimg'] = 'Save image';
 $string['write_tags'] = 'write tags';
+$string['change_password_link'] = 'Click here to change your password';
+
 
 // course page
 $string['gohome'] = 'Home ›';
