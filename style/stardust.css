@@ -3511,6 +3511,9 @@ header .nav {
   display: inline-block;
   margin-left: 30px; }
 
+[dir="rtl"] .incourse-header .top-wrapper {
+  background: linear-gradient(to right, transparent 0%, transparent 50%, #03146D 85%, #19284f 100%), url([[pix:theme|banner]]); }
+
 .incourse-header .main-wrapper {
   display: -ms-flexbox;
   display: flex;
@@ -3535,7 +3538,7 @@ header .nav {
   -ms-flex-pack: center;
       justify-content: center;
   position: relative;
-  background: linear-gradient(-90deg, transparent 0%, transparent 50%, #03146D 85%, #19284f 100%), url([[pix:theme|banner]]);
+  background: linear-gradient(to left, transparent 0%, transparent 50%, #03146D 85%, #19284f 100%), url([[pix:theme|banner]]);
   background-size: cover; }
   .incourse-header .top-wrapper:before {
     content: "";
