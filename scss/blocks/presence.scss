@@ -114,5 +114,8 @@
         // font-size: 22pt;
       }
     }
+    .circle[data-value="0"] ~ .circle-small-wrapper{
+      left:-24px;
+    }
   }
 }

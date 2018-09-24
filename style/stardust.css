@@ -1408,6 +1408,9 @@ header .nav {
   #course-main-content .presence-content .circle-wrapper .circle-small-wrapper .circle-small .circle-small-label {
     font-size: 30pt; }
 
+#course-main-content .presence-content .circle-wrapper .circle[data-value="0"] ~ .circle-small-wrapper {
+  left: -24px; }
+
 [dir="rtl"] #tabtoday tbody {
   margin-left: -31px;
   padding-left: 31px;
