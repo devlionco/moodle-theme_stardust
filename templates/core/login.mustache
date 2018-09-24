@@ -105,8 +105,8 @@
                     <div class="error" role="alert">{{error}}</div>
                 </div>
             {{/error}}
-            <div class = "dlogin__main">
-              <form class = "dlogin__form" action="{{loginurl}}" method="post" id="login">
+            <div class = "dlogin__main d-flex justify-content-between flex-wrap">
+              <form class = "dlogin__form container" action="{{loginurl}}" method="post" id="login">
                 <label class = "dlogin__label dlogin__label--username">
                   <input class = "dlogin__input" type="text" name="username" id="username" value = "{{username}}" placeholder="{{#str}}username, theme_stardust{{/str}}">
                 </label>
@@ -125,7 +125,7 @@
                 <button id="loginbtn" class = "dlogin__submit" type = "submit">{{#str}}enter, theme_stardust{{/str}}</button>
 
               </form>
-              <div class = "dlogin__enter">
+              <div class = "dlogin__enter container">
                 {{#hasidentityproviders}}
                   {{#identityproviders}}
                     <a

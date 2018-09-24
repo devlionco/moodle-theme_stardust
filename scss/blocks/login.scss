@@ -18,6 +18,8 @@
     flex-grow: 1;
     display: flex;
     justify-content: center;
+    max-width:80%;
+    margin:0 auto;
   }
 
   .dlogin__greeting {
@@ -32,14 +34,19 @@
     margin-top: 86px;
   }
   .dlogin__container {
-    width: 660px;
+    max-width: 660px;
     margin: 0 auto;
-    padding: 30px 40px 0 32px;
+    padding: 30px 15px 0;
+    // padding: 30px 40px 0 32px;
   }
   .dlogin__title {
+    margin:0 15px;
     font: $bold 24px/33px 'openSans';
     color: #0096DB;
     text-align: center;
+    @media (min-width: 1024px){
+      min-width: 600px;
+    }
   }
   .dlogin__main {
     display: flex;
@@ -48,8 +55,7 @@
   }
   .dlogin__form {
     flex-shrink: 0;
-    width: 286px;
-    margin-right: 51px;
+    max-width: 270px;
   }
   .dlogin__input {
     width: 100%;
@@ -109,13 +115,18 @@
     border-radius: 16px;
     border: none;
     color: #fff;
-    margin: 0px auto 0 70px;
+    margin: 15px auto;
   }
   .dlogin__enter {
     flex-grow: 1;
     display: flex;
     flex-direction: column;
     padding-top: 24px;
+    max-width: 270px;
+    box-sizing: content-box;
+    @media (max-width: 375px){
+      margin-left:-15px;
+    }
   }
   .dlogin__link {
     padding-right: 10px;
@@ -187,7 +198,9 @@
   .dlogin__bottom {
     display: flex;
     border-top: 1px solid rgba(155,155,155,0.1);
-    margin: 30px -41px -1px -33px;
+    margin: 30px -15px -1px;
+    // margin: 30px -41px -1px -33px;
+    padding:0 15px;
   }
   .dlogin__bottom-link {
     width: 50%;
@@ -245,13 +258,13 @@ body#page-login-signup {
   #region-main {
     display: flex;
     flex-direction: column;
-    height: 96vh;
+    min-height: 96vh;
     justify-content: center;
     padding-top: 72px;
   }
 
   div[role="main"] {
-    height: 70vh;
+    min-height: 70vh;
     display: flex;
     flex-direction: column;
   }

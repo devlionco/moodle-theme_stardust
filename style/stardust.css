@@ -286,7 +286,9 @@
   display: -ms-flexbox;
   display: flex;
   -ms-flex-pack: center;
-      justify-content: center; }
+      justify-content: center;
+  max-width: 80%;
+  margin: 0 auto; }
 
 #page-login-index .dlogin__greeting {
   font-weight: 500;
@@ -299,11 +301,12 @@
   margin-top: 86px; }
 
 #page-login-index .dlogin__container {
-  width: 660px;
+  max-width: 660px;
   margin: 0 auto;
-  padding: 30px 40px 0 32px; }
+  padding: 30px 15px 0; }
 
 #page-login-index .dlogin__title {
+  margin: 0 15px;
   font: 600 24px/33px "openSans";
   color: #0096DB;
   text-align: center; }
@@ -318,8 +321,7 @@
 #page-login-index .dlogin__form {
   -ms-flex-negative: 0;
       flex-shrink: 0;
-  width: 286px;
-  margin-right: 51px; }
+  max-width: 270px; }
 
 #page-login-index .dlogin__input {
   width: 100%;
@@ -384,7 +386,7 @@
   border-radius: 16px;
   border: none;
   color: #fff;
-  margin: 0px auto 0 70px; }
+  margin: 15px auto; }
 
 #page-login-index .dlogin__enter {
   -ms-flex-positive: 1;
@@ -393,7 +395,9 @@
   display: flex;
   -ms-flex-direction: column;
       flex-direction: column;
-  padding-top: 24px; }
+  padding-top: 24px;
+  max-width: 270px;
+  box-sizing: content-box; }
 
 #page-login-index .dlogin__link {
   padding-right: 10px;
@@ -466,7 +470,8 @@
   display: -ms-flexbox;
   display: flex;
   border-top: 1px solid rgba(155, 155, 155, 0.1);
-  margin: 30px -41px -1px -33px; }
+  margin: 30px -15px -1px;
+  padding: 0 15px; }
 
 #page-login-index .dlogin__bottom-link {
   width: 50%;
@@ -522,13 +527,13 @@ body#page-login-signup {
     display: flex;
     -ms-flex-direction: column;
         flex-direction: column;
-    height: 96vh;
+    min-height: 96vh;
     -ms-flex-pack: center;
         justify-content: center;
     padding-top: 72px; }
   body#page-login-index div[role="main"],
   body#page-login-signup div[role="main"] {
-    height: 70vh;
+    min-height: 70vh;
     display: -ms-flexbox;
     display: flex;
     -ms-flex-direction: column;
@@ -4229,6 +4234,12 @@ header .nav {
   .format-cards .sections{
     -ms-grid-columns: 1fr 1fr;
     grid-template-columns: 1fr 1fr; } }
+    @media (min-width: 1024px){
+  #page-login-index .dlogin__title{
+    min-width: 600px; } }
+    @media (max-width: 375px){
+  #page-login-index .dlogin__enter{
+    margin-left: -15px; } }
     @media only screen and (max-width: 576px){
   .dheader__tutorial{
     display: none; }
