@@ -2901,12 +2901,12 @@ header .nav {
 .format-stardust .controls .hide {
   display: inline-block; }
 
-.format-stardust .section.img-text {
+.format-stardust .course-content .section.img-text {
   padding: 0;
   margin: 0; }
 
-.format-stardust .section .activity .contentwithoutlink > a,
-.format-stardust .section .activity .activityinstance > a {
+.format-stardust .course-content .section .activity .contentwithoutlink > a,
+.format-stardust .course-content .section .activity .activityinstance > a {
   display: -ms-flexbox;
   display: flex;
   -ms-flex-align: center;
@@ -2914,7 +2914,7 @@ header .nav {
   padding: 0;
   text-indent: 0; }
 
-.format-stardust .section li.activity {
+.format-stardust .course-content .section li.activity {
   width: 100%;
   height: 72px;
   margin-top: 8px;
@@ -2928,28 +2928,32 @@ header .nav {
   border-color: #e6e6e5;
   border-image: initial;
   background: white; }
-  .format-stardust .section li.activity > div {
+  .format-stardust .course-content .section li.activity > div {
     width: 100%; }
-  .format-stardust .section li.activity .mod-indent-outer {
+  .format-stardust .course-content .section li.activity .mod-indent-outer {
     display: block; }
-  .format-stardust .section li.activity .activityinstance {
+  .format-stardust .course-content .section li.activity .activityinstance {
     display: -ms-flexbox;
     display: flex;
     -ms-flex-positive: 1;
         flex-grow: 1; }
-  .format-stardust .section li.activity .mod-indent > div {
+  .format-stardust .course-content .section li.activity .mod-indent > div {
     width: 100%; }
-  .format-stardust .section li.activity img.activityicon {
+  .format-stardust .course-content .section li.activity img.activityicon {
     margin-left: 28px;
     width: 40px;
     height: 40px; }
-  .format-stardust .section li.activity .instancename {
+  .format-stardust .course-content .section li.activity .instancename {
     margin-left: 57px;
     margin-right: 20px;
     white-space: nowrap;
     color: #3c3c3c;
     font-weight: bold;
     text-decoration: none; }
+
+.format-stardust .course-content .section .no-overflow,
+.format-stardust .course-content .activity .actions {
+  display: none; }
 
 .format-stardust .pinned .flexsections-level-2 {
   margin-left: 0; }
@@ -3007,10 +3011,6 @@ header .nav {
   display: flex; }
 
 .format-stardust .contentafterlink img {
-  display: none; }
-
-.format-stardust .section .no-overflow,
-.format-stardust .activity .actions {
   display: none; }
 
 .format-stardust #section-0.section.main > .controls {

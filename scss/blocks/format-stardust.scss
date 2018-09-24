@@ -206,61 +206,66 @@
       display: inline-block;
     }
   }
-
-  .section.img-text {
-    padding: 0;
-    margin: 0;
-  }
-  .section .activity .contentwithoutlink > a,
-  .section .activity .activityinstance > a {
-    display: flex;
-    align-items: center;
-    padding: 0;
-    text-indent: 0;
-  }
-
-  .section li.activity {
-    width: 100%;
-    height: 72px;
-    margin-top: 8px;
-    display: flex;
-    align-items: center;
-    padding: 0px;
-    border-width: 1px;
-    border-style: solid;
-    border-color: rgb(230, 230, 229);
-    border-image: initial;
-    background: rgb(255, 255, 255);
-
-    & > div {
-      width: 100%;
+  .course-content {
+    .section.img-text {
+      padding: 0;
+      margin: 0;
     }
-    .mod-indent-outer {
-      display: block;
-    }
-    .activityinstance {
+    .section .activity .contentwithoutlink > a,
+    .section .activity .activityinstance > a {
       display: flex;
-      flex-grow: 1;
+      align-items: center;
+      padding: 0;
+      text-indent: 0;
     }
-    .mod-indent > div {
+
+    .section li.activity {
       width: 100%;
-    }
+      height: 72px;
+      margin-top: 8px;
+      display: flex;
+      align-items: center;
+      padding: 0px;
+      border-width: 1px;
+      border-style: solid;
+      border-color: rgb(230, 230, 229);
+      border-image: initial;
+      background: rgb(255, 255, 255);
 
-    img.activityicon {
-      margin-left: 28px;
-      width: 40px;
-      height: 40px;
-    }
+      & > div {
+        width: 100%;
+      }
+      .mod-indent-outer {
+        display: block;
+      }
+      .activityinstance {
+        display: flex;
+        flex-grow: 1;
+      }
+      .mod-indent > div {
+        width: 100%;
+      }
 
-    .instancename {
-      margin-left: 57px;
-      margin-right: 20px;
-      white-space: nowrap;
-      color: rgb(60, 60, 60);
-      font-weight: bold;
-      text-decoration: none;
-    }
+      img.activityicon {
+        margin-left: 28px;
+        width: 40px;
+        height: 40px;
+      }
 
+      .instancename {
+        margin-left: 57px;
+        margin-right: 20px;
+        white-space: nowrap;
+        color: rgb(60, 60, 60);
+        font-weight: bold;
+        text-decoration: none;
+      }
+
+    }
+    .section .no-overflow,
+    .activity .actions {
+      display: none;
+    }
   }
 
   // .flexsections-level-1 .flexsections-level-2 {
@@ -340,10 +345,10 @@
     display: none;
   }
 
-  .section .no-overflow,
-  .activity .actions {
-    display: none;
-  }
+  // .section .no-overflow,
+  // .activity .actions {
+  //   display: none;
+  // }
 
   #section-0.section.main {
     &> .controls {
