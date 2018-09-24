@@ -523,6 +523,8 @@ $string['classes'] = 'Classes';
 $string['backtocourse'] = '< Back to course';
 $string['backtosection'] = 'Back to section - {$a}';
 $string['backtoactivity'] = 'Back to {$a}';
+$string['sectionstitle'] = 'Section';
+$string['activitiestitle'] = 'Activity';
 
 // quiz attempt page
 $string['quizattemptbacktocourse'] = 'Back to course';

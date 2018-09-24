@@ -111,6 +111,35 @@
           border-radius: 2px;
           margin-right: 24px;
           margin-bottom: 24px;
+          .block-title{
+            opacity:0;
+            transform: translateY(-10px);
+            transition: all .1s linear;
+            position: absolute;
+            margin-top: -12px;
+            color: #fff;
+            display: block;
+            background:linear-gradient(to top, #19284f 0%, #19284f 50%, transparent 100%);
+            font-size: 14px;
+            line-height: 20px;
+            &:after{
+              content: "";
+              display: inline-block;
+              height: 8px;
+              width: 8px;
+              border: 4px solid;
+              border-top-color: #19284f;
+              border-left-color: #19284f;
+              box-sizing: border-box;
+              top: 12px;
+              position: absolute;
+            }
+          }
+          &:hover .block-title{
+            opacity:1;
+            transform: translateY(0);
+            transition: all .1s linear;
+          }
           .allcourses-wrapper,
           .allsection-wrapper {
             width: 100%;
