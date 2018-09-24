@@ -29,10 +29,10 @@ require_once($CFG->dirroot.'/course/lib.php');
 
 /**
  * Returns info about course sections. Is used in header qick navigation
- * 
+ *
  * @param course_modinfo $courseinfo
  * @param int $currentsectionnum
- * 
+ *
  * @return array $sectionsinfo - multilevel array with all course sections and pinned sections info (name, url and current if provided)
  */
 function get_all_course_sections_info($courseinfo, $currentsectionnum = null) {
@@ -54,7 +54,7 @@ function get_all_course_sections_info($courseinfo, $currentsectionnum = null) {
             $sectionsinfo['allcoursesectionspinned'][$secnum]['name'] = $secname;
             $sectionsinfo['allcoursesectionspinned'][$secnum]['url'] = $securl;
             if ($secnum == $currentsectionnum) {
-                $sectionsinfo['allcoursesectionspinned'][$secnum]['current'] = true;
+                $sectionsinfo['allcoursesectionspinned'][$secnum]['current'] = $secname;
             }
         }
     }
@@ -66,13 +66,13 @@ $courseformat = course_get_format($PAGE->course);
 $courselink = $courseformat->get_view_url(0);
 
 // get info for header in course level pages
-if ($PAGE->context && $PAGE->context->contextlevel == CONTEXT_COURSE) {  
+if ($PAGE->context && $PAGE->context->contextlevel == CONTEXT_COURSE) {
     // get all course sections info here
     $allcoursesectionsinfo = get_all_course_sections_info(get_fast_modinfo($PAGE->course));
 }
 
 // get info for header in cm level pages
-if ($PAGE->context && $PAGE->context->contextlevel == CONTEXT_MODULE && $PAGE->cm) {  
+if ($PAGE->context && $PAGE->context->contextlevel == CONTEXT_MODULE && $PAGE->cm) {
     // defibe current section
     $currentsectionnum = $PAGE->cm->sectionnum;
     $sectionlink = $courseformat->get_view_url($currentsectionnum);
@@ -96,7 +96,7 @@ if ($PAGE->context && $PAGE->context->contextlevel == CONTEXT_MODULE && $PAGE->c
             $allsectionactivities[$key]['current'] = $activinfo->name;
         }
     }
-} 
+}
 
 $hasfhsdrawer = isset($PAGE->theme->settings->shownavdrawer) && $PAGE->theme->settings->shownavdrawer == 1;
 if (isloggedin() && $hasfhsdrawer && isset($PAGE->theme->settings->shownavclosed) && $PAGE->theme->settings->shownavclosed == 0) {

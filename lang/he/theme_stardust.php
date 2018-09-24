@@ -168,8 +168,8 @@ $string['classes'] = 'שיעורים';
 $string['backtocourse'] = '< בחזרה לעמוד הקורס';
 $string['backtosection'] = 'Back to section - {$a}';
 $string['backtoactivity'] = 'Back to {$a}';
-$string['sectionstitle'] = 'Section';
-$string['activitiestitle'] = 'Activitiy';
+$string['sectionstitle'] = 'יחידת הוראה';
+$string['activitiestitle'] = 'פעילות';
 
 // quiz attempt page
 $string['quizattemptbacktocourse'] = 'Back to course';

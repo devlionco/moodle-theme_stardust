@@ -11,7 +11,16 @@
                   <span class="block-title">{{#str}}sectionstitle, theme_stardust{{/str}}</span>
                   <div class="allcourses-wrapper">
                       <div id="allsections" class = "allsections">
-                          <span class = "section-name">{{#allcoursesections}}{{current}}{{/allcoursesections}}</span>
+                        {{#allcoursesectionspinned}}
+                          {{#current}}
+                            <span class = "section-name">{{current}}</span>
+                          {{/current}}
+                        {{/allcoursesectionspinned}}
+                        {{#allcoursesections}}
+                          {{#current}}
+                          <span class = "section-name">{{current}}</span>
+                          {{/current}}
+                        {{/allcoursesections}}
                         <span class="select-icon"></span>
                       </div>
                       <div class = "section-wrap">
