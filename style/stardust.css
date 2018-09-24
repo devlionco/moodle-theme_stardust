@@ -3527,7 +3527,7 @@ header .nav {
   -ms-flex-pack: center;
       justify-content: center;
   position: relative;
-  background: linear-gradient(-90deg, transparent 0%, transparent 50%, #03146D 85%, #19284f 100%), url(/theme/image.php/stardust/theme/1537542272/banner);
+  background: linear-gradient(-90deg, transparent 0%, transparent 50%, #03146D 85%, #19284f 100%), url([[pix:theme|banner]]);
   background-size: cover; }
   .incourse-header .top-wrapper:before {
     content: "";
