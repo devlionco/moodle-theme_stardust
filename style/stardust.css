@@ -1411,6 +1411,9 @@ header .nav {
 #course-main-content .presence-content .circle-wrapper .circle[data-value="0"] ~ .circle-small-wrapper {
   left: -24px; }
 
+[dir="rtl"] #course-main-content .presence-content .circle-wrapper .circle[data-value="0"] ~ .circle-small-wrapper {
+  left: 24px; }
+
 [dir="rtl"] #tabtoday tbody {
   margin-left: -31px;
   padding-left: 31px;

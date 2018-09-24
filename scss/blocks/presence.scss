@@ -119,3 +119,10 @@
     }
   }
 }
+#{$RTL} #course-main-content {
+  .presence-content .circle-wrapper {
+    .circle[data-value="0"] ~ .circle-small-wrapper{
+      left:24px;
+    }
+  }
+}
