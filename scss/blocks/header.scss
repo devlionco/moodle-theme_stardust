@@ -1,4 +1,32 @@
 .dheader {
+  .dropdown-menu{
+    position: absolute;
+    top: 50px;
+  }
+  .dheader__settings {
+    margin-right: 30px;
+  }
+  .btn-secondary {
+    margin-right: 10px;
+  }
+  .stardust  {
+    a[data-title="mymoodle,admin"],
+    a[data-title="grades,grades"] {
+      display: none;
+    }
+  }
+}
+.navbar .count-container {
+  min-width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  color: #3C3C3C;
+  text-align: center;
+  background-color: #FF7E99;
+  box-shadow: 0 0 0 1px #F3F2F0;
+}
+
+.dheader {
   position: fixed;
   top: 0;
   right: 0;
@@ -10,153 +38,119 @@
   // background-color: $gray_light;
   background-color: $d_blue;
   // box-shadow: 0 0px 8px #b1b1b1;
-
-  .action-menu .userpicture {
-    margin-left: 1rem;
-  }
-
-  .coursecontrols {
+  .dheader__inner{
     display: flex;
-  }
-
-  .dheader__inner {
-    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
     align-items: center;
+    // max-width: 1344px;
     height: 65px;
     padding: 0 23px;
-    flex-direction: row;
-    justify-content: flex-start !important;
-    // max-width: 1344px;
-  }
-  .dheader__logo {
-    margin: 0;
-    background: none;
-    padding: 0;
-    margin-right: 60px;
-  }
-  .dheader__logo-img img{
-    width: 24px;
-  }
-  .dheader__lang::after {
-    display: none;
-  }
-  .dheader__lang {
-    // color: $text-color-gray !important;
-    color: #fff !important;
-    font: $bold 12px 'openSans';
-    padding-left: 27px;
-    background-position: left;
-    background-repeat: no-repeat;
-    background-size: 22px;
-    background-image:url([[pix:theme|header/lang]]);
-  }
-
-  .dheader__tutorial {
-    margin-left: 36px;
-    color: #fff;
-  }
-
-  .dheader__tutorial-link {
-    font: $bold 12px 'openSans';
-    color: #fff;
-    padding-left: 27px;
-    background-position: left;
-    background-repeat: no-repeat;
-    background-size: 22px;
-    background-image:url([[pix:theme|header/toggle]]);
-  }
-  .dheader__tutorial-link:hover {
-    text-decoration: none;
-    color: #fff;
-  }
-
-  .img-wrap img{
-    margin: 0;
-    width: unset;
-    height: unset;
-  }
-
-  .usermenu {
-    margin-right: 20px;
-    img {
-      border-radius: 50%;
-      overflow: hidden;
-      margin-left: 0;
+    .dheader__left{
+      display: flex;
+      flex-flow: row nowrap;
+      .dheader__logo{
+        margin: 0;
+        background: none;
+        padding: 0;
+        margin-right: 60px;
+        .dheader__logo-img img{
+          width: 24px;
+        }
+      }
     }
-    .dropdown-toggle::after {
-      display: none;
+    .dheader__center{
+      display: flex;
+      flex-flow: row nowrap;
+      .coursecontrols{
+        display: flex;
+      }
     }
-    .usertext {
-      color: #fff;
-      font: $bold 14px 'openSans';
-      width: 96px;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
+    .dheader__right{
+      display: flex;
+      flex-flow: row nowrap;
+      justify-content: space-between;
+      .dheader__tutorial{
+        display: flex;
+        align-items: center;
+        margin:0 2vw;
+        color: #fff;
+        .dheader__tutorial-link {
+          font: $bold 12px 'openSans';
+          color: #fff;
+          padding-left: 27px;
+          background-position: left;
+          background-repeat: no-repeat;
+          background-size: 22px;
+          background-image:url([[pix:theme|header/toggle]]);
+          &:hover {
+            text-decoration: none;
+            color: #fff;
+          }
+        }
+      }
+      // .hidden-md-down{}
+      .dheader__lang{
+        margin:0 2vw;
+        // color: $text-color-gray !important;
+        color: #fff !important;
+        font: $bold 12px 'openSans';
+        padding-left: 27px;
+        background-position: left;
+        background-repeat: no-repeat;
+        background-size: 22px;
+        background-image:url([[pix:theme|header/lang]]);
+        &:after {
+          display: none;
+        }
+      }
+      .popover-region{
+        margin:0 2vw;
+        .popover-region-container {
+          right: auto;
+          left: auto;
+          .img-wrap img{
+            margin: 0;
+            width: unset;
+            height: unset;
+            display: flex;
+            flex-flow: row nowrap;
+            align-items: center;
+            justify-content: center;
+          }
+        }
+        &.popover-region-messages{}
+        &.popover-region-notifications{
+        }
+      }
+      .usermenu{
+        margin:0;
+        img {
+          border-radius: 50%;
+          overflow: hidden;
+          margin-left: 0;
+        }
+        .dropdown-toggle::after {
+          display: none;
+        }
+        .usertext {
+          color: #fff;
+          font: $bold 14px 'openSans';
+          width: 96px;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+        .action-menu .userpicture {
+          margin-left: 1rem;
+        }
+        .userbutton {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+        }
+      }
     }
-  }
-  .dropdown-menu{
-    position: absolute;
-    top: 50px;
-  }
-}
-.popover-region-container {
-  right: auto;
-  left: auto;
-}
-
-
-.dheader__settings {
-  margin-right: 30px;
-}
-// rewriting fordson styles
-.navbar .popover-region {
-  margin-right: 27px;
-  margin-left: 0;
-}
-
-.navbar .count-container {
-  min-width: 14px;
-  height: 14px;
-  border-radius: 50%;
-  color: #3C3C3C;
-  text-align: center;
-  background-color: #FF7E99;
-  box-shadow: 0 0 0 1px #F3F2F0;
-}
-
-// change default style
-
-.popover-region-messages {
-  order: 4;
-}
-.popover-region-notifications {
-  order: 3;
-}
-header .nav {
-  order: 5;
-}
-
-.dheader__tutorial {
-  order: 6;
-}
-
-.userbutton {
-  display: flex;
-  flex-direction: row-reverse;
-  align-items: center;
-}
-
-.dheader {
-  .btn-secondary {
-    margin-right: 10px;
-  }
-}
-
-.dheader .stardust  {
-  a[data-title="mymoodle,admin"],
-  a[data-title="grades,grades"] {
-    display: none;
   }
 }
 

@@ -20,38 +20,40 @@
 
 <header role="banner" class="dheader pos-f-t navbar navbar-full navbar-light navbar-static-top moodle-has-zindex">
     <div class="container-fluid navbar-nav dheader__inner">
-
+      <div class="dheader__left">
         <!-- setting -->
         {{#hasfhsdrawer}}
         <div data-region="drawer-toggle nav-item nav-link">
             <button aria-expanded="{{#navdraweropen}}true{{/navdraweropen}}{{^navdraweropen}}false{{/navdraweropen}}" aria-controls="nav-drawer" type="button" class="btn btn-secondary drawer" data-action="toggle-drawer" data-side="left" data-preference="drawer-open-nav" data-tooltip="tooltip" data-placement= "bottom" title="{{#str}}navdrawerbtn, theme_fordson{{/str}}"><i class="fa fa-bars" aria-hidden="true"></i><span class="sr-only">{{#str}}sidepanel, core{{/str}}</span></button>
         </div>
         {{/hasfhsdrawer}}
-
         <a
-          href="{{{ config.wwwroot }}}"
-          data-tooltip = "tooltip"
-          data-placement = "bottom"
-          data-original-title = "{{# str }} gohomepage, theme_stardust {{/ str }}"
-          class="dheader__logo navbar-brand {{# output.should_display_navbar_logo }}has-logo{{/ output.should_display_navbar_logo }}
-
-            {{^ output.should_display_navbar_logo }}
-                hidden-sm-down
-            {{/ output.should_display_navbar_logo }}
-                ">
-            {{# output.should_display_navbar_logo }}
-                <span class="logo hidden-xs-down">
-                    <img src="{{output.get_compact_logo_url}}" alt="{{sitename}}">
-                </span>
-            {{/ output.should_display_navbar_logo }}
-            {{^ output.should_display_navbar_logo }}
-                <span class="dheader__logo-img">
-                    <img src="{{output.get_stardust_logo}}" alt="{{sitename}}">
-                </span>
-            {{/ output.should_display_navbar_logo }}
-            <!-- <span class="site-name hidden-sm-down">{{{ sitename }}}</span> -->
-        </a>
-
+            href="{{{ config.wwwroot }}}"
+            data-tooltip = "tooltip"
+            data-placement = "bottom"
+            data-original-title = "{{# str }} gohomepage, theme_stardust {{/ str }}"
+            class="dheader__logo navbar-brand
+              {{# output.should_display_navbar_logo }}
+                  has-logo
+              {{/ output.should_display_navbar_logo }}
+              {{^ output.should_display_navbar_logo }}
+                  hidden-sm-down
+              {{/ output.should_display_navbar_logo }}
+            ">
+              {{# output.should_display_navbar_logo }}
+                  <span class="logo hidden-xs-down">
+                      <img src="{{output.get_compact_logo_url}}" alt="{{sitename}}">
+                  </span>
+              {{/ output.should_display_navbar_logo }}
+              {{^ output.should_display_navbar_logo }}
+                  <span class="dheader__logo-img">
+                      <img src="{{output.get_stardust_logo}}" alt="{{sitename}}">
+                  </span>
+              {{/ output.should_display_navbar_logo }}
+              <!-- <span class="site-name hidden-sm-down">{{{ sitename }}}</span> -->
+          </a>
+      </div>
+      <div class="dheader__center">
         <!-- course_controls -->
         {{#sitesettingsbutton}}
         <div class="coursecontrols">
@@ -59,11 +61,11 @@
             {{{ output.edit_button_fhs }}}
         </div>
         {{/sitesettingsbutton}}
-
-        {{{ output.user_menu }}}
-
-        <!-- navbar_plugin_output -->
-        {{{ output.navbar_plugin_output }}}
+      </div>
+      <div class="dheader__right">
+        <div class = "dheader__tutorial">
+          <a class = "dheader__tutorial-link" data-action="tool_usertours/resetpagetour" href = "#" >{{# str }} tutorial_is_off, theme_stardust {{/ str }}</a>
+        </div>
 
         <!-- search_box -->
         <span class="hidden-md-down">
@@ -78,11 +80,10 @@
             <!-- page_heading_menu -->
             {{{ output.page_heading_menu }}}
         </nav>
-
-        <div class = "dheader__tutorial">
-          <a class = "dheader__tutorial-link" data-action="tool_usertours/resetpagetour" href = "#" >{{# str }} tutorial_is_off, theme_stardust {{/ str }}</a>
-        </div>
-
+        <!-- navbar_plugin_output: messages, notifications -->
+        {{{ output.navbar_plugin_output }}}
+        <!-- user -->
+        {{{ output.user_menu }}}
+      </div>
     </div>
-
 </header>
