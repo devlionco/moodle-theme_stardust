@@ -650,22 +650,27 @@ body#page-login-signup {
       display: flex;
       -ms-flex-flow: row nowrap;
           flex-flow: row nowrap; }
-      .dheader .dheader__inner .dheader__center .coursecontrols {
-        display: -ms-flexbox;
-        display: flex; }
     .dheader .dheader__inner .dheader__right {
       display: -ms-flexbox;
       display: flex;
       -ms-flex-flow: row nowrap;
           flex-flow: row nowrap;
       -ms-flex-pack: justify;
-          justify-content: space-between; }
+          justify-content: space-between;
+      -ms-flex-align: center;
+          align-items: center; }
+      .dheader .dheader__inner .dheader__right > div {
+        -ms-flex-align: center;
+            align-items: center; }
+      .dheader .dheader__inner .dheader__right .coursecontrols {
+        display: -ms-flexbox;
+        display: flex; }
       .dheader .dheader__inner .dheader__right .dheader__tutorial {
         display: -ms-flexbox;
         display: flex;
         -ms-flex-align: center;
             align-items: center;
-        margin: 0 2vw;
+        margin: 0 1.5vw;
         color: #fff; }
         .dheader .dheader__inner .dheader__right .dheader__tutorial .dheader__tutorial-link {
           font: 600 12px "openSans";
@@ -679,7 +684,7 @@ body#page-login-signup {
             text-decoration: none;
             color: #fff; }
       .dheader .dheader__inner .dheader__right .dheader__lang {
-        margin: 0 2vw;
+        margin: 0 1vw;
         color: #fff !important;
         font: 600 12px "openSans";
         padding-left: 27px;
@@ -690,9 +695,16 @@ body#page-login-signup {
         .dheader .dheader__inner .dheader__right .dheader__lang:after {
           display: none; }
       .dheader .dheader__inner .dheader__right .popover-region {
-        margin: 0 2vw; }
+        margin: 0 1vw; }
+        .dheader .dheader__inner .dheader__right .popover-region .popover-region-toggle:after {
+          width: 24px;
+          box-sizing: border-box;
+          border-top: 12px solid transparent;
+          border-right: 12px solid #fff;
+          border-bottom: 12px solid #fff;
+          border-left: 12px solid  transparent;
+          left: 0px; }
         .dheader .dheader__inner .dheader__right .popover-region .popover-region-container {
-          right: auto;
           left: auto; }
           .dheader .dheader__inner .dheader__right .popover-region .popover-region-container .img-wrap img {
             margin: 0;
@@ -718,11 +730,12 @@ body#page-login-signup {
           color: #fff;
           font: 600 14px "openSans";
           width: 96px;
+          text-align: right;
           white-space: nowrap;
           overflow: hidden;
           text-overflow: ellipsis; }
         .dheader .dheader__inner .dheader__right .usermenu .action-menu .userpicture {
-          margin-left: 1rem; }
+          margin: 1rem 0 8px; }
         .dheader .dheader__inner .dheader__right .usermenu .userbutton {
           display: -ms-flexbox;
           display: flex;
@@ -730,6 +743,8 @@ body#page-login-signup {
               flex-direction: row;
           -ms-flex-align: center;
               align-items: center; }
+        .dheader .dheader__inner .dheader__right .usermenu .dropdown-menu {
+          left: -36px; }
 
 .display__none {
   display: none !important; }
