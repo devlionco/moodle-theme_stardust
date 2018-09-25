@@ -62,18 +62,22 @@
     .dheader__center{
       display: flex;
       flex-flow: row nowrap;
-      .coursecontrols{
-        display: flex;
-      }
     }
     .dheader__right{
       display: flex;
       flex-flow: row nowrap;
       justify-content: space-between;
+      align-items: center;
+      &>div{
+        align-items: center;
+      }
+      .coursecontrols{
+        display: flex;
+      }
       .dheader__tutorial{
         display: flex;
         align-items: center;
-        margin:0 2vw;
+        margin:0 1.5vw;
         color: #fff;
         .dheader__tutorial-link {
           font: $bold 12px 'openSans';
@@ -91,7 +95,7 @@
       }
       // .hidden-md-down{}
       .dheader__lang{
-        margin:0 2vw;
+        margin:0 1vw;
         // color: $text-color-gray !important;
         color: #fff !important;
         font: $bold 12px 'openSans';
@@ -105,9 +109,20 @@
         }
       }
       .popover-region{
-        margin:0 2vw;
+        margin:0 1vw;
+        .popover-region-toggle{
+          &:after{
+            width:24px;
+            box-sizing: border-box;
+            border-top: 12px solid transparent;
+            border-right: 12px solid #fff;
+            border-bottom: 12px solid #fff;
+            border-left: 12px solid  transparent;
+            left:-8px;
+          }
+        }
         .popover-region-container {
-          right: auto;
+          // right: auto;
           left: auto;
           .img-wrap img{
             margin: 0;
@@ -121,6 +136,8 @@
         }
         &.popover-region-messages{}
         &.popover-region-notifications{
+          .popover-region-container{
+          }
         }
       }
       .usermenu{
@@ -137,17 +154,21 @@
           color: #fff;
           font: $bold 14px 'openSans';
           width: 96px;
+          text-align: right;
           white-space: nowrap;
           overflow: hidden;
           text-overflow: ellipsis;
         }
         .action-menu .userpicture {
-          margin-left: 1rem;
+          margin: 1rem 0 8px;
         }
         .userbutton {
           display: flex;
           flex-direction: row;
           align-items: center;
+        }
+        .dropdown-menu{
+          left:-36px;
         }
       }
     }

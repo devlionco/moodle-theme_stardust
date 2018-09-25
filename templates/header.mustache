@@ -54,6 +54,8 @@
           </a>
       </div>
       <div class="dheader__center">
+      </div>
+      <div class="dheader__right">
         <!-- course_controls -->
         {{#sitesettingsbutton}}
         <div class="coursecontrols">
@@ -61,8 +63,8 @@
             {{{ output.edit_button_fhs }}}
         </div>
         {{/sitesettingsbutton}}
-      </div>
-      <div class="dheader__right">
+
+
         <div class = "dheader__tutorial">
           <a class = "dheader__tutorial-link" data-action="tool_usertours/resetpagetour" href = "#" >{{# str }} tutorial_is_off, theme_stardust {{/ str }}</a>
         </div>
@@ -78,10 +80,12 @@
             {{{ output.custom_menu }}}
 
             <!-- page_heading_menu -->
-            {{{ output.page_heading_menu }}}
+              {{{ output.page_heading_menu }}}
         </nav>
-        <!-- navbar_plugin_output: messages, notifications -->
-        {{{ output.navbar_plugin_output }}}
+        <div class="d-flex flex-row-reverse">
+          <!-- navbar_plugin_output: messages, notifications -->
+          {{{ output.navbar_plugin_output }}}
+        </div>
         <!-- user -->
         {{{ output.user_menu }}}
       </div>
