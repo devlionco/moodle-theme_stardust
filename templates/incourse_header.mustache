@@ -13,12 +13,12 @@
                       <div id="allsections" class = "allsections">
                         {{#allcoursesectionspinned}}
                           {{#current}}
-                            <span class = "section-name">{{current}}</span>
+                            <span class = "section-name">{{{customnumber}}} {{current}}</span>
                           {{/current}}
                         {{/allcoursesectionspinned}}
                         {{#allcoursesections}}
                           {{#current}}
-                          <span class = "section-name">{{current}}</span>
+                          <span class = "section-name">{{{customnumber}}} {{current}}</span>
                           {{/current}}
                         {{/allcoursesections}}
                         <span class="select-icon"></span>
@@ -28,7 +28,7 @@
                           {{#allcoursesections}}
                             {{^current}}
                                 <div class = "section-item">
-                                    <a href = "{{{url}}}">{{{name}}}</a>
+                                    <a href = "{{{url}}}">{{{customnumber}}} {{{name}}}</a>
                                 </div>
                             {{/current}}
                           {{/allcoursesections}}
@@ -62,7 +62,7 @@
               {{#allcoursesectionspinned}}
                     <li class="block pinned">
                         <span class="block-icon"></span>
-                        <a href = "{{{url}}}" class="block-label">{{{name}}}</a>
+                        <a href = "{{{url}}}" class="block-label">{{{customnumber}}} {{{name}}}</a>
                     </li>
               {{/allcoursesectionspinned}}
           </ul>

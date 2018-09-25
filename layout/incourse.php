@@ -42,6 +42,7 @@ function get_all_course_sections_info($courseinfo, $currentsectionnum = null) {
     $courseformat = $courseinfo->get_course()->format;
     foreach ($allcoursesectionsinfo as $secnum => $secinfo) {
         $secname = course_get_format($PAGE->course)->get_section_name($secnum);
+        $seccustomnum = $secinfo->customnumber;
         if ($courseformat== "stardust") {
           $securl = new moodle_url('/course/view.php', array('id' => $PAGE->course->id, 'sectionid' => $secinfo->id));
         }else {
@@ -50,6 +51,7 @@ function get_all_course_sections_info($courseinfo, $currentsectionnum = null) {
         }
         if (empty($secinfo->pinned)) {
             $sectionsinfo['allcoursesections'][$secnum]['name'] = $secname;
+            $sectionsinfo['allcoursesections'][$secnum]['customnumber'] = $seccustomnum;
             $sectionsinfo['allcoursesections'][$secnum]['url'] = $securl;
             if ($secnum == $currentsectionnum) {
                 $sectionsinfo['allcoursesections'][$secnum]['current'] = $secname;
@@ -57,6 +59,7 @@ function get_all_course_sections_info($courseinfo, $currentsectionnum = null) {
         }
         if ($secinfo->pinned) {
             $sectionsinfo['allcoursesectionspinned'][$secnum]['name'] = $secname;
+            $sectionsinfo['allcoursesectionspinned'][$secnum]['customnumber'] = $seccustomnum;
             $sectionsinfo['allcoursesectionspinned'][$secnum]['url'] = $securl;
             if ($secnum == $currentsectionnum) {
                 $sectionsinfo['allcoursesectionspinned'][$secnum]['current'] = $secname;
