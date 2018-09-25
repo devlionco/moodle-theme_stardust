@@ -589,96 +589,19 @@ body#page-login-signup {
       background-repeat: no-repeat;
       background-size: contain; }
 
-.dheader {
-  position: fixed;
-  top: 0;
-  right: 0;
-  left: 0;
-  z-index: 1030;
-  max-height: 65px;
-  padding: 0;
-  border-bottom: none;
-  background-color: #19284f; }
-  .dheader .action-menu .userpicture {
-    margin-left: 1rem; }
-  .dheader .coursecontrols {
-    display: -ms-flexbox;
-    display: flex; }
-  .dheader .dheader__inner {
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-align: center;
-        align-items: center;
-    height: 65px;
-    padding: 0 23px;
-    -ms-flex-direction: row;
-        flex-direction: row;
-    -ms-flex-pack: start !important;
-        justify-content: flex-start !important; }
-  .dheader .dheader__logo {
-    margin: 0;
-    background: none;
-    padding: 0;
-    margin-right: 60px; }
-  .dheader .dheader__logo-img img {
-    width: 24px; }
-  .dheader .dheader__lang::after {
-    display: none; }
-  .dheader .dheader__lang {
-    color: #fff !important;
-    font: 600 12px "openSans";
-    padding-left: 27px;
-    background-position: left;
-    background-repeat: no-repeat;
-    background-size: 22px;
-    background-image: url([[pix:theme|header/lang]]); }
-  .dheader .dheader__tutorial {
-    margin-left: 36px;
-    color: #fff; }
-  .dheader .dheader__tutorial-link {
-    font: 600 12px "openSans";
-    color: #fff;
-    padding-left: 27px;
-    background-position: left;
-    background-repeat: no-repeat;
-    background-size: 22px;
-    background-image: url([[pix:theme|header/toggle]]); }
-  .dheader .dheader__tutorial-link:hover {
-    text-decoration: none;
-    color: #fff; }
-  .dheader .img-wrap img {
-    margin: 0;
-    width: unset;
-    height: unset; }
-  .dheader .usermenu {
-    margin-right: 20px; }
-    .dheader .usermenu img {
-      border-radius: 50%;
-      overflow: hidden;
-      margin-left: 0; }
-    .dheader .usermenu .dropdown-toggle::after {
-      display: none; }
-    .dheader .usermenu .usertext {
-      color: #fff;
-      font: 600 14px "openSans";
-      width: 96px;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis; }
-  .dheader .dropdown-menu {
-    position: absolute;
-    top: 50px; }
+.dheader .dropdown-menu {
+  position: absolute;
+  top: 50px; }
 
-.popover-region-container {
-  right: auto;
-  left: auto; }
-
-.dheader__settings {
+.dheader .dheader__settings {
   margin-right: 30px; }
 
-.navbar .popover-region {
-  margin-right: 27px;
-  margin-left: 0; }
+.dheader .btn-secondary {
+  margin-right: 10px; }
+
+.dheader .stardust a[data-title="mymoodle,admin"],
+.dheader .stardust a[data-title="grades,grades"] {
+  display: none; }
 
 .navbar .count-container {
   min-width: 14px;
@@ -689,36 +612,124 @@ body#page-login-signup {
   background-color: #FF7E99;
   box-shadow: 0 0 0 1px #F3F2F0; }
 
-.popover-region-messages {
-  -ms-flex-order: 4;
-      order: 4; }
-
-.popover-region-notifications {
-  -ms-flex-order: 3;
-      order: 3; }
-
-header .nav {
-  -ms-flex-order: 5;
-      order: 5; }
-
-.dheader__tutorial {
-  -ms-flex-order: 6;
-      order: 6; }
-
-.userbutton {
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-direction: row-reverse;
-      flex-direction: row-reverse;
-  -ms-flex-align: center;
-      align-items: center; }
-
-.dheader .btn-secondary {
-  margin-right: 10px; }
-
-.dheader .stardust a[data-title="mymoodle,admin"],
-.dheader .stardust a[data-title="grades,grades"] {
-  display: none; }
+.dheader {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 1030;
+  max-height: 65px;
+  padding: 0;
+  border-bottom: none;
+  background-color: #19284f; }
+  .dheader .dheader__inner {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-flow: row nowrap;
+        flex-flow: row nowrap;
+    -ms-flex-pack: justify;
+        justify-content: space-between;
+    -ms-flex-align: center;
+        align-items: center;
+    height: 65px;
+    padding: 0 23px; }
+    .dheader .dheader__inner .dheader__left {
+      display: -ms-flexbox;
+      display: flex;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap; }
+      .dheader .dheader__inner .dheader__left .dheader__logo {
+        margin: 0;
+        background: none;
+        padding: 0;
+        margin-right: 60px; }
+        .dheader .dheader__inner .dheader__left .dheader__logo .dheader__logo-img img {
+          width: 24px; }
+    .dheader .dheader__inner .dheader__center {
+      display: -ms-flexbox;
+      display: flex;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap; }
+      .dheader .dheader__inner .dheader__center .coursecontrols {
+        display: -ms-flexbox;
+        display: flex; }
+    .dheader .dheader__inner .dheader__right {
+      display: -ms-flexbox;
+      display: flex;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
+      -ms-flex-pack: justify;
+          justify-content: space-between; }
+      .dheader .dheader__inner .dheader__right .dheader__tutorial {
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-align: center;
+            align-items: center;
+        margin: 0 2vw;
+        color: #fff; }
+        .dheader .dheader__inner .dheader__right .dheader__tutorial .dheader__tutorial-link {
+          font: 600 12px "openSans";
+          color: #fff;
+          padding-left: 27px;
+          background-position: left;
+          background-repeat: no-repeat;
+          background-size: 22px;
+          background-image: url([[pix:theme|header/toggle]]); }
+          .dheader .dheader__inner .dheader__right .dheader__tutorial .dheader__tutorial-link:hover {
+            text-decoration: none;
+            color: #fff; }
+      .dheader .dheader__inner .dheader__right .dheader__lang {
+        margin: 0 2vw;
+        color: #fff !important;
+        font: 600 12px "openSans";
+        padding-left: 27px;
+        background-position: left;
+        background-repeat: no-repeat;
+        background-size: 22px;
+        background-image: url([[pix:theme|header/lang]]); }
+        .dheader .dheader__inner .dheader__right .dheader__lang:after {
+          display: none; }
+      .dheader .dheader__inner .dheader__right .popover-region {
+        margin: 0 2vw; }
+        .dheader .dheader__inner .dheader__right .popover-region .popover-region-container {
+          right: auto;
+          left: auto; }
+          .dheader .dheader__inner .dheader__right .popover-region .popover-region-container .img-wrap img {
+            margin: 0;
+            width: unset;
+            height: unset;
+            display: -ms-flexbox;
+            display: flex;
+            -ms-flex-flow: row nowrap;
+                flex-flow: row nowrap;
+            -ms-flex-align: center;
+                align-items: center;
+            -ms-flex-pack: center;
+                justify-content: center; }
+      .dheader .dheader__inner .dheader__right .usermenu {
+        margin: 0; }
+        .dheader .dheader__inner .dheader__right .usermenu img {
+          border-radius: 50%;
+          overflow: hidden;
+          margin-left: 0; }
+        .dheader .dheader__inner .dheader__right .usermenu .dropdown-toggle::after {
+          display: none; }
+        .dheader .dheader__inner .dheader__right .usermenu .usertext {
+          color: #fff;
+          font: 600 14px "openSans";
+          width: 96px;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis; }
+        .dheader .dheader__inner .dheader__right .usermenu .action-menu .userpicture {
+          margin-left: 1rem; }
+        .dheader .dheader__inner .dheader__right .usermenu .userbutton {
+          display: -ms-flexbox;
+          display: flex;
+          -ms-flex-direction: row;
+              flex-direction: row;
+          -ms-flex-align: center;
+              align-items: center; }
 
 .display__none {
   display: none !important; }
