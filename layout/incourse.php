@@ -39,10 +39,15 @@ function get_all_course_sections_info($courseinfo, $currentsectionnum = null) {
     global $PAGE;
     $allcoursesectionsinfo = $courseinfo->get_section_info_all();
     $sectionsinfo = array();
+    $courseformat = $courseinfo->get_course()->format;
     foreach ($allcoursesectionsinfo as $secnum => $secinfo) {
         $secname = course_get_format($PAGE->course)->get_section_name($secnum);
-        $securl = new moodle_url('/course/view.php', array('id' => $PAGE->course->id));
-        $securl->set_anchor('section-'.$secnum);
+        if ($courseformat== "stardust") {
+          $securl = new moodle_url('/course/view.php', array('id' => $PAGE->course->id, 'sectionid' => $secinfo->id));
+        }else {
+          $securl = new moodle_url('/course/view.php', array('id' => $PAGE->course->id));
+          $securl->set_anchor('section-'.$secnum);
+        }
         if (empty($secinfo->pinned)) {
             $sectionsinfo['allcoursesections'][$secnum]['name'] = $secname;
             $sectionsinfo['allcoursesections'][$secnum]['url'] = $securl;
@@ -58,6 +63,7 @@ function get_all_course_sections_info($courseinfo, $currentsectionnum = null) {
             }
         }
     }
+
     return $sectionsinfo;
 }
 
