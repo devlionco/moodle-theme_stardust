@@ -177,12 +177,12 @@
 
 @media #{$is-tablet} {
   .dheader__tutorial {
-    display: none;
+    display: none  !important;
   }
 }
 
 @media #{$is-mobile} {
   .dheader__tutorial {
-    display: none;
+    display: none !important;
   }
 }
