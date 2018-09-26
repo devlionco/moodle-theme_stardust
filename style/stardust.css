@@ -2019,7 +2019,7 @@ body#page-login-signup {
           margin-bottom: 0; }
         #mypublic-student .main-wrapper .main-header .block-left .title {
           font-size: 72px;
-          height: 65px;
+          line-height: 65px;
           font-family: 'NextExitRound';
           text-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
           margin-bottom: 0;
@@ -2135,29 +2135,53 @@ body#page-login-signup {
               #mypublic-student .main-wrapper .main-content .profile-info .column .info-list {
                 list-style: none;
                 padding: 0; }
-                #mypublic-student .main-wrapper .main-content .profile-info .column .info-list .info {
+                #mypublic-student .main-wrapper .main-content .profile-info .column .info-list li {
                   margin-top: 22px;
                   display: -ms-flexbox;
                   display: flex;
                   -ms-flex-direction: column;
                       flex-direction: column; }
-                  #mypublic-student .main-wrapper .main-content .profile-info .column .info-list .info .input {
+                  #mypublic-student .main-wrapper .main-content .profile-info .column .info-list li .input {
                     border: none;
+                    font-size: 18px; }
+                  #mypublic-student .main-wrapper .main-content .profile-info .column .info-list li.info .input {
                     border-bottom: 2px solid #0096DB;
-                    font-size: 18px;
                     color: #717171;
                     padding-bottom: 10px;
                     outline: none; }
-                  #mypublic-student .main-wrapper .main-content .profile-info .column .info-list .info .input:-webkit-autofill {
+                  #mypublic-student .main-wrapper .main-content .profile-info .column .info-list li.info .input:-webkit-autofill {
                     -webkit-box-shadow: 0 0 0 30px white inset; }
-                  #mypublic-student .main-wrapper .main-content .profile-info .column .info-list .info .input-label {
+                  #mypublic-student .main-wrapper .main-content .profile-info .column .info-list li.info .input-label {
                     font-size: 12px;
                     color: #0096DB;
                     margin-top: 8px; }
-                  #mypublic-student .main-wrapper .main-content .profile-info .column .info-list .info.submit {
+                  #mypublic-student .main-wrapper .main-content .profile-info .column .info-list li.info.submit {
                     -ms-flex-align: end;
                         align-items: flex-end; }
-                    #mypublic-student .main-wrapper .main-content .profile-info .column .info-list .info.submit .btn-blue {
+                    #mypublic-student .main-wrapper .main-content .profile-info .column .info-list li.info.submit .btn-blue {
+                      margin-top: 23px;
+                      width: 140px; }
+                  #mypublic-student .main-wrapper .main-content .profile-info .column .info-list li.danger .input {
+                    border-bottom: 2px solid #ff090b;
+                    color: #717171;
+                    padding-bottom: 10px;
+                    outline: none; }
+                  #mypublic-student .main-wrapper .main-content .profile-info .column .info-list li.danger .input:-webkit-autofill {
+                    -webkit-box-shadow: 0 0 0 30px white inset; }
+                  #mypublic-student .main-wrapper .main-content .profile-info .column .info-list li.danger .input-label {
+                    display: block;
+                    width: 100%;
+                    font-size: 12px;
+                    margin-top: 8px; }
+                    #mypublic-student .main-wrapper .main-content .profile-info .column .info-list li.danger .input-label .error {
+                      display: block;
+                      float: right;
+                      text-align: right;
+                      color: #ff090b; }
+                  #mypublic-student .main-wrapper .main-content .profile-info .column .info-list li.danger.submit {
+                    -ms-flex-align: end;
+                        align-items: flex-end; }
+                    #mypublic-student .main-wrapper .main-content .profile-info .column .info-list li.danger.submit .btn-blue {
                       margin-top: 23px;
                       width: 140px; }
           #mypublic-student .main-wrapper .main-content .profile-medals {

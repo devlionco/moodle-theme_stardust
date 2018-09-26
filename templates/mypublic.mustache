@@ -309,6 +309,8 @@
 {{#js}}
 require(['theme_boost/loader']);
 require(['jquery','theme_boost/tooltip'], function($){$('[data-tooltip="tooltip"]').tooltip()});
+require(['theme_stardust/mypublicpage']);
+
 {{#hasfhsdrawer}}
 require(['theme_boost/drawer'], function(mod) {
     mod.init();

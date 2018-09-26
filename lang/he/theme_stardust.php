@@ -154,7 +154,9 @@ $string['mypublic_deletebackgroundimg'] = 'Remove image';
 $string['mypublic_save_backgroundimg'] = 'Save image';
 $string['write_tags'] = 'תרשום תחומי עניין';
 $string['change_password_link'] = 'Click here to change your password';
-
+$string['isrequired'] = 'This field is required';
+$string['emailerror'] = 'Wrong email format';
+$string['phoneerror'] = 'Please enter tel number using example format';
 
 // course page
 $string['gohome'] = '< עמוד הבית';
