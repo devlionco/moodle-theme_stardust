@@ -21,7 +21,8 @@ define(['jquery'], function ($) {
               target.classList.remove('filter_active');
             }else {
               $.each($('form .que'), function(){
-                var flaggedCollection = $(this).has('input[alt="Flagged"]');
+                // var flaggedCollection = $(this).has('input[alt="Flagged"]');
+                var flaggedCollection = $(this).has('.questionflagvalue[value="1"]');
                 if(flaggedCollection.length > 0){
                   $(this).fadeIn();
                 } else {
