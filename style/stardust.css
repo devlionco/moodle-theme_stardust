@@ -1981,7 +1981,7 @@ body#page-login-signup {
         padding-left: 20px;
         padding-bottom: 18px; }
 
-#course-main-content #help-menu .btn-help {
+#course-main-content #help-menu .btn-help, .incourse-header #help-menu .btn-help {
   transform: scale(0.55);
   background: url([[pix:theme|pagemy/help-dblue]]) no-repeat center; }
 
@@ -2791,7 +2791,7 @@ body#page-login-signup {
     .incourse-header .main-wrapper .main .help-block {
       position: absolute;
       right: 0;
-      top: -115px; }
+      top: -90px; }
 
 .incourse-header .top-wrapper {
   height: 100%;
@@ -2802,29 +2802,8 @@ body#page-login-signup {
       justify-content: center;
   position: relative;
   background: linear-gradient(to left, transparent 0%, transparent 50%, #03146D 85%, #19284f 100%), url([[pix:theme|banner]]);
-  background-size: cover; }
-  .incourse-header .top-wrapper:before {
-    content: "";
-    display: block;
-    width: 50%;
-    height: 0;
-    border-style: solid;
-    border-width: 0px 30px 30px 0px;
-    border-color: transparent transparent #F3F2F0 transparent;
-    position: absolute;
-    bottom: 0;
-    left: 0; }
-  .incourse-header .top-wrapper:after {
-    content: "";
-    display: block;
-    width: 50%;
-    height: 0;
-    border-style: solid;
-    border-width: 0 0px 30px 30px;
-    border-color: transparent transparent #F3F2F0 transparent;
-    position: absolute;
-    bottom: 0;
-    right: 0; }
+  background-size: cover;
+  border-bottom: 10px solid #19284f; }
   .incourse-header .top-wrapper .top {
     max-width: 1344px;
     margin-bottom: 46px;
