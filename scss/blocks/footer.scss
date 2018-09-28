@@ -1,33 +1,153 @@
 @import "../variables";
 
-#page-course-view-stardust, #page-course-view-cards{
+// #page-course-view-stardust, #page-course-view-cards{
   #page-footer{
+    color: $white;
     background-color: $d_blue !important;
-    .container{
-      display: none;
-    }
-    .logo-wrapper{
-      width: 100%;
-      height:130px;
+    #stardust-footer{
+      font-family: NextExitRound;
       display: flex;
-      flex-flow: row nowrap;
-      justify-content: center;
-      align-items: baseline;
-      .logo-wiezmann{
-        width:150px;
-        height:118px;
-        background-image:url([[pix:theme|logo-weizmann]]);
+      flex-flow: row wrap;
+      &>div{
+        margin:1rem 0;
+      }
+      .right-logo{
+        display: block;
+        width:100%;
+        height: 136px;
+        background-image:url([[pix:theme|logo_right]]);
+        background-position: top center;
+        background-repeat: no-repeat;
+        background-size: contain;
+      }
+      .footer-nav{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        border: 2px solid transparent;
+        border-left-color: $white;
+        border-right-color: $white;
+        .social-nav{
+          display: flex;
+          flex-flow: row wrap;
+          justify-content: space-evenly;
+          align-items: center;
+          background-color: $d_blue !important;
+          border-bottom: 2px solid $white;
+          margin:10px;
+          .nav-link{
+            box-sizing: border-box;
+            margin:0 0 10px;
+            width: 28px;
+            height: 28px;
+            color: $white;
+            &[title="instagram"]{
+              background-image:url([[pix:theme|instagram_icon]]);
+              background-position: center;
+              background-repeat: no-repeat;
+              background-size: contain;
+            }
+            &[title="twitter"]{
+              background-image:url([[pix:theme|twitter_icon]]);
+              background-position: center;
+              background-repeat: no-repeat;
+              background-size: contain;
+            }
+            &[title="facebook"]{
+              background-image:url([[pix:theme|facebook_icon]]);
+              background-position: center;
+              background-repeat: no-repeat;
+              background-size: contain;
+            }
+            &[title="youtube"]{
+              background-image:url([[pix:theme|youtube_icon]]);
+              background-position: center;
+              background-repeat: no-repeat;
+              background-size: contain;
+            }
+          }
+        }
+        .bottom-nav{
+          margin:0 10px;
+          display: flex;
+          flex-flow: row nowrap;
+          justify-content: space-evenly;
+          align-items: stretch;
+          background-color: $d_blue !important;
+          .nav-link{
+            font-size: 1rem;
+            text-decoration: none;
+            padding:0 1.75vw;
+            color: $white;
+            border-right: 2px solid $white;
+            &:first-of-type{
+              padding-left: 0;
+            }
+            &:last-of-type{
+              border-right: none;
+              padding-right: 0;
+            }
+          }
+        }
+        .default-items{
+          display: flex;
+          flex-flow: row nowrap;
+          justify-content: space-evenly;
+          align-items: stretch;
+          background-color: $d_blue !important;
+          color: $white;
+          a{
+            color: $white;
+          }
+        }
+      }
+      .left-logo{
+        display: block;
+        width:100%;
+        height: 136px;
+        background-image:url([[pix:theme|logo_left]]);
         background-position: center;
         background-repeat: no-repeat;
         background-size: contain;
       }
-      .logo-davidson{
-        width:100px;
-        height:100px;
-        background-image:url([[pix:theme|header/logo]]);
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: contain;
+    }
+  }
+// }
+
+@media (max-width:768px) {
+  #page-footer{
+    #stardust-footer{
+      .footer-nav{
+        order:1;
+        border-color: transparent;
+        border:0;
+      }
+      .right-logo-wrapper{
+        order:2;
+      }
+      .left-logo-wrapper{
+        order:3;
+      }
+    }
+  }
+}
+@media (max-width:768px) {
+  #page-footer{
+    #stardust-footer{
+      .footer-nav{
+        order:1;
+        border-color: transparent;
+        border:0;
+      }
+      .right-logo-wrapper{
+        order:2;
+        align-items: center;
+        justify-content: center;
+      }
+      .left-logo-wrapper{
+        order:3;
+        align-items: center;
+        justify-content: center;
       }
     }
   }

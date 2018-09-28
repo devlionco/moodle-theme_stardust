@@ -559,32 +559,113 @@ body#page-login-signup {
       text-decoration: underline;
       font: 400 0.8rem "openSans"; }
 
-#page-course-view-stardust #page-footer, #page-course-view-cards #page-footer {
+#page-footer {
+  color: #FFFFFF;
   background-color: #19284f !important; }
-  #page-course-view-stardust #page-footer .container, #page-course-view-cards #page-footer .container {
-    display: none; }
-  #page-course-view-stardust #page-footer .logo-wrapper, #page-course-view-cards #page-footer .logo-wrapper {
-    width: 100%;
-    height: 130px;
+  #page-footer #stardust-footer {
+    font-family: NextExitRound;
     display: -ms-flexbox;
     display: flex;
-    -ms-flex-flow: row nowrap;
-        flex-flow: row nowrap;
-    -ms-flex-pack: center;
-        justify-content: center;
-    -ms-flex-align: baseline;
-        align-items: baseline; }
-    #page-course-view-stardust #page-footer .logo-wrapper .logo-wiezmann, #page-course-view-cards #page-footer .logo-wrapper .logo-wiezmann {
-      width: 150px;
-      height: 118px;
-      background-image: url([[pix:theme|logo-weizmann]]);
-      background-position: center;
+    -ms-flex-flow: row wrap;
+        flex-flow: row wrap; }
+    #page-footer #stardust-footer > div {
+      margin: 1rem 0; }
+    #page-footer #stardust-footer .right-logo {
+      display: block;
+      width: 100%;
+      height: 136px;
+      background-image: url([[pix:theme|logo_right]]);
+      background-position: top center;
       background-repeat: no-repeat;
       background-size: contain; }
-    #page-course-view-stardust #page-footer .logo-wrapper .logo-davidson, #page-course-view-cards #page-footer .logo-wrapper .logo-davidson {
-      width: 100px;
-      height: 100px;
-      background-image: url([[pix:theme|header/logo]]);
+    #page-footer #stardust-footer .footer-nav {
+      display: -ms-flexbox;
+      display: flex;
+      -ms-flex-direction: column;
+          flex-direction: column;
+      -ms-flex-pack: center;
+          justify-content: center;
+      border: 2px solid transparent;
+      border-left-color: #FFFFFF;
+      border-right-color: #FFFFFF; }
+      #page-footer #stardust-footer .footer-nav .social-nav {
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-flow: row wrap;
+            flex-flow: row wrap;
+        -ms-flex-pack: space-evenly;
+            justify-content: space-evenly;
+        -ms-flex-align: center;
+            align-items: center;
+        background-color: #19284f !important;
+        border-bottom: 2px solid #FFFFFF;
+        margin: 10px; }
+        #page-footer #stardust-footer .footer-nav .social-nav .nav-link {
+          box-sizing: border-box;
+          margin: 0 0 10px;
+          width: 28px;
+          height: 28px;
+          color: #FFFFFF; }
+          #page-footer #stardust-footer .footer-nav .social-nav .nav-link[title="instagram"] {
+            background-image: url([[pix:theme|instagram_icon]]);
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: contain; }
+          #page-footer #stardust-footer .footer-nav .social-nav .nav-link[title="twitter"] {
+            background-image: url([[pix:theme|twitter_icon]]);
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: contain; }
+          #page-footer #stardust-footer .footer-nav .social-nav .nav-link[title="facebook"] {
+            background-image: url([[pix:theme|facebook_icon]]);
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: contain; }
+          #page-footer #stardust-footer .footer-nav .social-nav .nav-link[title="youtube"] {
+            background-image: url([[pix:theme|youtube_icon]]);
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: contain; }
+      #page-footer #stardust-footer .footer-nav .bottom-nav {
+        margin: 0 10px;
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-flow: row nowrap;
+            flex-flow: row nowrap;
+        -ms-flex-pack: space-evenly;
+            justify-content: space-evenly;
+        -ms-flex-align: stretch;
+            align-items: stretch;
+        background-color: #19284f !important; }
+        #page-footer #stardust-footer .footer-nav .bottom-nav .nav-link {
+          font-size: 1rem;
+          text-decoration: none;
+          padding: 0 1.75vw;
+          color: #FFFFFF;
+          border-right: 2px solid #FFFFFF; }
+          #page-footer #stardust-footer .footer-nav .bottom-nav .nav-link:first-of-type {
+            padding-left: 0; }
+          #page-footer #stardust-footer .footer-nav .bottom-nav .nav-link:last-of-type {
+            border-right: none;
+            padding-right: 0; }
+      #page-footer #stardust-footer .footer-nav .default-items {
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-flow: row nowrap;
+            flex-flow: row nowrap;
+        -ms-flex-pack: space-evenly;
+            justify-content: space-evenly;
+        -ms-flex-align: stretch;
+            align-items: stretch;
+        background-color: #19284f !important;
+        color: #FFFFFF; }
+        #page-footer #stardust-footer .footer-nav .default-items a {
+          color: #FFFFFF; }
+    #page-footer #stardust-footer .left-logo {
+      display: block;
+      width: 100%;
+      height: 136px;
+      background-image: url([[pix:theme|logo_left]]);
       background-position: center;
       background-repeat: no-repeat;
       background-size: contain; }
@@ -2476,7 +2557,7 @@ body#page-login-signup {
         padding: 30px 0;
         max-width: 400px; }
         #course-main-content .top-wrapper .top .title-wrapper h1 {
-          font-size: 75px;
+          font-size: 72px;
           line-height: 60px;
           display: block;
           max-height: 120px;
@@ -3508,6 +3589,37 @@ body#page-login-signup {
     @media (max-width: 375px){
   #page-login-index .dlogin__enter{
     margin-left: -15px; } }
+    @media (max-width: 768px){
+  #page-footer #stardust-footer .footer-nav{
+    -ms-flex-order: 1;
+    order: 1;
+    border-color: transparent;
+    border: 0; }
+  #page-footer #stardust-footer .right-logo-wrapper{
+    -ms-flex-order: 2;
+    order: 2; }
+  #page-footer #stardust-footer .left-logo-wrapper{
+    -ms-flex-order: 3;
+    order: 3; }
+  #page-footer #stardust-footer .footer-nav{
+    -ms-flex-order: 1;
+    order: 1;
+    border-color: transparent;
+    border: 0; }
+  #page-footer #stardust-footer .right-logo-wrapper{
+    -ms-flex-order: 2;
+    order: 2;
+    -ms-flex-align: center;
+    align-items: center;
+    -ms-flex-pack: center;
+    justify-content: center; }
+  #page-footer #stardust-footer .left-logo-wrapper{
+    -ms-flex-order: 3;
+    order: 3;
+    -ms-flex-align: center;
+    align-items: center;
+    -ms-flex-pack: center;
+    justify-content: center; } }
     @media only screen and (max-width: 576px){
   .dheader__tutorial{
     display: none !important; }
