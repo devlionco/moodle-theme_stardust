@@ -1136,14 +1136,20 @@ body#page-login-signup {
       line-height: 12pt;
       color: #19284f; }
     #course-main-content .achievements ul .achievment .icon-report {
-      height: 34px;
-      width: 34px; }
+      height: 50px;
+      width: 50px;
+      border-radius: 50%;
+      background: url([[pix:theme|grade_icon]]) no-repeat center center; }
     #course-main-content .achievements ul .achievment .icon-medal {
-      height: 35px;
-      width: 34px; }
+      height: 50px;
+      width: 50px;
+      border-radius: 50%;
+      background: url([[pix:theme|medal_icon]]) no-repeat center center; }
     #course-main-content .achievements ul .achievment .icon-diplom {
-      height: 35px;
-      width: 34px; }
+      height: 50px;
+      width: 50px;
+      border-radius: 50%;
+      background: url([[pix:theme|diploma_icon]]) no-repeat center center; }
 
 [dir="rtl"] .messages-container {
   direction: rtl; }
@@ -1526,8 +1532,11 @@ body#page-login-signup {
     margin-left: 10px;
     font-size: 12px; }
 
+#course-main-content .presence-content .circle-wrapper canvas {
+  z-index: 2; }
+
 #course-main-content .presence-content .circle-wrapper .circle-inner {
-  background: rgba(25, 40, 79, 0.75); }
+  background: #19284f; }
   #course-main-content .presence-content .circle-wrapper .circle-inner .circle-label {
     font-size: 50pt;
     line-height: 30pt;
@@ -1537,12 +1546,15 @@ body#page-login-signup {
     line-height: 10pt;
     max-width: 50%; }
 
-#course-main-content .presence-content .circle-wrapper .circle-small-wrapper .circle-small {
-  top: -21px;
-  border: 0;
-  background: #19284f; }
-  #course-main-content .presence-content .circle-wrapper .circle-small-wrapper .circle-small .circle-small-label {
-    font-size: 30pt; }
+#course-main-content .presence-content .circle-wrapper .circle-small-wrapper {
+  z-index: 2; }
+  #course-main-content .presence-content .circle-wrapper .circle-small-wrapper .circle-small {
+    top: -21px;
+    border: 0;
+    background: #83D3AE; }
+    #course-main-content .presence-content .circle-wrapper .circle-small-wrapper .circle-small .circle-small-label {
+      font-size: 30pt;
+      color: #19284f; }
 
 #course-main-content .presence-content .circle-wrapper .circle[data-value="0"] ~ .circle-small-wrapper {
   left: -24px; }
@@ -2087,7 +2099,7 @@ body#page-login-signup {
         padding-bottom: 18px; }
 
 #course-main-content #help-menu .btn-help, .incourse-header #help-menu .btn-help {
-  transform: scale(0.55);
+  transform: scale(0.85);
   background: url([[pix:theme|pagemy/help-dblue]]) no-repeat center; }
 
 #mypublic-student {
