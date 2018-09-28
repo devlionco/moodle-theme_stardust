@@ -228,13 +228,17 @@ class classAjax
         $userid  = required_param('user', PARAM_INT);
         $courseid = required_param('courseid', PARAM_INT);
         $message = required_param('message', PARAM_RAW);
+        $status = 1;                         // when teacher creates the message - we enable it (show it) by default
+        $status = (empty($message) ? 1 : 0); // if teacher erases the message - we disable (hied) message block by default
 
         // prepare new DB record
         $record = new stdClass();
-        $record->courseid        = $courseid;
-        $record->message         = $message;
-        $record->userfrom        = $userid;
-        $record->timecreated     = time();
+        $record->courseid         = $courseid;
+        $record->message          = $message;
+        $record->userfrom         = $userid;
+        $record->timecreated      = time();
+        $record->status           = $status;
+        $record->timestatusupdate = time();
 
         // insert or update message
         if ($messid = $DB->get_record('theme_stardust_messages', array ('courseid' => $courseid))) {
@@ -242,6 +246,32 @@ class classAjax
             $DB->update_record('theme_stardust_messages', $record);
         } else {
             $DB->insert_record('theme_stardust_messages', $record); 
+        }
+
+    }
+    /**
+     * Funtion saves teachers course message show/hide status to theme_stardust_messages table
+     * 
+     */
+    private function toggle_course_message_status() {
+        global $CFG, $DB;
+        //$userid  = required_param('user', PARAM_INT); // SG -- we will not change userfrom field, as it's just status update
+        $courseid = required_param('courseid', PARAM_INT);
+        $status = required_param('status', PARAM_INT);
+
+        // prepare new DB record
+        $record = new stdClass();
+        $record->courseid         = $courseid;
+        $record->status           = $status;
+        //$record->userfrom         = $userid; // SG -- we will not change userfrom field, as it's just status update
+        $record->timestatusupdate = time();
+
+        // insert or update message
+        if ($messid = $DB->get_record('theme_stardust_messages', array ('courseid' => $courseid))) {
+            $record->id = $messid->id;
+            $DB->update_record('theme_stardust_messages', $record);
+        } else {
+            echo "There is no message for this course, so we cannot change message status.";
         }
 
     }

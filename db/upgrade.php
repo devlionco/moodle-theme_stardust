@@ -29,6 +29,28 @@ function xmldb_theme_stardust_upgrade($oldversion) {
         // Stardust savepoint reached.
         upgrade_plugin_savepoint(true, 2018091901, 'theme', 'stardust');
         }
+
+        if ($oldversion < 2018092802) {
+
+            // Define field status to be added to theme_stardust_messages.
+            $table = new xmldb_table('theme_stardust_messages');
+            $field = new xmldb_field('status', XMLDB_TYPE_INTEGER, '1', null, null, null, '0', 'timevalidbefore');
+            // Conditionally launch add field status.
+            if (!$dbman->field_exists($table, $field)) {
+                $dbman->add_field($table, $field);
+            }
+
+            // Define field timestatusupdate to be added to theme_stardust_messages.
+            $table = new xmldb_table('theme_stardust_messages');
+            $field = new xmldb_field('timestatusupdate', XMLDB_TYPE_INTEGER, '10', null, null, null, null, 'status');
+            // Conditionally launch add field timestatusupdate.
+            if (!$dbman->field_exists($table, $field)) {
+                $dbman->add_field($table, $field);
+            }
+    
+            // Stardust savepoint reached.
+            upgrade_plugin_savepoint(true, 2018092802, 'theme', 'stardust');
+        }
         
     $result = TRUE;
  

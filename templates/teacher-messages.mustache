@@ -4,7 +4,7 @@
         <div class="messages-list-wrapper">
           <div class="messages-list">
             {{#isteacher}}
-                  <form class="message" data-userid={{userid}}>
+                  <form class="message" data-userid={{userid}} {{coursemessage.teachmessageshowhide}}>
                     <input type="text" name="message" value="{{coursemessage.message}}" maxlength="100" placeholder="" class="message-input" readonly>
                     <div class="message-controls">
                       <input type="button" name="" value="&rarr;" class="message-submit" title="submit">
@@ -14,14 +14,14 @@
                   </form>
             {{/isteacher}}
             {{^isteacher}}
-                <div class="message">{{coursemessage.message}}</div>
+                <div class="message" {{coursemessage.studmessageshowhide}}>{{coursemessage.message}}</div>
             {{/isteacher}}
           </div>
         </div>
     </div>
 </div>
 {{#isteacher}}
-<button type="button" name="message-hider" class="message-hider show" title="show/hide message for students"></button>
+<button type="button" name="message-hider" class="message-hider {{coursemessage.buttonstatus}}" title="{{coursemessage.buttontitle}}"></button>
 {{/isteacher}}
 
 
