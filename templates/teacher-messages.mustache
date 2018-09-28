@@ -20,7 +20,9 @@
         </div>
     </div>
 </div>
-
+{{#isteacher}}
+<button type="button" name="message-hider" class="message-hider show" title="show/hide message for students"></button>
+{{/isteacher}}
 
 
 {{#js}}
@@ -29,6 +31,7 @@ require(['core/yui', 'jquery', 'theme_stardust/ajax'], function(Y, $, ajax){
   const message = document.querySelector('#course-main-content .message-input');
   const submit = document.querySelector('#course-main-content .message-submit');
   const clear = document.querySelector('#course-main-content .message-clear');
+  const hider = document.querySelector('#course-main-content .message-hider');
 
   // on send spinner
   const spinner = '<span class="message-spin"></span>';
@@ -65,6 +68,25 @@ require(['core/yui', 'jquery', 'theme_stardust/ajax'], function(Y, $, ajax){
 
   $('form.message').submit(function(e){
     return false;
+  });
+
+  hider.addEventListener('click', function(){
+    if(hider.classList.contains('show')){
+      var hiderstatus = 0;
+      $(hider).removeClass('show');
+    } else {
+      var hiderstatus = 1;
+      $(hider).addClass('show');
+    }
+    ajax.data = {
+      method: "toggle_course_message_status",
+      url: "{{config.wwwroot}}/theme/stardust/classes/classAjax.php",
+      user: document.querySelector('form.message').dataset.userid,
+      courseid: getCourseId(),
+      sesskey: M.cfg.sesskey,
+      status: hiderstatus
+    };
+    ajax.send();
   });
 
   message.addEventListener('focus', function(e){

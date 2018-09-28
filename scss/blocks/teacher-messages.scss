@@ -34,10 +34,15 @@
     }
   }
   .course-messages {
+    display: inline;
     max-width: 100%;
     width: 100%;
     padding: 0;
     .messages-container {
+      position: relative;
+      width: calc(100% - 65px);
+      max-width: 95%;
+      float: left;
       height: 50px;
       margin:15px 0;
       box-sizing: border-box;
@@ -45,6 +50,7 @@
       border-radius: 15px;
       padding: 0 2rem;
       overflow-y: hidden;
+      overflow-x: visible;
       .messages {
         padding: 0;
         height: 100%;
@@ -68,6 +74,29 @@
               margin-bottom: 0;
             }
           }
+        }
+      }
+    }
+    .message-hider{
+      background: transparent;
+      border:0;
+      position: relative;
+      float: right;
+      width: 5%;
+      width:50px;
+      margin:15px 0;
+      height:50px;
+      font-size: 1.5rem;
+      &:after{
+        font-family: fontAwesome;
+        content:'\f06e';
+        display: block;
+      }
+      &.show{
+        &:after{
+          font-family: fontAwesome;
+          content:'\f070';
+          display: block;
         }
       }
     }

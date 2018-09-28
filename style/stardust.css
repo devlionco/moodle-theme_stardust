@@ -1323,17 +1323,23 @@ body#page-login-signup {
     font-weight: normal; }
 
 #course-main-content .course-messages {
+  display: inline;
   max-width: 100%;
   width: 100%;
   padding: 0; }
   #course-main-content .course-messages .messages-container {
+    position: relative;
+    width: calc(100% - 65px);
+    max-width: 95%;
+    float: left;
     height: 50px;
     margin: 15px 0;
     box-sizing: border-box;
     border: 4px solid #83D3AE;
     border-radius: 15px;
     padding: 0 2rem;
-    overflow-y: hidden; }
+    overflow-y: hidden;
+    overflow-x: visible; }
     #course-main-content .course-messages .messages-container .messages {
       padding: 0;
       height: 100%;
@@ -1363,6 +1369,24 @@ body#page-login-signup {
           padding: 0 1rem; }
           #course-main-content .course-messages .messages-container .messages-list-wrapper .message .messages-title {
             margin-bottom: 0; }
+  #course-main-content .course-messages .message-hider {
+    background: transparent;
+    border: 0;
+    position: relative;
+    float: right;
+    width: 5%;
+    width: 50px;
+    margin: 15px 0;
+    height: 50px;
+    font-size: 1.5rem; }
+    #course-main-content .course-messages .message-hider:after {
+      font-family: fontAwesome;
+      content: '\f06e';
+      display: block; }
+    #course-main-content .course-messages .message-hider.show:after {
+      font-family: fontAwesome;
+      content: '\f070';
+      display: block; }
 
 #course-main-content form.message {
   position: relative;
