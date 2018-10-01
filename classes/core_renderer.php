@@ -1333,6 +1333,13 @@ class core_renderer extends \theme_boost\output\core_renderer {
             } else {
                 $togglebuttonstudent = get_string('studentdashbutton', 'theme_fordson');
             }
+            
+            // show quiz settings button (show/hide blocks region) at header only for non-students and on specific pages
+            $onquizview = $PAGE->url->compare(new moodle_url('/mod/quiz/view.php'), URL_MATCH_BASE);
+            $onquizattempt = $PAGE->url->compare(new moodle_url('/mod/quiz/attempt.php'), URL_MATCH_BASE);
+            if ($hasteacherdash && $onquizview || $onquizattempt) {
+                $quizsettingsbutton = true;
+            }
         }
 
         $haseditcog = isset($PAGE->theme->settings->courseeditingcog) ? $PAGE->theme->settings->courseeditingcog : null;
@@ -1358,6 +1365,7 @@ class core_renderer extends \theme_boost\output\core_renderer {
             'siteadminurl' => $siteadminurl,
             'haseditcog' => $haseditcog,
             'editcog' => isset($editcog) ? $editcog : null,
+            'quizsettingsbutton' => $quizsettingsbutton,
         ];
 
         // Attach easy enrollment links if active.
