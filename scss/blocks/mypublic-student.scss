@@ -154,6 +154,41 @@ $achivement-margin-top: 42px;
               .title {
                 margin-bottom: 11px;
               }
+              .toggle-info{
+                align-self: flex-end;
+                margin-top: -2.5rem;
+                margin-bottom: 11px;
+                width:2rem;
+                height:2rem;
+                font-size: 1.5rem;
+                background: none;
+                border: none;
+                &.show{
+                  & ~ .info-list .info input[value=""],
+                  & ~ .info-list .info input[value=""] + span,
+                  & ~ .info-list .info input#birthday,
+                  & ~ .info-list .info input#birthday + span{
+                    display: none;
+                  }
+                  background: url([[pix:theme|pagemy/sort-down]]) no-repeat center;
+                  background-size: contain;
+                  display: block;
+                  width:2rem;
+                  height:2rem;
+                }
+                &:not(.show){
+                  background: url([[pix:theme|pagemy/close]]) no-repeat center;
+                  background-size: contain;
+                  display: block;
+                  width:2rem;
+                  height:2rem;
+                }
+                &:focus{
+                  outline:none;
+                  cursor:pointer;
+                }
+
+              }
               .info-list {
                 list-style: none;
                 padding: 0;

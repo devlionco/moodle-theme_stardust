@@ -159,6 +159,7 @@
                     <input type="hidden" id="userid" value="{{userinfo.id}}" />
                     <div class="column">
                         <div class="title">{{#str}} presonal_information, theme_stardust{{/str}}</div>
+                        <button class="toggle-info show" type="button"></button>
                         <ul class="info-list">
                             <li class="info">
                                 <input type="text" id="username" class="input" {{canedit}} value="{{userinfo.username}}" />
@@ -320,6 +321,10 @@ require(['theme_boost/drawer'], function(mod) {
 
 require(['jquery'], function($) {
   `use strict`;
+
+  $('#mypublicpage-profile-shortform .toggle-info').on('click', function(e){
+    $(e.target).toggleClass('show');
+  });
 
   $('#page-user-profile').on('click', function(e){
     if (!$(e.target).parents('form.mform').length && !$(e.target).hasClass('fp-upload-btn') && !$(e.target).parents('div.moodle-dialogue-base').length) {
