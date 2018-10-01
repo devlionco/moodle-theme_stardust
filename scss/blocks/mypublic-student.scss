@@ -164,21 +164,41 @@ $achivement-margin-top: 42px;
                 background: none;
                 border: none;
                 &.show{
-                  & ~ .info-list .info input[value=""],
-                  & ~ .info-list .info input[value=""] + span,
-                  & ~ .info-list .info input#birthday,
-                  & ~ .info-list .info input#birthday + span{
+                  & ~ .info-list .info{
+                    margin-top: 0;
+                  }
+                  & ~ .info-list .info input,
+                  & ~ .info-list .info input + span{
+                  // & ~ .info-list .info input[value=""],
+                  // & ~ .info-list .info input[value=""] + span,
+                  // & ~ .info-list .info input#birthday,
+                  // & ~ .info-list .info input#birthday + span{
                     display: none;
                   }
-                  background: url([[pix:theme|pagemy/sort-down]]) no-repeat center;
+                  & ~ .info-list .info input#username,
+                  & ~ .info-list .info .input#pass,
+                  & ~ .info-list .info  input#fullname,
+                  & ~ .info-list .info  input#email,
+                  & ~ .info-list .info  input#phone1,
+                  & ~ .info-list .info  input#mypublicprofile-save-btn{
+                      display: block;
+                      margin-top: 22px;
+                  }
+                  & ~ .info-list .info  input#username+span,
+                  & ~ .info-list .info  input#fullname+span,
+                  & ~ .info-list .info  input#email+span,
+                  & ~ .info-list .info  input#phone1+span{
+                    display: block;
+                  }
+                  background: url([[pix:theme|course/open]]) no-repeat center;
                   background-size: contain;
                   display: block;
                   width:2rem;
                   height:2rem;
                 }
                 &:not(.show){
-                  background: url([[pix:theme|pagemy/close]]) no-repeat center;
-                  background-size: contain;
+                  background: url([[pix:theme|course/close]]) no-repeat center;
+                  background-size: 50%;
                   display: block;
                   width:2rem;
                   height:2rem;
