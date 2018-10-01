@@ -77,16 +77,18 @@
           .nav-link{
             font-size: 1rem;
             text-decoration: none;
-            padding:0 1.75vw;
+            padding:0;
             color: $white;
             border-right: 2px solid $white;
-            &:first-of-type{
-              padding-left: 0;
-            }
-            &:last-of-type{
-              border-right: none;
-              padding-right: 0;
-            }
+            flex-grow: 1;
+            text-align: center;
+            // &:first-of-type{
+            //   padding-left: 0;
+            // }
+            // &:last-of-type{
+            //   border-right: none;
+            //   padding-right: 0;
+            // }
           }
         }
         .default-items{

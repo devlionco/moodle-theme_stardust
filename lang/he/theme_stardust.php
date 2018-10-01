@@ -158,6 +158,15 @@ $string['isrequired'] = 'זהו שדה חובה';
 $string['emailerror'] = 'פורמט דוא"ל שגוי';
 $string['phoneerror'] = 'הזן מספר טלפון באמצעות תבנית לדוגמה';
 
+// footer
+
+$string['home_page'] = 'דף הבית';
+$string['about'] = 'אודות';
+$string['contact_us'] = 'צור קשר';
+$string['privacy_policy'] = 'מדיניות הפרטיות';
+$string['terms_of_use'] = 'תנאי שימוש';
+$string['accessibility_statement'] = 'הצהרת נגישות'; 
+
 // course page
 $string['gohome'] = '< עמוד הבית';
 $string['study_units'] = 'יחידות לימוד';

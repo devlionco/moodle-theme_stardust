@@ -242,6 +242,13 @@ $string['sociallinkdesc'] = 'Enter the URL of your your custom social media link
 $string['sociallinkicon'] = 'Link Icon';
 $string['sociallinkicondesc'] = 'Enter the fontawesome name of the icon for your link<br />A full list of FontAwesome icons can be found at http://fontawesome.io/icons/';
 
+$string['home_page'] = 'Home page';
+$string['about'] = 'About us';
+$string['contact_us'] = 'Contact us';
+$string['privacy_policy'] = 'Privacy policy';
+$string['terms_of_use'] = 'Terms of use';
+$string['accessibility_statement'] = 'Accessibility statement';  
+
 // Content settings.
 $string['coursetileinfo'] = 'Course Display Options';
 $string['coursetileinfodesc'] = 'These settings allow you to customize how courses will be displayed on the frontpage as well as course categories.';

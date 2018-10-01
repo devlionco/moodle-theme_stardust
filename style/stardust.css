@@ -640,14 +640,12 @@ body#page-login-signup {
         #page-footer #stardust-footer .footer-nav .bottom-nav .nav-link {
           font-size: 1rem;
           text-decoration: none;
-          padding: 0 1.75vw;
+          padding: 0;
           color: #FFFFFF;
-          border-right: 2px solid #FFFFFF; }
-          #page-footer #stardust-footer .footer-nav .bottom-nav .nav-link:first-of-type {
-            padding-left: 0; }
-          #page-footer #stardust-footer .footer-nav .bottom-nav .nav-link:last-of-type {
-            border-right: none;
-            padding-right: 0; }
+          border-right: 2px solid #FFFFFF;
+          -ms-flex-positive: 1;
+              flex-grow: 1;
+          text-align: center; }
       #page-footer #stardust-footer .footer-nav .default-items {
         display: -ms-flexbox;
         display: flex;
