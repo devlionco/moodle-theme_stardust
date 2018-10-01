@@ -85,10 +85,10 @@
             // &:first-of-type{
             //   padding-left: 0;
             // }
-            // &:last-of-type{
-            //   border-right: none;
-            //   padding-right: 0;
-            // }
+            &:last-of-type{
+              border-right: none;
+              // padding-right: 0;
+            }
           }
         }
         .default-items{

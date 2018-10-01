@@ -646,6 +646,8 @@ body#page-login-signup {
           -ms-flex-positive: 1;
               flex-grow: 1;
           text-align: center; }
+          #page-footer #stardust-footer .footer-nav .bottom-nav .nav-link:last-of-type {
+            border-right: none; }
       #page-footer #stardust-footer .footer-nav .default-items {
         display: -ms-flexbox;
         display: flex;
