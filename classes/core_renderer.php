@@ -1359,7 +1359,7 @@ class core_renderer extends \theme_boost\output\core_renderer {
             'haseditcog' => $haseditcog,
             'editcog' => isset($editcog) ? $editcog : null,
         ];
-// echo '<pre>'.print_r($dashmenu,1).'</pre>'; exit();
+
         // Attach easy enrollment links if active.
         if ($globalhaseasyenrollment && $coursehaseasyenrollment) {
             $dashmenu['dashmenu'][] = array(

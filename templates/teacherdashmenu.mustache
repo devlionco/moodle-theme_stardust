@@ -1,6 +1,12 @@
 {{#showincourseonly}}
     {{#hasteacherdash}}
     <div class="teacherdash nav-item nav-link">
+            <a role="button" data-tooltip="tooltip" data-placement= "bottom" title="{{#str}}quizsettings, theme_stardust{{/str}}" data-handler="quizsetting" href="javascript:void(0)" class="btn btn-secondary fhs-tooltip">  <i class="fa fa-cog" aria-hidden="true"></i></a>
+    </div>
+    {{/hasteacherdash}}
+
+    {{#hasteacherdash}}
+    <div class="teacherdash nav-item nav-link">
             <a role="button" data-tooltip="tooltip" data-placement= "bottom" title="{{{togglebutton}}}" data-toggle="modal" href="#teacherdashslider" class="btn btn-secondary fhs-tooltip">  <i class="fa fa-cogs" aria-hidden="true"></i></a>
     </div>
     {{/hasteacherdash}}
@@ -32,3 +38,10 @@
     <div class="editcogbutton">{{{editcog}}}</div>
 {{/haseditcog}}
 
+{{#js}}
+    require(['jquery'], function($) {
+      $('[data-handler="quizsetting"]').on('click', function(e){
+        $('#block-region-side-pre').parent().toggleClass('view');
+      });
+    });
+{{/js}}

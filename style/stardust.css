@@ -3052,8 +3052,18 @@ body#page-login-signup {
       display: none; }
     #page-mod-quiz-attempt #page-wrapper .main-wrapper .main .help-block {
       top: -119px; }
-    #page-mod-quiz-attempt #page-wrapper [data-region="blocks-column"] {
-      display: none; }
+    #page-mod-quiz-attempt #page-wrapper section[data-region="blocks-column"] {
+      position: absolute;
+      left: -250px;
+      transition: .4s;
+      border: 1px solid #ddd;
+      z-index: 1000;
+      top: 276px; }
+      #page-mod-quiz-attempt #page-wrapper section[data-region="blocks-column"].view {
+        left: 0; }
+      #page-mod-quiz-attempt #page-wrapper section[data-region="blocks-column"] #mod_quiz_navblock,
+      #page-mod-quiz-attempt #page-wrapper section[data-region="blocks-column"] .block_navigation {
+        display: none; }
     #page-mod-quiz-attempt #page-wrapper section#region-main.has-blocks {
       width: 100%; }
       #page-mod-quiz-attempt #page-wrapper section#region-main.has-blocks .finish_quiz {

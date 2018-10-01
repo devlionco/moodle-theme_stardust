@@ -21,16 +21,6 @@
     }
   }
 }
-// todo
-// #page-mod-quiz-edit {
-//   #page-content.row {
-//     display: flex;
-//   }
-//   #region-main-box {
-//     flex-grow: 1;
-//   }
-// }
-
 
 #page-mod-quiz-edit,
 #page-mod-quiz-summary {
@@ -78,9 +68,25 @@
         }
       }
     }
-    [data-region="blocks-column"] {
-      display: none;
+
+    // aside menu cust
+
+    section[data-region="blocks-column"] {
+      position: absolute;
+      left: -250px;
+      transition: .4s;
+      border: 1px solid #ddd;
+      z-index: 1000;
+      top: 276px;
+      &.view {
+        left: 0;
+      }
+      #mod_quiz_navblock,
+      .block_navigation {
+        display: none;
+      }
     }
+
     section#region-main.has-blocks {
       .finish_quiz {
         cursor: pointer;
