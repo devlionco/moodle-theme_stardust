@@ -159,6 +159,7 @@
                     <input type="hidden" id="userid" value="{{userinfo.id}}" />
                     <div class="column">
                         <div class="title">{{#str}} presonal_information, theme_stardust{{/str}}</div>
+                        <button class="toggle-info show" type="button"></button>
                         <ul class="info-list">
                             <li class="info">
                                 <input type="text" id="username" class="input" {{canedit}} value="{{userinfo.username}}" />
@@ -166,7 +167,7 @@
                             </li>
                             <li class="info">
                                 <!--<input type="password" id="password" class="input" {{canedit}} value="" />-->
-                                <span class="input"><a href="/login/change_password.php?id=1">{{#str}} change_password_link, theme_stardust{{/str}}</a></span>
+                                <span class="input" id="pass"><a href="/login/change_password.php?id=1">{{#str}} change_password_link, theme_stardust{{/str}}</a></span>
                                 <span class="input-label">{{#str}} password, theme_stardust{{/str}}</span>
                             </li>
                             <li class="info">
@@ -280,7 +281,8 @@
     {{>theme_stardust/accomplishments}}
 </div>
 
-<footer id="page-footer" class="p-y-1 bg-inverse">
+{{>theme_stardust/footer}}
+<!-- <footer id="page-footer" class="p-y-1 bg-inverse">
 
      <div class="container">
         <div id="course-footer">{{{ output.course_footer }}}</div>
@@ -302,7 +304,7 @@
         {{{ output.standard_end_of_body_html }}}
     </div>
 
-</footer>
+</footer> -->
 
 </body>
 </html>
@@ -319,6 +321,10 @@ require(['theme_boost/drawer'], function(mod) {
 
 require(['jquery'], function($) {
   `use strict`;
+
+  $('#mypublicpage-profile-shortform .toggle-info').on('click', function(e){
+    $(e.target).toggleClass('show');
+  });
 
   $('#page-user-profile').on('click', function(e){
     if (!$(e.target).parents('form.mform').length && !$(e.target).hasClass('fp-upload-btn') && !$(e.target).parents('div.moodle-dialogue-base').length) {

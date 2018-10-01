@@ -453,12 +453,26 @@
       }
     }
     &.filter_answered {
-      background-color: $primary-color;
+      // background-color: $primary-color;
+      background: none;
       border-color: $primary-color;
+      &:before{
+        background-color: $primary-color;
+      }
+      & .filter_pin {
+        background-color: $primary-color;
+      }
     }
     &.filter_notanswered {
-      background-color: #B4C1C7;
+      // background-color: #B4C1C7;
+      background: none;
       border-color: #B4C1C7;
+      &:before{
+        background-color: #B4C1C7;
+      }
+      & .filter_pin {
+        background-color: #B4C1C7;
+      }
     }
     .filter_pin {
       width: 10px;

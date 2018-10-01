@@ -86,16 +86,22 @@
           color:$d_blue;
         }
         .icon-report {
-          height: 34px;
-          width: 34px;
+          height: 50px;
+          width: 50px;
+          border-radius: 50%;
+          background:url([[pix:theme|grade_icon]]) no-repeat center center;
         }
         .icon-medal {
-          height: 35px;
-          width: 34px;
+          height: 50px;
+          width: 50px;
+          border-radius: 50%;
+          background:url([[pix:theme|medal_icon]]) no-repeat center center;
         }
         .icon-diplom {
-          height: 35px;
-          width: 34px;
+          height: 50px;
+          width: 50px;
+          border-radius: 50%;
+          background:url([[pix:theme|diploma_icon]]) no-repeat center center;
         }
       }
     }

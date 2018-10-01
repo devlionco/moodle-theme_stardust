@@ -26,7 +26,7 @@
       .help-block {
         position: absolute;
         right: 0;
-        top: -115px;
+        top: -90px;
       }
     }
   }
@@ -38,30 +38,31 @@
     position: relative;
     background: linear-gradient(to left,transparent 0%,transparent 50%, #03146D 85%, $d_blue 100%), url([[pix:theme|banner]]);
     background-size: cover;
-    &:before {
-      content: "";
-      display: block;
-      width: 50%;
-      height: 0;
-      border-style: solid;
-      border-width: 0px 30px 30px 0px;
-      border-color: transparent transparent $gray_light transparent;
-      position: absolute;
-      bottom: 0;
-      left: 0;
-    }
-    &:after {
-      content: "";
-      display: block;
-      width: 50%;
-      height: 0;
-      border-style: solid;
-      border-width: 0 0px 30px 30px;
-      border-color: transparent transparent $gray_light transparent;
-      position: absolute;
-      bottom: 0;
-      right: 0;
-    }
+    border-bottom: 10px solid $d_blue;
+    // &:before {
+    //   content: "";
+    //   display: block;
+    //   width: 50%;
+    //   height: 0;
+    //   border-style: solid;
+    //   border-width: 0px 30px 30px 0px;
+    //   border-color: transparent transparent $gray_light transparent;
+    //   position: absolute;
+    //   bottom: 0;
+    //   left: 0;
+    // }
+    // &:after {
+    //   content: "";
+    //   display: block;
+    //   width: 50%;
+    //   height: 0;
+    //   border-style: solid;
+    //   border-width: 0 0px 30px 30px;
+    //   border-color: transparent transparent $gray_light transparent;
+    //   position: absolute;
+    //   bottom: 0;
+    //   right: 0;
+    // }
     .top {
       max-width: 1344px;
       margin-bottom: 46px;

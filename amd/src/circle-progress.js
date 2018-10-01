@@ -99,7 +99,8 @@ define(['jquery'], function ($) {
      * @type {string}
      * @default 'rgba(0, 0, 0, .1)'
      */
-    emptyFill: 'rgba(0, 0, 0, .1)',
+    // emptyFill: 'rgba(0, 0, 0, .1)',
+    emptyFill: 'rgba(0, 0, 0, 0)', 
 
     /**
      * jQuery Animation config.

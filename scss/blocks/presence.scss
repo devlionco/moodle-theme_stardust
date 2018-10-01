@@ -90,8 +90,11 @@
 }
 #course-main-content {
   .presence-content .circle-wrapper {
+    canvas{
+      z-index: 2;
+    }
     .circle-inner{
-      background: rgba($d_blue, .75);
+      background: $d_blue;
       .circle-label{
         font-size: 50pt;
         // font-size: 38pt;
@@ -105,14 +108,18 @@
         max-width: 50%;
       }
     }
-    .circle-small-wrapper .circle-small{
-      top: -21px;
-      border:0;
-      background: $d_blue;
-      .circle-small-label{
-        font-size: 30pt;
-        // font-size: 22pt;
-      }
+    .circle-small-wrapper{
+      z-index: 2;
+      .circle-small{
+        top: -21px;
+        border:0;
+        background: $new-progress-bar;
+        .circle-small-label{
+          font-size: 30pt;
+          color: $d_blue;
+          // font-size: 22pt;
+        }
+      } 
     }
     .circle[data-value="0"] ~ .circle-small-wrapper{
       left:-24px;
