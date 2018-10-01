@@ -159,54 +159,58 @@
                     <input type="hidden" id="userid" value="{{userinfo.id}}" />
                     <div class="column">
                         <div class="title">{{#str}} presonal_information, theme_stardust{{/str}}</div>
-                        <button class="toggle-info show" type="button"></button>
+                        <button class="toggle-info show" type="button">
+                          <span class = "show_more">{{#str}} show_more, theme_stardust{{/str}}<i class="fa fa-angle-down"></i></span>
+                          <span class = "show_less">{{#str}} show_less, theme_stardust{{/str}}<i class="fa fa-angle-up"></i></span>
+                          <!-- <span>show less</span> -->
+                        </button>
                         <ul class="info-list">
-                            <li class="info">
+                            <li class="info" data-input="username">
                                 <input type="text" id="username" class="input" {{canedit}} value="{{userinfo.username}}" />
                                 <span class="input-label">{{#str}} username, theme_stardust{{/str}}</span>
                             </li>
-                            <li class="info">
+                            <li class="info" data-input="pass">
                                 <!--<input type="password" id="password" class="input" {{canedit}} value="" />-->
                                 <span class="input" id="pass"><a href="/login/change_password.php?id=1">{{#str}} change_password_link, theme_stardust{{/str}}</a></span>
                                 <span class="input-label">{{#str}} password, theme_stardust{{/str}}</span>
                             </li>
-                            <li class="info">
+                            <li class="info" data-input="fullname">
                                 <input type="text" id="fullname" class="input" {{canedit}} value="{{userinfo.firstname}} {{userinfo.lastname}}">
                                 <span class="input-label">{{#str}} lastname_firstname, theme_stardust{{/str}}</span>
                             </li>
-                            <li class="info">
+                            <li class="info" data-input="passport">
                                 <input type="text" id="passport" class="input" {{canedit}} readonly value="{{userinfo.passport}}"> <!-- TODO!!! -->
                                 <span class="input-label">{{#str}} passport, theme_stardust{{/str}}</span>
                             </li>
-                            <li class="info">
+                            <li class="info" data-input="email">
                                 <input type="text" id="email" class="input" {{canedit}} value="{{userinfo.email}}">
                                 <span class="input-label">{{#str}} email, theme_stardust{{/str}}</span>
                             </li>
-                            <li class="info">
+                            <li class="info" data-input="aim">
                                 <input type="text" id="aim" class="input" {{canedit}} value="{{userinfo.aim}}">
                                 <span class="input-label">{{#str}} additional_email, theme_stardust{{/str}}</span>
                             </li>
-                            <li class="info">
+                            <li class="info" data-input="phone1">
                                 <input type="text" id="phone1" class="input" {{canedit}} value="{{userinfo.phone1}}">
                                 <span class="input-label">{{#str}} phone, theme_stardust{{/str}}</span>
                             </li>
-                            <li class="info">
+                            <li class="info" data-input="phone2">
                                 <input type="text" id="phone2" class="input" {{canedit}} value="{{userinfo.phone2}}">
                                 <span class="input-label">{{#str}} additional_phone, theme_stardust{{/str}}</span>
                             </li>
-                            <li class="info">
+                            <li class="info" data-input="skype">
                                 <input type="text" id="skype" class="input" {{canedit}} value="{{userinfo.skype}}">
                                 <span class="input-label">{{#str}} position, theme_stardust{{/str}}</span>
                             </li>
-                            <li class="info">
+                            <li class="info" data-input="icq">
                                 <input type="text" id="icq" class="input" {{canedit}} value="{{userinfo.icq}}">
                                 <span class="input-label">{{#str}} icq, theme_stardust{{/str}}</span>
                             </li>
-                            <li class="info">
+                            <li class="info" data-input="birthday">
                                 <input type="date" id="birthday" class="input" {{canedit}} value="{{#userdate}}{{userinfo.profile_field_birthday}}, %Y-%m-%d {{/userdate}}">
                                 <span class="input-label">{{#str}} birthday, theme_stardust{{/str}}</span>
                             </li>
-                            <li class="info">
+                            <li class="info" data-input="interests">
                                 <input type="text" id="interests" class="input" {{canedit}} value="" placeholder="{{#str}} write_tags, theme_stardust{{/str}}">
                                 <span class="input-label">{{#str}} interests, theme_stardust{{/str}}</span>
                                 <div id = "tag-container" class = "tag-container">
@@ -323,7 +327,18 @@ require(['jquery'], function($) {
   `use strict`;
 
   $('#mypublicpage-profile-shortform .toggle-info').on('click', function(e){
-    $(e.target).toggleClass('show');
+    $(this).toggleClass('show');
+    $(`
+      #passport,
+      #aim,
+      #phone2,
+      #skype,
+      #icq,
+      #birthday
+    `).parent().slideToggle(function(e){
+      if ($(this).is(':visible'))
+      this.style = 'display:flex;'
+    });
   });
 
   $('#page-user-profile').on('click', function(e){

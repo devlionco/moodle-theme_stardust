@@ -180,3 +180,5 @@ $string['quizattemptbacktoactivity'] = 'Back to quiz';
 $string['quizattemptfinishlink'] = 'הגשת המבחן';
 $string['quiz_filter'] = 'לפי סימון:';
 $string['quizsettings'] = 'עריכת בוחן';
+$string['show_more'] = 'הצג יותר';
+$string['show_less'] = 'הצג פחות';

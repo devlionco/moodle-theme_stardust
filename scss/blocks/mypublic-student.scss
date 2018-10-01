@@ -158,60 +158,42 @@ $achivement-margin-top: 42px;
                 align-self: flex-end;
                 margin-top: -2.5rem;
                 margin-bottom: 11px;
-                width:2rem;
-                height:2rem;
-                font-size: 1.5rem;
+                color: #717171;
+                cursor: pointer;
                 background: none;
                 border: none;
+                & i {
+                  font-size: 2rem;
+                  margin-left: .5rem;
+                }
+                .show_more {
+                  display: none;
+                }
+                .show_less {
+                  display: flex;
+                  align-items: center;
+                }
                 &.show{
-                  & ~ .info-list .info{
-                    margin-top: 0;
+                  .show_more {
+                    display: flex;
+                    align-items: center;
                   }
-                  & ~ .info-list .info input,
-                  & ~ .info-list .info input + span{
-                  // & ~ .info-list .info input[value=""],
-                  // & ~ .info-list .info input[value=""] + span,
-                  // & ~ .info-list .info input#birthday,
-                  // & ~ .info-list .info input#birthday + span{
+                  .show_less {
                     display: none;
                   }
-                  & ~ .info-list .info input#username,
-                  & ~ .info-list .info .input#pass,
-                  & ~ .info-list .info  input#fullname,
-                  & ~ .info-list .info  input#email,
-                  & ~ .info-list .info  input#phone1,
-                  & ~ .info-list .info  input#mypublicprofile-save-btn{
-                      display: block;
-                      margin-top: 22px;
-                  }
-                  & ~ .info-list .info  input#username+span,
-                  & ~ .info-list .info  input#fullname+span,
-                  & ~ .info-list .info  input#email+span,
-                  & ~ .info-list .info  input#phone1+span{
-                    display: block;
-                  }
-                  background: url([[pix:theme|course/open]]) no-repeat center;
-                  background-size: contain;
-                  display: block;
-                  width:2rem;
-                  height:2rem;
                 }
-                &:not(.show){
-                  background: url([[pix:theme|course/close]]) no-repeat center;
-                  background-size: 50%;
-                  display: block;
-                  width:2rem;
-                  height:2rem;
-                }
-                &:focus{
-                  outline:none;
-                  cursor:pointer;
-                }
-
               }
               .info-list {
                 list-style: none;
                 padding: 0;
+                & [data-input="passport"],
+                & [data-input="aim"],
+                & [data-input="phone2"],
+                & [data-input="skype"],
+                & [data-input="icq"],
+                & [data-input="birthday"] {
+                  display: none;
+                }
                 li{
                   margin-top: 22px;
                   display: flex;
