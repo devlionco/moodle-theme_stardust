@@ -143,7 +143,7 @@ $courseformat = course_get_format($course->id)->get_format_options();
 
 // get teacher's course message
 $coursemessage = $DB->get_record('theme_stardust_messages', array ('courseid' => $course->id));
-$coursemessage->buttonstatus = ($coursemessage->status == 1) ? 'show' : '';                         // define teacher's show/hide button (eye) class 
+$coursemessage->buttonstatus = ($coursemessage->status == 1) ? 'show' : '';                         // define teacher's show/hide button (eye) class
 $coursemessage->buttontitle= ($coursemessage->status == 1) ? 'To hide message' : 'To show message'; // define teacher's show/hide button (eye) title
 $coursemessage->teachmessageshowhide= ($coursemessage->status == 1) ? '' : 'style = opacity:0.5;';  // define teacher's message box style with opacity
 $coursemessage->studmessageshowhide= ($coursemessage->status == 1) ? '' : 'style = display:none;';  // define student's message box style: display or not
@@ -177,9 +177,10 @@ $templatecontext = [
     'showgrades' => isset($course->showgrades) ? $course->showgrades: false,
     'coursemessage' => $coursemessage,
     'isteacher' => $isteacher,
-    'userid' => $USER->id
+    'userid' => $USER->id,
+    'courseid' => $course->id
 ];
-
+// echo '<pre>'.print_r($templatecontext,1).'</pre>';exit();
 $PAGE->requires->jquery();
 if (isset($PAGE->theme->settings->showbacktotop) && $PAGE->theme->settings->showbacktotop == 1) {
     $PAGE->requires->js('/theme/fordson/javascript/scrolltotop.js');

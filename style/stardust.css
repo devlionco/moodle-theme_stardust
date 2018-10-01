@@ -2260,19 +2260,32 @@ body#page-login-signup {
                 background: none;
                 border: none; }
                 #mypublic-student .main-wrapper .main-content .profile-info .column .toggle-info.show {
-                  background: url([[pix:theme|pagemy/sort-down]]) no-repeat center;
+                  background: url([[pix:theme|course/open]]) no-repeat center;
                   background-size: contain;
                   display: block;
                   width: 2rem;
                   height: 2rem; }
-                  #mypublic-student .main-wrapper .main-content .profile-info .column .toggle-info.show ~ .info-list .info input[value=""],
-                  #mypublic-student .main-wrapper .main-content .profile-info .column .toggle-info.show ~ .info-list .info input[value=""] + span,
-                  #mypublic-student .main-wrapper .main-content .profile-info .column .toggle-info.show ~ .info-list .info input#birthday,
-                  #mypublic-student .main-wrapper .main-content .profile-info .column .toggle-info.show ~ .info-list .info input#birthday + span {
+                  #mypublic-student .main-wrapper .main-content .profile-info .column .toggle-info.show ~ .info-list .info {
+                    margin-top: 0; }
+                  #mypublic-student .main-wrapper .main-content .profile-info .column .toggle-info.show ~ .info-list .info input,
+                  #mypublic-student .main-wrapper .main-content .profile-info .column .toggle-info.show ~ .info-list .info input + span {
                     display: none; }
+                  #mypublic-student .main-wrapper .main-content .profile-info .column .toggle-info.show ~ .info-list .info input#username,
+                  #mypublic-student .main-wrapper .main-content .profile-info .column .toggle-info.show ~ .info-list .info .input#pass,
+                  #mypublic-student .main-wrapper .main-content .profile-info .column .toggle-info.show ~ .info-list .info input#fullname,
+                  #mypublic-student .main-wrapper .main-content .profile-info .column .toggle-info.show ~ .info-list .info input#email,
+                  #mypublic-student .main-wrapper .main-content .profile-info .column .toggle-info.show ~ .info-list .info input#phone1,
+                  #mypublic-student .main-wrapper .main-content .profile-info .column .toggle-info.show ~ .info-list .info input#mypublicprofile-save-btn {
+                    display: block;
+                    margin-top: 22px; }
+                  #mypublic-student .main-wrapper .main-content .profile-info .column .toggle-info.show ~ .info-list .info input#username + span,
+                  #mypublic-student .main-wrapper .main-content .profile-info .column .toggle-info.show ~ .info-list .info input#fullname + span,
+                  #mypublic-student .main-wrapper .main-content .profile-info .column .toggle-info.show ~ .info-list .info input#email + span,
+                  #mypublic-student .main-wrapper .main-content .profile-info .column .toggle-info.show ~ .info-list .info input#phone1 + span {
+                    display: block; }
                 #mypublic-student .main-wrapper .main-content .profile-info .column .toggle-info:not(.show) {
-                  background: url([[pix:theme|pagemy/close]]) no-repeat center;
-                  background-size: contain;
+                  background: url([[pix:theme|course/close]]) no-repeat center;
+                  background-size: 50%;
                   display: block;
                   width: 2rem;
                   height: 2rem; }
@@ -2622,7 +2635,8 @@ body#page-login-signup {
             align-self: flex-start;
         padding: 30px 0;
         max-width: 400px; }
-        #course-main-content .top-wrapper .top .title-wrapper h1 {
+        #course-main-content .top-wrapper .top .title-wrapper a {
+          color: #fff;
           font-size: 72px;
           line-height: 60px;
           display: block;
@@ -2630,6 +2644,8 @@ body#page-login-signup {
           width: 100%;
           overflow-x: visible;
           overflow-y: hidden; }
+          #course-main-content .top-wrapper .top .title-wrapper a:hover {
+            text-decoration: none; }
         #course-main-content .top-wrapper .top .title-wrapper p {
           display: block;
           font-size: 30px;

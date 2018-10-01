@@ -71,7 +71,8 @@ $progress-height-open: 12px;
         align-self: flex-start;
         padding:30px 0;
         max-width:400px;
-        h1{
+        a{
+          color: #fff;
           font-size: 72px;
           line-height: 60px;
           display: block;
@@ -79,6 +80,9 @@ $progress-height-open: 12px;
           width:100%;
           overflow-x: visible;
           overflow-y: hidden;
+          &:hover {
+            text-decoration: none;
+          }
           // text-decoration: underline $white;
           // &:first-line{
           //   text-decoration:underline $d_blue;
