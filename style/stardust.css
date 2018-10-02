@@ -2100,7 +2100,8 @@ body#page-login-signup {
 
 #course-main-content #help-menu .btn-help, .incourse-header #help-menu .btn-help {
   transform: scale(0.85);
-  background: url([[pix:theme|pagemy/help-dblue]]) no-repeat center; }
+  background: url([[pix:theme|pagemy/help-dblue]]) no-repeat center;
+  cursor: pointer; }
 
 #mypublic-student {
   color: #3C3C3C;
@@ -3182,8 +3183,6 @@ body#page-login-signup {
       display: none; }
     #page-mod-quiz-attempt #page-wrapper div.m-t-2.m-b-1 {
       display: none; }
-    #page-mod-quiz-attempt #page-wrapper .main-wrapper .main .help-block {
-      top: -119px; }
     #page-mod-quiz-attempt #page-wrapper section[data-region="blocks-column"] {
       position: absolute;
       left: -250px;
