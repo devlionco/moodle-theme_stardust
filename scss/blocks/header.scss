@@ -32,7 +32,7 @@
   right: 0;
   left: 0;
   z-index: 1030;
-  max-height: 65px;
+  max-height: 45px;
   padding: 0;
   border-bottom: none;
   // background-color: $gray_light;
@@ -44,7 +44,7 @@
     justify-content: space-between;
     align-items: center;
     // max-width: 1344px;
-    height: 65px;
+    height: 45px;
     padding: 0 23px;
     .dheader__left{
       display: flex;
@@ -160,7 +160,7 @@
           text-overflow: ellipsis;
         }
         .action-menu .userpicture {
-          margin: 1rem 0 8px;
+          margin: 5px 0;
         }
         .userbutton {
           display: flex;

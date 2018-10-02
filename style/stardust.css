@@ -708,7 +708,7 @@ body#page-login-signup {
   right: 0;
   left: 0;
   z-index: 1030;
-  max-height: 65px;
+  max-height: 45px;
   padding: 0;
   border-bottom: none;
   background-color: #19284f; }
@@ -721,7 +721,7 @@ body#page-login-signup {
         justify-content: space-between;
     -ms-flex-align: center;
         align-items: center;
-    height: 65px;
+    height: 45px;
     padding: 0 23px; }
     .dheader .dheader__inner .dheader__left {
       display: -ms-flexbox;
@@ -825,7 +825,7 @@ body#page-login-signup {
           overflow: hidden;
           text-overflow: ellipsis; }
         .dheader .dheader__inner .dheader__right .usermenu .action-menu .userpicture {
-          margin: 1rem 0 8px; }
+          margin: 5px 0; }
         .dheader .dheader__inner .dheader__right .usermenu .userbutton {
           display: -ms-flexbox;
           display: flex;
@@ -840,7 +840,7 @@ body#page-login-signup {
   display: none !important; }
 
 #page {
-  margin-top: 65px; }
+  margin-top: 45px; }
 
 .visuallyhidden {
   position: absolute;
