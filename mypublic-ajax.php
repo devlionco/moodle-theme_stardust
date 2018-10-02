@@ -19,7 +19,7 @@ function save_mypublicpage_shortform() {
     $username = optional_param('username', '', PARAM_TEXT);
     // $password = optional_param('password', '', PARAM_RAW);
     $fullname = optional_param('fullname', '', PARAM_TEXT);
-    $passport = optional_param('passport', '', PARAM_TEXT); // TODO
+    $idnumber = optional_param('idnumber', '', PARAM_TEXT); // passport
     $email = optional_param('email', '', PARAM_TEXT);
     $aim = optional_param('aim', '', PARAM_TEXT);           // additional email
     $skype = optional_param('skype', '', PARAM_TEXT);       // position
@@ -53,6 +53,9 @@ function save_mypublicpage_shortform() {
         }
         if(!empty($lastname)){
             $user->lastname = $lastname;
+        }
+        if(!empty($idnumber)){
+            $user->idnumber = $idnumber;
         }
         if(!empty($phone1)){
             $user->phone1 = $phone1;
