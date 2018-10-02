@@ -308,7 +308,7 @@
 #page-login-index .dlogin__title {
   margin: 0 15px;
   font: 600 24px/33px "openSans";
-  color: #0096DB;
+  color: #19284f;
   text-align: center; }
 
 #page-login-index .dlogin__main {
@@ -332,7 +332,7 @@
   color: #3C3C3C !important;
   border: none;
   outline: none;
-  border-bottom: 2px solid #0096DB; }
+  border-bottom: 2px solid #19284f; }
 
 #page-login-index .dlogin__input:-webkit-autofill {
   -webkit-box-shadow: 0 0 0 30px white inset; }
@@ -372,7 +372,7 @@
 
 #page-login-index .dlogin__forget {
   font: 400 12px/17px "openSans";
-  color: #0096DB;
+  color: #19284f;
   padding-top: 0;
   margin-bottom: 29px;
   display: inline-block; }
@@ -477,11 +477,11 @@
   width: 50%;
   text-align: center;
   text-decoration: none;
-  color: #0096DB;
+  color: #19284f;
   font: 600 15px/48px "openSans";
   transition: .2s; }
   #page-login-index .dlogin__bottom-link:hover {
-    background-color: #0096DB;
+    background-color: #19284f;
     color: #fff; }
 
 #page-login-index .dlogin__bottom-link:first-child {
@@ -1005,14 +1005,14 @@ body#page-login-signup {
               margin-right: 37px; }
             #my-page .main-wrapper .main-content .tasks .tab-links .tab-link {
               opacity: 0.5;
-              color: #0096DB;
+              color: #19284f;
               font-size: 18px;
               font-weight: 600;
               text-decoration: none;
               padding-bottom: 3px; }
               #my-page .main-wrapper .main-content .tasks .tab-links .tab-link.active {
                 opacity: 1;
-                border-bottom: 2px solid #0096DB; }
+                border-bottom: 2px solid #19284f; }
         #my-page .main-wrapper .main-content .messages-block {
           width: 318px;
           display: -ms-flexbox;
@@ -1174,7 +1174,7 @@ body#page-login-signup {
     padding: 20px 27px 24px 24px;
     min-height: 125px; }
     .messages-container .messages-title {
-      color: #0096DB;
+      color: #19284f;
       font-size: 18px;
       font-weight: 600;
       margin-bottom: 12px; }
@@ -1631,10 +1631,10 @@ body#page-login-signup {
           margin-bottom: -2px; }
       #tabtoday tbody tr .submit-assigment {
         color: #8a8a8a;
-        color: #0096DB;
+        color: #19284f;
         font-size: 12px; }
         #tabtoday tbody tr .submit-assigment:hover {
-          color: #0096db;
+          color: #19284f;
           text-decoration: none; }
   #tabtoday .table-header-item {
     display: -ms-flexbox;
@@ -1665,7 +1665,7 @@ body#page-login-signup {
     display: inline-block;
     max-width: 243px; }
     #tabtoday .name-assigment:hover {
-      color: #0096DB;
+      color: #19284f;
       cursor: pointer;
       text-decoration: none; }
   #tabtoday .name-unit {
@@ -1823,7 +1823,7 @@ body#page-login-signup {
         margin-right: 32px; }
       .course-cards-header .tab-links .tab-link {
         opacity: 0.6;
-        color: #0096DB;
+        color: #19284f;
         font-size: 24px;
         font-size: 21px;
         font-weight: 600;
@@ -1831,7 +1831,7 @@ body#page-login-signup {
         padding-bottom: 3px; }
         .course-cards-header .tab-links .tab-link.active {
           opacity: 1;
-          border-bottom: 2px solid #0096DB; }
+          border-bottom: 2px solid #19284f; }
     .course-cards-header .filters {
       display: -ms-flexbox;
       display: flex;
@@ -1888,7 +1888,7 @@ body#page-login-signup {
           align-items: center;
       margin-bottom: 14px; }
       .courses-active .course-header .course-name {
-        color: #0096DB;
+        color: #19284f;
         font-size: 24px;
         font-size: 21px;
         font-weight: 600;
@@ -1947,7 +1947,7 @@ body#page-login-signup {
           text-overflow: ellipsis;
           max-width: 135px; }
           .courses-active .course .table td .name-assigment:hover {
-            color: #0096DB;
+            color: #19284f;
             cursor: pointer;
             text-decoration: none; }
       .courses-active .course .table .table-column-name-assigment {
@@ -1990,7 +1990,7 @@ body#page-login-signup {
           align-items: center;
       margin-bottom: 20px; }
       .courses-finished .course-header .course-name {
-        color: #0096DB;
+        color: #19284f;
         font-size: 24px;
         font-size: 21px;
         font-weight: 600;
@@ -2048,7 +2048,7 @@ body#page-login-signup {
     margin-top: 0;
     top: -15px;
     padding: 24px 24px 36px;
-    background: #0096DB;
+    background: #19284f;
     min-height: 200px;
     min-width: 242px;
     border: none;
@@ -2113,7 +2113,7 @@ body#page-login-signup {
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
-    background-color: #0096db; }
+    background-color: #19284f; }
     #mypublic-student .main-wrapper .icon-help {
       width: 64px;
       height: 60px;
@@ -2172,10 +2172,10 @@ body#page-login-signup {
           #mypublic-student .main-wrapper .main-content .profile .title {
             font-size: 18px;
             font-weight: 600;
-            color: #0096DB;
+            color: #19284f;
             width: 100%; }
           #mypublic-student .main-wrapper .main-content .profile .btn-blue {
-            background: #0096DB;
+            background: #19284f;
             min-width: 115px;
             height: 36px;
             border: none;
@@ -2296,7 +2296,7 @@ body#page-login-signup {
                     border: none;
                     font-size: 18px; }
                   #mypublic-student .main-wrapper .main-content .profile-info .column .info-list li.info .input {
-                    border-bottom: 2px solid #0096DB;
+                    border-bottom: 2px solid #19284f;
                     color: #717171;
                     padding-bottom: 10px;
                     outline: none; }
@@ -2304,7 +2304,7 @@ body#page-login-signup {
                     -webkit-box-shadow: 0 0 0 30px white inset; }
                   #mypublic-student .main-wrapper .main-content .profile-info .column .info-list li.info .input-label {
                     font-size: 12px;
-                    color: #0096DB;
+                    color: #19284f;
                     margin-top: 8px; }
                   #mypublic-student .main-wrapper .main-content .profile-info .column .info-list li.info.submit {
                     -ms-flex-align: end;
@@ -2448,7 +2448,7 @@ body#page-login-signup {
         margin-right: 40px; }
       .accomplishments-header .tab-links .tab-link {
         opacity: 0.6;
-        color: #0096DB;
+        color: #19284f;
         font-size: 24px;
         font-size: 21px;
         font-weight: 600;
@@ -2456,7 +2456,7 @@ body#page-login-signup {
         padding-bottom: 3px; }
         .accomplishments-header .tab-links .tab-link.active {
           opacity: 1;
-          border-bottom: 2px solid #0096DB; }
+          border-bottom: 2px solid #19284f; }
     .accomplishments-header .filters {
       display: -ms-flexbox;
       display: flex;
@@ -2863,10 +2863,10 @@ body#page-login-signup {
               text-overflow: ellipsis;
               overflow: hidden; }
         #course-main-content .main-wrapper .main .courses-list .course-selected .course-header {
-          border: 1px solid #0096DB;
+          border: 1px solid #19284f;
           height: 98px; }
           #course-main-content .main-wrapper .main .courses-list .course-selected .course-header .course-icon-block {
-            background: #0096DB; }
+            background: #19284f; }
             #course-main-content .main-wrapper .main .courses-list .course-selected .course-header .course-icon-block .course-icon {
               display: block;
               background: url([[pix:theme|course/pushpin]]) no-repeat center center;
@@ -2876,7 +2876,7 @@ body#page-login-signup {
             #course-main-content .main-wrapper .main .courses-list .course-selected .course-header .course-icon-block .course-number {
               display: none; }
           #course-main-content .main-wrapper .main .courses-list .course-selected .course-header .course-title-block .course-title {
-            color: #0096DB; }
+            color: #19284f; }
         #course-main-content .main-wrapper .main .courses-list .course-selected .course-progress {
           display: none; }
         #course-main-content .main-wrapper .main .courses-list .course.opened .course-header {
@@ -3063,7 +3063,7 @@ body#page-login-signup {
             font-size: 18px;
             font-weight: bold;
             line-height: 18px;
-            color: #0096DB;
+            color: #19284f;
             padding-left: 20px;
             display: -ms-flexbox;
             display: flex;
@@ -3119,9 +3119,9 @@ body#page-login-signup {
                   color: #fff;
                   cursor: pointer;
                   text-decoration: none;
-                  background-color: #0096db; }
+                  background-color: #19284f; }
       .incourse-header .top-wrapper .top .blocks-list .block.pinned {
-        background: #0096DB;
+        background: #19284f;
         display: -ms-flexbox;
         display: flex;
         -ms-flex-align: center;
@@ -3201,7 +3201,7 @@ body#page-login-signup {
         cursor: pointer;
         line-height: 48px;
         border-radius: 21px;
-        background-color: #0096DB;
+        background-color: #19284f;
         color: #fff;
         border: none;
         font-size: 18px;
@@ -3263,7 +3263,7 @@ body#page-login-signup {
           #page-mod-quiz-attempt #page-wrapper section#region-main.has-blocks [role="main"] .que.notyetanswered .state {
             color: #A1ADB3; }
           #page-mod-quiz-attempt #page-wrapper section#region-main.has-blocks [role="main"] .que.answersaved .state {
-            color: #0096DB; }
+            color: #19284f; }
           #page-mod-quiz-attempt #page-wrapper section#region-main.has-blocks [role="main"] .que .info {
             display: -ms-flexbox;
             display: flex;
@@ -3342,7 +3342,7 @@ body#page-login-signup {
                   #page-mod-quiz-attempt #page-wrapper section#region-main.has-blocks [role="main"] .que .content .formulation .ablock .answer > div input {
                     opacity: 0; }
                   #page-mod-quiz-attempt #page-wrapper section#region-main.has-blocks [role="main"] .que .content .formulation .ablock .answer > div input:checked + label::before {
-                    background: #0096DB; }
+                    background: #19284f; }
         #page-mod-quiz-attempt #page-wrapper section#region-main.has-blocks [role="main"] .mod_quiz-section-heading {
           display: none; }
         #page-mod-quiz-attempt #page-wrapper section#region-main.has-blocks [role="main"] .qn_buttons {
@@ -3371,7 +3371,7 @@ body#page-login-signup {
             border-radius: 8px;
             cursor: pointer; }
           #page-mod-quiz-attempt #page-wrapper section#region-main.has-blocks [role="main"] .qn_buttons::-webkit-scrollbar-thumb {
-            background-color: #0096DB;
+            background-color: #19284f;
             outline: 1px solid slategrey;
             border-radius: 8px;
             height: 1px;
@@ -3409,8 +3409,8 @@ body#page-login-signup {
             #page-mod-quiz-attempt #page-wrapper section#region-main.has-blocks [role="main"] .qn_buttons .qnbutton.thispage .thispageholder {
               border: none; }
             #page-mod-quiz-attempt #page-wrapper section#region-main.has-blocks [role="main"] .qn_buttons .qnbutton.answersaved {
-              border-color: #0096DB;
-              color: #0096DB;
+              border-color: #19284f;
+              color: #19284f;
               border-width: 2px; }
             #page-mod-quiz-attempt #page-wrapper section#region-main.has-blocks [role="main"] .qn_buttons .qnbutton.notyetanswered {
               color: #B4C1C7;
@@ -3429,7 +3429,7 @@ body#page-login-signup {
             height: 48px;
             width: 180px;
             border-radius: 21px;
-            background-color: #0096DB;
+            background-color: #19284f;
             color: #FFFFFF;
             border: none;
             font-size: 18px;
@@ -3505,11 +3505,11 @@ body#page-login-signup {
         background-color: #ff7e99; }
     #page-mod-quiz-attempt .filter_toggle.filter_answered {
       background: none;
-      border-color: #0096DB; }
+      border-color: #19284f; }
       #page-mod-quiz-attempt .filter_toggle.filter_answered:before {
-        background-color: #0096DB; }
+        background-color: #19284f; }
       #page-mod-quiz-attempt .filter_toggle.filter_answered .filter_pin {
-        background-color: #0096DB; }
+        background-color: #19284f; }
     #page-mod-quiz-attempt .filter_toggle.filter_notanswered {
       background: none;
       border-color: #B4C1C7; }
@@ -3590,7 +3590,7 @@ body#page-login-signup {
       .popover-region-messages .messages .message .content-item .content-item-body > h3 {
         font-size: 18px;
         line-height: 24px;
-        color: #0096DB; }
+        color: #19284f; }
       .popover-region-messages .messages .message .content-item .content-item-body > p {
         font-size: 18px;
         line-height: 24px;
@@ -3638,7 +3638,7 @@ body#page-login-signup {
       .popover-region-notifications .all-notifications .notification .content-item .content-item-body > h3 {
         font-size: 18px;
         line-height: 24px;
-        color: #0096DB; }
+        color: #19284f; }
       .popover-region-notifications .all-notifications .notification .content-item .content-item-body > p {
         font-size: 18px;
         line-height: 24px;

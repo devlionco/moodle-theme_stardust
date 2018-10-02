@@ -20,7 +20,9 @@ $gray_input: #717171;
 $dark_dark_gray: #787a7a;
 $white: #FFFFFF;
 
-$primary-color: #0096DB;
+// $primary-color: #0096DB;
+$primary-color: $d_blue;
+$primary-color-1: #19284f; // duplicated $d_blue color to fast revert changes back to $primary-color
 $doc-orange: #FF8E4B;
 $doc-red: #E8270C;
 $progress: #D5D5D4;

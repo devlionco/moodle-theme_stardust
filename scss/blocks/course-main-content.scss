@@ -369,10 +369,10 @@ $progress-height-open: 12px;
         // Style for selected course
         .course-selected {
           .course-header {
-            border: 1px solid $primary-color;
+            border: 1px solid $primary-color-1;
             height: 98px;
             .course-icon-block {
-              background: $primary-color;
+              background: $primary-color-1;
               .course-icon {
                 display: block;
                 background: url([[pix:theme|course/pushpin]]) no-repeat center center;

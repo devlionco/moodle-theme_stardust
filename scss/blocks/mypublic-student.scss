@@ -15,7 +15,7 @@ $achivement-margin-top: 42px;
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
-    background-color: #0096db;
+    background-color: $primary-color-1;
     .icon-help {
       width: 64px;
       height: 60px;
@@ -78,7 +78,7 @@ $achivement-margin-top: 42px;
             width: 100%;
           }
           .btn-blue {
-            background: $primary-color;
+            background: $primary-color-1;
             min-width: 115px;
             height: 36px;
             border: none;
@@ -204,7 +204,7 @@ $achivement-margin-top: 42px;
                   }
                   &.info{
                     .input {
-                      border-bottom: 2px solid $primary-color;
+                      border-bottom: 2px solid $primary-color-1;
                       color: $gray_input;
                       padding-bottom: 10px;
                       outline: none;

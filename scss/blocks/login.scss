@@ -1,3 +1,4 @@
+@import "../variables";
 #page-login-index {
   a {
     text-decoration: none;
@@ -42,7 +43,7 @@
   .dlogin__title {
     margin:0 15px;
     font: $bold 24px/33px 'openSans';
-    color: #0096DB;
+    color: $primary-color;
     text-align: center;
     @media (min-width: 1024px){
       min-width: 600px;
@@ -66,7 +67,7 @@
     color: #3C3C3C !important;
     border: none;
     outline: none;
-    border-bottom: 2px solid #0096DB;
+    border-bottom: 2px solid $primary-color-1;
   }
   .dlogin__input:-webkit-autofill {
     -webkit-box-shadow: 0 0 0 30px white inset;
@@ -101,7 +102,7 @@
   }
   .dlogin__forget {
     font: $regular 12px/17px 'openSans';
-    color: #0096DB;
+    color: $primary-color;
     padding-top: 0;
     margin-bottom: 29px;
     display: inline-block;
@@ -206,11 +207,11 @@
     width: 50%;
     text-align: center;
     text-decoration: none;
-    color: #0096DB;
+    color: $primary-color;
     font: $bold 15px/48px 'openSans';
     transition: .2s;
     &:hover {
-      background-color: #0096DB;
+      background-color: $primary-color-1;
       color: #fff;
     }
   }

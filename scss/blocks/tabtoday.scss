@@ -97,10 +97,10 @@ $width-col-4: 26%;
       }
       .submit-assigment{
         color: #8a8a8a;
-        color: #0096DB;
+        color: $primary-color;
         font-size: 12px;
         &:hover {
-          color: #0096db;
+          color: $primary-color;
           text-decoration: none;
         }
       }
