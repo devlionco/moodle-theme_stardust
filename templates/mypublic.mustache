@@ -170,7 +170,7 @@
                                 <span class="input-label">{{#str}} username, theme_stardust{{/str}}</span>
                             </li>
                             <li class="info" data-input="pass">
-                                <!--<input type="password" id="password" class="input" {{canedit}} value="" />-->
+                                <!-- <input type="password" id="password" class="input" {{canedit}} value="" /> -->
                                 <span class="input" id="pass"><a href="/login/change_password.php?id=1">{{#str}} change_password_link, theme_stardust{{/str}}</a></span>
                                 <span class="input-label">{{#str}} password, theme_stardust{{/str}}</span>
                             </li>
@@ -179,7 +179,7 @@
                                 <span class="input-label">{{#str}} lastname_firstname, theme_stardust{{/str}}</span>
                             </li>
                             <li class="info" data-input="passport">
-                                <input type="text" id="idnumber" class="input" {{canedit}} readonly value="{{userinfo.idnumber}}">
+                                <input type="text" id="idnumber" class="input" {{canedit}} value="{{userinfo.idnumber}}">
                                 <span class="input-label">{{#str}} passport, theme_stardust{{/str}}</span>
                             </li>
                             <li class="info" data-input="email">
@@ -329,7 +329,7 @@ require(['jquery'], function($) {
   $('#mypublicpage-profile-shortform .toggle-info').on('click', function(e){
     $(this).toggleClass('show');
     $(`
-      #passport,
+      #idnumber,
       #aim,
       #phone2,
       #skype,

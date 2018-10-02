@@ -127,7 +127,7 @@ $string['change_picture'] = 'תמונת פרופיל';
 $string['profile_icon_info'] = 'ניתן להעלות קובץ מסוג jpg ';
 $string['personal_information'] = 'פרטים אישיים';
 $string['lastname_firstname'] = 'שם + שם משפחה';
-$string['passport'] = 'Passport';
+$string['passport'] = 'תאודת זהות';
 $string['phone'] = 'טלפון';
 $string['additional_phone'] = 'טלפון נוסף';
 $string['email'] = 'דוא"ל';
@@ -157,6 +157,8 @@ $string['change_password_link'] = 'לחץ לשינוי סיסמה';
 $string['isrequired'] = 'זהו שדה חובה';
 $string['emailerror'] = 'פורמט דוא"ל שגוי';
 $string['phoneerror'] = 'הזן מספר טלפון באמצעות תבנית לדוגמה';
+$string['teudatzeutnotnumerical'] = 'הזן ערך מספר';
+$string['teudatzeutwrong'] = 'ערך שגוי';
 
 // footer
 

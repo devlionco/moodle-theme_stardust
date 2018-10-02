@@ -519,6 +519,9 @@ $string['change_password_link'] = 'Click here to change your password';
 $string['isrequired'] = 'This field is required';
 $string['emailerror'] = 'Wrong email format';
 $string['phoneerror'] = 'Please enter number using example format';
+$string['teudatzeutnotnumerical'] = 'Enter number value';
+$string['teudatzeutwrong'] = 'Incorrect value';
+
 
 // course page
 $string['gohome'] = 'Home ›';

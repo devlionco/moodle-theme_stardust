@@ -4,7 +4,9 @@ define(['jquery', 'jqueryui', 'core/str'], function($, jqui, str) {
 
     {key: 'isrequired', component: 'theme_stardust'},
     {key: 'emailerror', component: 'theme_stardust'},
-    {key: 'phoneerror', component: 'theme_stardust'}
+    {key: 'phoneerror', component: 'theme_stardust'},
+    {key: 'teudatzeutnotnumerical', component: 'theme_stardust'},
+    {key: 'teudatzeutwrong', component: 'theme_stardust'}
       // {key: 'username', component: 'theme_stardust'},
       // {key: 'password', component: 'theme_stardust'},
       // {key: 'lastname_firstname', component: 'theme_stardust'},
@@ -36,7 +38,7 @@ define(['jquery', 'jqueryui', 'core/str'], function($, jqui, str) {
           var userid = $.trim($('#userid').val());
           var username = $.trim($('#username').val());
           // var password = $.trim($('#password').val());
-          var passport = $.trim($('#passport').val());
+          var passport = $.trim($('#idnumber').val());
           var fullname = $.trim($('#fullname').val());
           var email = $.trim($('#email').val());
           var aim = $.trim($('#aim').val());
@@ -123,6 +125,50 @@ define(['jquery', 'jqueryui', 'core/str'], function($, jqui, str) {
               interests.push($(item).text());
             });
             interests = JSON.stringify(interests);
+          }
+
+          // check passpotn number
+
+          if (passport === '') {
+            $('#idnumber').parent().removeClass('info').addClass('danger');
+            if ($('#idnumber ~ .input-label .error').length > 0){
+              $('#idnumber ~ .input-label  .error').text(' ');
+            } else {
+              $('#idnumber').next().append('<span class="error"></span>');
+            }
+            $('#idnumber  ~ .input-label .error').html(M.util.get_string('isrequired', 'theme_stardust'));
+            $('#idnumber').focus();
+            errors = true;
+          } else {
+            errors = false;
+          }
+
+          if (isNaN(passport)) {
+            $('#idnumber').parent().removeClass('info').addClass('danger');
+            if ($('#idnumber ~ .input-label .error').length > 0){
+              $('#idnumber ~ .input-label  .error').text(' ');
+            } else {
+              $('#idnumber').next().append('<span class="error"></span>');
+            }
+            $('#idnumber  ~ .input-label .error').html(M.util.get_string('teudatzeutnotnumerical', 'theme_stardust'));
+            $('#idnumber').focus();
+            errors = true;
+          } else {
+            errors = false;
+          }
+
+          if (passport.length  != 9) {
+            $('#idnumber').parent().removeClass('info').addClass('danger');
+            if ($('#idnumber ~ .input-label .error').length > 0){
+              $('#idnumber ~ .input-label  .error').text(' ');
+            } else {
+              $('#idnumber').next().append('<span class="error"></span>');
+            }
+            $('#idnumber  ~ .input-label .error').html(M.util.get_string('teudatzeutwrong', 'theme_stardust'));
+            $('#idnumber').focus();
+            errors = true;
+          } else {
+            errors = false;
           }
 
           // check all errors
