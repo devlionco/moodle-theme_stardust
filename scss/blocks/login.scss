@@ -21,6 +21,9 @@
     justify-content: center;
     max-width:80%;
     margin:0 auto;
+    & .card{
+      border:0;
+    }
   }
 
   .dlogin__greeting {
@@ -112,11 +115,15 @@
     cursor: pointer;
     font: $bold 18px/36px 'openSans';
     padding: 0 33px;
-    background-color: #00DB7C;
+    background-color: $d_blue;
     border-radius: 16px;
     border: none;
     color: #fff;
     margin: 15px auto;
+    &:hover{
+      background-color: lighten($d_blue, 10%);
+      box-shadow: 2px 2px 5px lighten($d_blue, 10%);
+    }
   }
   .dlogin__enter {
     flex-grow: 1;
@@ -133,47 +140,50 @@
     padding-right: 10px;
     padding-left: 64px;
     position: relative;
-    color: #929191;
-    border: 1px solid #DDDDDC;
+    color: $white;
+    border: 1px solid transparent;
     border-radius: 1px;
-    background-color: #E6E6E5;
+    background-color: $d_blue;
     margin-bottom: 8px;
     line-height: 0;
-  }
-  .dlogin__link > span {
-    font: $bold 16px/34px 'openSans';
-    white-space: nowrap;
-    max-width: 175px;
-    overflow-x: hidden;
-    display: inline-block;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    overflow: hidden;
-  }
-  .dlogin__link:hover {
-    color: #929191;
-    text-decoration: none;
-  }
-  .dlogin__link::before {
-    content: '';
-    position: absolute;
-    width: 1px;
-    background-color: #fff;
-    z-index: 1;
-    left: 49px;
-    top: 3px;
-    bottom: 3px;
-  }
-  .dlogin__link::after {
-    width: 48px;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    text-align: center;
-    background-size: 22px;
-    background-position: center;
-    background-repeat: no-repeat;
+    &:before {
+      content: '';
+      position: absolute;
+      width: 1px;
+      background-color: $white;
+      z-index: 1;
+      left: 49px;
+      top: 3px;
+      bottom: 3px;
+    }
+    & > span {
+      font: $bold 16px/34px 'openSans';
+      white-space: nowrap;
+      max-width: 175px;
+      overflow-x: hidden;
+      display: inline-block;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow: hidden;
+    }
+    &:after {
+      width: 48px;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      text-align: center;
+      background-size: 22px;
+      background-position: center;
+      background-repeat: no-repeat;
+      filter: brightness(3.5);
+    }
+    &:hover {
+      color: $white;
+      background-color: lighten($d_blue, 10%);
+      box-shadow: 2px 2px 5px lighten($d_blue, 10%);
+      text-decoration: none;
+    }
   }
   .dlogin__link--google::after {
     content: '';
@@ -201,7 +211,7 @@
     border-top: 1px solid rgba(155,155,155,0.1);
     margin: 30px -15px -1px;
     // margin: 30px -41px -1px -33px;
-    padding:0 15px;
+    padding:0;
   }
   .dlogin__bottom-link {
     width: 50%;
