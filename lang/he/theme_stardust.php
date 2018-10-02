@@ -165,7 +165,7 @@ $string['about'] = 'אודות';
 $string['contact_us'] = 'צור קשר';
 $string['privacy_policy'] = 'מדיניות הפרטיות';
 $string['terms_of_use'] = 'תנאי שימוש';
-$string['accessibility_statement'] = 'הצהרת נגישות'; 
+$string['accessibility_statement'] = 'הצהרת נגישות';
 
 // course page
 $string['gohome'] = '< עמוד הבית';
@@ -191,3 +191,6 @@ $string['quiz_filter'] = 'לפי סימון:';
 $string['quizsettings'] = 'עריכת בוחן';
 $string['show_more'] = 'הצג יותר';
 $string['show_less'] = 'הצג פחות';
+$string['show_flagged'] = 'הצג שאלה מסומנת';
+$string['show_answered'] = 'הצג שאלה שנענתה';
+$string['show_notanswered'] = 'הצג שאלות שלא נענו';

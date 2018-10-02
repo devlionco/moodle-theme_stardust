@@ -247,7 +247,7 @@ $string['about'] = 'About us';
 $string['contact_us'] = 'Contact us';
 $string['privacy_policy'] = 'Privacy policy';
 $string['terms_of_use'] = 'Terms of use';
-$string['accessibility_statement'] = 'Accessibility statement';  
+$string['accessibility_statement'] = 'Accessibility statement';
 
 // Content settings.
 $string['coursetileinfo'] = 'Course Display Options';
@@ -544,3 +544,6 @@ $string['quiz_filter'] = 'Filter by:';
 $string['quizsettings'] = 'Quiz settings';
 $string['show_more'] = 'Show more';
 $string['show_less'] = 'Show less';
+$string['show_flagged'] = 'Show flagged question';
+$string['show_answered'] = 'Show answered question';
+$string['show_notanswered'] = 'Show notanswered question';

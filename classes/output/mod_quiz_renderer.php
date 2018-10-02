@@ -131,9 +131,27 @@ class theme_stardust_mod_quiz_renderer extends mod_quiz_renderer {
       $output .= html_writer::start_tag('div', array('class' => 'filter_wrap'));
 
       $output .= html_writer::tag('span', get_string('quiz_filter', 'theme_stardust') , array('class' => 'filter_legend'));
-      $output .= html_writer::tag('button', '<span class = "filter_pin"></span>', array('data-handler' => 'filter_flag', 'class' => 'filter_toggle filter_flag'));
-      $output .= html_writer::tag('button', '<span class = "filter_pin"></span>', array('data-handler' => 'filter_answered', 'class' => 'filter_toggle filter_answered'));
-      $output .= html_writer::tag('button', '<span class = "filter_pin"></span>', array('data-handler' => 'filter_notanswered', 'class' => 'filter_toggle filter_notanswered'));
+      $output .= html_writer::tag('button', '<span class = "filter_pin"></span>', array(
+        'data-placement' =>"bottom",
+        'data-tooltip' =>"tooltip",
+        'data-original-title' =>get_string('show_flagged', 'theme_stardust'),
+        'data-handler' => 'filter_flag',
+        'class' => 'filter_toggle filter_flag'
+      ));
+      $output .= html_writer::tag('button', '<span class = "filter_pin"></span>', array(
+        'data-placement' =>"bottom",
+        'data-tooltip' =>"tooltip",
+        'data-original-title' =>get_string('show_answered', 'theme_stardust'),
+        'data-handler' => 'filter_answered',
+        'class' => 'filter_toggle filter_answered'
+      ));
+      $output .= html_writer::tag('button', '<span class = "filter_pin"></span>', array(
+        'data-placement' =>"bottom",
+        'data-tooltip' =>"tooltip",
+        'data-original-title' =>get_string('show_notanswered', 'theme_stardust'),
+        'data-handler' => 'filter_notanswered',
+        'class' => 'filter_toggle filter_notanswered'
+      ));
 
       $output .= html_writer::end_tag('div');
 
