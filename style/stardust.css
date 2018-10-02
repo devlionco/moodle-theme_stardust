@@ -559,21 +559,30 @@ body#page-login-signup {
       text-decoration: underline;
       font: 400 0.8rem "openSans"; }
 
+#page-wrapper {
+  margin-bottom: -90px;
+  padding-bottom: 0; }
+  #page-wrapper:after {
+    min-height: 90px; }
+
 #page-footer {
   color: #FFFFFF;
-  background-color: #19284f !important; }
+  background-color: #19284f !important;
+  height: 90px;
+  min-height: 90px; }
   #page-footer #stardust-footer {
     font-family: NextExitRound;
     display: -ms-flexbox;
     display: flex;
     -ms-flex-flow: row wrap;
-        flex-flow: row wrap; }
+        flex-flow: row wrap;
+    height: 90px; }
     #page-footer #stardust-footer > div {
       margin: 1rem 0; }
     #page-footer #stardust-footer .right-logo {
       display: block;
       width: 100%;
-      height: 136px;
+      height: 60px;
       background-image: url([[pix:theme|logo_right]]);
       background-position: top center;
       background-repeat: no-repeat;
@@ -664,7 +673,7 @@ body#page-login-signup {
     #page-footer #stardust-footer .left-logo {
       display: block;
       width: 100%;
-      height: 136px;
+      height: 60px;
       background-image: url([[pix:theme|logo_left]]);
       background-position: center;
       background-repeat: no-repeat;
@@ -2428,7 +2437,7 @@ body#page-login-signup {
 
 #page-user-profile #page-wrapper {
   padding-bottom: 1rem;
-  margin-bottom: -146px;
+  margin-bottom: -90px;
   min-height: unset; }
 
 .accomplishments {
