@@ -166,7 +166,7 @@
                         </button>
                         <ul class="info-list">
                             <li class="info" data-input="username">
-                                <input type="text" id="username" class="input" {{canedit}} value="{{userinfo.username}}" />
+                                <input type="text" id="username" class="input" {{canedit}} {{userinfo.username_status}} value="{{userinfo.username}}" />
                                 <span class="input-label">{{#str}} username, theme_stardust{{/str}}</span>
                             </li>
                             <li class="info" data-input="pass">
@@ -175,35 +175,35 @@
                                 <span class="input-label">{{#str}} password, theme_stardust{{/str}}</span>
                             </li>
                             <li class="info" data-input="fullname">
-                                <input type="text" id="fullname" class="input" {{canedit}} value="{{userinfo.firstname}} {{userinfo.lastname}}">
+                                <input type="text" id="fullname" class="input" {{canedit}} {{userinfo.lastname_status}} value="{{userinfo.firstname}} {{userinfo.lastname}}">
                                 <span class="input-label">{{#str}} lastname_firstname, theme_stardust{{/str}}</span>
                             </li>
                             <li class="info" data-input="passport">
-                                <input type="text" id="idnumber" class="input" {{canedit}} readonly value="{{userinfo.idnumber}}">
+                                <input type="text" id="idnumber" class="input" {{canedit}} {{userinfo.idnumber_status}} readonly value="{{userinfo.idnumber}}">
                                 <span class="input-label">{{#str}} passport, theme_stardust{{/str}}</span>
                             </li>
                             <li class="info" data-input="email">
-                                <input type="text" id="email" class="input" {{canedit}} value="{{userinfo.email}}">
+                                <input type="text" id="email" class="input" {{canedit}} {{userinfo.email_status}} value="{{userinfo.email}}">
                                 <span class="input-label">{{#str}} email, theme_stardust{{/str}}</span>
                             </li>
                             <li class="info" data-input="aim">
-                                <input type="text" id="aim" class="input" {{canedit}} value="{{userinfo.aim}}">
+                                <input type="text" id="aim" class="input" {{canedit}} {{userinfo.aim_status}} value="{{userinfo.aim}}">
                                 <span class="input-label">{{#str}} additional_email, theme_stardust{{/str}}</span>
                             </li>
                             <li class="info" data-input="phone1">
-                                <input type="text" id="phone1" class="input" {{canedit}} value="{{userinfo.phone1}}">
+                                <input type="text" id="phone1" class="input" {{canedit}} {{userinfo.phone1_status}} value="{{userinfo.phone1}}">
                                 <span class="input-label">{{#str}} phone, theme_stardust{{/str}}</span>
                             </li>
                             <li class="info" data-input="phone2">
-                                <input type="text" id="phone2" class="input" {{canedit}} value="{{userinfo.phone2}}">
+                                <input type="text" id="phone2" class="input" {{canedit}} {{userinfo.phone2_status}} value="{{userinfo.phone2}}">
                                 <span class="input-label">{{#str}} additional_phone, theme_stardust{{/str}}</span>
                             </li>
                             <li class="info" data-input="skype">
-                                <input type="text" id="skype" class="input" {{canedit}} value="{{userinfo.skype}}">
+                                <input type="text" id="skype" class="input" {{canedit}} {{userinfo.skype_status}} value="{{userinfo.skype}}">
                                 <span class="input-label">{{#str}} position, theme_stardust{{/str}}</span>
                             </li>
                             <li class="info" data-input="icq">
-                                <input type="text" id="icq" class="input" {{canedit}} value="{{userinfo.icq}}">
+                                <input type="text" id="icq" class="input" {{canedit}} {{userinfo.icq_status}} value="{{userinfo.icq}}">
                                 <span class="input-label">{{#str}} icq, theme_stardust{{/str}}</span>
                             </li>
                             <li class="info" data-input="birthday">
@@ -234,11 +234,11 @@
                         <div class="title">{{#str}} school_details, theme_stardust{{/str}}</div>
                         <ul class="info-list">
                             <li class="info">
-                                <input type="text" id="institution" class="input" {{canedit}} value="{{userinfo.institution}}">
+                                <input type="text" id="institution" class="input" {{canedit}} {{userinfo.institution_status}} value="{{userinfo.institution}}">
                                 <span class="input-label">{{#str}} school, theme_stardust{{/str}}</span>
                             </li>
                             <li class="info">
-                                <input type="text" id="yahoo" class="input" {{canedit}} value="{{userinfo.yahoo}}">
+                                <input type="text" id="yahoo" class="input" {{canedit}} {{userinfo.yahoo_status}} value="{{userinfo.yahoo}}">
                                 <span class="input-label">{{#str}} school_city, theme_stardust{{/str}}</span>
                             </li>
                             <!-- <li class="info">

@@ -66,6 +66,23 @@ if ($interests) {
 // upload custom user fields (birthday) to user object
 profile_load_data($user);
 
+// get profile fields, that are locked by auth plugins and set them disabled status
+$authplugin = get_auth_plugin($user->auth);
+$fields = get_user_fieldnames();
+foreach ($fields as $field) {
+    $configvariable = 'field_lock_' . $field;
+    if (isset($authplugin->config->{$configvariable})) {
+        if ($authplugin->config->{$configvariable} === 'locked') {
+            $fieldstatus = "{$field}_status";
+            $user->{$fieldstatus} = 'disabled';
+        } else if ($authplugin->config->{$configvariable} === 'unlockedifempty' and $user->{$field}!= '') {
+            $fieldstatus = "{$field}_status";
+            $user->{$fieldstatus} = 'disabled';
+        }
+    } 
+}
+
+
 user_preference_allow_ajax_update('drawer-open-nav', PARAM_ALPHA);
 require_once($CFG->libdir . '/behat/lib.php');
 // $hasfhsdrawer = isset($PAGE->theme->settings->shownavdrawer) && $PAGE->theme->settings->shownavdrawer == 1;
