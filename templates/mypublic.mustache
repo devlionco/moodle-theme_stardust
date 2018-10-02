@@ -252,7 +252,8 @@
                 <div class="profile profile-medals">
                     <div class="title">{{#str}} accomplishments, theme_stardust{{/str}}</div>
                     <ul class="achievments">
-                        <a href = "{{config.wwwroot}}/badges/mybadges.php">
+                        <a href="#pills-accomplishments-medals"  onclick="document.getElementById('pills-accomplishments-medals').click();">
+                        <!-- <a href = "{{config.wwwroot}}/badges/mybadges.php"> -->
                           <li class="achievment">
                               <div class="icon-medal">
                                 {{#output.get_user_badges.count}}
@@ -264,19 +265,21 @@
                               <p class="icon-label">{{#str}} medal, theme_stardust{{/str}}</p>
                           </li>
                         </a>
-                        <a href = "{{config.wwwroot}}/grade/report/overview/index.php">
+                        <a href = "#pills-accomplishments-grades"   onclick="document.getElementById('pills-accomplishments-grades').click();">
+                        <!-- <a href = "{{config.wwwroot}}/grade/report/overview/index.php"> -->
                           <li class="achievment">
                               <div class="icon-grades"></div>
                               <p class="icon-label">{{#str}} grades, theme_stardust{{/str}}</p>
 
                           </li>
                         </a>
-                        <a href = "{{config.wwwroot}}/user/profile.php#accomplishments-certificates">
+                        <a href = "#pills-accomplishments-certificates"  onclick="document.getElementById('pills-accomplishments-certificates').click();">
+                        <!-- <a href = "{{config.wwwroot}}/user/profile.php#accomplishments-certificates"> -->
                             <li class="achievment">
                                 <div class="icon-diplom"></div>
                                 <p class="icon-label">{{#str}} diplom, theme_stardust{{/str}}</p>
                             </li>
-                        </a>
+                        <!-- </a> -->
                     </ul>
                 </div>
             </div>
