@@ -1,4 +1,4 @@
-<div class="messages-container">
+<div class="messages-container" {{^isteacher}}{{coursemessage.studmessageshowhide}}{{/isteacher}}>
     <div class="messages" id = "custom-message">
         <p class="messages-title">{{#str}}messages, theme_stardust{{/str}}</p>
         <div class="messages-list-wrapper">
@@ -22,9 +22,6 @@
 </div>
 {{#isteacher}}
 <button type="button" name="message-hider" class="message-hider {{coursemessage.buttonstatus}}" title="{{coursemessage.buttontitle}}"></button>
-{{/isteacher}}
-
-
 {{#js}}
 require(['core/yui', 'jquery', 'theme_stardust/ajax'], function(Y, $, ajax){
 
@@ -131,3 +128,4 @@ require(['core/yui', 'jquery', 'theme_stardust/ajax'], function(Y, $, ajax){
 
 });
 {{/js}}
+{{/isteacher}}
