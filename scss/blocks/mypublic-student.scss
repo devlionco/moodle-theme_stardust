@@ -279,15 +279,15 @@ $achivement-margin-top: 42px;
                 }
                 .icon-grades {
                   height: 60px;
-                  width: 40px;
-                  margin: 0 5px;
-                  background:url([[pix:theme|pagemy/grades]]) no-repeat center center;
+                  width: 50px;
+                  // margin: 0 5px;
+                  background:url([[pix:theme|grade_icon]]) no-repeat center center;
                   background-size: contain;
                 }
                 .icon-medal {
                   height: 60px;
-                  width: 49px;
-                  background:url([[pix:theme|pagemy/medal]])  no-repeat center center;
+                  width: 50px;
+                  background:url([[pix:theme|medal_icon]])  no-repeat center center;
                   background-size: contain;
                   position: relative;
                   .icon-counter {
@@ -306,10 +306,10 @@ $achivement-margin-top: 42px;
                   }
                 }
                 .icon-diplom {
-                  height: 53px;
-                  width: 46px;
-                  margin: 0 2px;
-                  background:url([[pix:theme|pagemy/diplom]]) no-repeat center center;
+                  height: 60px;
+                  width: 50px;
+                  // margin: 0 2px;
+                  background:url([[pix:theme|diploma_icon]]) no-repeat center center;
                   background-size: contain;
                 }
               }
@@ -381,7 +381,7 @@ $achivement-margin-top: 42px;
 // rewrite default style
 #page-user-profile {
   #page-wrapper {
-    padding-bottom: 1rem;
+    // padding-bottom: 1rem;
     margin-bottom: -90px;
     min-height: unset;
   }

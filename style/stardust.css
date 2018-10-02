@@ -289,6 +289,8 @@
       justify-content: center;
   max-width: 80%;
   margin: 0 auto; }
+  #page-login-index .dlogin__flex .card {
+    border: 0; }
 
 #page-login-index .dlogin__greeting {
   font-weight: 500;
@@ -382,11 +384,14 @@
   cursor: pointer;
   font: 600 18px/36px "openSans";
   padding: 0 33px;
-  background-color: #00DB7C;
+  background-color: #19284f;
   border-radius: 16px;
   border: none;
   color: #fff;
   margin: 15px auto; }
+  #page-login-index .dlogin__submit:hover {
+    background-color: #253c76;
+    box-shadow: 2px 2px 5px #253c76; }
 
 #page-login-index .dlogin__enter {
   -ms-flex-positive: 1;
@@ -403,47 +408,46 @@
   padding-right: 10px;
   padding-left: 64px;
   position: relative;
-  color: #929191;
-  border: 1px solid #DDDDDC;
+  color: #FFFFFF;
+  border: 1px solid transparent;
   border-radius: 1px;
-  background-color: #E6E6E5;
+  background-color: #19284f;
   margin-bottom: 8px;
   line-height: 0; }
-
-#page-login-index .dlogin__link > span {
-  font: 600 16px/34px "openSans";
-  white-space: nowrap;
-  max-width: 175px;
-  overflow-x: hidden;
-  display: inline-block;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden; }
-
-#page-login-index .dlogin__link:hover {
-  color: #929191;
-  text-decoration: none; }
-
-#page-login-index .dlogin__link::before {
-  content: '';
-  position: absolute;
-  width: 1px;
-  background-color: #fff;
-  z-index: 1;
-  left: 49px;
-  top: 3px;
-  bottom: 3px; }
-
-#page-login-index .dlogin__link::after {
-  width: 48px;
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  text-align: center;
-  background-size: 22px;
-  background-position: center;
-  background-repeat: no-repeat; }
+  #page-login-index .dlogin__link:before {
+    content: '';
+    position: absolute;
+    width: 1px;
+    background-color: #FFFFFF;
+    z-index: 1;
+    left: 49px;
+    top: 3px;
+    bottom: 3px; }
+  #page-login-index .dlogin__link > span {
+    font: 600 16px/34px "openSans";
+    white-space: nowrap;
+    max-width: 175px;
+    overflow-x: hidden;
+    display: inline-block;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden; }
+  #page-login-index .dlogin__link:after {
+    width: 48px;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    text-align: center;
+    background-size: 22px;
+    background-position: center;
+    background-repeat: no-repeat;
+    filter: brightness(3.5); }
+  #page-login-index .dlogin__link:hover {
+    color: #FFFFFF;
+    background-color: #253c76;
+    box-shadow: 2px 2px 5px #253c76;
+    text-decoration: none; }
 
 #page-login-index .dlogin__link--google::after {
   content: '';
@@ -471,7 +475,7 @@
   display: flex;
   border-top: 1px solid rgba(155, 155, 155, 0.1);
   margin: 30px -15px -1px;
-  padding: 0 15px; }
+  padding: 0; }
 
 #page-login-index .dlogin__bottom-link {
   width: 50%;
@@ -708,7 +712,7 @@ body#page-login-signup {
   right: 0;
   left: 0;
   z-index: 1030;
-  max-height: 65px;
+  max-height: 45px;
   padding: 0;
   border-bottom: none;
   background-color: #19284f; }
@@ -721,7 +725,7 @@ body#page-login-signup {
         justify-content: space-between;
     -ms-flex-align: center;
         align-items: center;
-    height: 65px;
+    height: 45px;
     padding: 0 23px; }
     .dheader .dheader__inner .dheader__left {
       display: -ms-flexbox;
@@ -825,7 +829,7 @@ body#page-login-signup {
           overflow: hidden;
           text-overflow: ellipsis; }
         .dheader .dheader__inner .dheader__right .usermenu .action-menu .userpicture {
-          margin: 1rem 0 8px; }
+          margin: 5px 0; }
         .dheader .dheader__inner .dheader__right .usermenu .userbutton {
           display: -ms-flexbox;
           display: flex;
@@ -840,7 +844,7 @@ body#page-login-signup {
   display: none !important; }
 
 #page {
-  margin-top: 65px; }
+  margin-top: 45px; }
 
 .visuallyhidden {
   position: absolute;
@@ -1327,15 +1331,17 @@ body#page-login-signup {
   line-height: 18pt;
   height: auto;
   box-shadow: none; }
-  #course-main-content .messages-container .messages .messages-list-wrapper {
-    height: 25px;
-    overflow: hidden;
-    color: #19284f; }
-  #course-main-content .messages-container .messages .messages-title {
-    line-height: 18pt;
-    margin-bottom: 0;
-    color: #19284f;
-    font-weight: normal; }
+  #course-main-content .messages-container .messages {
+    max-width: 95%; }
+    #course-main-content .messages-container .messages .messages-list-wrapper {
+      height: 25px;
+      overflow: hidden;
+      color: #19284f; }
+    #course-main-content .messages-container .messages .messages-title {
+      line-height: 18pt;
+      margin-bottom: 0;
+      color: #19284f;
+      font-weight: normal; }
 
 #course-main-content .course-messages {
   display: inline;
@@ -1391,7 +1397,7 @@ body#page-login-signup {
     float: right;
     width: 5%;
     width: 50px;
-    margin: 15px 0;
+    margin: -3rem -15px 0;
     height: 50px;
     font-size: 1.5rem; }
     #course-main-content .course-messages .message-hider:after {
@@ -2369,14 +2375,13 @@ body#page-login-signup {
                   color: #3C3C3C; }
                 #mypublic-student .main-wrapper .main-content .profile-medals .achievments .achievment .icon-grades {
                   height: 60px;
-                  width: 40px;
-                  margin: 0 5px;
-                  background: url([[pix:theme|pagemy/grades]]) no-repeat center center;
+                  width: 50px;
+                  background: url([[pix:theme|grade_icon]]) no-repeat center center;
                   background-size: contain; }
                 #mypublic-student .main-wrapper .main-content .profile-medals .achievments .achievment .icon-medal {
                   height: 60px;
-                  width: 49px;
-                  background: url([[pix:theme|pagemy/medal]]) no-repeat center center;
+                  width: 50px;
+                  background: url([[pix:theme|medal_icon]]) no-repeat center center;
                   background-size: contain;
                   position: relative; }
                   #mypublic-student .main-wrapper .main-content .profile-medals .achievments .achievment .icon-medal .icon-counter {
@@ -2396,10 +2401,9 @@ body#page-login-signup {
                         align-items: center;
                     font-size: 12px; }
                 #mypublic-student .main-wrapper .main-content .profile-medals .achievments .achievment .icon-diplom {
-                  height: 53px;
-                  width: 46px;
-                  margin: 0 2px;
-                  background: url([[pix:theme|pagemy/diplom]]) no-repeat center center;
+                  height: 60px;
+                  width: 50px;
+                  background: url([[pix:theme|diploma_icon]]) no-repeat center center;
                   background-size: contain; }
   #mypublic-student .tag-item {
     position: relative;
@@ -2436,7 +2440,6 @@ body#page-login-signup {
   box-shadow: 0 0 5px 2px #bababa; }
 
 #page-user-profile #page-wrapper {
-  padding-bottom: 1rem;
   margin-bottom: -90px;
   min-height: unset; }
 
