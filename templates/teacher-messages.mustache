@@ -19,9 +19,8 @@
           </div>
         </div>
     </div>
-</div>
-{{#isteacher}}
-<button type="button" name="message-hider" class="message-hider {{coursemessage.buttonstatus}}" title="{{coursemessage.buttontitle}}"></button>
+    {{#isteacher}}
+    <button type="button" name="message-hider" class="message-hider {{coursemessage.buttonstatus}}" title="{{coursemessage.buttontitle}}"></button>
 {{#js}}
 require(['core/yui', 'jquery', 'theme_stardust/ajax'], function(Y, $, ajax){
 
@@ -129,3 +128,4 @@ require(['core/yui', 'jquery', 'theme_stardust/ajax'], function(Y, $, ajax){
 });
 {{/js}}
 {{/isteacher}}
+</div>
