@@ -3531,7 +3531,6 @@ body#page-login-signup {
       display: block;
       position: absolute;
       width: 0;
-      height: 4px;
       transition: width .2s;
       border-radius: 2px;
       background-color: #fff; }
