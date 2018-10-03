@@ -21,6 +21,7 @@
  * @copyright 2016 Damyon Wiese
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
+require_once('mydashboard_background_form.php');
 defined('MOODLE_INTERNAL') || die();
 
 user_preference_allow_ajax_update('drawer-open-nav', PARAM_ALPHA);
@@ -76,6 +77,41 @@ require_once($CFG->libdir . '/behat/lib.php');
     // 'workshop' => ''
  );
 
+ // Add form to update user background img at mydashboardpage
+$userbackgroundform = new mydashboard_background_form(new moodle_url($PAGE->url), array(
+    //'editoroptions' => $editoroptions,
+    //'filemanageroptions' => $filemanageroptions,
+    'user' => $USER));
+if ($userbackgroundformdata = $userbackgroundform->get_data()) {
+    update_background_img($userbackgroundformdata);
+    echo '<meta http-equiv="refresh" content="0; url=/my/" />';
+} 
+
+/**
+ * Updates the provided users backround image at mydashboard page
+ *
+ * @param stdClass $formdata An object that contains  information from form
+ * @param array $filemanageroptions
+ * @return bool True if the user was updated, false if it stayed the same.
+ */
+function update_background_img(stdClass $formdata, $filemanageroptions = array()) {
+    global $CFG, $DB;
+
+    $context = context_user::instance($formdata->id, MUST_EXIST);
+    $user = core_user::get_user($formdata->id, 'id', MUST_EXIST);
+
+    // Get file_storage to process files.
+    $fs = get_file_storage();
+    if (!empty($formdata->deletebackgroundimg)) {
+        // The user has chosen to delete the selected background
+        $fs->delete_area_files($context->id, 'theme_stardust', 'dashbackgroundimg', $formdata->id); // Drop all images in area.
+    } else {
+        // Save newly uploaded file, this will avoid context mismatch for newly created users.
+        $fs->delete_area_files($context->id, 'theme_stardust', 'dashbackgroundimg', $formdata->id); // Drop all images in area.
+        file_save_draft_area_files($formdata->dashbackgroundimg, $context->id, 'theme_stardust', 'dashbackgroundimg', $formdata->id, $filemanageroptions);
+    }
+}
+
 $hasfhsdrawer = true;
 $extraclasses = [];
 if (isset($navdraweropen)) {
@@ -85,7 +121,28 @@ $bodyattributes = $OUTPUT->body_attributes($extraclasses);
 $blockshtml = $OUTPUT->blocks('side-pre');
 $hasblocks = strpos($blockshtml, 'data-block=') !== false;
 $regionmainsettingsmenu = $OUTPUT->region_main_settings_menu();
-$urlbackground = $PAGE->theme->setting_file_url('mydashboardbgimage', 'mydashboardbgimage');
+
+// get background image for mypublic page
+$themebackgroundimg = $PAGE->theme->setting_file_url('mydashboardbgimage', 'mydashboardbgimage');
+$usercontext = context_user::instance($USER->id);
+$fs = get_file_storage();
+if ($files = $fs->get_area_files($usercontext->id, 'theme_stardust', 'dashbackgroundimg', $USER->id)) {
+    foreach ($files as $file) {
+        if ($file->get_filename() != '.'){
+            $userbackgroundimg = moodle_url::make_pluginfile_url($file->get_contextid(), $file->get_component(), $file->get_filearea(), $file->get_itemid(), $file->get_filepath(), $file->get_filename());
+        }
+    }
+}
+// define which image will be rendered as background
+if (isset($userbackgroundimg)) {
+    $mydahboardbackgroundimg = $userbackgroundimg;
+} else if (isset($themebackgroundimg)) {
+    $mydahboardbackgroundimg = $themebackgroundimg;
+} else {
+    $mydahboardbackgroundimg = $OUTPUT->image_url('default-bg', 'theme');
+}
+
+
 $templatecontext = [
 	'sitename' => format_string($SITE->shortname, true, ['context' => context_course::instance(SITEID) , "escape" => false]) ,
     'output' => $OUTPUT,
@@ -102,7 +159,7 @@ $templatecontext = [
     'defaultbg' => $OUTPUT->image_url('default-bg', 'theme'),
     'imagenocourse' => $OUTPUT->image_url('courses', 'theme'),
     'bgcolor'=> isset($PAGE->theme->settings->mydashboardbgcolor) ? $PAGE->theme->settings->mydashboardbgcolor : null,
-    'bgimage'=> $urlbackground ? $urlbackground : $OUTPUT->image_url('default-bg', 'theme'),
+    'bgimage'=> $mydahboardbackgroundimg,
     'time' => time(),
     'helplink' => true
     // 'regionmainsettingsmenu' => $regionmainsettingsmenu,
@@ -122,3 +179,5 @@ $PAGE->requires->js_call_amd('theme_stardust/filter', 'init');
 
 $templatecontext['flatnavigation'] = $PAGE->flatnav;
 echo $OUTPUT->render_from_template('theme_stardust/mydashboard', $templatecontext);
+// always show form to upload user's background
+$userbackgroundform->display();

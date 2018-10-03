@@ -90,7 +90,7 @@ function theme_stardust_pluginfile($course, $cm, $context, $filearea, $args, $fo
         // By default, theme files must be cache-able by both browsers and proxies.
             
         // serve background image at mypublic page
-        if ($filearea === 'backgroundimg') {
+        if ($filearea === 'backgroundimg' || $filearea === 'dashbackgroundimg') {
             $itemid = array_shift($args);
             $filename = array_pop($args); // The last item in the $args array.
             if (!$args) {

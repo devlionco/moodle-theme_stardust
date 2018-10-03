@@ -138,10 +138,9 @@ $useravatarform = new mypublic_avatar_form(new moodle_url($PAGE->url), array(
 
 if ($useravatarformdata = $useravatarform->get_data()) {
     core_user::update_picture($useravatarformdata);
-
-} else {
-  $useravatarform->display();
-}
+    echo "<meta http-equiv='refresh' content='0; url=/user/profile.php' />";
+} 
+$useravatarform->display();
 
 // Add form to update user background img at mypublic page
 $userbackgroundform = new mypublic_background_form(new moodle_url($PAGE->url), array(
@@ -151,10 +150,11 @@ $userbackgroundform = new mypublic_background_form(new moodle_url($PAGE->url), a
 
 if ($userbackgroundformdata = $userbackgroundform->get_data()) {
     update_background_img($userbackgroundformdata);
-    redirect(new moodle_url('/user/profile.php', array('id' => $user->id)));
-} else {
-  $userbackgroundform->display();
+    echo "<meta http-equiv='refresh' content='0; url=/user/profile.php' />";
+    //redirect(new moodle_url('/user/profile.php', array('id' => $user->id)));
 }
+$userbackgroundform->display();
+
 
 /**
  * Updates the provided users backround image at mypublic page
@@ -174,12 +174,9 @@ function update_background_img(stdClass $formdata, $filemanageroptions = array()
     if (!empty($formdata->deletebackgroundimg)) {
         // The user has chosen to delete the selected background
         $fs->delete_area_files($context->id, 'theme_stardust', 'backgroundimg', $formdata->id); // Drop all images in area.
-
     } else {
         // Save newly uploaded file, this will avoid context mismatch for newly created users.
         $fs->delete_area_files($context->id, 'theme_stardust', 'backgroundimg', $formdata->id); // Drop all images in area.
         file_save_draft_area_files($formdata->backgroundimg, $context->id, 'theme_stardust', 'backgroundimg', $formdata->id, $filemanageroptions);
-        redirect(new moodle_url('/user/profile.php', array('id' => $user->id)));
     }
-
 }
