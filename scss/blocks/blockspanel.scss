@@ -1,6 +1,11 @@
 .blockpanelbtn {
   position: absolute;
-  top: 0;
+  top: -54px;
   right: -120px;
   z-index: 1000;
+  color: #fff;
+  background-color: $primary-color;
+  a, i {
+    color: #fff;
+  }
 }
