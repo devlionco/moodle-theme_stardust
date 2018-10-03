@@ -178,6 +178,17 @@ $coursemessage->studmessageshowhide= ($coursemessage->status == 1) ? '' : 'style
 $coursecontext = context_course::instance($course->id);
 $isteacher = (has_capability('moodle/course:update', $coursecontext)) ? true : false;
 
+// get courses cover images
+$courseobj = new course_in_list($course);
+$coursecoverimgurl = '';
+foreach ($courseobj->get_course_overviewfiles() as $file) {
+    $isimage = $file->is_valid_image();
+    $coursecoverimgurl = moodle_url::make_pluginfile_url($file->get_contextid(), $file->get_component(), $file->get_filearea(), null, $file->get_filepath(), $file->get_filename());
+}
+if (empty($coursecoverimgurl)) {
+    $coursecoverimgurl = $OUTPUT->image_url('banner', 'theme'); // define default course cover image in theme's pix folder
+}
+
 $templatecontext = [
     'sitename' => format_string($SITE->shortname, true, ['context' => context_course::instance(SITEID) , "escape" => false]) ,
     'output' => $OUTPUT,
@@ -208,7 +219,9 @@ $templatecontext = [
     'coursemessage' => $coursemessage,
     'isteacher' => $isteacher,
     'userid' => $USER->id,
-    'courseid' => $course->id
+    'courseid' => $course->id,
+    'coursecoverimg' => $coursecoverimgurl->out(),
+
 ];
 
 $PAGE->requires->jquery();
