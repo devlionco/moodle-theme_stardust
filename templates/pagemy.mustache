@@ -66,9 +66,9 @@
                     <h1 class="title">{{{ username }}}</h1>
                 </div>
                 <div class="block-right">
-                    <a href="{{config.wwwroot}}/admin/settings.php?section=themesettingstardust#theme_stardust_mydashboardsettigs">
-                      <div id="icon-camera" class="icon-camera" title = "{{#str}}change_background, theme_stardust{{/str}}"></div>
-                    </a>
+                    <!-- <a href="{{config.wwwroot}}/admin/settings.php?section=themesettingstardust#theme_stardust_mydashboardsettigs"> -->
+                      <div id="icon-camera" class="icon-camera" data-tooltip="{{#str}}change_background, theme_stardust{{/str}}" title = "{{#str}}change_background, theme_stardust{{/str}}"></div>
+                    <!-- </a> -->
                 </div>
             </div>
             <div id="main-content" class="main-content">
@@ -158,27 +158,13 @@
 </div>
 
 {{#js}}
-require(['jquery'], function($){
-    $('#page #main-wrapper')
-        .on('mouseover', function(event) {
-            switch (event.target) {
-                case this:
-                case $('#page #main-header')[0]:
-                case $('#page #main-content')[0]:
-                case $('#page #messages-block')[0]:
-                case $('#page #main-header .block-right')[0]:
-                case $('#page #main-header .block-left')[0]:
-                case $('#page #main-header .block-left .subtitle')[0]:
-                case $('#page #main-header .block-left .title')[0]:
-                case $('#page #main-header #icon-camera')[0]:
-                    $('#page #icon-camera').show();
-                    break;
-                default:
-                    $('#page #icon-camera').hide();
-            }
-        })
-        .on('mouseleave', function() {
-            $('#page #icon-camera').hide();
-        });
+require(['jquery','theme_boost/tooltip'], function($){
+  //$('[data-tooltip="tooltip"]').tooltip();
+
+  //$('#icon-camera').on('click', function(e){
+  //  e.stopPropagation();
+  //  $('#mform2').fadeToggle();
+  //  console.log($('#mform2'));
+  //});
 });
 {{/js}}
