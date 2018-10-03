@@ -94,11 +94,19 @@ $padding-blocks: 20px 27px 24px 24px;
           display: flex;
           align-items: flex-end;
           .icon-camera {
-            display: none;
-            width: 20px;
-            height: 18px;
-            background-image:url([[pix:theme|pagemy/camera]]);
+            display: block;
+            width: 40px;
+            height: 36px;
+            border-radius: 50%;
+            background:url([[pix:theme|pagemy/camera]]);
+            background-repeat: no-repeat;
+            background-position: center;
             transition: .2s;
+            &:hover{
+              background: url(/theme/image.php/stardust/theme/1538561057/pagemy/camera), radial-gradient(#666 0%, transparent 60%, transparent 100%);
+              background-repeat: no-repeat;
+              background-position: center, 75% 75%;
+            }
           }
         }
       }

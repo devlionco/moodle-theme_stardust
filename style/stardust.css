@@ -572,7 +572,6 @@ body#page-login-signup {
 #page-footer {
   color: #FFFFFF;
   background-color: #19284f !important;
-  height: 90px;
   min-height: 90px; }
   #page-footer #stardust-footer {
     font-family: NextExitRound;
@@ -580,7 +579,7 @@ body#page-login-signup {
     display: flex;
     -ms-flex-flow: row wrap;
         flex-flow: row wrap;
-    height: 90px; }
+    min-height: 90px; }
     #page-footer #stardust-footer > div {
       margin: 1rem 0; }
     #page-footer #stardust-footer .right-logo {
@@ -987,11 +986,18 @@ body#page-login-signup {
           -ms-flex-align: end;
               align-items: flex-end; }
           #my-page .main-wrapper .main-header .block-right .icon-camera {
-            display: none;
-            width: 20px;
-            height: 18px;
-            background-image: url([[pix:theme|pagemy/camera]]);
+            display: block;
+            width: 40px;
+            height: 36px;
+            border-radius: 50%;
+            background: url([[pix:theme|pagemy/camera]]);
+            background-repeat: no-repeat;
+            background-position: center;
             transition: .2s; }
+            #my-page .main-wrapper .main-header .block-right .icon-camera:hover {
+              background: url(/theme/image.php/stardust/theme/1538561057/pagemy/camera), radial-gradient(#666 0%, transparent 60%, transparent 100%);
+              background-repeat: no-repeat;
+              background-position: center, 75% 75%; }
       #my-page .main-wrapper .main-content {
         height: 100%;
         max-height: 100%;
