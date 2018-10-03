@@ -85,7 +85,18 @@ foreach ($coursefminfo->get_cms() as $cm) {
 
 
 $sections = $coursefminfo->get_sections(); // get current course's sections
+// remove pinned sections and subsections from all sections array
+foreach ($sections as $sid => $sval) {
+    $secinfo = course_get_format($course->id)->get_section($sid);
+    if (!empty($secinfo->pinned)) {
+        unset($sections[$sid]);
+    }
+    if (!empty($secinfo->parent)) {
+        unset($sections[$sid]);
+    }
+}
 $sectionscount = count($sections); // count all sections in the course
+
 $completedsectionscount = 0; // zero competed section in the course
 
 // iterate every section in the course
