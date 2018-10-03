@@ -268,6 +268,19 @@ $achivement-margin-top: 42px;
               padding: 0;
               display: grid;
               grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+              // a[ id="pills-accomplishments-medals" ]:target ~ #pills-tab .tab-link{
+              //   transform: translateY(0);
+              //   transition: all .5s linear;
+              // }
+              // #pills-accomplishments-medals
+              // a [ id="pills-accomplishments-grades" ]:target ~ #pills-tab .tab-link{
+              //   transform: translateY(0);
+              //   transition: transform .5s linear;
+              // }
+              // a [ href="#pills-accomplishments-certificates" ]:target ~ #pills-tab .tab-link{
+              //   transform: translateY(0);
+              //   transition: transform .5s linear;
+              // }
               .achievment {
                 display: flex;
                 align-items: center;
@@ -385,4 +398,7 @@ $achivement-margin-top: 42px;
     margin-bottom: -90px;
     min-height: unset;
   }
+}
+html{
+  scroll-behavior: smooth;
 }

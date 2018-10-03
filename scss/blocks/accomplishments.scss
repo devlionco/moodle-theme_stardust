@@ -21,9 +21,13 @@
         font-weight:$bold;
         text-decoration: none;
         padding-bottom: 3px;
+        transform: translateY(0);
+        transition: transform .5s linear;
         &.active {
           opacity: 1;
           border-bottom: 2px solid $primary-color;
+          transform: translateY(0);
+          transition: transform .5s linear;
         }
       }
     }
