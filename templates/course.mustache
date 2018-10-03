@@ -85,8 +85,10 @@
                         <div> {{{ output.region_main_settings_menu }}} </div>
                     </div>
                     {{/hasregionmainsettingsmenu}}
-                    <section id="region-main" {{#hasblocks}}class="has-blocks"{{/hasblocks}}>
-                        <div class="card card-block">
+                    <section id="region-main" class="{{#hasblocks}} has-blocks {{/hasblocks}}">
+
+                        <div class="card card-block mt-2">
+                          {{>theme_stardust/blockspanelslider}}
                         {{#hasregionmainsettingsmenu}}
                             <div class="region_main_settings_menu_proxy"></div>
                         {{/hasregionmainsettingsmenu}}

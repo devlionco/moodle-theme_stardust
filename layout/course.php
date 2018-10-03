@@ -137,7 +137,21 @@ $bodyattributes = $OUTPUT->body_attributes($extraclasses);
 $blockshtml = $OUTPUT->blocks('side-pre');
 $hasblocks = strpos($blockshtml, 'data-block=') !== false;
 $regionmainsettingsmenu = $OUTPUT->region_main_settings_menu();
+// block from fordson
+$blockshtmla = $OUTPUT->blocks('fp-a');
+$blockshtmlb = $OUTPUT->blocks('fp-b');
+$blockshtmlc = $OUTPUT->blocks('fp-c');
+$checkblocka = strpos($blockshtmla, 'data-block=') !== false;
+$checkblockb = strpos($blockshtmlb, 'data-block=') !== false;
+$checkblockc = strpos($blockshtmlc, 'data-block=') !== false;
+//TODO  add to theme_stardust settings
+// $hasfpblockregion = ($PAGE->theme->settings->blockdisplay == 1) !== false;
+$hasfpblockregion = 1;
 
+$hascourseblocks = false;
+if ($checkblocka || $checkblockb || $checkblockc) {
+    $hascourseblocks = true;
+}
 //get course format
 $courseformat = course_get_format($course->id)->get_format_options();
 
@@ -162,6 +176,11 @@ $templatecontext = [
     'bodyattributes' => $bodyattributes,
     'navdraweropen' => $navdraweropen,
     'hasfhsdrawer' => $hasfhsdrawer,
+    'hascourseblocks' => $hascourseblocks, // block in course
+    'hasfpblockregion' => $hasfpblockregion,
+    'fpablocks' => $blockshtmla,
+    'fpbblocks' => $blockshtmlb,
+    'fpcblocks' => $blockshtmlc,
     'regionmainsettingsmenu' => $regionmainsettingsmenu,
     'hasregionmainsettingsmenu' => !empty($regionmainsettingsmenu),
     'sitesettingsbutton' => true,
