@@ -56,6 +56,67 @@ if (!$attid) {
  *  get studied units copmletion info
  */
 
+ /**
+ * Func - count sections complitions (recursively for childs)
+ * @param $secid - section number. Section we are checking now
+ * @param $coursefminfo - global script var
+ * @param $ccompetablecms - global script var
+ * @param $usercmscompletions - global script var
+ * @param $reset - set '0' for section in main stream (NOT for subsection). Is needed to reset static vars in recursion
+ * 
+ * @return array $sectioncompletion - field 'completed' has 1 if all bunch is completed, or 0 - if it is not
+ */
+function count_section_cms_completions($secid, $coursefminfo, $ccompetablecms, $usercmscompletions, $reset = null) {
+    global $course;
+        static $completedsectionscount = 0;
+        static $childrencount = 0;
+        if (isset($reset)) {
+            $completedsectionscount = $reset;
+            $childrencount = $reset;
+        }
+    $sectioncompletion = array();
+
+    $sections = $coursefminfo->get_sections(); // get current course's sections
+    $cmsinsectioncount = 0;
+    $completedactivitiescount = 0;
+    // iterate every cm in current section to remove uncompletable items
+    foreach ($sections[$secid] as $arid=>$scmid) {
+        if (!in_array($scmid, $ccompetablecms)) {
+            unset($sections[$secid][$arid]); // unset cms that are not completable
+        } else {
+            if (in_array($scmid, $usercmscompletions)) {
+                $completedactivitiescount++; // if cm is compledted - count it
+            }
+        }
+    }
+    
+    // count if current section is completed
+    $cmsinsectioncount = count($sections[$secid]);
+    if ($cmsinsectioncount == $completedactivitiescount) {
+        $completedsectionscount++; // if completable cms are all completed - count section as completed
+    }
+    
+    // count competion of child sections (subsections) - start this func recursevly 
+    $children = course_get_format($course->id)->get_subsections($secid);
+    $childrencount += count($children);
+    foreach ($children as $chid => $chsec) {
+        //print_object($children[$chid]->getIterator());                        // SG -- need for debug
+        count_section_cms_completions($chid, $coursefminfo, $ccompetablecms, $usercmscompletions);
+    }
+
+    // $sectioncompletion['completedsectionscount'] = $completedsectionscount; // SG -- need for debug
+    // $sectioncompletion['childrencount'] = $childrencount;                   // SG -- need for debug
+    
+    // if completed sections count are equal to children sections + 1 - all bunch is completed
+    if ($completedsectionscount == $childrencount+1) {
+        $sectioncompletion['completed'] = 1; 
+    } else {
+        $sectioncompletion['completed'] = 0;
+    }  
+
+    return $sectioncompletion;
+}
+
 // get all current user's completions on current course
 $usercourseallcmcraw = $DB->get_records_sql("
 SELECT
@@ -88,36 +149,27 @@ $sections = $coursefminfo->get_sections(); // get current course's sections
 // remove pinned sections and subsections from all sections array
 foreach ($sections as $sid => $sval) {
     $secinfo = course_get_format($course->id)->get_section($sid);
+    unset($sections[0]); // remove General section - 0 section - from counting 
     if (!empty($secinfo->pinned)) {
-        unset($sections[$sid]);
+        unset($sections[$sid]); // unset pinned sections
     }
     if (!empty($secinfo->parent)) {
-        unset($sections[$sid]);
+        unset($sections[$sid]); // unset subsections
     }
 }
-$sectionscount = count($sections); // count all sections in the course
 
-$completedsectionscount = 0; // zero competed section in the course
+$sectionscount = count($sections);  // count all sections in the course (only main sections, without pinned and subsections)
+$completedsectionscount = 0;        // zero completed section in the course
 
-// iterate every section in the course
+// iterate every section in the course (main stream, not subsections, which we unset upper)
 foreach ($sections as $secid=>$scms) {
-    $completedactivitiescount = 0;
-
-    // iterate every cm in current section to remove uncompetable items
-    foreach ($scms as $arid=>$scmid) {
-        if (!in_array($scmid, $ccompetablecms)) {
-        unset($scms[$arid]); // unset cms that are not  completable
-        } else {
-            if (in_array($scmid, $usercmscompletions)) {
-                $completedactivitiescount++; // if cm is compledted - count it
-             }
+        // skip 0 sec - it is parent section to all others
+        if ($secid == 0) {
+            continue;
         }
-    }
-    $cmsinsectioncount = count($scms);
-
-    if ($cmsinsectioncount == $completedactivitiescount) {
-        $completedsectionscount++; // if competable cms are all competed - count section as competed
-    }
+        // count section completion status (including its subsections)
+        $sectioncompletionresult = count_section_cms_completions($secid, $coursefminfo, $ccompetablecms, $usercmscompletions, 0);
+        $completedsectionscount += $sectioncompletionresult['completed'];
 }
 
 $percent = 0;
@@ -126,6 +178,8 @@ if ($sectionscount) {
   $percent = round($completedsectionscount/$sectionscount, 2, PHP_ROUND_HALF_UP);
   $angle = round(M_PI * 2 * $percent, 2, PHP_ROUND_HALF_UP);
 }
+
+
 
 $sectionscompletion = array (
     "completed" => $completedsectionscount,
