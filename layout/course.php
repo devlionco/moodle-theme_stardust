@@ -30,14 +30,17 @@ require_once($CFG->dirroot . '/mod/attendance/classes/summary.php');
 require_once($CFG->libdir . "/completionlib.php");
 global $DB,$COURSE, $USER;
 $course = $PAGE->course;
+$courseformat = course_get_format($course->id)->get_format_options();
 
-//get attednance info
+/**
+ *  Get attednance info 
+ */
 $attmodid = $DB->get_record('modules', array('name' => 'attendance'), 'id')->id; // get attendance module id in system
-$attid = $DB->get_record('course_modules', array('course' => $course->id, 'module' => $attmodid), 'instance', IGNORE_MULTIPLE)->instance; // get first attedndance instance on current course
-if (!$attid) {
+$att = $DB->get_record('course_modules', array('course' => $course->id, 'module' => $attmodid, 'deletioninprogress' => 0), 'instance', IGNORE_MULTIPLE); // get first attedndance instance on current course
+if (!$att) {
     // don't get attendance info
 } else {
-    $attsummaryobj = new mod_attendance_summary($attid, $USER->id); // get attendance summary object for current user
+    $attsummaryobj = new mod_attendance_summary($att->instance, $USER->id); // get attendance summary object for current user
     $attendanceinfo = $attsummaryobj->get_all_sessions_summary_for($USER->id);
 
     $attendanceinfo->takensessionspoints = round($attendanceinfo->takensessionspoints);
@@ -51,6 +54,7 @@ if (!$attid) {
     }
 
 }
+////////// end attendance info
 
 /**
  *  get studied units copmletion info
@@ -96,12 +100,14 @@ function count_section_cms_completions($secid, $coursefminfo, $ccompetablecms, $
         $completedsectionscount++; // if completable cms are all completed - count section as completed
     }
     
-    // count competion of child sections (subsections) - start this func recursevly 
-    $children = course_get_format($course->id)->get_subsections($secid);
-    $childrencount += count($children);
-    foreach ($children as $chid => $chsec) {
-        //print_object($children[$chid]->getIterator());                        // SG -- need for debug
-        count_section_cms_completions($chid, $coursefminfo, $ccompetablecms, $usercmscompletions);
+    // count completion of child sections (subsections) - start this func recursevly IF FORMAT == STARDUST, because of folded sections
+    if (course_get_format($course->id)->get_format() == 'stardust') {
+        $children = course_get_format($course->id)->get_subsections($secid);
+        $childrencount += count($children);
+        foreach ($children as $chid => $chsec) {
+            //print_object($children[$chid]->getIterator());                        // SG -- need for debug
+            count_section_cms_completions($chid, $coursefminfo, $ccompetablecms, $usercmscompletions);
+        }
     }
 
     // $sectioncompletion['completedsectionscount'] = $completedsectionscount; // SG -- need for debug
@@ -179,14 +185,13 @@ if ($sectionscount) {
   $angle = round(M_PI * 2 * $percent, 2, PHP_ROUND_HALF_UP);
 }
 
-
-
 $sectionscompletion = array (
     "completed" => $completedsectionscount,
     "allsections" => $sectionscount,
     "percent" => $percent,
     "angle" => $angle
 );
+////////// end study units counter (sectioncompletion info)
 
 $hasfhsdrawer = isset($PAGE->theme->settings->shownavdrawer) && $PAGE->theme->settings->shownavdrawer == 1;
 if (isloggedin() && $hasfhsdrawer && isset($PAGE->theme->settings->shownavclosed) && $PAGE->theme->settings->shownavclosed == 0) {
@@ -217,8 +222,6 @@ $hascourseblocks = false;
 if ($checkblocka || $checkblockb || $checkblockc) {
     $hascourseblocks = true;
 }
-//get course format
-$courseformat = course_get_format($course->id)->get_format_options();
 
 // get teacher's course message
 $coursemessage = $DB->get_record('theme_stardust_messages', array ('courseid' => $course->id));
@@ -267,7 +270,7 @@ $templatecontext = [
     'display_grades' => (isset($courseformat['displaygrades'])) ? $courseformat['displaygrades'] : false,
     'showbagestag' => (isset($courseformat['showbagestag'])) ? $courseformat['showbagestag'] : false,
     'showcertificatestag' => (isset($courseformat['showcertificatestag'])) ? $courseformat['showcertificatestag'] : false,
-    'attendanceinfo' => isset($attendanceinfo) ? $attendanceinfo : null,
+    'attendanceinfo' => (!empty($courseformat['displayattendanceinfo']) && isset($attendanceinfo)) ? $attendanceinfo : null,
     'sectionscompletion' => $sectionscompletion,
     'showgrades' => isset($course->showgrades) ? $course->showgrades: false,
     'coursemessage' => $coursemessage,
