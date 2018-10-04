@@ -1334,11 +1334,11 @@ class core_renderer extends \theme_boost\output\core_renderer {
             } else {
                 $togglebuttonstudent = get_string('studentdashbutton', 'theme_fordson');
             }
-            
+
             // show quiz settings button (show/hide blocks region) at header only for non-students and on specific pages
-            $onquizview = $PAGE->url->compare(new moodle_url('/mod/quiz/view.php'), URL_MATCH_BASE);
+            // $onquizview = $PAGE->url->compare(new moodle_url('/mod/quiz/view.php'), URL_MATCH_BASE);
             $onquizattempt = $PAGE->url->compare(new moodle_url('/mod/quiz/attempt.php'), URL_MATCH_BASE);
-            if ($hasteacherdash && $onquizview || $onquizattempt) {
+            if ($hasteacherdash && $onquizattempt) {
                 $quizsettingsbutton = true;
             }
         }
