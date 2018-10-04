@@ -67,7 +67,14 @@
                 </div>
                 <div class="block-right">
                     <!-- <a href="{{config.wwwroot}}/admin/settings.php?section=themesettingstardust#theme_stardust_mydashboardsettigs"> -->
-                      <div id="icon-camera" class="icon-camera" data-tooltip="{{#str}}change_background, theme_stardust{{/str}}" title = "{{#str}}change_background, theme_stardust{{/str}}"></div>
+                      <div
+                        id="change_background"
+                        class="icon-camera"
+                        data-tooltip = "tooltip"
+                        data-placement = "bottom"
+                        data-original-title = "{{#str}} change_background, theme_stardust{{/str}}"
+                        >
+                      </div>
                     <!-- </a> -->
                 </div>
             </div>
@@ -167,4 +174,30 @@ require(['jquery','theme_boost/tooltip'], function($){
   //  console.log($('#mform2'));
   //});
 });
+
+require(['jquery'], function($){
+
+  // upload background
+  $('#page-my-index').on('click', function(e){
+    if (!$(e.target).parents('form.mform').length && !$(e.target).hasClass('fp-upload-btn') && !$(e.target).parents('div.moodle-dialogue-base').length) {
+      $('.mform').fadeOut();
+    };
+  });
+
+  $(document).keyup(function(e) {
+    if (e.keyCode == 27) { // esc keycode
+        $('.mform').fadeOut();
+    }
+  });
+
+  $('.mform-close').on('click', function(e){
+    $(e.target).parent().fadeOut();
+  });
+
+  $('#change_background').on('click', function(e){
+    e.stopPropagation();
+    $('#mform1').fadeToggle();
+  });
+});
+
 {{/js}}

@@ -3,6 +3,24 @@
 $progress-height: 2px;
 $padding-blocks: 20px 27px 24px 24px;
 
+#page-my-index{
+  .mform {
+    display: none;
+    position: fixed;
+    top: 20vh;
+    width: 60%;
+    right: 20%;
+    background: #fff;
+    border: 1px solid #ddd;
+    padding: 10px;
+    box-shadow: 0 0 5px 2px #bababa;
+     >* {
+       margin: 0 1.5rem;
+     }
+  }
+}
+
+
 #my-page {
   color: $text-color;
   font-family: "openSans";
@@ -94,6 +112,7 @@ $padding-blocks: 20px 27px 24px 24px;
           display: flex;
           align-items: flex-end;
           .icon-camera {
+            cursor: pointer;
             display: block;
             width: 40px;
             height: 36px;

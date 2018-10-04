@@ -370,6 +370,9 @@ $achivement-margin-top: 42px;
     border: 1px solid #ddd;
     padding: 10px;
     box-shadow: 0 0 5px 2px #bababa;
+    >* {
+      margin: 0 1.5rem;
+    }
   }
 }
 

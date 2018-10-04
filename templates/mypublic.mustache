@@ -134,8 +134,10 @@
                 <div class="block-right">
                     <div
                       id = "change_background"
+                      data-tooltip = "tooltip"
+                      data-placement = "bottom"
+                      data-original-title = "{{#str}} change_background, theme_stardust{{/str}}"
                       class="icon-camera"
-                      data-tooltip = "{{#str}} change_background, theme_stardust{{/str}}"
                     ></div>
                 </div>
             </div>
@@ -347,6 +349,7 @@ require(['jquery'], function($) {
     });
   });
 
+  // upload background
   $('#page-user-profile').on('click', function(e){
     if (!$(e.target).parents('form.mform').length && !$(e.target).hasClass('fp-upload-btn') && !$(e.target).parents('div.moodle-dialogue-base').length) {
       $('.mform').fadeOut();

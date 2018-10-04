@@ -907,6 +907,19 @@ body#page-login-signup {
 #learningcontent .m-t-2.m-b-1 {
   display: none; }
 
+#page-my-index .mform {
+  display: none;
+  position: fixed;
+  top: 20vh;
+  width: 60%;
+  right: 20%;
+  background: #fff;
+  border: 1px solid #ddd;
+  padding: 10px;
+  box-shadow: 0 0 5px 2px #bababa; }
+  #page-my-index .mform > * {
+    margin: 0 1.5rem; }
+
 #my-page {
   color: #3C3C3C;
   font-family: "openSans"; }
@@ -986,6 +999,7 @@ body#page-login-signup {
           -ms-flex-align: end;
               align-items: flex-end; }
           #my-page .main-wrapper .main-header .block-right .icon-camera {
+            cursor: pointer;
             display: block;
             width: 40px;
             height: 36px;
@@ -2444,6 +2458,8 @@ body#page-login-signup {
   border: 1px solid #ddd;
   padding: 10px;
   box-shadow: 0 0 5px 2px #bababa; }
+  #page-user-profile .mform > * {
+    margin: 0 1.5rem; }
 
 #page-user-profile #page-wrapper {
   margin-bottom: -90px;
