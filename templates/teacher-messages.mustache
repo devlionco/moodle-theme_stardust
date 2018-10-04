@@ -69,8 +69,10 @@ require(['core/yui', 'jquery', 'theme_stardust/ajax'], function(Y, $, ajax){
   hider.addEventListener('click', function(){
     if(hider.classList.contains('show')){
       var hiderstatus = 0;
+      $('.messages-container').css("opacity","1");
       $(hider).removeClass('show');
     } else {
+      $('.messages-container').css("opacity","0.5");
       var hiderstatus = 1;
       $(hider).addClass('show');
     }
