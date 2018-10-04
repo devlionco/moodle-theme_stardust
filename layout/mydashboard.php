@@ -84,8 +84,8 @@ $userbackgroundform = new mydashboard_background_form(new moodle_url($PAGE->url)
     'user' => $USER));
 if ($userbackgroundformdata = $userbackgroundform->get_data()) {
     update_background_img($userbackgroundformdata);
-    echo '<meta http-equiv="refresh" content="0; url=/my/" />';
-} 
+    echo '<meta http-equiv="refresh" content="0; url='.$CFG->wwwroot.'/my/" />';
+}
 
 /**
  * Updates the provided users backround image at mydashboard page
