@@ -1,7 +1,11 @@
+@import "../variables";
+
 .display__none {
   display: none !important;
 }
-
+.course-cards, .row, #page-content #region-main{
+  background-color: $white !important;
+}
 #page {
   margin-top: 45px;
 }
