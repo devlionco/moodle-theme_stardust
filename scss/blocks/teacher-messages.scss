@@ -18,6 +18,10 @@
     line-height: 18pt;
     height: auto;
     box-shadow: none;
+    opacity: .5;
+    &.show{
+      opacity:1;
+    }
     .messages {
       max-width:95%;
       .messages-list-wrapper {
@@ -90,13 +94,13 @@
       font-size: 1.5rem;
       &:after{
         font-family: fontAwesome;
-        content:'\f06e';
+        content:'\f070';
         display: block;
       }
       &.show{
         &:after{
           font-family: fontAwesome;
-          content:'\f070';
+          content:'\f06e';
           display: block;
         }
       }
