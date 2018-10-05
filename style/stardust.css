@@ -842,6 +842,9 @@ body#page-login-signup {
 .display__none {
   display: none !important; }
 
+.course-cards, .row, #page-content #region-main {
+  background-color: #FFFFFF !important; }
+
 #page {
   margin-top: 45px; }
 
@@ -2076,7 +2079,7 @@ body#page-login-signup {
     border-radius: 50%;
     border: none;
     padding: 0;
-    background: url([[pix:theme|pagemy/help]]) no-repeat center;
+    background: url([[pix:theme|pagemy/help-dblue]]) no-repeat center;
     outline: none; }
   #help-menu .menu {
     z-index: 121;
@@ -2152,7 +2155,7 @@ body#page-login-signup {
     #mypublic-student .main-wrapper .icon-help {
       width: 64px;
       height: 60px;
-      background-image: url([[pix:theme|pagemy/help]]);
+      background-image: url([[pix:theme|pagemy/help-dblue]]);
       position: absolute;
       bottom: -31px;
       right: 43px; }
@@ -2469,7 +2472,7 @@ html {
   scroll-behavior: smooth; }
 
 .accomplishments {
-  background: #F3F2F0;
+  background: #FFFFFF;
   min-height: 100vh;
   padding: 74px 48px 40px; }
   .accomplishments-header {
@@ -2978,7 +2981,7 @@ html {
   -ms-flex-pack: center;
       justify-content: center;
   padding: 56px 0 0;
-  background: #f4f3f0; }
+  background-color: #FFFFFF; }
   .incourse-header .main-wrapper .main {
     max-width: 1344px;
     width: 100%;
@@ -3213,7 +3216,7 @@ html {
   margin: 0 auto; }
 
 #page-mod-quiz-attempt {
-  background: #F3F2F0;
+  background: #FFFFFF;
   position: relative;
   height: auto; }
   #page-mod-quiz-attempt #page-wrapper {

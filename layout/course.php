@@ -30,14 +30,17 @@ require_once($CFG->dirroot . '/mod/attendance/classes/summary.php');
 require_once($CFG->libdir . "/completionlib.php");
 global $DB,$COURSE, $USER;
 $course = $PAGE->course;
+$courseformat = course_get_format($course->id)->get_format_options();
 
-//get attednance info
+/**
+ *  Get attednance info 
+ */
 $attmodid = $DB->get_record('modules', array('name' => 'attendance'), 'id')->id; // get attendance module id in system
-$attid = $DB->get_record('course_modules', array('course' => $course->id, 'module' => $attmodid), 'instance', IGNORE_MULTIPLE)->instance; // get first attedndance instance on current course
-if (!$attid) {
+$att = $DB->get_record('course_modules', array('course' => $course->id, 'module' => $attmodid, 'deletioninprogress' => 0), 'instance', IGNORE_MULTIPLE); // get first attedndance instance on current course
+if (!$att) {
     // don't get attendance info
 } else {
-    $attsummaryobj = new mod_attendance_summary($attid, $USER->id); // get attendance summary object for current user
+    $attsummaryobj = new mod_attendance_summary($att->instance, $USER->id); // get attendance summary object for current user
     $attendanceinfo = $attsummaryobj->get_all_sessions_summary_for($USER->id);
 
     $attendanceinfo->takensessionspoints = round($attendanceinfo->takensessionspoints);
@@ -51,10 +54,74 @@ if (!$attid) {
     }
 
 }
+////////// end attendance info
 
 /**
  *  get studied units copmletion info
  */
+
+ /**
+ * Func - count sections complitions (recursively for childs)
+ * @param $secid - section number. Section we are checking now
+ * @param $coursefminfo - global script var
+ * @param $ccompetablecms - global script var
+ * @param $usercmscompletions - global script var
+ * @param $reset - set '0' for section in main stream (NOT for subsection). Is needed to reset static vars in recursion
+ * 
+ * @return array $sectioncompletion - field 'completed' has 1 if all bunch is completed, or 0 - if it is not
+ */
+function count_section_cms_completions($secid, $coursefminfo, $ccompetablecms, $usercmscompletions, $reset = null) {
+    global $course;
+        static $completedsectionscount = 0;
+        static $childrencount = 0;
+        if (isset($reset)) {
+            $completedsectionscount = $reset;
+            $childrencount = $reset;
+        }
+    $sectioncompletion = array();
+
+    $sections = $coursefminfo->get_sections(); // get current course's sections
+    $cmsinsectioncount = 0;
+    $completedactivitiescount = 0;
+    // iterate every cm in current section to remove uncompletable items
+    foreach ($sections[$secid] as $arid=>$scmid) {
+        if (!in_array($scmid, $ccompetablecms)) {
+            unset($sections[$secid][$arid]); // unset cms that are not completable
+        } else {
+            if (in_array($scmid, $usercmscompletions)) {
+                $completedactivitiescount++; // if cm is compledted - count it
+            }
+        }
+    }
+    
+    // count if current section is completed
+    $cmsinsectioncount = count($sections[$secid]);
+    if ($cmsinsectioncount == $completedactivitiescount) {
+        $completedsectionscount++; // if completable cms are all completed - count section as completed
+    }
+    
+    // count completion of child sections (subsections) - start this func recursevly IF FORMAT == STARDUST, because of folded sections
+    if (course_get_format($course->id)->get_format() == 'stardust') {
+        $children = course_get_format($course->id)->get_subsections($secid);
+        $childrencount += count($children);
+        foreach ($children as $chid => $chsec) {
+            //print_object($children[$chid]->getIterator());                        // SG -- need for debug
+            count_section_cms_completions($chid, $coursefminfo, $ccompetablecms, $usercmscompletions);
+        }
+    }
+
+    // $sectioncompletion['completedsectionscount'] = $completedsectionscount; // SG -- need for debug
+    // $sectioncompletion['childrencount'] = $childrencount;                   // SG -- need for debug
+    
+    // if completed sections count are equal to children sections + 1 - all bunch is completed
+    if ($completedsectionscount == $childrencount+1) {
+        $sectioncompletion['completed'] = 1; 
+    } else {
+        $sectioncompletion['completed'] = 0;
+    }  
+
+    return $sectioncompletion;
+}
 
 // get all current user's completions on current course
 $usercourseallcmcraw = $DB->get_records_sql("
@@ -88,36 +155,27 @@ $sections = $coursefminfo->get_sections(); // get current course's sections
 // remove pinned sections and subsections from all sections array
 foreach ($sections as $sid => $sval) {
     $secinfo = course_get_format($course->id)->get_section($sid);
+    unset($sections[0]); // remove General section - 0 section - from counting 
     if (!empty($secinfo->pinned)) {
-        unset($sections[$sid]);
+        unset($sections[$sid]); // unset pinned sections
     }
     if (!empty($secinfo->parent)) {
-        unset($sections[$sid]);
+        unset($sections[$sid]); // unset subsections
     }
 }
-$sectionscount = count($sections); // count all sections in the course
 
-$completedsectionscount = 0; // zero competed section in the course
+$sectionscount = count($sections);  // count all sections in the course (only main sections, without pinned and subsections)
+$completedsectionscount = 0;        // zero completed section in the course
 
-// iterate every section in the course
+// iterate every section in the course (main stream, not subsections, which we unset upper)
 foreach ($sections as $secid=>$scms) {
-    $completedactivitiescount = 0;
-
-    // iterate every cm in current section to remove uncompetable items
-    foreach ($scms as $arid=>$scmid) {
-        if (!in_array($scmid, $ccompetablecms)) {
-        unset($scms[$arid]); // unset cms that are not  completable
-        } else {
-            if (in_array($scmid, $usercmscompletions)) {
-                $completedactivitiescount++; // if cm is compledted - count it
-             }
+        // skip 0 sec - it is parent section to all others
+        if ($secid == 0) {
+            continue;
         }
-    }
-    $cmsinsectioncount = count($scms);
-
-    if ($cmsinsectioncount == $completedactivitiescount) {
-        $completedsectionscount++; // if competable cms are all competed - count section as competed
-    }
+        // count section completion status (including its subsections)
+        $sectioncompletionresult = count_section_cms_completions($secid, $coursefminfo, $ccompetablecms, $usercmscompletions, 0);
+        $completedsectionscount += $sectioncompletionresult['completed'];
 }
 
 $percent = 0;
@@ -133,6 +191,7 @@ $sectionscompletion = array (
     "percent" => $percent,
     "angle" => $angle
 );
+////////// end study units counter (sectioncompletion info)
 
 $hasfhsdrawer = isset($PAGE->theme->settings->shownavdrawer) && $PAGE->theme->settings->shownavdrawer == 1;
 if (isloggedin() && $hasfhsdrawer && isset($PAGE->theme->settings->shownavclosed) && $PAGE->theme->settings->shownavclosed == 0) {
@@ -163,8 +222,6 @@ $hascourseblocks = false;
 if ($checkblocka || $checkblockb || $checkblockc) {
     $hascourseblocks = true;
 }
-//get course format
-$courseformat = course_get_format($course->id)->get_format_options();
 
 // get teacher's course message
 $coursemessage = $DB->get_record('theme_stardust_messages', array ('courseid' => $course->id));
@@ -213,7 +270,7 @@ $templatecontext = [
     'display_grades' => (isset($courseformat['displaygrades'])) ? $courseformat['displaygrades'] : false,
     'showbagestag' => (isset($courseformat['showbagestag'])) ? $courseformat['showbagestag'] : false,
     'showcertificatestag' => (isset($courseformat['showcertificatestag'])) ? $courseformat['showcertificatestag'] : false,
-    'attendanceinfo' => isset($attendanceinfo) ? $attendanceinfo : null,
+    'attendanceinfo' => (!empty($courseformat['displayattendanceinfo']) && isset($attendanceinfo)) ? $attendanceinfo : null,
     'sectionscompletion' => $sectionscompletion,
     'showgrades' => isset($course->showgrades) ? $course->showgrades: false,
     'coursemessage' => $coursemessage,
