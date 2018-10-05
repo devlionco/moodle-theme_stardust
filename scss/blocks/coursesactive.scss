@@ -36,12 +36,14 @@
       height: 215px;
       background: url('https://andreyex.ru/wp-content/uploads/2017/03/Kak-ustanovit-Moodle-na-Ubuntu-16.04.png') no-repeat center;
       background-size: cover;
-      margin-bottom: 14px;
+      margin-bottom: 1px;
     }
     &-header {
+      width:100%;
       display: flex;
       justify-content: space-between;
-      align-items: center;
+      align-items: stretch;
+      flex-direction: column-reverse;
       margin-bottom: 14px;
       .course-name {
         color: $primary-color;
@@ -49,10 +51,10 @@
         font-size: 21px;
         font-weight:$bold;
         margin: 0;
-        max-width: 45%;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
+        // max-width: 45%;
+        // white-space: nowrap;
+        // overflow: hidden;
+        // text-overflow: ellipsis;
         a {
           color: inherit;
           &:hover {
@@ -61,7 +63,7 @@
         }
       }
       .course-progress {
-        width: 50%;
+        width: 100%;
         display: flex;
         align-items: center;
         height: 2px;

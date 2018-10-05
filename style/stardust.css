@@ -1967,31 +1967,30 @@ body#page-login-signup {
       height: 215px;
       background: url("https://andreyex.ru/wp-content/uploads/2017/03/Kak-ustanovit-Moodle-na-Ubuntu-16.04.png") no-repeat center;
       background-size: cover;
-      margin-bottom: 14px; }
+      margin-bottom: 1px; }
     .courses-active .course-header {
+      width: 100%;
       display: -ms-flexbox;
       display: flex;
       -ms-flex-pack: justify;
           justify-content: space-between;
-      -ms-flex-align: center;
-          align-items: center;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+      -ms-flex-direction: column-reverse;
+          flex-direction: column-reverse;
       margin-bottom: 14px; }
       .courses-active .course-header .course-name {
         color: #19284f;
         font-size: 24px;
         font-size: 21px;
         font-weight: 600;
-        margin: 0;
-        max-width: 45%;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis; }
+        margin: 0; }
         .courses-active .course-header .course-name a {
           color: inherit; }
           .courses-active .course-header .course-name a:hover {
             text-decoration: none; }
       .courses-active .course-header .course-progress {
-        width: 50%;
+        width: 100%;
         display: -ms-flexbox;
         display: flex;
         -ms-flex-align: center;
