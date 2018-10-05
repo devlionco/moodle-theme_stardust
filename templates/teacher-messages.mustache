@@ -1,4 +1,4 @@
-<div class="messages-container" {{^isteacher}}{{coursemessage.studmessageshowhide}}{{/isteacher}}>
+<div class="messages-container  {{coursemessage.buttonstatus}}" {{^isteacher}}{{coursemessage.studmessageshowhide}}{{/isteacher}}>
     <div class="messages" id = "custom-message">
         <p class="messages-title">{{#str}}messages, theme_stardust{{/str}}</p>
         <div class="messages-list-wrapper">
@@ -69,11 +69,11 @@ require(['core/yui', 'jquery', 'theme_stardust/ajax'], function(Y, $, ajax){
   hider.addEventListener('click', function(){
     if(hider.classList.contains('show')){
       var hiderstatus = 0;
-      $('.messages-container').css("opacity","1");
+      $('.messages-container').removeClass('show');
       $(hider).removeClass('show');
     } else {
-      $('.messages-container').css("opacity","0.5");
       var hiderstatus = 1;
+      $('.messages-container').addClass('show');
       $(hider).addClass('show');
     }
     ajax.data = {
