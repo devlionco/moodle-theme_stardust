@@ -88,7 +88,7 @@ function theme_stardust_pluginfile($course, $cm, $context, $filearea, $args, $fo
     if ($context->contextlevel == CONTEXT_SYSTEM || $context->contextlevel == CONTEXT_USER) {
         $theme = theme_config::load('stardust');
         // By default, theme files must be cache-able by both browsers and proxies.
-            
+
         // serve background image at mypublic page
         if ($filearea === 'backgroundimg') {
             $itemid = array_shift($args);
@@ -98,7 +98,7 @@ function theme_stardust_pluginfile($course, $cm, $context, $filearea, $args, $fo
             } else {
                 $filepath = '/'.implode('/', $args).'/'; // $args contains elements of the filepath
             }
-        
+
             // Retrieve the file from the Files API.
             $fs = get_file_storage();
             $file = $fs->get_file($context->id, 'theme_stardust', $filearea, $itemid, $filepath, $filename);
@@ -292,7 +292,7 @@ function get_activities_mydashboard($activitiesconf = array(), $numofrelevantact
                     $cminfo = get_fast_modinfo($course->id)->cms[$module->id];
                     if (!$cminfo->uservisible || !$cminfo->is_visible_on_course_page()) {
                         continue;
-                    }            
+                    }
 
                     // add all activityinfo to general array
                     // $activities[$activityname][] = $activityinfo; // with activityname sorting
@@ -311,7 +311,7 @@ function get_activities_mydashboard($activitiesconf = array(), $numofrelevantact
             $coursecoverimgurl = moodle_url::make_pluginfile_url($file->get_contextid(), $file->get_component(), $file->get_filearea(), null, $file->get_filepath(), $file->get_filename());
         }
         if (empty($coursecoverimgurl)) {
-            $coursecoverimgurl = $OUTPUT->image_url('default-bg', 'theme'); // define default course cover image in theme's pix folder
+            $coursecoverimgurl = $OUTPUT->image_url('banner', 'theme'); // define default course cover image in theme's pix folder
         }
 
         // get courses completeinon info
