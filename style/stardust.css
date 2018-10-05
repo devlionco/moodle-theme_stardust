@@ -2076,7 +2076,7 @@ body#page-login-signup {
     border-radius: 50%;
     border: none;
     padding: 0;
-    background: url([[pix:theme|pagemy/help]]) no-repeat center;
+    background: url([[pix:theme|pagemy/help-dblue]]) no-repeat center;
     outline: none; }
   #help-menu .menu {
     z-index: 121;
@@ -2152,7 +2152,7 @@ body#page-login-signup {
     #mypublic-student .main-wrapper .icon-help {
       width: 64px;
       height: 60px;
-      background-image: url([[pix:theme|pagemy/help]]);
+      background-image: url([[pix:theme|pagemy/help-dblue]]);
       position: absolute;
       bottom: -31px;
       right: 43px; }

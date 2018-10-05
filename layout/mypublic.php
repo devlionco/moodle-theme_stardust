@@ -79,7 +79,7 @@ foreach ($fields as $field) {
             $fieldstatus = "{$field}_status";
             $user->{$fieldstatus} = 'disabled';
         }
-    } 
+    }
 }
 
 
@@ -100,6 +100,7 @@ $bodyattributes = $OUTPUT->body_attributes($extraclasses);
 $blockshtml = $OUTPUT->blocks('side-pre');
 $hasblocks = strpos($blockshtml, 'data-block=') !== false;
 $regionmainsettingsmenu = $OUTPUT->region_main_settings_menu();
+$mypublicdefaultbgimgurl = $OUTPUT->image_url('profilebg', 'theme');
 $templatecontext = [
 	'sitename' => format_string($SITE->shortname, true, ['context' => context_course::instance(SITEID) , "escape" => false]) ,
     'output' => $OUTPUT,
@@ -116,7 +117,7 @@ $templatecontext = [
     'userpictureurl' => $userpictureurl,
     'usercoursesprogress' => $usercoursesprogress,
     'helplink' => true,
-    'backgroundimg' => isset($backgroundimg) ? $backgroundimg : null
+    'backgroundimg' => isset($backgroundimg) ? $backgroundimg : $mypublicdefaultbgimgurl
 ];
 // echo '<pre>'.print_r($user,1).'</pre>'; exit();
 $PAGE->requires->jquery();
@@ -139,7 +140,7 @@ $useravatarform = new mypublic_avatar_form(new moodle_url($PAGE->url), array(
 if ($useravatarformdata = $useravatarform->get_data()) {
     core_user::update_picture($useravatarformdata);
     echo "<meta http-equiv='refresh' content='0; url=/user/profile.php' />";
-} 
+}
 $useravatarform->display();
 
 // Add form to update user background img at mypublic page
