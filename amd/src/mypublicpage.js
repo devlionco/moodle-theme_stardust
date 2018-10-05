@@ -48,6 +48,8 @@ define(['jquery', 'jqueryui', 'core/str'], function($, jqui, str) {
           var address = $.trim($('#address').val());
           var skype = $.trim($('#skype').val());
           var icq = $.trim($('#icq').val());
+          var knowledge = [];
+          var knowledgeElements = $('#knowledge-container .knowledge-item');
           var yahoo = $.trim($('#yahoo').val());
           var birthday = $('#birthday').val();
           var interests = [];
@@ -70,9 +72,8 @@ define(['jquery', 'jqueryui', 'core/str'], function($, jqui, str) {
             $('#email ~ .input-label .error').append( M.util.get_string('isrequired', 'theme_stardust') );
             $('#email').focus();
             errors = true;
-          } else {
-            errors = false;
           }
+
           // Validate email text
           var regEx = /^[\w\-\.\+]+\@[a-zA-Z0-9\.\-]+\.[a-zA-Z0-9]{2,4}$/;
           if (!regEx.test(email)) {
@@ -86,8 +87,6 @@ define(['jquery', 'jqueryui', 'core/str'], function($, jqui, str) {
             $('#email ~ .input-label .error').html(M.util.get_string('emailerror', 'theme_stardust'));
             $('#email').focus();
             errors = true;
-          } else {
-            errors = false;
           }
 
           if (phone1 === '') {
@@ -101,8 +100,6 @@ define(['jquery', 'jqueryui', 'core/str'], function($, jqui, str) {
             $('#phone1  ~ .input-label .error').html(M.util.get_string('isrequired', 'theme_stardust'));
             $('#phone1').focus();
             errors = true;
-          } else {
-            errors = false;
           }
 
           var regEx = /^[(]{0,1}[0-9]{3}[)]{0,1}[-\s\.]{0,1}[0-9]{3}[-\s\.]{0,1}[0-9]{4}$/; // formats like 123-123-1234 or (123) 123 1234 or 123.123.1234
@@ -117,9 +114,15 @@ define(['jquery', 'jqueryui', 'core/str'], function($, jqui, str) {
             $('#phone1 ~ .input-label .error').html(M.util.get_string('phoneerror', 'theme_stardust'));
             $('#phone1').focus();
             errors = true;
-          } else {
-            errors = false;
           }
+
+          if (knowledgeElements.length) {
+            $.map(knowledgeElements, function(item){
+              knowledge.push($(item).text());
+            });
+            knowledge = JSON.stringify(knowledge);
+          }
+
           if (interestsElements.length) {
             $.map(interestsElements, function(item){
               interests.push($(item).text());
@@ -139,8 +142,6 @@ define(['jquery', 'jqueryui', 'core/str'], function($, jqui, str) {
             $('#idnumber  ~ .input-label .error').html(M.util.get_string('isrequired', 'theme_stardust'));
             $('#idnumber').focus();
             errors = true;
-          } else {
-            errors = false;
           }
 
           if (isNaN(passport)) {
@@ -153,8 +154,6 @@ define(['jquery', 'jqueryui', 'core/str'], function($, jqui, str) {
             $('#idnumber  ~ .input-label .error').html(M.util.get_string('teudatzeutnotnumerical', 'theme_stardust'));
             $('#idnumber').focus();
             errors = true;
-          } else {
-            errors = false;
           }
 
           if (passport.length  != 9) {
@@ -167,8 +166,6 @@ define(['jquery', 'jqueryui', 'core/str'], function($, jqui, str) {
             $('#idnumber  ~ .input-label .error').html(M.util.get_string('teudatzeutwrong', 'theme_stardust'));
             $('#idnumber').focus();
             errors = true;
-          } else {
-            errors = false;
           }
 
           // check all errors
@@ -186,7 +183,7 @@ define(['jquery', 'jqueryui', 'core/str'], function($, jqui, str) {
                 // password:password,
                 fullname:fullname,
                 email:email,
-                aim:aim,
+                aim:knowledge,
                 phone1:phone1,
                 phone2:phone2,
                 skype:skype,

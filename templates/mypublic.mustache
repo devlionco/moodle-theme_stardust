@@ -207,6 +207,17 @@
                             <li class="info" data-input="icq">
                                 <input type="text" id="icq" class="input" {{canedit}} {{userinfo.icq_status}} value="{{userinfo.icq}}">
                                 <span class="input-label">{{#str}} icq, theme_stardust{{/str}}</span>
+                                <div id = "knowledge-container" class = "knowledge-container">
+                                  {{#userinfo.knowledge}}
+                                    <div
+                                        class = "knowledge-item"
+                                        style="background-color: #19284f;"
+                                        onclick="this.remove();"
+                                        >
+                                        {{{.}}}
+                                    </div>
+                                    {{/userinfo.knowledge}}
+                                </div>
                             </li>
                             <li class="info" data-input="birthday">
                                 <input type="date" id="birthday" class="input" {{canedit}} value="{{#userdate}}{{userinfo.profile_field_birthday}}, %Y-%m-%d {{/userdate}}">
@@ -379,7 +390,9 @@ require(['jquery'], function($) {
   // adding tags on the page
   const mainBlock = document.querySelector(`#mypublicpage-profile-shortform`);
   const interests = mainBlock.querySelector('#interests');
-  const tagContainer = mainBlock.querySelector('#tag-container');
+
+  //const tagContainer = mainBlock.querySelector('#tag-container');
+  //const knowledgeContainer = mainBlock.querySelector('#knowledge-container');
 
   const getRandColor = () => {
     let color = Math.floor(Math.random() * Math.pow(256, 3)).toString(16);
@@ -389,14 +402,19 @@ require(['jquery'], function($) {
     return "#" + color;
   }
 
-  function getNewTag (target) {
+  function getNewTag (target, type) {
     let tagText = target.value;
-    const tagItem = $(`<div class = "tag-item" style = "background-color: ${getRandColor()};" onClick = this.remove();>${tagText}</div>`);
-    tagItem.appendTo(tagContainer);
+    const tagItem = $('<div class = "' + type + '-item" style = "background-color:'+ getRandColor() +';" onClick = this.remove();>'+tagText+'</div>');
+    tagItem.appendTo(mainBlock.querySelector('#'+ type +'-container'));
   }
 
   interests.addEventListener('change', function(e){
-    getNewTag(e.currentTarget);
+    getNewTag(e.currentTarget, 'tag');
+    e.currentTarget.value = '';
+  });
+
+  icq.addEventListener('change', function(e){
+    getNewTag(e.currentTarget, 'knowledge');
     e.currentTarget.value = '';
   });
 
