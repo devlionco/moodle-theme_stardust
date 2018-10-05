@@ -1,11 +1,25 @@
 .blockpanelbtn {
   position: absolute;
-  top: -54px;
-  right: -120px;
+  top: -119px;
+  right: -60px;
   z-index: 1000;
+  width:46px;
+  height:46px;
+  border-radius: 50%;
   color: #fff;
   background-color: $primary-color;
-  a, i {
-    color: #fff;
+  box-shadow: 1.5px 1.5px 2px $primary-color;
+  a{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height:100%;
+    i {
+      color: #fff;
+      font-size: 1.225rem;
+    }
+    span{
+      display: none;
+    }
   }
 }
