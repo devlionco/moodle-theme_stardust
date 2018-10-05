@@ -173,14 +173,62 @@ $padding-blocks: 20px 27px 24px 24px;
           justify-content: space-between;
         }
         .achievements-block {
-          height: calc(50% - 12px);
+          // height: calc(50% - 12px);
           background: $white;
           box-shadow: 0 0 10px 3px rgba(0,0,0,0.3);
           display: flex;
           flex-direction: column;
           align-items: center;
           justify-content: center;
-          padding: 24px;
+          padding: 20px 16px 24px 31px;
+          .profile{
+            .title{
+              color:$d_blue;
+              font-size: 18px;
+              font-weight: 600;
+            }
+            .achievments{
+              list-style-type: none;
+              padding-left: 0;
+              margin-bottom: 0;
+              display: flex;
+              flex-direction: column;
+              a{
+                margin-top:1rem;
+                .achievment{
+                  display: flex;
+                  flex-flow: row nowrap;
+                  justify-content: flex-start;
+                  align-items: center;
+                  .icon-label {
+                    margin-bottom:0;
+                    margin-left: 1.5rem;
+                    font-size: 12pt;
+                    line-height: 12pt;
+                    color:$d_blue;
+                  }
+                  .icon-grades {
+                    height: 50px;
+                    width: 50px;
+                    border-radius: 50%;
+                    background:url([[pix:theme|grade_icon]]) no-repeat center center;
+                  }
+                  .icon-medal {
+                    height: 50px;
+                    width: 50px;
+                    border-radius: 50%;
+                    background:url([[pix:theme|medal_icon]]) no-repeat center center;
+                  }
+                  .icon-diplom {
+                    height: 50px;
+                    width: 50px;
+                    border-radius: 50%;
+                    background:url([[pix:theme|diploma_icon]]) no-repeat center center;
+                  }
+                }
+              }
+            }
+          }
         }
       }
     }

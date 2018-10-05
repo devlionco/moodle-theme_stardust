@@ -1058,7 +1058,6 @@ body#page-login-signup {
           -ms-flex-pack: justify;
               justify-content: space-between; }
         #my-page .main-wrapper .main-content .achievements-block {
-          height: calc(50% - 12px);
           background: #FFFFFF;
           box-shadow: 0 0 10px 3px rgba(0, 0, 0, 0.3);
           display: -ms-flexbox;
@@ -1069,7 +1068,51 @@ body#page-login-signup {
               align-items: center;
           -ms-flex-pack: center;
               justify-content: center;
-          padding: 24px; }
+          padding: 20px 16px 24px 31px; }
+          #my-page .main-wrapper .main-content .achievements-block .profile .title {
+            color: #19284f;
+            font-size: 18px;
+            font-weight: 600; }
+          #my-page .main-wrapper .main-content .achievements-block .profile .achievments {
+            list-style-type: none;
+            padding-left: 0;
+            margin-bottom: 0;
+            display: -ms-flexbox;
+            display: flex;
+            -ms-flex-direction: column;
+                flex-direction: column; }
+            #my-page .main-wrapper .main-content .achievements-block .profile .achievments a {
+              margin-top: 1rem; }
+              #my-page .main-wrapper .main-content .achievements-block .profile .achievments a .achievment {
+                display: -ms-flexbox;
+                display: flex;
+                -ms-flex-flow: row nowrap;
+                    flex-flow: row nowrap;
+                -ms-flex-pack: start;
+                    justify-content: flex-start;
+                -ms-flex-align: center;
+                    align-items: center; }
+                #my-page .main-wrapper .main-content .achievements-block .profile .achievments a .achievment .icon-label {
+                  margin-bottom: 0;
+                  margin-left: 1.5rem;
+                  font-size: 12pt;
+                  line-height: 12pt;
+                  color: #19284f; }
+                #my-page .main-wrapper .main-content .achievements-block .profile .achievments a .achievment .icon-grades {
+                  height: 50px;
+                  width: 50px;
+                  border-radius: 50%;
+                  background: url([[pix:theme|grade_icon]]) no-repeat center center; }
+                #my-page .main-wrapper .main-content .achievements-block .profile .achievments a .achievment .icon-medal {
+                  height: 50px;
+                  width: 50px;
+                  border-radius: 50%;
+                  background: url([[pix:theme|medal_icon]]) no-repeat center center; }
+                #my-page .main-wrapper .main-content .achievements-block .profile .achievments a .achievment .icon-diplom {
+                  height: 50px;
+                  width: 50px;
+                  border-radius: 50%;
+                  background: url([[pix:theme|diploma_icon]]) no-repeat center center; }
 
 /* scrollbar */
 /* width */
