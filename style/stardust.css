@@ -1063,6 +1063,7 @@ body#page-login-signup {
           -ms-flex-pack: justify;
               justify-content: space-between; }
         #my-page .main-wrapper .main-content .achievements-block {
+          height: 100%;
           background: #FFFFFF;
           box-shadow: 0 0 10px 3px rgba(0, 0, 0, 0.3);
           display: -ms-flexbox;
@@ -1071,13 +1072,15 @@ body#page-login-signup {
               flex-direction: column;
           -ms-flex-align: center;
               align-items: center;
-          -ms-flex-pack: center;
-              justify-content: center;
+          -ms-flex-pack: start;
+              justify-content: flex-start;
           padding: 20px 16px 24px 31px; }
           #my-page .main-wrapper .main-content .achievements-block .profile .title {
             color: #19284f;
             font-size: 18px;
-            font-weight: 600; }
+            font-weight: 600;
+            padding-bottom: 5px;
+            margin-bottom: 1rem; }
           #my-page .main-wrapper .main-content .achievements-block .profile .achievments {
             list-style-type: none;
             padding-left: 0;

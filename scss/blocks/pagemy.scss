@@ -173,19 +173,21 @@ $padding-blocks: 20px 27px 24px 24px;
           justify-content: space-between;
         }
         .achievements-block {
-          // height: calc(50% - 12px);
+          height: 100%;
           background: $white;
           box-shadow: 0 0 10px 3px rgba(0,0,0,0.3);
           display: flex;
           flex-direction: column;
           align-items: center;
-          justify-content: center;
+          justify-content: flex-start;
           padding: 20px 16px 24px 31px;
           .profile{
             .title{
               color:$d_blue;
               font-size: 18px;
               font-weight: 600;
+              padding-bottom: 5px;
+              margin-bottom: 1rem;
             }
             .achievments{
               list-style-type: none;
