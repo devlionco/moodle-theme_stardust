@@ -66,7 +66,20 @@
 
 
         <div class = "dheader__tutorial">
-          <a class = "dheader__tutorial-link" data-action="tool_usertours/resetpagetour" href = "#" >{{# str }} tutorial_is_off, theme_stardust {{/ str }}</a>
+          <div
+            class = "dheader__tutorial-link"
+            data-action="tool_usertours/resetpagetour"
+            data-tooltip = "tooltip"
+            data-placement = "none"
+            data-original-title = "{{# str }} tutorialisoffonthispage, theme_stardust {{/ str }}"
+            >
+            <span
+              class = "tutorialoff"
+              >
+              {{# str }} tutorial_is_off, theme_stardust {{/ str }}
+            </span>
+            <span class = "tutorialon">{{# str }} tutorial_is_on, theme_stardust {{/ str }}</span>
+          </div>
         </div>
 
         <!-- search_box -->
@@ -91,3 +104,46 @@
       </div>
     </div>
 </header>
+{{# js }}
+require(['jquery'], function($){
+
+  let tutorilaBtn = document.querySelector('div[data-action="tool_usertours/resetpagetour"]');
+  //TODO remove setTimeout
+  $( document ).ready(function(e) {
+    setTimeout(function(){
+      if (M.str.tool_usertours) {
+        if (M.str.tool_usertours.endtour) tutorilaBtn.classList.add('active');
+      }
+    },2000)
+
+  });
+
+  // add class to tutorilaBtn if tour is active
+  // if (tutorilaIndex) tutorilaBtn.classList.add('active');
+
+  tutorilaBtn.addEventListener('click', function(e){
+    let tutorilaIndex = document.querySelector('a[data-action="tool_usertours/resetpagetour"]');
+
+    if (tutorilaIndex) {
+      let tourPopup = document.querySelector('div[data-role="flexitour-step"]');
+      tutorilaBtn.classList.add('active');
+
+    }else {
+      e.currentTarget.dataset.placement =  'bottom';
+    }
+  });
+
+  document.addEventListener('click', function(e){
+    let target = e.target;
+    while (target.tagName != 'BODY') {
+      if (target.dataset.role === 'end' || target.dataset.flexitour === 'backdrop' ) {
+        tutorilaBtn.classList.remove('active');
+        return;
+      }
+      target = target.parentNode;
+    }
+  });
+
+});
+
+{{/ js }}
