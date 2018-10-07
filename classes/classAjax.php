@@ -221,7 +221,7 @@ class classAjax
 
     /**
      * Funtion saves teachers course message to theme_stardust_messages table
-     * 
+     *
      */
     private function send_course_message() {
         global $CFG, $DB;
@@ -229,7 +229,7 @@ class classAjax
         $courseid = required_param('courseid', PARAM_INT);
         $message = required_param('message', PARAM_RAW);
         $status = 1;                         // when teacher creates the message - we enable it (show it) by default
-        $status = (empty($message) ? 1 : 0); // if teacher erases the message - we disable (hied) message block by default
+        $status = (empty($message) ? 0 : 1); // if teacher erases the message - we disable (hied) message block by default
 
         // prepare new DB record
         $record = new stdClass();
@@ -245,13 +245,13 @@ class classAjax
             $record->id = $messid->id;
             $DB->update_record('theme_stardust_messages', $record);
         } else {
-            $DB->insert_record('theme_stardust_messages', $record); 
+            $DB->insert_record('theme_stardust_messages', $record);
         }
 
     }
     /**
      * Funtion saves teachers course message show/hide status to theme_stardust_messages table
-     * 
+     *
      */
     private function toggle_course_message_status() {
         global $CFG, $DB;
