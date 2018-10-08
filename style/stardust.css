@@ -3432,7 +3432,6 @@ html {
                         align-items: center;
                     margin: 0;
                     padding: 0;
-                    position: absolute;
                     left: 0;
                     top: 50%;
                     transform: translateY(-50%); }
@@ -3445,7 +3444,8 @@ html {
                       border-radius: 50%;
                       margin-right: 10px; }
                   #page-mod-quiz-attempt #page-wrapper section#region-main.has-blocks [role="main"] .que .content .formulation .ablock .answer > div input {
-                    opacity: 0; }
+                    opacity: 0;
+                    position: absolute; }
                   #page-mod-quiz-attempt #page-wrapper section#region-main.has-blocks [role="main"] .que .content .formulation .ablock .answer > div input:checked + label::before {
                     background: #19284f; }
         #page-mod-quiz-attempt #page-wrapper section#region-main.has-blocks [role="main"] .mod_quiz-section-heading {

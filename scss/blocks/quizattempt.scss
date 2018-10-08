@@ -238,7 +238,7 @@
                       align-items: center;
                       margin: 0;
                       padding: 0;
-                      position: absolute;
+                      // position: absolute;
                       left: 0;
                       top: 50%;
                       transform: translateY(-50%);
@@ -254,6 +254,7 @@
                     }
                     input {
                       opacity: 0;
+                      position: absolute;
                     }
                     input:checked + label::before {
                       background: $primary-color-1;
