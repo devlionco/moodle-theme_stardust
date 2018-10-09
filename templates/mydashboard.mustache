@@ -120,29 +120,7 @@
 {{/showbacktotop}}
 
 {{>theme_stardust/footer}}
-<!-- <footer id="page-footer" class="p-y-1 bg-inverse">
 
-    <div class="container"> -->
-        <!-- <div id="course-footer">{{{ output.course_footer }}}</div>
-
-        {{# output.page_doc_link }}
-            <p class="helplink">{{{ output.page_doc_link }}}</p>
-        {{/ output.page_doc_link }}
-
-        {{{ output.login_info }}}
-        {{{ output.home_link }}}
-        <nav class="nav navbar-nav hidden-lg-up">
-            {{# output.custom_menu_flat }}
-                <ul class="list-unstyled p-t-1">
-                    {{> theme_boost/custom_menu_footer }}
-                </ul>
-            {{/ output.custom_menu_flat }}
-        </nav> -->
-        <!-- {{{ output.standard_footer_html }}}
-        {{{ output.standard_end_of_body_html }}}
-    </div> -->
-<script src = "{{ config.wwwroot}}/theme/stardust/javascripts/temp_dev.js"></script>
-<!-- </footer> -->
 </body>
 </html>
 {{#js}}
@@ -153,4 +131,42 @@ require(['theme_boost/drawer'], function(mod) {
     mod.init();
 });
 {{/hasfhsdrawer}}
+
+// cards course filter
+`use strict`;
+
+const container = document.querySelector(`.tab-pane.active ul`);
+const courses = Array.from(container.querySelectorAll(`li`));
+const filters = document.querySelector(`.filters`);
+
+const filterDate = document.querySelector(`.filter-date`);
+const filterAbc = document.querySelector(`.filter-abc`);
+
+const compareByCourseName = (a, b) => {
+  return (
+    a.dataset.coursename > b.dataset.coursename ?  1 :
+    a.dataset.coursename < b.dataset.coursename ? -1 :
+    0
+  )
+}
+
+const compareNumeric = (a, b) => {
+  return Number(a.dataset.date) - Number(b.dataset.date);
+}
+
+filters.addEventListener('click', function(e){
+  e.target.classList.add(`active`);
+  if (e.target.classList.contains(`filter-abc`)) {
+    filters.querySelector(`.filter-date`).classList.remove(`active`);
+    courses.sort(compareNumeric);
+  } else if  (e.target.classList.contains(`filter-date`)) {
+    filters.querySelector(`.filter-abc`).classList.remove(`active`);
+    courses.sort(compareByCourseName)
+  }
+
+  container.innerHTML = ``;
+  courses.forEach((course)=>{
+    container.appendChild(course);
+  });
+});
 {{/js}}

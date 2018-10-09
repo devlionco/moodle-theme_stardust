@@ -75,6 +75,7 @@
         display: flex;
       }
       .dheader__tutorial{
+        cursor: pointer;
         display: flex;
         align-items: center;
         margin:0 1.5vw;
@@ -87,6 +88,15 @@
           background-repeat: no-repeat;
           background-size: 22px;
           background-image:url([[pix:theme|header/toggle]]);
+          .tutorialon {
+            display: none;
+          }
+          &.active .tutorialon {
+            display: inline-block;
+          }
+          &.active .tutorialoff {
+            display: none;
+          }
           &:hover {
             text-decoration: none;
             color: #fff;

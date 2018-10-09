@@ -238,7 +238,6 @@
                       align-items: center;
                       margin: 0;
                       padding: 0;
-                      position: absolute;
                       left: 0;
                       top: 50%;
                       transform: translateY(-50%);
@@ -253,6 +252,7 @@
                       }
                     }
                     input {
+                      position: absolute;
                       opacity: 0;
                     }
                     input:checked + label::before {

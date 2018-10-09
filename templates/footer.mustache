@@ -40,15 +40,17 @@
       <div class="row default-items">
         <!-- other default stuff -->
         <div class="container">
-            <div id="course-footer">{{{ output.course_footer }}}</div>
+            <div id="course-footer d-none">{{{ output.course_footer }}}</div>
 
             {{# output.page_doc_link }}
-                <p class="helplink">{{{ output.page_doc_link }}}</p>
+                <p class="helplink d-none">{{{ output.page_doc_link }}}</p>
             {{/ output.page_doc_link }}
 
-            {{{ output.login_info }}}
-            {{{ output.home_link }}}
-            <nav class="nav navbar-nav hidden-lg-up">
+            <div class = "d-none">
+              {{{ output.login_info }}}
+              {{{ output.home_link }}}
+            </div>
+            <nav class="nav navbar-nav hidden-lg-up d-none">
                 {{# output.custom_menu_flat }}
                     <ul class="list-unstyled p-t-1">
                         {{> theme_boost/custom_menu_footer }}

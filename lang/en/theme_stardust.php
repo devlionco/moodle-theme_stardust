@@ -29,6 +29,8 @@ $string['pluginname'] = 'Stardust';
 
 // header
 $string['tutorial_is_off'] = 'Tutorial is off';
+$string['tutorial_is_on'] = 'Tutorial is on';
+$string['tutorialisoffonthispage'] = 'Tutorial not defined on this page';
 //login page
 $string['entrance_to_moodle'] = 'Entrance to the Moodle system by the Stardust Institute';
 $string['username'] = 'Username';

@@ -759,6 +759,7 @@ body#page-login-signup {
         display: -ms-flexbox;
         display: flex; }
       .dheader .dheader__inner .dheader__right .dheader__tutorial {
+        cursor: pointer;
         display: -ms-flexbox;
         display: flex;
         -ms-flex-align: center;
@@ -773,6 +774,12 @@ body#page-login-signup {
           background-repeat: no-repeat;
           background-size: 22px;
           background-image: url([[pix:theme|header/toggle]]); }
+          .dheader .dheader__inner .dheader__right .dheader__tutorial .dheader__tutorial-link .tutorialon {
+            display: none; }
+          .dheader .dheader__inner .dheader__right .dheader__tutorial .dheader__tutorial-link.active .tutorialon {
+            display: inline-block; }
+          .dheader .dheader__inner .dheader__right .dheader__tutorial .dheader__tutorial-link.active .tutorialoff {
+            display: none; }
           .dheader .dheader__inner .dheader__right .dheader__tutorial .dheader__tutorial-link:hover {
             text-decoration: none;
             color: #fff; }
@@ -2723,7 +2730,7 @@ html {
         -ms-flex-item-align: start;
             align-self: flex-start;
         padding: 30px 0;
-        max-width: 400px; }
+        max-width: 50%; }
         #course-main-content .top-wrapper .top .title-wrapper a {
           color: #fff;
           font-size: 72px;
@@ -3425,7 +3432,6 @@ html {
                         align-items: center;
                     margin: 0;
                     padding: 0;
-                    position: absolute;
                     left: 0;
                     top: 50%;
                     transform: translateY(-50%); }
@@ -3438,6 +3444,7 @@ html {
                       border-radius: 50%;
                       margin-right: 10px; }
                   #page-mod-quiz-attempt #page-wrapper section#region-main.has-blocks [role="main"] .que .content .formulation .ablock .answer > div input {
+                    position: absolute;
                     opacity: 0; }
                   #page-mod-quiz-attempt #page-wrapper section#region-main.has-blocks [role="main"] .que .content .formulation .ablock .answer > div input:checked + label::before {
                     background: #19284f; }
