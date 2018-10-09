@@ -138,7 +138,8 @@ $string['school_details'] = 'פרטי בית הספר';
 $string['school'] = 'בית ספר';
 $string['school_city'] = 'עיר';
 $string['address'] = 'כתובת';
-$string['icq'] = 'תחום דעת';
+$string['icq'] = 'ICQ';
+$string['knowledge'] = 'תחום דעת';
 $string['position'] = 'תפקיד';
 $string['birthday'] = 'תאריך לידה';
 $string['interests'] = 'תחומי עניין';
@@ -161,6 +162,7 @@ $string['emailerror'] = 'פורמט דוא"ל שגוי';
 $string['phoneerror'] = 'הזן מספר טלפון באמצעות תבנית לדוגמה';
 $string['teudatzeutnotnumerical'] = 'הזן ערך מספר';
 $string['teudatzeutwrong'] = 'ערך שגוי';
+$string['editionrestricted'] = 'Sorry, you have no permission to edit this field';
 
 // footer
 

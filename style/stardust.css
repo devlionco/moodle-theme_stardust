@@ -2203,6 +2203,17 @@ body#page-login-signup {
   background: url([[pix:theme|pagemy/help-dblue]]) no-repeat center;
   cursor: pointer; }
 
+@keyframes spinDblueAjax {
+  to {
+    border-top-color: #19284f;
+    transform: rotate(360deg); } }
+
+@keyframes sussesDblueAjax {
+  0% {
+    stroke-dashoffset: -100; }
+  100% {
+    stroke-dashoffset: 900; } }
+
 #mypublic-student {
   color: #3C3C3C;
   font-family: "openSans"; }
@@ -2338,6 +2349,7 @@ body#page-login-signup {
               -ms-flex-align: center;
                   align-items: center; }
           #mypublic-student .main-wrapper .main-content .profile-info {
+            position: relative;
             display: -ms-grid;
             display: grid;
             grid-gap: 24px;
@@ -2393,6 +2405,9 @@ body#page-login-signup {
                   -ms-flex-direction: column;
                       flex-direction: column; }
                   #mypublic-student .main-wrapper .main-content .profile-info .column .info-list li .input {
+                    min-height: 41px;
+                    padding: 3px 3px 10px;
+                    width: 100%;
                     border: none;
                     font-size: 18px; }
                   #mypublic-student .main-wrapper .main-content .profile-info .column .info-list li.info .input {
@@ -2411,7 +2426,35 @@ body#page-login-signup {
                         align-items: flex-end; }
                     #mypublic-student .main-wrapper .main-content .profile-info .column .info-list li.info.submit .btn-blue {
                       margin-top: 23px;
-                      width: 140px; }
+                      width: 140px;
+                      cursor: pointer; }
+                  #mypublic-student .main-wrapper .main-content .profile-info .column .info-list li.warning {
+                    font-weight: normal; }
+                    #mypublic-student .main-wrapper .main-content .profile-info .column .info-list li.warning .input {
+                      border-bottom: 2px solid #ffa500;
+                      color: #717171;
+                      padding-bottom: 10px;
+                      outline: none; }
+                    #mypublic-student .main-wrapper .main-content .profile-info .column .info-list li.warning .input:-webkit-autofill {
+                      -webkit-box-shadow: 0 0 0 30px white inset; }
+                    #mypublic-student .main-wrapper .main-content .profile-info .column .info-list li.warning .input-label {
+                      display: block;
+                      width: 100%;
+                      font-size: 12px;
+                      margin-top: 8px; }
+                      #mypublic-student .main-wrapper .main-content .profile-info .column .info-list li.warning .input-label .warning {
+                        font-weight: normal;
+                        display: block;
+                        float: right;
+                        text-align: right;
+                        color: #ffa500; }
+                    #mypublic-student .main-wrapper .main-content .profile-info .column .info-list li.warning.submit {
+                      -ms-flex-align: end;
+                          align-items: flex-end; }
+                      #mypublic-student .main-wrapper .main-content .profile-info .column .info-list li.warning.submit .btn-blue {
+                        margin-top: 23px;
+                        width: 140px;
+                        cursor: pointer; }
                   #mypublic-student .main-wrapper .main-content .profile-info .column .info-list li.danger .input {
                     border-bottom: 2px solid #ff090b;
                     color: #717171;
@@ -2434,7 +2477,44 @@ body#page-login-signup {
                         align-items: flex-end; }
                     #mypublic-student .main-wrapper .main-content .profile-info .column .info-list li.danger.submit .btn-blue {
                       margin-top: 23px;
-                      width: 140px; }
+                      width: 140px;
+                      cursor: pointer; }
+            #mypublic-student .main-wrapper .main-content .profile-info #sendajax {
+              position: absolute;
+              top: 0;
+              left: 0;
+              width: 100%;
+              height: 100%;
+              display: -ms-flexbox;
+              display: flex;
+              -ms-flex-flow: column nowrap;
+                  flex-flow: column nowrap;
+              -ms-flex-pack: center;
+                  justify-content: center;
+              -ms-flex-align: center;
+                  align-items: center;
+              background-color: rgba(25, 40, 79, 0.5); }
+              #mypublic-student .main-wrapper .main-content .profile-info #sendajax .spinner {
+                display: block;
+                width: 5rem;
+                height: 5rem;
+                border-radius: 50%;
+                animation: spinDblueAjax 1s linear infinite;
+                border: 1px solid rgba(25, 40, 79, 0.1);
+                border-top: 5px solid #19284f; }
+              #mypublic-student .main-wrapper .main-content .profile-info #sendajax .ajax-sent {
+                background: radial-gradient(#FFFFFF 0%, #FFFFFF 50%, rgba(25, 40, 79, 0.5) 120%);
+                border-radius: 50%;
+                width: 5em;
+                height: 5em;
+                display: block;
+                transition: opacity 1s linear; }
+                #mypublic-student .main-wrapper .main-content .profile-info #sendajax .ajax-sent .path {
+                  stroke-dasharray: 1000;
+                  stroke-dashoffset: 0; }
+                  #mypublic-student .main-wrapper .main-content .profile-info #sendajax .ajax-sent .path.check {
+                    stroke-dashoffset: -100;
+                    animation: sussesDblueAjax .9s .35s ease-in-out forwards; }
           #mypublic-student .main-wrapper .main-content .profile-medals {
             -ms-flex-align: center;
                 align-items: center; }

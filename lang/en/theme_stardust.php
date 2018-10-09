@@ -500,7 +500,8 @@ $string['school_details'] = 'School details';
 $string['school'] = 'School';
 $string['school_city'] = 'School city';
 $string['address'] = 'Address';
-$string['icq'] = 'Knowledge';
+$string['icq'] = 'ICQ';
+$string['knowledge'] = 'Knowledge';
 $string['position'] = 'Position';
 $string['birthday'] = 'Birthday';
 $string['interests'] = 'Interests';
@@ -523,6 +524,7 @@ $string['emailerror'] = 'Wrong email format';
 $string['phoneerror'] = 'Please enter number using example format';
 $string['teudatzeutnotnumerical'] = 'Enter number value';
 $string['teudatzeutwrong'] = 'Incorrect value';
+$string['editionrestricted'] = 'Sorry, you have no permission to edit this field';
 
 
 // course page

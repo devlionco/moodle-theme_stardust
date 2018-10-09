@@ -31,6 +31,7 @@ function save_mypublicpage_shortform() {
     $icq = optional_param('icq', '', PARAM_INT);            // ???
     $birthday = optional_param('birthday', '', PARAM_RAW);
     $interests = optional_param('interests', '', PARAM_RAW);
+    $knowledge = optional_param('knowledge', '', PARAM_RAW);
 
 
         $fullname = preg_replace('/\s+/', ' ',$fullname);
@@ -113,6 +114,23 @@ function save_mypublicpage_shortform() {
             //$interests = explode(", ", $interests[0]);    //SG - if interests come in one line - I devide it for tags
             $result = core_tag_tag::set_item_tags('core', 'user', $userid, context_user::instance($userid), $interests);
             $response['interests'] = 'OK';
+        }
+
+        // update knowledge
+        if(!empty($knowledge)){
+            $knowledgefieldid = $DB->get_field('user_info_field', 'id', array('shortname' => 'knowledge'));  // SG - ugly hack to define knowledge data field
+            // create DB object for update or insert
+            $knowledgefielddata = new stdClass();
+            $knowledgefielddata->fieldid = $knowledgefieldid;
+            $knowledgefielddata->userid = $userid;
+            $knowledgefielddata->data = $knowledge;
+            if ($dataid = $DB->get_field('user_info_data', 'id', array('userid' => $userid, 'fieldid' => $knowledgefieldid))) {
+                $knowledgefielddata->id = $dataid;
+                $result = $DB->update_record('user_info_data', $knowledgefielddata);
+            } else {
+                $result = $DB->insert_record('user_info_data', $knowledgefielddata);
+            }
+            $response['knowledge'] = ($result) ? 'OK. Row id:'.$result : $result;
         }
 
     echo json_encode($response);

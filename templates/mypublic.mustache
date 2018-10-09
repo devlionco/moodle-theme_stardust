@@ -168,45 +168,60 @@
                         </button>
                         <ul class="info-list">
                             <li class="info" data-input="username">
-                                <input type="text" id="username" class="input" {{canedit}} {{userinfo.username_status}} value="{{userinfo.username}}" />
-                                <span class="input-label">{{#str}} username, theme_stardust{{/str}}</span>
+                              {{#canedit}}{{/canedit}}{{^canedit}}{{/canedit}}
+                              <span id="username" class="input">{{userinfo.username}}</span>
+                              <!-- <input type="text" id="username" class="input" {{canedit}} {{userinfo.username_status}} value="{{userinfo.username}}" /> -->
+                              <span class="input-label">{{#str}} username, theme_stardust{{/str}}</span>
                             </li>
                             <li class="info" data-input="pass">
                                 <!-- <input type="password" id="password" class="input" {{canedit}} value="" /> -->
-                                <span class="input" id="pass"><a href="/login/change_password.php?id=1">{{#str}} change_password_link, theme_stardust{{/str}}</a></span>
+                                <a  class="input" id="pass" href="/login/change_password.php?id=1">{{#str}} change_password_link, theme_stardust{{/str}}</a>
                                 <span class="input-label">{{#str}} password, theme_stardust{{/str}}</span>
                             </li>
                             <li class="info" data-input="fullname">
-                                <input type="text" id="fullname" class="input" {{canedit}} {{userinfo.lastname_status}} value="{{userinfo.firstname}} {{userinfo.lastname}}">
+                              <span id="fullname" class="input">{{userinfo.firstname}} {{userinfo.lastname}}</span>
+                                <!-- <input type="text" id="fullname" class="input" {{canedit}} {{userinfo.lastname_status}} value="{{userinfo.firstname}} {{userinfo.lastname}}"> -->
                                 <span class="input-label">{{#str}} lastname_firstname, theme_stardust{{/str}}</span>
                             </li>
                             <li class="info" data-input="passport">
-                                <input type="text" id="idnumber" class="input" {{canedit}} {{userinfo.idnumber_status}} readonly value="{{userinfo.idnumber}}">
+                              <span id="idnumber" class="input">{{userinfo.idnumber}}</span>
+                                <!-- <input type="text" id="idnumber" class="input" {{canedit}} {{userinfo.idnumber_status}} readonly value="{{userinfo.idnumber}}"> -->
                                 <span class="input-label">{{#str}} passport, theme_stardust{{/str}}</span>
                             </li>
                             <li class="info" data-input="email">
-                                <input type="text" id="email" class="input" {{canedit}} {{userinfo.email_status}} value="{{userinfo.email}}">
+                              <span id="email" class="input">{{userinfo.email}}</span>
+                                <!-- <input type="text" id="email" class="input" {{canedit}} {{userinfo.email_status}} value="{{userinfo.email}}"> -->
                                 <span class="input-label">{{#str}} email, theme_stardust{{/str}}</span>
                             </li>
                             <li class="info" data-input="aim">
-                                <input type="text" id="aim" class="input" {{canedit}} {{userinfo.aim_status}} value="{{userinfo.aim}}">
+                              <span id="aim" class="input">{{userinfo.aim}}</span>
+                                <!-- <input type="text" id="aim" class="input" {{canedit}} {{userinfo.aim_status}} value="{{userinfo.aim}}"> -->
                                 <span class="input-label">{{#str}} additional_email, theme_stardust{{/str}}</span>
                             </li>
                             <li class="info" data-input="phone1">
-                                <input type="text" id="phone1" class="input" {{canedit}} {{userinfo.phone1_status}} value="{{userinfo.phone1}}">
+                              <span id="phone1" class="input">{{userinfo.phone1}}</span>
+                                <!-- <input type="text" id="phone1" class="input" {{canedit}} {{userinfo.phone1_status}} value="{{userinfo.phone1}}"> -->
                                 <span class="input-label">{{#str}} phone, theme_stardust{{/str}}</span>
                             </li>
                             <li class="info" data-input="phone2">
-                                <input type="text" id="phone2" class="input" {{canedit}} {{userinfo.phone2_status}} value="{{userinfo.phone2}}">
+                              <span id="phone2" class="input">{{userinfo.phone2}}</span>
+                                <!-- <input type="text" id="phone2" class="input" {{canedit}} {{userinfo.phone2_status}} value="{{userinfo.phone2}}"> -->
                                 <span class="input-label">{{#str}} additional_phone, theme_stardust{{/str}}</span>
                             </li>
                             <li class="info" data-input="skype">
-                                <input type="text" id="skype" class="input" {{canedit}} {{userinfo.skype_status}} value="{{userinfo.skype}}">
+                              <span id="skype" class="input">{{userinfo.skype}}</span>
+                                <!-- <input type="text" id="skype" class="input" {{canedit}} {{userinfo.skype_status}} value="{{userinfo.skype}}"> -->
                                 <span class="input-label">{{#str}} position, theme_stardust{{/str}}</span>
                             </li>
                             <li class="info" data-input="icq">
-                                <input type="text" id="icq" class="input" {{canedit}} {{userinfo.icq_status}} value="{{userinfo.icq}}">
+                              <span id="icq" class="input">{{userinfo.icq}}</span>
+                                <!-- <input type="text" id="icq" class="input" {{canedit}} {{userinfo.icq_status}} value="{{userinfo.icq}}"> -->
                                 <span class="input-label">{{#str}} icq, theme_stardust{{/str}}</span>
+                            </li>
+                            <li class="info" data-input="knowledge">
+                              <span id="knowledge" class="input">{{userinfo.knowledge}}</span>
+                                <!-- <input type="text" id="knowledge" class="input" {{canedit}} {{userinfo.knowledge_status}} value="" placeholder=""> -->
+                                <span class="input-label">{{#str}} knowledge, theme_stardust{{/str}}</span>
                                 <div id = "knowledge-container" class = "knowledge-container">
                                   {{#userinfo.knowledge}}
                                     <div
@@ -220,11 +235,13 @@
                                 </div>
                             </li>
                             <li class="info" data-input="birthday">
-                                <input type="date" id="birthday" class="input" {{canedit}} value="{{#userdate}}{{userinfo.profile_field_birthday}}, %Y-%m-%d {{/userdate}}">
+                              <span id="birthday" class="input">{{#userdate}}{{userinfo.profile_field_birthday}}, %Y-%m-%d {{/userdate}}</span>
+                                <!-- <input type="date" id="birthday" class="input" {{canedit}} value="{{#userdate}}{{userinfo.profile_field_birthday}}, %Y-%m-%d {{/userdate}}"> -->
                                 <span class="input-label">{{#str}} birthday, theme_stardust{{/str}}</span>
                             </li>
                             <li class="info" data-input="interests">
-                                <input type="text" id="interests" class="input" {{canedit}} value="" placeholder="{{#str}} write_tags, theme_stardust{{/str}}">
+                              <span id="interests" class="input">{{#str}} write_tags, theme_stardust{{/str}}</span>
+                                <!-- <input type="text" id="interests" class="input" {{canedit}} value="" placeholder="{{#str}} write_tags, theme_stardust{{/str}}"> -->
                                 <span class="input-label">{{#str}} interests, theme_stardust{{/str}}</span>
                                 <div id = "tag-container" class = "tag-container">
                                   {{#userinfo.interests}}
@@ -362,37 +379,6 @@ require(['jquery'], function($) {
   $('#change_background').on('click', function(e){
     e.stopPropagation();
     $('#mform2').fadeToggle();
-  });
-
-  // adding tags on the page
-  const mainBlock = document.querySelector(`#mypublicpage-profile-shortform`);
-  const interests = mainBlock.querySelector('#interests');
-
-  //const tagContainer = mainBlock.querySelector('#tag-container');
-  //const knowledgeContainer = mainBlock.querySelector('#knowledge-container');
-
-  const getRandColor = () => {
-    let color = Math.floor(Math.random() * Math.pow(256, 3)).toString(16);
-    while(color.length < 6) {
-        color = "0" + color;
-    }
-    return "#" + color;
-  }
-
-  function getNewTag (target, type) {
-    let tagText = target.value;
-    const tagItem = $('<div class = "' + type + '-item" style = "background-color:'+ getRandColor() +';" onClick = this.remove();>'+tagText+'</div>');
-    tagItem.appendTo(mainBlock.querySelector('#'+ type +'-container'));
-  }
-
-  interests.addEventListener('change', function(e){
-    getNewTag(e.currentTarget, 'tag');
-    e.currentTarget.value = '';
-  });
-
-  icq.addEventListener('change', function(e){
-    getNewTag(e.currentTarget, 'knowledge');
-    e.currentTarget.value = '';
   });
 
 });

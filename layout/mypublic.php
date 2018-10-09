@@ -69,18 +69,34 @@ profile_load_data($user);
 // get profile fields, that are locked by auth plugins and set them disabled status
 $authplugin = get_auth_plugin($user->auth);
 $fields = get_user_fieldnames();
+$locked = array();
+$unlockedifempty = array();
+// second realization - as array for $jscontext->restrictions
 foreach ($fields as $field) {
     $configvariable = 'field_lock_' . $field;
     if (isset($authplugin->config->{$configvariable})) {
         if ($authplugin->config->{$configvariable} === 'locked') {
-            $fieldstatus = "{$field}_status";
-            $user->{$fieldstatus} = 'disabled';
+            $locked[] = $field;
         } else if ($authplugin->config->{$configvariable} === 'unlockedifempty' and $user->{$field}!= '') {
-            $fieldstatus = "{$field}_status";
-            $user->{$fieldstatus} = 'disabled';
+            $unlockedifempty[] = $field;
         }
     }
 }
+
+// first realization (for form) with disabled status -- SG TOREMOVE lately if jscontext works fine
+// foreach ($fields as $field) {
+//     $configvariable = 'field_lock_' . $field;
+//     if (isset($authplugin->config->{$configvariable})) {
+//         if ($authplugin->config->{$configvariable} === 'locked') {
+//             $fieldstatus = "{$field}_status";
+//             $user->{$fieldstatus} = 'disabled';
+//         } else if ($authplugin->config->{$configvariable} === 'unlockedifempty' and $user->{$field}!= '') {
+//             $fieldstatus = "{$field}_status";
+//             $user->{$fieldstatus} = 'disabled';
+//         }
+//     }
+// }
+
 
 
 user_preference_allow_ajax_update('drawer-open-nav', PARAM_ALPHA);
@@ -112,21 +128,29 @@ $templatecontext = [
     'hasfhsdrawer' => $hasfhsdrawer,
     'regionmainsettingsmenu' => $regionmainsettingsmenu,
     'hasregionmainsettingsmenu' => !empty($regionmainsettingsmenu),
-    'userinfo' => $user,
+    'userinfo' => $user,                        // SG - TOREMOVE if jscontext works fine
     'canedit' => $canedit,
     'userpictureurl' => $userpictureurl,
     'usercoursesprogress' => $usercoursesprogress,
     'helplink' => true,
     'backgroundimg' => isset($backgroundimg) ? $backgroundimg : $mypublicdefaultbgimgurl
 ];
-// echo '<pre>'.print_r($user,1).'</pre>'; exit();
+
+// create $jscontext, which later send as param to js_call_amd (mypublicpage)
+$jsuser = clone($user);                         // clone user object to avoid its modification
+$jsuser->locked = $locked;                      // add locked fields array
+$jsuser->unlockedifempty = $unlockedifempty;    // add unlockedifempty fields array
+unset ($jsuser->password);                      // remove password hash from the object
+$jscontext = json_encode($jsuser);              // make JSON
+
+//echo '<pre>'.print_r($user,1).'</pre>'; exit();
 $PAGE->requires->jquery();
 if (isset($PAGE->theme->settings->showbacktotop) && $PAGE->theme->settings->showbacktotop == 1) {
     $PAGE->requires->js('/theme/fordson/javascript/scrolltotop.js');
 }
 $PAGE->requires->js('/theme/fordson/javascript/scrolltotop.js');
 $PAGE->requires->js('/theme/fordson/javascript/tooltipfix.js');
-$PAGE->requires->js_call_amd('theme_stardust/mypublicpage', 'init');
+$PAGE->requires->js_call_amd('theme_stardust/mypublicpage', 'init', array($jscontext));
 
 $templatecontext['flatnavigation'] = $PAGE->flatnav;
 echo $OUTPUT->render_from_template('theme_stardust/mypublic', $templatecontext);
