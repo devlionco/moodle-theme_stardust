@@ -48,6 +48,8 @@ $THEME->layouts = [
     // My dashboard page.
     'mydashboard' => array(
         'file' => 'mydashboard.php',
+        'regions' => array('fp-a', 'fp-b', 'fp-c'),
+        'defaultregion' => 'fp-c',
         // 'regions' => array('side-pre'),
         // 'defaultregion' => 'side-pre',
         'options' => array('nonavbar' => true, 'langmenu' => true),

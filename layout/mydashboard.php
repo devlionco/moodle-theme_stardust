@@ -122,6 +122,22 @@ $blockshtml = $OUTPUT->blocks('side-pre');
 $hasblocks = strpos($blockshtml, 'data-block=') !== false;
 $regionmainsettingsmenu = $OUTPUT->region_main_settings_menu();
 
+// block from fordson
+$blockshtmla = $OUTPUT->blocks('fp-a');
+$blockshtmlb = $OUTPUT->blocks('fp-b');
+$blockshtmlc = $OUTPUT->blocks('fp-c');
+$checkblocka = strpos($blockshtmla, 'data-block=') !== false;
+$checkblockb = strpos($blockshtmlb, 'data-block=') !== false;
+$checkblockc = strpos($blockshtmlc, 'data-block=') !== false;
+//TODO  add to theme_stardust settings
+// $hasfpblockregion = ($PAGE->theme->settings->blockdisplay == 1) !== false;
+$hasfpblockregion = 1;
+
+$hascourseblocks = false;
+if ($checkblocka || $checkblockb || $checkblockc) {
+    $hascourseblocks = true;
+}
+
 // get background image for mypublic page
 $themebackgroundimg = $PAGE->theme->setting_file_url('mydashboardbgimage', 'mydashboardbgimage');
 $usercontext = context_user::instance($USER->id);
@@ -153,6 +169,11 @@ $templatecontext = [
     'navdraweropen' => isset($navdraweropen) ? $navdraweropen : '',
     'hasfhsdrawer' => $hasfhsdrawer,
     // 'hasfhsdrawer' => false,
+    'hascourseblocks' => $hascourseblocks, // block in course
+    'hasfpblockregion' => $hasfpblockregion,
+    'fpablocks' => $blockshtmla,
+    'fpbblocks' => $blockshtmlb,
+    'fpcblocks' => $blockshtmlc,
     'sitesettingsbutton' => false,
     'username' => $USER->firstname.' '.$USER->lastname,
     'allactivities' => get_activities_mydashboard($activitiesconf, 3), // second argument is for num of relevant activities for course cards
