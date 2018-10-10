@@ -941,6 +941,16 @@ body#page-login-signup {
   #my-page .document-icon {
     height: 40px;
     width: 40px; }
+  #my-page .blockpanelbtn {
+    width: 56px;
+    height: 56px;
+    top: -36px;
+    right: 0; }
+  #my-page .help-block {
+    position: absolute;
+    top: -36px;
+    right: 80px;
+    z-index: 1; }
   #my-page .mod_complete {
     width: 100%;
     height: 40px;
@@ -978,10 +988,6 @@ body#page-login-signup {
         justify-content: center;
     -ms-flex-align: center;
         align-items: center; }
-    #my-page .main-wrapper .help-block {
-      position: absolute;
-      bottom: -38px;
-      right: 46px; }
     #my-page .main-wrapper .main {
       width: 100%;
       max-width: 78%; }

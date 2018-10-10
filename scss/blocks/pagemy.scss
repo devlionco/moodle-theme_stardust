@@ -28,7 +28,18 @@ $padding-blocks: 20px 27px 24px 24px;
     height: 40px;
     width: 40px;
   }
-
+  .blockpanelbtn {
+    width: 56px;
+    height: 56px;
+    top: -36px;
+    right: 0;
+  }
+  .help-block {
+    position: absolute;
+    top: -36px;
+    right: 80px;
+    z-index: 1;
+  }
   .mod_complete {
     // width: 40px;
     width: 100%;
@@ -76,11 +87,12 @@ $padding-blocks: 20px 27px 24px 24px;
     display: flex;
     justify-content: center;
     align-items: center;
-    .help-block {
-      position: absolute;
-      bottom: -38px;
-      right: 46px;
-    }
+    // .help-block {
+    //   position: absolute;
+    //   bottom: -38px;
+    //   right: 46px;
+    //   z-index: 1;
+    // }
     .main {
       width: 100%;
       max-width: 78%;
