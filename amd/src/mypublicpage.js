@@ -281,7 +281,6 @@ define(['jquery', 'jqueryui', 'core/str'], function($, jqui, str) {
               item.value = $.trim(item.value);
               break;
           }
-          // console.log(item.id);
           changes[item.id] = item.value;
         }
 
@@ -291,6 +290,10 @@ define(['jquery', 'jqueryui', 'core/str'], function($, jqui, str) {
           changes['userid'] = userid;
           changes['action'] = 'mypublicpage-save-shortform';
         }
+        // remove values from knowledge and interests intputs
+        document.getElementById('knowledge').value = '';
+        document.getElementById('interests').value = '';
+
         // console.log(JSON.stringify(changes));
         // check all errors
         if (errors){
@@ -305,7 +308,6 @@ define(['jquery', 'jqueryui', 'core/str'], function($, jqui, str) {
           if (success){
             setTimeout( function(){
               document.getElementById('sendajax').innerHTML = check;
-              console.log($('#mypublicpage-profile-shortform .ajax-sent'));
             }, 2000);
           }
           setTimeout(function(){

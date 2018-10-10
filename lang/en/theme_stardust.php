@@ -518,6 +518,7 @@ $string['mypublic_new_background_img'] = 'Upload new image';
 $string['mypublic_deletebackgroundimg'] = 'Remove image';
 $string['mypublic_save_backgroundimg'] = 'Save image';
 $string['write_tags'] = 'write tags';
+$string['write_knowledges'] = 'write skills';
 $string['change_password_link'] = 'Click here to change your password';
 $string['isrequired'] = 'This field is required';
 $string['emailerror'] = 'Wrong email format';
