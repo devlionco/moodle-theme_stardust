@@ -554,3 +554,6 @@ $string['show_less'] = 'Show less';
 $string['show_flagged'] = 'Show flagged question';
 $string['show_answered'] = 'Show answered question';
 $string['show_notanswered'] = 'Show notanswered question';
+
+// Teacher dashboard (davidson)
+$string['extendeduserreport'] = 'Detailed user report';
