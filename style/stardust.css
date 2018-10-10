@@ -3518,9 +3518,7 @@ html {
                         align-items: center;
                     margin: 0;
                     padding: 0;
-                    left: 0;
-                    top: 50%;
-                    transform: translateY(-50%); }
+                    left: 0; }
                     #page-mod-quiz-attempt #page-wrapper section#region-main.has-blocks [role="main"] .que .content .formulation .ablock .answer > div label::before {
                       content: '';
                       display: block;
