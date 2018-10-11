@@ -135,12 +135,14 @@ require(['jquery'], function($){
 
   document.addEventListener('click', function(e){
     let target = e.target;
-    while (target.tagName != 'BODY') {
+
+    while (target.tagName != 'HTML') {
       if (target.dataset.role === 'end' || target.dataset.flexitour === 'backdrop' ) {
         tutorilaBtn.classList.remove('active');
         return;
       }
       target = target.parentNode;
+      if (!target) return;
     }
   });
 
