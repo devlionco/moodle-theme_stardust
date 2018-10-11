@@ -155,6 +155,7 @@ $string['mypublic_background_img_hdr'] = 'תמונת רקע';
 $string['mypublic_new_background_img'] = 'העלה תמונה חדשה';
 $string['mypublic_deletebackgroundimg'] = 'הסר את התמונה';
 $string['mypublic_save_backgroundimg'] = 'שמור תמונה';
+$string['write_knowledges'] = 'write skills';
 $string['write_tags'] = 'תרשום תחומי עניין';
 $string['change_password_link'] = 'לחץ לשינוי סיסמה';
 $string['isrequired'] = 'זהו שדה חובה';

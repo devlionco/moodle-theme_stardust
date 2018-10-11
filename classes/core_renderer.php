@@ -2157,16 +2157,18 @@ public function get_user_certificates(){
 
 }
 
-namespace theme_stardust\output\core_user\myprofile;
+// SG - 20181010 - we have rewritten the renderer to reduce the profile page load, but it breaks some other user view pages. So comment for now
+//namespace theme_stardust\output\core_user\myprofile;
 /**
  * Override user profile renderer
  *
  * We disable profile TREE render to not overload page with extra information
  */
 
-class renderer extends \core_user\output\myprofile\renderer {
+// class renderer extends \core_user\output\myprofile\renderer {
 
-    public function render_tree(\core_user\output\myprofile\tree $tree) {
-        return "";
-    }
-}
+//     public function render_tree(\core_user\output\myprofile\tree $tree) {
+//         global $PAGE;
+//             return "";
+//     }
+// }

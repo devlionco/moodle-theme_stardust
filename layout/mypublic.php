@@ -63,8 +63,14 @@ if ($interests) {
     $user->interests = array_values($interests);
 }
 
-// upload custom user fields (birthday) to user object
+// upload custom user fields (birthday and knowledge) to user object
 profile_load_data($user);
+
+// add knowledge as array for convenience
+if (!empty($user->profile_field_knowledge)) {
+    $user->knowledge = json_decode($user->profile_field_knowledge['text']);
+    unset($user->profile_field_knowledge);
+}
 
 // get profile fields, that are locked by auth plugins and set them disabled status
 $authplugin = get_auth_plugin($user->auth);
@@ -128,7 +134,7 @@ $templatecontext = [
     'hasfhsdrawer' => $hasfhsdrawer,
     'regionmainsettingsmenu' => $regionmainsettingsmenu,
     'hasregionmainsettingsmenu' => !empty($regionmainsettingsmenu),
-    'userinfo' => $user,                        // SG - TOREMOVE if jscontext works fine
+    'userinfo' => $user,                        
     'canedit' => $canedit,
     'userpictureurl' => $userpictureurl,
     'usercoursesprogress' => $usercoursesprogress,
