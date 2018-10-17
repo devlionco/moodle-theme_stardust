@@ -3484,8 +3484,7 @@ html {
             padding: 0;
             margin-bottom: 20px;
             border-bottom: 1px solid #ddd; }
-            #page-mod-quiz-attempt #page-wrapper section#region-main.has-blocks [role="main"] .que .info .editquestion {
-              display: none; }
+            #page-mod-quiz-attempt #page-wrapper section#region-main.has-blocks [role="main"] .que .info .editquestion,
             #page-mod-quiz-attempt #page-wrapper section#region-main.has-blocks [role="main"] .que .info .questionflag,
             #page-mod-quiz-attempt #page-wrapper section#region-main.has-blocks [role="main"] .que .info .state,
             #page-mod-quiz-attempt #page-wrapper section#region-main.has-blocks [role="main"] .que .info .grade {
