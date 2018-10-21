@@ -1508,10 +1508,6 @@ class core_renderer extends \theme_boost\output\core_renderer {
         ));
 
         // Manage course.
-        $courseadmintitle = get_string('courseadministration', 'moodle');
-        $courseadminlink = new moodle_url('/course/admin.php', array(
-            'courseid' => $PAGE->course->id
-        ));
         $coursecompletiontitle = get_string('coursecompletion', 'moodle');
         $coursecompletionlink = new moodle_url('/course/completion.php', array(
             'id' => $PAGE->course->id
@@ -1522,6 +1518,10 @@ class core_renderer extends \theme_boost\output\core_renderer {
 
         // SG - T-276 - allow these links only for course admins, not for customized teachers
         if (has_capability('moodle/backup:backupcourse', $context)) {
+            $courseadmintitle = get_string('courseadministration', 'moodle');
+            $courseadminlink = new moodle_url('/course/admin.php', array(
+                'courseid' => $PAGE->course->id
+            ));    
             $courseresettitle = get_string('reset', 'moodle');
             $courseresetlink = new moodle_url('/course/reset.php', array(
                 'id' => $PAGE->course->id
