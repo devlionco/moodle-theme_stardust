@@ -1538,18 +1538,22 @@ class core_renderer extends \theme_boost\output\core_renderer {
         $competencytitle = get_string('competencies', 'competency');
         $competencyurl = new moodle_url('/admin/tool/lp/coursecompetencies.php', array('courseid' => $PAGE->course->id));
 
-        $courseresettitle = get_string('reset', 'moodle');
-        $courseresetlink = new moodle_url('/course/reset.php', array(
-            'id' => $PAGE->course->id
-        ));
-        $coursebackuptitle = get_string('backup', 'moodle');
-        $coursebackuplink = new moodle_url('/backup/backup.php', array(
-            'id' => $PAGE->course->id
-        ));
-        $courserestoretitle = get_string('restore', 'moodle');
-        $courserestorelink = new moodle_url('/backup/restorefile.php', array(
-            'contextid' => $PAGE->context->id
-        ));
+        // SG - T-276 - allow these links only for course admins, not for customized teachers
+        if (has_capability('moodle/backup:backupcourse', $context)) {
+            $courseresettitle = get_string('reset', 'moodle');
+            $courseresetlink = new moodle_url('/course/reset.php', array(
+                'id' => $PAGE->course->id
+            ));
+            $coursebackuptitle = get_string('backup', 'moodle');
+            $coursebackuplink = new moodle_url('/backup/backup.php', array(
+                'id' => $PAGE->course->id
+            ));
+            $courserestoretitle = get_string('restore', 'moodle');
+            $courserestorelink = new moodle_url('/backup/restorefile.php', array(
+                'contextid' => $PAGE->context->id
+            ));
+        }
+
         $courseimporttitle = get_string('import', 'moodle');
         $courseimportlink = new moodle_url('/backup/import.php', array(
             'id' => $PAGE->course->id
@@ -1572,14 +1576,19 @@ class core_renderer extends \theme_boost\output\core_renderer {
         $recyclebinlink = new moodle_url('/admin/tool/recyclebin/index.php', array(
             'contextid' => $PAGE->context->id
         ));
-        $filtertitle = get_string('filtersettings', 'filters');
-        $filterlink = new moodle_url('/filter/manage.php', array(
-            'contextid' => $PAGE->context->id
-        ));
-        $eventmonitoringtitle = get_string('managesubscriptions', 'tool_monitor');
-        $eventmonitoringlink = new moodle_url('/admin/tool/monitor/managerules.php', array(
-            'courseid' => $PAGE->course->id
-        ));
+
+        // SG - T-276 - allow these links only for course admins, not for customized teachers
+        if (has_capability('moodle/backup:backupcourse', $context)) {
+            $filtertitle = get_string('filtersettings', 'filters');
+            $filterlink = new moodle_url('/filter/manage.php', array(
+                'contextid' => $PAGE->context->id
+            ));
+            $eventmonitoringtitle = get_string('managesubscriptions', 'tool_monitor');
+            $eventmonitoringlink = new moodle_url('/admin/tool/monitor/managerules.php', array(
+                'courseid' => $PAGE->course->id
+            ));
+        }
+        
 
         // Student Dash.
         if (\core_completion\progress::get_course_progress_percentage($PAGE->course)) {
@@ -1675,7 +1684,8 @@ class core_renderer extends \theme_boost\output\core_renderer {
         // Permissionchecks for teacher access.
         $hasquestionpermission = has_capability('moodle/question:add', $context);
         $hasbadgepermission = has_capability('moodle/badges:awardbadge', $context);
-        $hascoursepermission = has_capability('moodle/backup:backupcourse', $context);
+        $hascoursepermission = has_capability('moodle/course:update', $context);
+        $hasbackuppermission = has_capability('moodle/backup:backupcourse', $context);
         $hasuserpermission = has_capability('moodle/course:viewhiddenactivities', $context);
         $isteacherviewer = has_capability('moodle/grade:viewall', $context) && !$hasuserpermission;
         $hasgradebookshow = $PAGE->course->showgrades == 1 && $PAGE->theme->settings->showstudentgrades == 1;

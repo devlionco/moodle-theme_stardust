@@ -122,6 +122,10 @@ $blockshtml = $OUTPUT->blocks('side-pre');
 $hasblocks = strpos($blockshtml, 'data-block=') !== false;
 $regionmainsettingsmenu = $OUTPUT->region_main_settings_menu();
 
+// is teacher marker
+$coursecontext = context_course::instance(SITEID);
+$isteacher = (has_capability('moodle/course:update', $coursecontext)) ? true : false;
+
 // block from fordson
 $blockshtmla = $OUTPUT->blocks('fp-a');
 $blockshtmlb = $OUTPUT->blocks('fp-b');
@@ -134,7 +138,7 @@ $checkblockc = strpos($blockshtmlc, 'data-block=') !== false;
 $hasfpblockregion = 1;
 
 $hascourseblocks = false;
-if ($checkblocka || $checkblockb || $checkblockc) {
+if ($checkblocka || $checkblockb || $checkblockc && $isteacher) {
     $hascourseblocks = true;
 }
 

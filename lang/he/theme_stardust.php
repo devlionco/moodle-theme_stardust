@@ -163,7 +163,7 @@ $string['emailerror'] = 'פורמט דוא"ל שגוי';
 $string['phoneerror'] = 'הזן מספר טלפון באמצעות תבנית לדוגמה';
 $string['teudatzeutnotnumerical'] = 'הזן ערך מספר';
 $string['teudatzeutwrong'] = 'ערך שגוי';
-$string['editionrestricted'] = 'Sorry, you have no permission to edit this field';
+$string['editionrestricted'] = 'אין לך הרשאה לערוך את השדה הזה';
 
 // footer
 

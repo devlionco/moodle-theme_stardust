@@ -767,13 +767,33 @@ body#page-login-signup {
         margin: 0 1.5vw;
         color: #fff; }
         .dheader .dheader__inner .dheader__right .dheader__tutorial .dheader__tutorial-link {
+          position: relative;
+          width: 130px;
           font: 600 12px "openSans";
           color: #fff;
-          padding-left: 27px;
-          background-position: left;
-          background-repeat: no-repeat;
-          background-size: 22px;
-          background-image: url([[pix:theme|header/toggle]]); }
+          padding-left: 37px; }
+          .dheader .dheader__inner .dheader__right .dheader__tutorial .dheader__tutorial-link::before, .dheader .dheader__inner .dheader__right .dheader__tutorial .dheader__tutorial-link::after {
+            content: "";
+            position: absolute;
+            top: -1px;
+            background-color: #fff;
+            left: 0;
+            height: 20px;
+            width: 30px;
+            border-radius: 10px; }
+          .dheader .dheader__inner .dheader__right .dheader__tutorial .dheader__tutorial-link::after {
+            transition: .2s;
+            background-color: #19284f;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            position: absolute;
+            top: 4px;
+            left: 5px; }
+          .dheader .dheader__inner .dheader__right .dheader__tutorial .dheader__tutorial-link.active::after {
+            left: 12px; }
+          .dheader .dheader__inner .dheader__right .dheader__tutorial .dheader__tutorial-link.active::before {
+            background-color: #5cb85c; }
           .dheader .dheader__inner .dheader__right .dheader__tutorial .dheader__tutorial-link .tutorialon {
             display: none; }
           .dheader .dheader__inner .dheader__right .dheader__tutorial .dheader__tutorial-link.active .tutorialon {
@@ -3464,8 +3484,7 @@ html {
             padding: 0;
             margin-bottom: 20px;
             border-bottom: 1px solid #ddd; }
-            #page-mod-quiz-attempt #page-wrapper section#region-main.has-blocks [role="main"] .que .info .editquestion {
-              display: none; }
+            #page-mod-quiz-attempt #page-wrapper section#region-main.has-blocks [role="main"] .que .info .editquestion,
             #page-mod-quiz-attempt #page-wrapper section#region-main.has-blocks [role="main"] .que .info .questionflag,
             #page-mod-quiz-attempt #page-wrapper section#region-main.has-blocks [role="main"] .que .info .state,
             #page-mod-quiz-attempt #page-wrapper section#region-main.has-blocks [role="main"] .que .info .grade {

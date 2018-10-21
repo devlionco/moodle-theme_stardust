@@ -107,7 +107,9 @@
 {{# js }}
 require(['jquery'], function($){
 
+
   let tutorilaBtn = document.querySelector('div[data-action="tool_usertours/resetpagetour"]');
+
   //TODO remove setTimeout
   $( document ).ready(function(e) {
     setTimeout(function(){
@@ -135,12 +137,14 @@ require(['jquery'], function($){
 
   document.addEventListener('click', function(e){
     let target = e.target;
-    while (target.tagName != 'BODY') {
+
+    while (target.tagName != 'HTML') {
       if (target.dataset.role === 'end' || target.dataset.flexitour === 'backdrop' ) {
         tutorilaBtn.classList.remove('active');
         return;
       }
       target = target.parentNode;
+      if (!target) return;
     }
   });
 

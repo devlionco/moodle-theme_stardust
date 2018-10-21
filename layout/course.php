@@ -31,6 +31,7 @@ require_once($CFG->libdir . "/completionlib.php");
 global $DB,$COURSE, $USER;
 $course = $PAGE->course;
 $courseformat = course_get_format($course->id)->get_format_options();
+$PAGE->set_title($course->shortname);
 
 /**
  *  Get attednance info 
