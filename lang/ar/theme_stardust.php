@@ -27,43 +27,41 @@ $string['pluginname'] = 'דוידסון';
 $string['configtitle'] = 'דוידסון';
 
 // header
-$string['tutorial_is_off'] = 'הדרכה כבויה';
-$string['tutorial_is_on'] = 'הדרכה פועלת';
-$string['tutorialisoffonthispage'] = 'סיור לא מוגדר בדף זה';
+$string['tutorial_is_off'] = 'إرشاد موقّف';
 // login page
-$string['entrance_to_moodle'] = 'כניסה למערכת מוודל של מכון דוידסון';
-$string['username'] = 'שם משתמש.ת';
-$string['password'] = 'סיסמא';
-$string['forgot_username'] = 'שכחתי שם משתמש.ת';
-$string['forgot_password'] = 'אופס, שכחתי סיסמא';
-$string['enter'] = 'כניסה';
-$string['sign_google'] = 'כניסה דרך גוגל';
-$string['sign_facebook'] = 'כניסה דרך פייסבוק';
-$string['entry_ministry_education'] = 'כניסה דרך משרד החינוך';
-$string['stardust_website'] = ' לאתר מכון דוידסון';
-$string['to_list_courses'] = 'לרשימת הקורסים';
-$string['greeting'] = 'ברוכים הבאים!';
-$string['about'] = 'אודות';
-$string['copyright'] = 'זכויות יוצרים';
-$string['policy'] = 'מדיניות';
+$string['entrance_to_moodle'] = 'دخول لمنظومة مودل التابعة لمعهد دافيدسون';
+$string['username'] = 'اسم المستخدم';
+$string['password'] = 'كلمة المرور';
+$string['forgot_username'] = 'نسيت اسم المستخدم';
+$string['forgot_password'] = 'نسيت كلمة المرور';
+$string['enter'] = 'دخول';
+$string['sign_google'] = 'الدخول عبر جوجل';
+$string['sign_facebook'] = 'الدخول عبر فيس بوك';
+$string['entry_ministry_education'] = 'الدخول عبر موقع وزارة التربية والتعليم';
+$string['stardust_website'] = 'لموقع معهد دافيدسون';
+$string['to_list_courses'] = 'لقائمة المساقات';
+$string['greeting'] = 'أهلاً وسهلاً';
+$string['about'] = 'حول';
+$string['copyright'] = 'حقوق النشر';
+$string['policy'] = 'سياسة';
 
 // page my
-$string['page_greeting'] = 'יופי שחזרת!';
-$string['what_doing_today'] = 'מה אני עושה היום';
+$string['page_greeting'] = 'ما أجمل عودتك!';
+$string['what_doing_today'] = 'ماذا سأفعل اليوم';
 $string['what_doing_week'] = 'מה אני עושה השבוע';
 $string['what_doing_month'] = 'מה אני עושה החודש';
-$string['type'] = ' סוג';
-$string['name'] = 'שם הפעילות';
-$string['course'] = 'שם הקורס';
-$string['date_of_submission'] = 'תאריך הגשה';
+$string['type'] = 'نوع';
+$string['name'] = 'اسم الفعاليّة';
+$string['course'] = 'اسم المساق';
+$string['date_of_submission'] = 'تاريخ التسليم';
 $string['name_of_assignment'] = 'שם המטלה';
 $string['name_of_unit'] = 'שם היחידה';
-$string['name_of_course'] = 'שם הקורס';
-$string['messages'] = 'הודעות';
+$string['name_of_course'] = 'اسم المساق';
+$string['messages'] = 'رسائل';
 $string['notifications'] = 'התראות';
-$string['grades'] = 'ציונים';
-$string['medal'] = 'מדליות';
-$string['diplom'] = 'תעודה';
+$string['grades'] = 'درجات';
+$string['medal'] = 'ميداليات';
+$string['diplom'] = 'شهادة';
 $string['cut_of_date'] = 'מועד ההגשה עבר';
 $string['two_days_before_assignment'] = 'יומיים להגשה';
 $string['one_days_before_assignment'] = 'יום אחד להגשה';
@@ -79,13 +77,13 @@ $string['dayname_3'] = 'רביעי';
 $string['dayname_4'] = 'חמישי';
 $string['dayname_5'] = 'שישי';
 $string['dayname_6'] = 'שבת';
-$string['no_submission_date'] = 'אין תאריך הגשה';
+$string['no_submission_date'] = 'لا يوجد تاريخ للتسليم';
 
 
-$string['active_courses'] = 'קורסים פעילים';
-$string['courses_finished'] = 'קורסים שסיימתי';
-$string['by_date'] = 'לפי תאריך';
-$string['by_abc'] = 'לפי א׳-ב׳';
+$string['active_courses'] = 'مساقات فعّالة';
+$string['courses_finished'] = 'المساقات التي أنهيتها';
+$string['by_date'] = 'حسب التاريخ';
+$string['by_abc'] = 'حسب الأبجدية';
 
 $string['sort_type'] = 'מיין לפי סוג';
 $string['sort_assignname'] = 'מיין לפי שם המטלה';
@@ -93,9 +91,9 @@ $string['sort_coursename'] = 'מיון לפי שם הקורס';
 $string['sort_cutofdate'] = 'מיין לפי תאריך ההגשה';
 
 $string['default_unit_name'] = 'יחידת־הוראה ';
-$string['submission_of_assignment'] = 'הגשת מטלה';
-$string['actionwithtask'] = 'התחלת פעילות';
-$string['turntotheteacher'] = 'פנייה למורה';
+$string['submission_of_assignment'] = 'تسليم المهمة';
+$string['actionwithtask'] = 'بداية الفعاليّة';
+$string['turntotheteacher'] = 'توجُّه للمعلّم';
 
 
 // Setting
@@ -123,56 +121,42 @@ $string['smalllogo'] = 'Small logo';
 $string['smalllogodesc'] = 'The small logo is displayed in the navigation bar. If there is a header logo for the front page and login page, the small logo is not displayed on these pages. If a logo is not added here, the compact logo in Appearance > Logos will be used.';
 
 // profile page
-$string['profile_greeting'] = 'הי! זהו עמוד הפרופיל שלך ›';
-$string['profile_picture'] = 'תמונת פרופיל';
+$string['profile_greeting'] = 'مرحبًا! هذه صفحة حسابك الشخصيّ ›';
+$string['profile_picture'] = 'صورةٌ شخصيّة';
 $string['change_picture'] = 'תמונת פרופיל';
-$string['profile_icon_info'] = 'ניתן להעלות קובץ מסוג jpg ';
-$string['personal_information'] = 'פרטים אישיים';
-$string['lastname_firstname'] = 'שם + שם משפחה';
-$string['passport'] = 'תאודת זהות';
-$string['phone'] = 'טלפון';
-$string['additional_phone'] = 'טלפון נוסף';
-$string['email'] = 'דוא"ל';
-$string['additional_email'] = 'דוא"ל נוסף';
-$string['school_details'] = 'פרטי בית הספר';
+$string['profile_icon_info'] = 'بالإمكان رفع ملفٍ من النوع jpg ';
+$string['presonal_information'] = 'التفاصيل الشخصيّة';
+$string['lastname_firstname'] = 'الاسم الشخصي + اسم العائلة';
+$string['passport'] = 'Passport';
+$string['phone'] = 'الهاتف';
+$string['additional_phone'] = 'Additional phone';
+$string['email'] = 'Email';
+$string['additional_email'] = 'Additional email';
+$string['school_details'] = 'تفاصيل المدرسة';
 $string['school'] = 'בית ספר';
-$string['school_city'] = 'עיר';
+$string['school_city'] = 'School city';
 $string['address'] = 'כתובת';
-$string['icq'] = 'תחום דעת';
-$string['knowledge'] = 'תחום דעת';
-$string['position'] = 'תפקיד';
+$string['icq'] = 'ICQ';
+$string['position'] = 'Position';
 $string['birthday'] = 'תאריך לידה';
-$string['interests'] = 'תחומי עניין';
-$string['accomplishments'] = 'הישגים';
-$string['update_details'] = 'עדכון פרטים';
-$string['save'] = 'שמירה';
+$string['interests'] = 'مجالات الاهتمام';
+$string['accomplishments'] = 'إنجازات';
+$string['update_details'] = 'تعديل التفاصيل';
+$string['save'] = 'حفظ';
 $string['nomedals'] = 'אין מדליות';
 $string['nogrades'] = 'אין ציונים';
 $string['nocertificates'] = 'אין תעודות';
-$string['gohomepage'] = 'דף הבית';
-$string['save_user_avatar'] = 'שמור אווטאר';
-$string['mypublic_background_img_hdr'] = 'תמונת רקע';
-$string['mypublic_new_background_img'] = 'העלה תמונה חדשה';
-$string['mypublic_deletebackgroundimg'] = 'הסר את התמונה';
-$string['mypublic_save_backgroundimg'] = 'שמור תמונה';
-$string['write_knowledges'] = 'write skills';
+$string['gohomepage'] = 'صفحة البيت';
+$string['save_user_avatar'] = 'Save avatar';
+$string['mypublic_background_img_hdr'] = 'Background image';
+$string['mypublic_new_background_img'] = 'Upload new image';
+$string['mypublic_deletebackgroundimg'] = 'Remove image';
+$string['mypublic_save_backgroundimg'] = 'Save image';
 $string['write_tags'] = 'תרשום תחומי עניין';
-$string['change_password_link'] = 'לחץ לשינוי סיסמה';
-$string['isrequired'] = 'זהו שדה חובה';
-$string['emailerror'] = 'פורמט דוא"ל שגוי';
-$string['phoneerror'] = 'הזן מספר טלפון באמצעות תבנית לדוגמה';
-$string['teudatzeutnotnumerical'] = 'הזן ערך מספר';
-$string['teudatzeutwrong'] = 'ערך שגוי';
-$string['editionrestricted'] = 'Sorry, you have no permission to edit this field';
-
-// footer
-
-$string['home_page'] = 'דף הבית';
-$string['about'] = 'אודות';
-$string['contact_us'] = 'צור קשר';
-$string['privacy_policy'] = 'מדיניות הפרטיות';
-$string['terms_of_use'] = 'תנאי שימוש';
-$string['accessibility_statement'] = 'הצהרת נגישות';
+$string['change_password_link'] = 'Click here to change your password';
+$string['isrequired'] = 'This field is required';
+$string['emailerror'] = 'Wrong email format';
+$string['phoneerror'] = 'Please enter tel number using example format';
 
 // course page
 $string['gohome'] = '< עמוד הבית';
@@ -183,24 +167,18 @@ $string['attendance'] = 'נוכחות';
 $string['classes'] = 'שיעורים';
 
 // incourse layout
-$string['backtocourse'] = '< בחזרה לעמוד הקורס';
+$string['backtocourse'] = '< عودة إلى صفحة المساق';
 $string['backtosection'] = 'Back to section - {$a}';
 $string['backtoactivity'] = 'Back to {$a}';
 $string['sectionstitle'] = 'יחידת הוראה';
 $string['activitiestitle'] = 'פעילות';
 
 // quiz attempt page
-$string['quizattemptbacktocourse'] = 'חזרה לקורס';
+$string['quizattemptbacktocourse'] = 'Back to course';
 $string['quizattemptbacktosection'] = 'Back to section - {$a}';
-$string['quizattemptbacktoactivity'] = 'חזרה לבוחן';
+$string['quizattemptbacktoactivity'] = 'Back to quiz';
 $string['quizattemptfinishlink'] = 'הגשת המבחן';
-$string['quiz_filter'] = 'סינון שאלות לפי:';
-$string['quizsettings'] = 'עריכת בוחן';
-$string['show_more'] = 'הצג יותר';
-$string['show_less'] = 'הצג פחות';
-$string['show_flagged'] = 'הצג שאלה מסומנת';
-$string['show_answered'] = 'הצג שאלה שנענתה';
-$string['show_notanswered'] = 'הצג שאלות שלא נענו';
+$string['quiz_filter'] = 'حسب الإشارة:';
 
 // Teacher dashboard (davidson)
 $string['extendeduserreport'] = 'פרטי משתמשים מורחב';

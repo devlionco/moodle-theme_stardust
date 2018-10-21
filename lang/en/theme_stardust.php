@@ -500,7 +500,7 @@ $string['school_details'] = 'School details';
 $string['school'] = 'School';
 $string['school_city'] = 'School city';
 $string['address'] = 'Address';
-$string['icq'] = 'ICQ';
+$string['icq'] = 'Knowledge';
 $string['knowledge'] = 'Knowledge';
 $string['position'] = 'Position';
 $string['birthday'] = 'Birthday';
@@ -558,3 +558,4 @@ $string['show_notanswered'] = 'Show notanswered question';
 
 // Teacher dashboard (davidson)
 $string['extendeduserreport'] = 'Detailed user report';
+$string['userspassreport'] = 'users and passwords';

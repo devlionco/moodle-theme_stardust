@@ -1294,7 +1294,8 @@ class core_renderer extends \theme_boost\output\core_renderer {
 
         // $showincourseonly = isset($COURSE->id) && $COURSE->id > 1 && $PAGE->theme->settings->coursemanagementtoggle && isloggedin() && !isguestuser();
         // $showincourseonly = isset($COURSE->id) && $COURSE->id > 1  && isloggedin() && !isguestuser();
-        $showincourseonly = isset($COURSE->id) && $COURSE->id > 1  && has_capability('moodle/course:update', $context);
+        // moodle/course:update
+        $showincourseonly = isset($COURSE->id) && $COURSE->id > 1  && has_capability('moodle/grade:viewall', $context);
         $haspermission = has_capability('enrol/category:config', $context) && isset($PAGE->theme->settings->coursemanagementtoggle) && isset($COURSE->id) && $COURSE->id > 1;
 
         $togglebutton = '';
@@ -1327,9 +1328,12 @@ class core_renderer extends \theme_boost\output\core_renderer {
         if (isloggedin() && ISSET($COURSE->id) && $COURSE->id > 1) {
             $course = $this->page->course;
             $context = context_course::instance($course->id);
-            $hasteacherdash = has_capability('moodle/course:viewhiddenactivities', $context);
-            $hasstudentdash = !has_capability('moodle/course:viewhiddenactivities', $context);
-            if (has_capability('moodle/course:viewhiddenactivities', $context)) {
+            // Used to be : moodle/course:viewhiddenactivities , but Hanna changed it to:
+            // moodle/grade:viewall (18-10-2018)
+            $iamteacher = has_capability('moodle/grade:viewall', $context);
+            $hasteacherdash = $iamteacher;
+            $hasstudentdash = !$iamteacher;
+            if ($iamteacher) {
                 $togglebutton = get_string('coursemanagementbutton', 'theme_fordson');
             } else {
                 $togglebuttonstudent = get_string('studentdashbutton', 'theme_fordson');
@@ -1394,9 +1398,12 @@ class core_renderer extends \theme_boost\output\core_renderer {
         if (isloggedin() && ISSET($COURSE->id) && $COURSE->id > 1) {
             $course = $this->page->course;
             $context = context_course::instance($course->id);
-            $hasteacherdash = has_capability('moodle/course:viewhiddenactivities', $context);
-            $hasstudentdash = !has_capability('moodle/course:viewhiddenactivities', $context);
-            if (has_capability('moodle/course:viewhiddenactivities', $context)) {
+            // Used to be : moodle/course:viewhiddenactivities , but Hanna changed it to:
+            // moodle/grade:viewall (18-10-2018)
+            $iamteacher = has_capability('moodle/grade:viewall', $context);
+            $hasteacherdash = $iamteacher;
+            $hasstudentdash = !$iamteacher;
+            if ($iamteacher) {
                 $togglebutton = get_string('coursemanagementbutton', 'theme_fordson');
             } else {
                 $togglebuttonstudent = get_string('studentdashbutton', 'theme_fordson');
@@ -1465,11 +1472,18 @@ class core_renderer extends \theme_boost\output\core_renderer {
         $enrolmethodlink = new moodle_url('/enrol/instances.php', array(
             'id' => $PAGE->course->id
         ));
-        $extendeduserreporttitle = get_string('extendeduserreport', 'stardust');
-        $extendeduserreportlink = new moodle_url('/blocks/configurable_reports/viewreport.php?id=62&', array(
-            'courseid' => $PAGE->course->id
-        ));
-
+        if (has_capability('moodle/course:manageactivities', $context)  ) {
+            $extendeduserreporttitle = get_string('extendeduserreport', 'theme_stardust');
+            $extendeduserreportlink = new moodle_url('/blocks/configurable_reports/viewreport.php?id=62&', array(
+                'courseid' => $PAGE->course->id
+            ));
+        } elseif (!has_capability('moodle/course:manageactivities', $context) &&
+            has_capability('moodle/grade:viewall', $context)) { // for groupteacherviewer hanna 20/1/16
+            $extendeduserreporttitle = get_string('userspassreport', 'theme_stardust');
+            $extendeduserreportlink = new moodle_url('/blocks/configurable_reports/viewreport.php?id=63&', array(
+                'courseid' => $PAGE->course->id
+            ));
+        }
         // User reports.
         $logstitle = get_string('logs', 'moodle');
         $logslink = new moodle_url('/report/log/index.php', array(
@@ -1663,6 +1677,7 @@ class core_renderer extends \theme_boost\output\core_renderer {
         $hasbadgepermission = has_capability('moodle/badges:awardbadge', $context);
         $hascoursepermission = has_capability('moodle/backup:backupcourse', $context);
         $hasuserpermission = has_capability('moodle/course:viewhiddenactivities', $context);
+        $isteacherviewer = has_capability('moodle/grade:viewall', $context) && !$hasuserpermission;
         $hasgradebookshow = $PAGE->course->showgrades == 1 && $PAGE->theme->settings->showstudentgrades == 1;
         $hascompletionshow = $PAGE->course->enablecompletion == 1 && $PAGE->theme->settings->showstudentcompletion == 1;
         $hascourseadminshow = $PAGE->theme->settings->showcourseadminstudents == 1;
@@ -1698,7 +1713,11 @@ class core_renderer extends \theme_boost\output\core_renderer {
             'mygradestext' => $mygradestext,
             'studentdashboardtextbox' => $studentdashboardtextbox,
             'hasteacherdash' => $hasteacherdash,
-            'teacherdash' => array('hasquestionpermission' => $hasquestionpermission, 'hasbadgepermission' => $hasbadgepermission, 'hascoursepermission' => $hascoursepermission, 'hasuserpermission' => $hasuserpermission),
+            'teacherdash' => array('hasquestionpermission' => $hasquestionpermission,
+                'hasbadgepermission' => $hasbadgepermission,
+                'hascoursepermission' => $hascoursepermission,
+                'isteacherviewer' => $isteacherviewer,
+                'hasuserpermission' => $hasuserpermission),
             'hasstudentdash' => $hasstudentdash,
             'hasgradebookshow' => $hasgradebookshow,
             'hascompletionshow' => $hascompletionshow,
@@ -1731,11 +1750,6 @@ class core_renderer extends \theme_boost\output\core_renderer {
                 'url' => $enrolmethodlink
             ) ,
             array(
-                'hasuserlinks' => $extendeduserreporttitle,
-                'title' => $extendeduserreporttitle,
-                'url' => $extendeduserreportlink
-            ) ,
-            array(
                 'hasuserlinks' => $activitycompletiontitle,
                 'title' => $activitycompletiontitle,
                 'url' => $activitycompletionlink
@@ -1764,6 +1778,21 @@ class core_renderer extends \theme_boost\output\core_renderer {
                 'hasuserlinks' => $activitytitle,
                 'title' => $activitytitle,
                 'url' => $activitylink
+            ) ,
+            array(
+                'hasuserlinks' => $extendeduserreporttitle,
+                'title' => $extendeduserreporttitle,
+                'url' => $extendeduserreportlink
+            ) ,
+            array(
+                'hasteacherviewerlinks' => $extendeduserreporttitle,
+                'title' => $extendeduserreporttitle,
+                'url' => $extendeduserreportlink
+            ) ,
+            array(
+                'hasteacherviewerlinks' => $participantstitle,
+                'title' => $participantstitle,
+                'url' => $participantslink
             ) ,
             array(
                 'hasqbanklinks' => $qbanktitle,
@@ -2426,18 +2455,16 @@ public function get_user_certificates(){
 
 }
 
-// SG - 20181010 - we have rewritten the renderer to reduce the profile page load, but it breaks some other user view pages. So comment for now
-//namespace theme_stardust\output\core_user\myprofile;
+namespace theme_stardust\output\core_user\myprofile;
 /**
  * Override user profile renderer
  *
  * We disable profile TREE render to not overload page with extra information
  */
 
-// class renderer extends \core_user\output\myprofile\renderer {
+class renderer extends \core_user\output\myprofile\renderer {
 
-//     public function render_tree(\core_user\output\myprofile\tree $tree) {
-//         global $PAGE;
-//             return "";
-//     }
-// }
+    public function render_tree(\core_user\output\myprofile\tree $tree) {
+        return "";
+    }
+}
