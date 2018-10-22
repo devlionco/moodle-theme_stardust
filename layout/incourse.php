@@ -41,6 +41,7 @@ function get_all_course_sections_info($courseinfo, $currentsectionnum = null) {
     $sectionsinfo = array();
     $courseformat = $courseinfo->get_course()->format;
     foreach ($allcoursesectionsinfo as $secnum => $secinfo) {
+        if (!$secinfo->uservisible) continue;   // SG - T-279 - skip not visible for user sections
         $secname = course_get_format($PAGE->course)->get_section_name($secnum);
         $seccustomnum = $secinfo->customnumber;
         if ($courseformat== "stardust") {
