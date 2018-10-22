@@ -79,14 +79,31 @@ $locked = array();
 $unlockedifempty = array();
 // second realization - as array for $jscontext->restrictions
 foreach ($fields as $field) {
-    $configvariable = 'field_lock_' . $field;
-    if (isset($authplugin->config->{$configvariable})) {
-        if ($authplugin->config->{$configvariable} === 'locked') {
+    // usercannot do much if he is not an admin
+    if (!is_siteadmin($USER)) {
+        // cannot modify other user's info at all
+        if ($user->id != $USER->id) {
             $locked[] = $field;
-        } else if ($authplugin->config->{$configvariable} === 'unlockedifempty' and $user->{$field}!= '') {
-            $unlockedifempty[] = $field;
+            // lock also custom fields
+            if (!in_array('knowledge', $locked)) $locked[] = 'knowledge';
+            if (!in_array('interests', $locked)) $locked[] = 'interests';
+            if (!in_array('birthday', $locked)) $locked[] = 'birthday';
+        } else {
+            // check auth plugin locks
+            $configvariable = 'field_lock_' . $field;
+            if (isset($authplugin->config->{$configvariable})) {
+                if ($authplugin->config->{$configvariable} === 'locked') {
+                    $locked[] = $field;
+                } else if ($authplugin->config->{$configvariable} === 'unlockedifempty' and $user->{$field}!= '') {
+                    $unlockedifempty[] = $field;
+                }
+            }
         }
-    }
+        // anyway - if not admin - cannot modify username, idnumber (passport) and fullname (firstname + lastname)
+        if (!in_array('username', $locked)) $locked[] = 'username';
+        if (!in_array('idnumber', $locked)) $locked[] = 'idnumber';
+        if (!in_array('fullname', $locked)) $locked[] = 'fullname';
+    } // !site admin
 }
 
 // first realization (for form) with disabled status -- SG TOREMOVE lately if jscontext works fine
