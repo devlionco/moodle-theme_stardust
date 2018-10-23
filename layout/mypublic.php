@@ -101,7 +101,7 @@ foreach ($fields as $field) {
         }
         // anyway - if not admin - cannot modify username, idnumber (passport) and fullname (firstname + lastname)
         if (!in_array('username', $locked)) $locked[] = 'username';
-        if (!in_array('idnumber', $locked)) $locked[] = 'idnumber';
+        // if (!in_array('idnumber', $locked)) $locked[] = 'idnumber'; // lock unlock manually
         if (!in_array('fullname', $locked)) $locked[] = 'fullname';
     } // !site admin
 }
@@ -151,7 +151,7 @@ $templatecontext = [
     'hasfhsdrawer' => $hasfhsdrawer,
     'regionmainsettingsmenu' => $regionmainsettingsmenu,
     'hasregionmainsettingsmenu' => !empty($regionmainsettingsmenu),
-    'userinfo' => $user,                        
+    'userinfo' => $user,
     'canedit' => $canedit,
     'userpictureurl' => $userpictureurl,
     'usercoursesprogress' => $usercoursesprogress,
@@ -166,7 +166,7 @@ $jsuser->unlockedifempty = $unlockedifempty;    // add unlockedifempty fields ar
 unset ($jsuser->password);                      // remove password hash from the object
 $jscontext = json_encode($jsuser);              // make JSON
 
-//echo '<pre>'.print_r($user,1).'</pre>'; exit();
+// echo '<pre>'.print_r($jsuser,1).'</pre>'; exit();
 $PAGE->requires->jquery();
 if (isset($PAGE->theme->settings->showbacktotop) && $PAGE->theme->settings->showbacktotop == 1) {
     $PAGE->requires->js('/theme/fordson/javascript/scrolltotop.js');

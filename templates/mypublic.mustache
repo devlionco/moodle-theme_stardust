@@ -180,7 +180,7 @@
                               <span id="fullname" class="input">{{userinfo.firstname}} {{userinfo.lastname}}</span>
                               <span class="input-label">{{#str}} lastname_firstname, theme_stardust{{/str}}</span>
                             </li>
-                            <li class="info" data-input="passport">
+                            <li class="info" data-input="idnumber">
                               <span id="idnumber" class="input">{{userinfo.idnumber}}</span>
                               <span class="input-label">{{#str}} passport, theme_stardust{{/str}}</span>
                             </li>
@@ -203,10 +203,6 @@
                             <li class="info" data-input="skype">
                               <span id="skype" class="input">{{userinfo.skype}}</span>
                                 <span class="input-label">{{#str}} position, theme_stardust{{/str}}</span>
-                            </li>
-                            <li class="info" data-input="icq">
-                              <span id="icq" class="input">{{userinfo.icq}}</span>
-                                <span class="input-label">{{#str}} icq, theme_stardust{{/str}}</span>
                             </li>
                             <li class="info" data-input="knowledge">
                               <span id="knowledge" class="input">{{#str}} write_knowledges, theme_stardust{{/str}}</span>
@@ -329,12 +325,12 @@ require(['jquery'], function($) {
   $('#mypublicpage-profile-shortform .toggle-info').on('click', function(e){
     $(this).toggleClass('show');
     $(`
-      #idnumber,
       #aim,
       #phone2,
       #skype,
-      #icq,
-      #birthday
+      #knowledge,
+      #birthday,
+      #interests
     `).parent().slideToggle(function(e){
       if ($(this).is(':visible'))
       this.style = 'display:flex;'

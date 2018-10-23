@@ -8,27 +8,6 @@ define(['jquery', 'jqueryui', 'core/str'], function($, jqui, str) {
     {key: 'teudatzeutnotnumerical', component: 'theme_stardust'},
     {key: 'teudatzeutwrong', component: 'theme_stardust'},
     {key: 'editionrestricted', component: 'theme_stardust'}
-      // {key: 'username', component: 'theme_stardust'},
-      // {key: 'password', component: 'theme_stardust'},
-      // {key: 'lastname_firstname', component: 'theme_stardust'},
-      // {key: 'passport', component: 'theme_stardust'},
-      // {key: 'email', component: 'theme_stardust'},
-      // {key: 'additional_email', component: 'theme_stardust'},
-      // {key: 'actioncouldnotbeperformed', component: 'theme_stardust'},
-      // {key: 'saving', component: 'theme_stardust'},
-      // {key: 'enterfullname', component: 'theme_stardust'},
-      // {key: 'enterusername', component: 'theme_stardust'},
-      // {key: 'enterteudatzeut', component: 'theme_stardust'},
-      // {key: 'teudatzeutnotnumerical', component: 'theme_stardust'},
-      // {key: 'teudatzeutwrong', component: 'theme_stardust'},
-      // {key: 'enterphone', component: 'theme_stardust'},
-      // {key: 'phonenotnumerical', component: 'theme_stardust'},
-      // {key: 'wrongphone', component: 'theme_stardust'},
-      // {key: 'enteremail', component: 'theme_stardust'},
-      // {key: 'enterproperemail', component: 'theme_stardust'},
-      // {key: 'detailssavedsuccessfullycustom', component: 'theme_stardust'},
-      // {key: 'actioncouldnotbeperformed', component: 'theme_stardust'},
-      // {key: 'wrongpassword', component: 'theme_stardust'}
 
   ]).done(function(){});
 
@@ -106,7 +85,7 @@ define(['jquery', 'jqueryui', 'core/str'], function($, jqui, str) {
         // get all fields from DB
         var userid = dbdata.id,
             username = dbdata.username,
-            passport = dbdata.idnumber,
+            idnumber = dbdata.idnumber,
             fullname = dbdata.firstname +' '+ dbdata.lastname,
             email = dbdata.email,
             // email2 = dbdata.email2,
@@ -115,7 +94,6 @@ define(['jquery', 'jqueryui', 'core/str'], function($, jqui, str) {
             phone2 = dbdata.phone2,
             address = dbdata.address,
             skype = dbdata.skype,
-            icq = dbdata.icq,
             knowledge = dbdata.knowledge,
             birthday = dbdata.birthday,
             interests = dbdata.interests,
@@ -142,7 +120,6 @@ define(['jquery', 'jqueryui', 'core/str'], function($, jqui, str) {
               break;
             case "idnumber":
               // check passport number
-              item.id = "passport";
               item.value = $.trim(item.value);
               if (item.value === '') {
                 $('#idnumber').parent().removeClass('info').addClass('danger');
@@ -247,9 +224,6 @@ define(['jquery', 'jqueryui', 'core/str'], function($, jqui, str) {
               }
               break;
             case "skype":
-              item.value = $.trim(item.value);
-              break;
-            case "icq":
               item.value = $.trim(item.value);
               break;
             case "knowledge":
