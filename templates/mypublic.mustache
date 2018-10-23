@@ -326,6 +326,16 @@ require(['theme_boost/drawer'], function(mod) {
 require(['jquery'], function($) {
   `use strict`;
 
+  // fix for diploma link on mydashboard page
+  // check if this url contains hash to #accomplishments-certificates and scroll page to it
+  $('document').ready(function(){
+    if (window.location.hash === "#accomplishments-certificates"){
+      document.getElementById('accomplishments-wrapper').scrollIntoView();
+      document.getElementById('pills-accomplishments-certificates').click();
+    }
+  });
+
+
   $('#mypublicpage-profile-shortform .toggle-info').on('click', function(e){
     $(this).toggleClass('show');
     $(`
