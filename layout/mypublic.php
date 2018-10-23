@@ -166,7 +166,6 @@ $jsuser->unlockedifempty = $unlockedifempty;    // add unlockedifempty fields ar
 unset ($jsuser->password);                      // remove password hash from the object
 $jscontext = json_encode($jsuser);              // make JSON
 
-// echo '<pre>'.print_r($jsuser,1).'</pre>'; exit();
 $PAGE->requires->jquery();
 if (isset($PAGE->theme->settings->showbacktotop) && $PAGE->theme->settings->showbacktotop == 1) {
     $PAGE->requires->js('/theme/fordson/javascript/scrolltotop.js');

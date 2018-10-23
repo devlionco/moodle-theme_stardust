@@ -727,12 +727,25 @@ body#page-login-signup {
       display: -ms-flexbox;
       display: flex;
       -ms-flex-flow: row nowrap;
-          flex-flow: row nowrap; }
+          flex-flow: row nowrap;
+      -ms-flex-align: center;
+          align-items: center; }
       .dheader .dheader__inner .dheader__left .dheader__logo {
         margin: 0;
         background: none;
         padding: 0;
         margin-right: 60px; }
+        .dheader .dheader__inner .dheader__left .dheader__logo .dheader__logo-img {
+          display: inline-block;
+          height: 45px;
+          padding: 4px 0;
+          width: 128px;
+          display: -ms-flexbox;
+          display: flex;
+          -ms-flex-pack: justify;
+              justify-content: space-between; }
+          .dheader .dheader__inner .dheader__left .dheader__logo .dheader__logo-img img {
+            height: 100%; }
     .dheader .dheader__inner .dheader__center {
       display: -ms-flexbox;
       display: flex;
