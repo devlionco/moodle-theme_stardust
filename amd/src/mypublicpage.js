@@ -102,8 +102,8 @@ define(['jquery', 'jqueryui', 'core/str'], function($, jqui, str) {
             errors = false;
 
         // hide additional fields
-        if (email === ''){ $('input#email2').parent().addClass('d-none') }
-        if (phone1 === ''){ $('input#phone2').parent().addClass('d-none') }
+        // if (email === ''){ $('input#email2').parent().addClass('d-none') }
+        // if (phone1 === ''){ $('input#phone2').parent().addClass('d-none') }
 
         // query only changed fields and validate them
         var queryInputs = document.querySelectorAll('#mypublicpage-profile-shortform input.input[data-edited="true"]');
@@ -193,20 +193,20 @@ define(['jquery', 'jqueryui', 'core/str'], function($, jqui, str) {
                 errors = true;
               }
               break;
-            case "phone1":
-              // reqiured not empty
-              if ($.trim(item.value) === '') {
-                $('#'+item.id).parent().removeClass('info').addClass('danger');
-                $('#'+item.id).attr('placeholder', '123-456-7890');
-                if ($('#'+item.id+' ~ .input-label .error').length > 0){
-                  $('#'+item.id+' ~ .input-label  .error').text(' ');
-                } else {
-                  $('#'+item.id).next().append('<span class="error"></span>');
-                }
-                $('#'+item.id+'  ~ .input-label .error').html(M.util.get_string('isrequired', 'theme_stardust'));
-                $('#'+item.id).focus();
-                errors = true;
-              }
+            // case "phone1":
+            //   // reqiured not empty
+            //   if ($.trim(item.value) === '') {
+            //     $('#'+item.id).parent().removeClass('info').addClass('danger');
+            //     $('#'+item.id).attr('placeholder', '123-456-7890');
+            //     if ($('#'+item.id+' ~ .input-label .error').length > 0){
+            //       $('#'+item.id+' ~ .input-label  .error').text(' ');
+            //     } else {
+            //       $('#'+item.id).next().append('<span class="error"></span>');
+            //     }
+            //     $('#'+item.id+'  ~ .input-label .error').html(M.util.get_string('isrequired', 'theme_stardust'));
+            //     $('#'+item.id).focus();
+            //     errors = true;
+            //   }
             case "phone2":
               // not required, but also might be in format like 123-123-1234 or (123) 123 1234 or 123.123.1234
               var regEx = /^[(]{0,1}[0-9]{3}[)]{0,1}[-\s\.]{0,1}[0-9]{3}[-\s\.]{0,1}[0-9]{4}$/;
