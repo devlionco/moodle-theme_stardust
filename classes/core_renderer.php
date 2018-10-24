@@ -314,7 +314,14 @@ class core_renderer extends \theme_boost\output\core_renderer {
 
     public function get_stardust_logo() {
         global $OUTPUT;
-        $output = $OUTPUT->image_url('header/logo', 'theme');
+        $output = $OUTPUT->image_url('header/logo_davidson', 'theme');
+
+        return $output;
+    }
+
+    public function get_stardust_moodle_logo() {
+        global $OUTPUT;
+        $output = $OUTPUT->image_url('header/logo_moodle', 'theme');
 
         return $output;
     }
@@ -1526,10 +1533,6 @@ class core_renderer extends \theme_boost\output\core_renderer {
         ));
 
         // Manage course.
-        $courseadmintitle = get_string('courseadministration', 'moodle');
-        $courseadminlink = new moodle_url('/course/admin.php', array(
-            'courseid' => $PAGE->course->id
-        ));
         $coursecompletiontitle = get_string('coursecompletion', 'moodle');
         $coursecompletionlink = new moodle_url('/course/completion.php', array(
             'id' => $PAGE->course->id
@@ -1540,6 +1543,10 @@ class core_renderer extends \theme_boost\output\core_renderer {
 
         // SG - T-276 - allow these links only for course admins, not for customized teachers
         if (has_capability('moodle/backup:backupcourse', $context)) {
+            $courseadmintitle = get_string('courseadministration', 'moodle');
+            $courseadminlink = new moodle_url('/course/admin.php', array(
+                'courseid' => $PAGE->course->id
+            ));
             $courseresettitle = get_string('reset', 'moodle');
             $courseresetlink = new moodle_url('/course/reset.php', array(
                 'id' => $PAGE->course->id
@@ -1588,7 +1595,7 @@ class core_renderer extends \theme_boost\output\core_renderer {
                 'courseid' => $PAGE->course->id
             ));
         }
-        
+
 
         // Student Dash.
         if (\core_completion\progress::get_course_progress_percentage($PAGE->course)) {

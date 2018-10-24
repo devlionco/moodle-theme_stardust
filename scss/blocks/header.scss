@@ -49,13 +49,22 @@
     .dheader__left{
       display: flex;
       flex-flow: row nowrap;
+      align-items: center;
       .dheader__logo{
         margin: 0;
         background: none;
         padding: 0;
         margin-right: 60px;
-        .dheader__logo-img img{
-          width: 24px;
+        .dheader__logo-img {
+          display: inline-block;
+          height: 45px;
+          padding: 4px 0;
+          width: 128px;
+          display: flex;
+          justify-content: space-between;
+          & img{
+            height: 100%;
+          }
         }
       }
     }

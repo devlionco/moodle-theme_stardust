@@ -380,6 +380,9 @@ function stardust_activity_status($module) {
     $cmcomplstateraw = $DB->get_record('course_modules_completion', array('coursemoduleid' => $module->id,'userid'=>$USER->id), 'completionstate');
     $cmcomplstate = $cmcomplstateraw ? true : false; // completed or not activity
 
+    // get module overrides
+    $module = get_module_overrides($module);
+
     $activitystatus = array();
 
     $added = $module->added;
@@ -516,4 +519,39 @@ function mincutoffdatesort($a, $b) {
         return 0;
     }
     return ($tdiffa < $tdiffb) ? -1 : 1;
+}
+
+/**
+ * Function defines time overrides for activity (module)
+ *
+ * @param $module - cm details from DB and some extrafields (usually assign and quiz)
+ *
+ * @return array
+ */
+function get_module_overrides($module) {
+    global $DB, $USER, $CFG;
+
+    // process if assign
+    if ($module->modname == 'assign') {
+        require_once($CFG->dirroot . '/mod/assign/locallib.php');
+        list ($course, $cm) = get_course_and_cm_from_cmid($module->id, 'assign');
+        $context = context_module::instance($cm->id);
+        $assign = new assign($context, $cm, $course);
+        $overrides = $assign->override_exists($USER->id);
+        if (isset($overrides->assignid) && $overrides->assignid == $module->instance) {
+            $module->duedate    = (isset($overrides->duedate)) ? $overrides->duedate : $module->duedate;
+            $module->cutoffdate = (isset($overrides->cutoffdate)) ? $overrides->cutoffdate : $module->cutoffdate;
+        }
+    }
+
+    //process if quiz
+    if ($module->modname == 'quiz') {
+        require_once($CFG->dirroot . '/mod/quiz/locallib.php');
+        $overrides = quiz_get_user_timeclose($module->course);
+        if (isset($overrides[$module->instance])) {
+            $module->cutoffdate = $overrides[$module->instance]->usertimeclose;
+        }
+    }
+
+    return $module;
 }

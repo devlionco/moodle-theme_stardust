@@ -1,29 +1,36 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg width="40px" height="40px" viewBox="0 0 40 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <!-- Generator: sketchtool 48.1 (47250) - http://www.bohemiancoding.com/sketch -->
-    <title>529CBFDE-64AB-46BF-A190-804E0D70135B</title>
-    <desc>Created with sketchtool.</desc>
-    <defs>
-        <circle id="path-1" cx="20.2096565" cy="20.2096565" r="20.2096565"></circle>
-    </defs>
-    <g id="MY-PAGE---WEEK-VIEW" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(-1010.000000, -355.000000)">
-        <g id="WEEK-OVERVIEW" transform="translate(-3.000000, 0.000000)">
-            <g id="CALENDAR" transform="translate(507.000000, 227.000000)">
-                <g id="ASIGNMENT-ICON" transform="translate(506.000000, 128.000000)">
-                    <g>
-                        <g id="Oval">
-                            <use fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-1"></use>
-                            <circle stroke="#B4C1C7" stroke-width="1.09468973" cx="20.2096565" cy="20.2096565" r="19.6623117"></circle>
-                        </g>
-                        <g id="Page-1" transform="translate(13.473104, 9.730575)" fill="#B4C1C7">
-                            <g id="Group-3">
-                                <path d="M10.4223043,4.77589331 C10.2207554,4.77589331 10.0571795,4.61843372 10.0571795,4.42442102 L10.0571795,0.471060733 C10.0571795,0.276872294 9.89360357,0.119588446 9.6920547,0.119588446 L0.365124779,0.119588446 C0.163575901,0.119588446 0,0.276872294 0,0.471060733 L0,19.8580964 C0,20.0522848 0.163575901,20.2095686 0.365124779,20.2095686 L14.4704427,20.2095686 C14.6721741,20.2095686 14.8355675,20.0522848 14.8355675,19.8580964 L14.8355675,5.12736559 C14.8355675,4.93335289 14.6721741,4.77589331 14.4704427,4.77589331 L10.4223043,4.77589331 Z" id="Fill-1"></path>
-                            </g>
-                            <polygon id="Fill-4" points="11.227587 0.748505797 11.227587 3.74252898 14.2216101 3.74252898"></polygon>
-                        </g>
-                    </g>
-                </g>
-            </g>
-        </g>
-    </g>
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 22.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 32 32" style="enable-background:new 0 0 32 32;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#83D3AE;}
+	.st1{fill:#83D3AE;stroke:#19284F;stroke-miterlimit:10;}
+	.st2{fill:#FFDC4F;}
+	.st3{fill:#973A91;}
+	.st4{fill:#19284F;}
+	.st5{fill:none;stroke:#19284F;stroke-miterlimit:10;}
+	.st6{fill:#FFFFFF;stroke:#19284F;stroke-miterlimit:10;}
+	.st7{fill:#00FF7F;}
+	.st8{fill:#19284F;stroke:#19284F;stroke-width:0.5;stroke-miterlimit:10;}
+	.st9{fill:none;stroke:#19284F;stroke-width:2;stroke-miterlimit:10;}
+	.st10{clip-path:url(#SVGID_2_);fill:#19284F;}
+	.st11{fill:#973A91;stroke:#19284F;stroke-miterlimit:10;}
+	.st12{fill:none;stroke:#19284F;stroke-linecap:round;stroke-miterlimit:10;}
+	.st13{fill:#83D3AE;stroke:#19284F;stroke-linecap:round;stroke-miterlimit:10;}
+	.st14{fill:#973A91;stroke:#19284F;stroke-linecap:round;stroke-miterlimit:10;}
+	.st15{fill:#FFFFFF;stroke:#19284F;stroke-linecap:round;stroke-miterlimit:10;}
+	.st16{fill:none;stroke:#E7443C;stroke-width:4;stroke-miterlimit:10;}
+	.st17{fill:none;stroke:#F8BB2D;stroke-width:4;stroke-miterlimit:10;}
+	.st18{fill:none;stroke:#3AA757;stroke-width:4;stroke-miterlimit:10;}
+	.st19{fill:none;stroke:#19284F;stroke-width:4;stroke-miterlimit:10;}
+	.st20{fill:none;stroke:#19284F;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
+	.st21{fill:#973A91;stroke:#19284F;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
+	.st22{fill:#FFFFFF;}
+	.st23{fill:#19284F;stroke:#19284F;stroke-miterlimit:10;}
+	.st24{fill:none;stroke:#19284F;stroke-linejoin:round;stroke-miterlimit:10;}
+</style>
+<g>
+	<path class="st6" d="M31.4,9.3v20.1c0,1.1-0.9,2.1-2.1,2.1H2.6c-1.1,0-2.1-0.9-2.1-2.1V2.6c0-1.1,0.9-2.1,2.1-2.1h20.3"/>
+	<path class="st6" d="M21.9,1.6c0.2-1,1.4-1.3,2.1-0.6l7,7.7c0.7,0.7,0.4,1.9-0.5,2.2l-8.6,1.6c-1,0.3-1.9-0.6-1.6-1.5L21.9,1.6z"/>
+</g>
 </svg>

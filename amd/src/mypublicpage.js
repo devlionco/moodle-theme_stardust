@@ -8,27 +8,6 @@ define(['jquery', 'jqueryui', 'core/str'], function($, jqui, str) {
     {key: 'teudatzeutnotnumerical', component: 'theme_stardust'},
     {key: 'teudatzeutwrong', component: 'theme_stardust'},
     {key: 'editionrestricted', component: 'theme_stardust'}
-      // {key: 'username', component: 'theme_stardust'},
-      // {key: 'password', component: 'theme_stardust'},
-      // {key: 'lastname_firstname', component: 'theme_stardust'},
-      // {key: 'passport', component: 'theme_stardust'},
-      // {key: 'email', component: 'theme_stardust'},
-      // {key: 'additional_email', component: 'theme_stardust'},
-      // {key: 'actioncouldnotbeperformed', component: 'theme_stardust'},
-      // {key: 'saving', component: 'theme_stardust'},
-      // {key: 'enterfullname', component: 'theme_stardust'},
-      // {key: 'enterusername', component: 'theme_stardust'},
-      // {key: 'enterteudatzeut', component: 'theme_stardust'},
-      // {key: 'teudatzeutnotnumerical', component: 'theme_stardust'},
-      // {key: 'teudatzeutwrong', component: 'theme_stardust'},
-      // {key: 'enterphone', component: 'theme_stardust'},
-      // {key: 'phonenotnumerical', component: 'theme_stardust'},
-      // {key: 'wrongphone', component: 'theme_stardust'},
-      // {key: 'enteremail', component: 'theme_stardust'},
-      // {key: 'enterproperemail', component: 'theme_stardust'},
-      // {key: 'detailssavedsuccessfullycustom', component: 'theme_stardust'},
-      // {key: 'actioncouldnotbeperformed', component: 'theme_stardust'},
-      // {key: 'wrongpassword', component: 'theme_stardust'}
 
   ]).done(function(){});
 
@@ -106,7 +85,7 @@ define(['jquery', 'jqueryui', 'core/str'], function($, jqui, str) {
         // get all fields from DB
         var userid = dbdata.id,
             username = dbdata.username,
-            passport = dbdata.idnumber,
+            idnumber = dbdata.idnumber,
             fullname = dbdata.firstname +' '+ dbdata.lastname,
             email = dbdata.email,
             // email2 = dbdata.email2,
@@ -115,7 +94,6 @@ define(['jquery', 'jqueryui', 'core/str'], function($, jqui, str) {
             phone2 = dbdata.phone2,
             address = dbdata.address,
             skype = dbdata.skype,
-            icq = dbdata.icq,
             knowledge = dbdata.knowledge,
             birthday = dbdata.birthday,
             interests = dbdata.interests,
@@ -124,8 +102,8 @@ define(['jquery', 'jqueryui', 'core/str'], function($, jqui, str) {
             errors = false;
 
         // hide additional fields
-        if (email === ''){ $('input#email2').parent().addClass('d-none') }
-        if (phone1 === ''){ $('input#phone2').parent().addClass('d-none') }
+        // if (email === ''){ $('input#email2').parent().addClass('d-none') }
+        // if (phone1 === ''){ $('input#phone2').parent().addClass('d-none') }
 
         // query only changed fields and validate them
         var queryInputs = document.querySelectorAll('#mypublicpage-profile-shortform input.input[data-edited="true"]');
@@ -142,7 +120,6 @@ define(['jquery', 'jqueryui', 'core/str'], function($, jqui, str) {
               break;
             case "idnumber":
               // check passport number
-              item.id = "passport";
               item.value = $.trim(item.value);
               if (item.value === '') {
                 $('#idnumber').parent().removeClass('info').addClass('danger');
@@ -179,6 +156,14 @@ define(['jquery', 'jqueryui', 'core/str'], function($, jqui, str) {
                 $('#idnumber').focus();
                 errors = true;
               }
+
+              if($('#idnumber').parent().hasClass('danger') && item.value !== '' && !isNaN(item.value) && item.value.length  === 9){
+                $('#idnumber').parent().removeClass('danger').addClass('info');
+                if ($('#idnumber ~ .input-label .error').length > 0){
+                  $('#idnumber ~ .input-label  .error').text(' ').removeClass('error');
+                }
+              }
+
               break;
             case "email":
               item.value = $.trim(item.value);
@@ -194,6 +179,12 @@ define(['jquery', 'jqueryui', 'core/str'], function($, jqui, str) {
                 $('#email ~ .input-label .error').append( M.util.get_string('isrequired', 'theme_stardust') );
                 $('#email').focus();
                 errors = true;
+              }
+              if ($('#email').parent().hasClass('danger') && item.value !== ''){
+                $('#email').parent().removeClass('danger').addClass('info');
+                if ($('#email ~ .input-label .error').length > 0){
+                  $('#email ~ .input-label  .error').text(' ').removeClass('error');
+                }
               }
             // case "email2":
             case "aim":  // additional_email stores here
@@ -215,21 +206,33 @@ define(['jquery', 'jqueryui', 'core/str'], function($, jqui, str) {
                 $('#'+item.id).focus();
                 errors = true;
               }
-              break;
-            case "phone1":
-              // reqiured not empty
-              if ($.trim(item.value) === '') {
-                $('#'+item.id).parent().removeClass('info').addClass('danger');
-                $('#'+item.id).attr('placeholder', '123-456-7890');
+              if($('#'+item.id).parent().hasClass('danger') && regEx.test(item.value)){
+                $('#'+item.id).parent().removeClass('danger').addClass('info');
                 if ($('#'+item.id+' ~ .input-label .error').length > 0){
-                  $('#'+item.id+' ~ .input-label  .error').text(' ');
-                } else {
-                  $('#'+item.id).next().append('<span class="error"></span>');
+                  $('#'+item.id+' ~ .input-label  .error').text(' ').removeClass('error');
                 }
-                $('#'+item.id+'  ~ .input-label .error').html(M.util.get_string('isrequired', 'theme_stardust'));
-                $('#'+item.id).focus();
-                errors = true;
               }
+              break;
+            // case "phone1":
+            //   // reqiured not empty
+            //   if ($.trim(item.value) === '') {
+            //     $('#'+item.id).parent().removeClass('info').addClass('danger');
+            //     $('#'+item.id).attr('placeholder', '123-456-7890');
+            //     if ($('#'+item.id+' ~ .input-label .error').length > 0){
+            //       $('#'+item.id+' ~ .input-label  .error').text(' ');
+            //     } else {
+            //       $('#'+item.id).next().append('<span class="error"></span>');
+            //     }
+            //     $('#'+item.id+'  ~ .input-label .error').html(M.util.get_string('isrequired', 'theme_stardust'));
+            //     $('#'+item.id).focus();
+            //     errors = true;
+            //   }
+              // if ($('#'+item.id).parent().hasClass('danger') && item.value !== ''){
+              //   $('#'+item.id).parent().removeClass('danger').addClass('info');
+              //   if ($('#'+item.id+' ~ .input-label .error').length > 0){
+              //     $('#'+item.id+' ~ .input-label  .error').text(' ').removeClass('error');
+              //   }
+              // }
             case "phone2":
               // not required, but also might be in format like 123-123-1234 or (123) 123 1234 or 123.123.1234
               var regEx = /^[(]{0,1}[0-9]{3}[)]{0,1}[-\s\.]{0,1}[0-9]{3}[-\s\.]{0,1}[0-9]{4}$/;
@@ -245,11 +248,14 @@ define(['jquery', 'jqueryui', 'core/str'], function($, jqui, str) {
                 $('#'+item.id).focus();
                 errors = true;
               }
+              if($('#'+item.id).parent().hasClass('danger') && regEx.test(item.value)){
+                $('#'+item.id).parent().removeClass('danger').addClass('info');
+                if ($('#'+item.id+' ~ .input-label .error').length > 0){
+                  $('#'+item.id+' ~ .input-label  .error').text(' ').removeClass('error');
+                }
+              }
               break;
             case "skype":
-              item.value = $.trim(item.value);
-              break;
-            case "icq":
               item.value = $.trim(item.value);
               break;
             case "knowledge":

@@ -79,14 +79,31 @@ $locked = array();
 $unlockedifempty = array();
 // second realization - as array for $jscontext->restrictions
 foreach ($fields as $field) {
-    $configvariable = 'field_lock_' . $field;
-    if (isset($authplugin->config->{$configvariable})) {
-        if ($authplugin->config->{$configvariable} === 'locked') {
+    // usercannot do much if he is not an admin
+    if (!is_siteadmin($USER)) {
+        // cannot modify other user's info at all
+        if ($user->id != $USER->id) {
             $locked[] = $field;
-        } else if ($authplugin->config->{$configvariable} === 'unlockedifempty' and $user->{$field}!= '') {
-            $unlockedifempty[] = $field;
+            // lock also custom fields
+            if (!in_array('knowledge', $locked)) $locked[] = 'knowledge';
+            if (!in_array('interests', $locked)) $locked[] = 'interests';
+            if (!in_array('birthday', $locked)) $locked[] = 'birthday';
+        } else {
+            // check auth plugin locks
+            $configvariable = 'field_lock_' . $field;
+            if (isset($authplugin->config->{$configvariable})) {
+                if ($authplugin->config->{$configvariable} === 'locked') {
+                    $locked[] = $field;
+                } else if ($authplugin->config->{$configvariable} === 'unlockedifempty' and $user->{$field}!= '') {
+                    $unlockedifempty[] = $field;
+                }
+            }
         }
-    }
+        // anyway - if not admin - cannot modify username, idnumber (passport) and fullname (firstname + lastname)
+        if (!in_array('username', $locked)) $locked[] = 'username';
+        // if (!in_array('idnumber', $locked)) $locked[] = 'idnumber'; // lock unlock manually
+        if (!in_array('fullname', $locked)) $locked[] = 'fullname';
+    } // !site admin
 }
 
 // first realization (for form) with disabled status -- SG TOREMOVE lately if jscontext works fine
@@ -134,7 +151,7 @@ $templatecontext = [
     'hasfhsdrawer' => $hasfhsdrawer,
     'regionmainsettingsmenu' => $regionmainsettingsmenu,
     'hasregionmainsettingsmenu' => !empty($regionmainsettingsmenu),
-    'userinfo' => $user,                        
+    'userinfo' => $user,
     'canedit' => $canedit,
     'userpictureurl' => $userpictureurl,
     'usercoursesprogress' => $usercoursesprogress,
@@ -149,7 +166,6 @@ $jsuser->unlockedifempty = $unlockedifempty;    // add unlockedifempty fields ar
 unset ($jsuser->password);                      // remove password hash from the object
 $jscontext = json_encode($jsuser);              // make JSON
 
-//echo '<pre>'.print_r($user,1).'</pre>'; exit();
 $PAGE->requires->jquery();
 if (isset($PAGE->theme->settings->showbacktotop) && $PAGE->theme->settings->showbacktotop == 1) {
     $PAGE->requires->js('/theme/fordson/javascript/scrolltotop.js');

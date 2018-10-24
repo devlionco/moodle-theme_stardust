@@ -173,14 +173,14 @@
                               <span class="input-label">{{#str}} username, theme_stardust{{/str}}</span>
                             </li>
                             <li class="info" data-input="pass">
-                              <a  class="input" id="pass" href="/login/change_password.php?id=1">{{#str}} change_password_link, theme_stardust{{/str}}</a>
+                              <a  class="input" id="pass" href="/login/change_password.php?id={{userinfo.id}}">{{#str}} change_password_link, theme_stardust{{/str}}</a>
                                 <span class="input-label">{{#str}} password, theme_stardust{{/str}}</span>
                             </li>
                             <li class="info" data-input="fullname">
                               <span id="fullname" class="input">{{userinfo.firstname}} {{userinfo.lastname}}</span>
                               <span class="input-label">{{#str}} lastname_firstname, theme_stardust{{/str}}</span>
                             </li>
-                            <li class="info" data-input="passport">
+                            <li class="info" data-input="idnumber">
                               <span id="idnumber" class="input">{{userinfo.idnumber}}</span>
                               <span class="input-label">{{#str}} passport, theme_stardust{{/str}}</span>
                             </li>
@@ -203,10 +203,6 @@
                             <li class="info" data-input="skype">
                               <span id="skype" class="input">{{userinfo.skype}}</span>
                                 <span class="input-label">{{#str}} position, theme_stardust{{/str}}</span>
-                            </li>
-                            <li class="info" data-input="icq">
-                              <span id="icq" class="input">{{userinfo.icq}}</span>
-                                <span class="input-label">{{#str}} icq, theme_stardust{{/str}}</span>
                             </li>
                             <li class="info" data-input="knowledge">
                               <span id="knowledge" class="input">{{#str}} write_knowledges, theme_stardust{{/str}}</span>
@@ -326,15 +322,25 @@ require(['theme_boost/drawer'], function(mod) {
 require(['jquery'], function($) {
   `use strict`;
 
+  // fix for diploma link on mydashboard page
+  // check if this url contains hash to #accomplishments-certificates and scroll page to it
+  $('document').ready(function(){
+    if (window.location.hash === "#accomplishments-certificates"){
+      document.getElementById('accomplishments-wrapper').scrollIntoView();
+      document.getElementById('pills-accomplishments-certificates').click();
+    }
+  });
+
+
   $('#mypublicpage-profile-shortform .toggle-info').on('click', function(e){
     $(this).toggleClass('show');
     $(`
-      #idnumber,
       #aim,
       #phone2,
       #skype,
-      #icq,
-      #birthday
+      #knowledge,
+      #birthday,
+      #interests
     `).parent().slideToggle(function(e){
       if ($(this).is(':visible'))
       this.style = 'display:flex;'

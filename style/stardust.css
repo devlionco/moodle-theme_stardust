@@ -542,9 +542,6 @@ body#page-login-signup {
     display: flex;
     -ms-flex-direction: column;
         flex-direction: column; }
-  body#page-login-index .row:last-child,
-  body#page-login-signup .row:last-child {
-    margin-top: auto; }
   body#page-login-index .card-block,
   body#page-login-signup .card-block {
     padding: 0; }
@@ -730,14 +727,25 @@ body#page-login-signup {
       display: -ms-flexbox;
       display: flex;
       -ms-flex-flow: row nowrap;
-          flex-flow: row nowrap; }
+          flex-flow: row nowrap;
+      -ms-flex-align: center;
+          align-items: center; }
       .dheader .dheader__inner .dheader__left .dheader__logo {
         margin: 0;
         background: none;
         padding: 0;
         margin-right: 60px; }
-        .dheader .dheader__inner .dheader__left .dheader__logo .dheader__logo-img img {
-          width: 24px; }
+        .dheader .dheader__inner .dheader__left .dheader__logo .dheader__logo-img {
+          display: inline-block;
+          height: 45px;
+          padding: 4px 0;
+          width: 128px;
+          display: -ms-flexbox;
+          display: flex;
+          -ms-flex-pack: justify;
+              justify-content: space-between; }
+          .dheader .dheader__inner .dheader__left .dheader__logo .dheader__logo-img img {
+            height: 100%; }
     .dheader .dheader__inner .dheader__center {
       display: -ms-flexbox;
       display: flex;
@@ -2417,12 +2425,11 @@ body#page-login-signup {
               #mypublic-student .main-wrapper .main-content .profile-info .column .info-list {
                 list-style: none;
                 padding: 0; }
-                #mypublic-student .main-wrapper .main-content .profile-info .column .info-list [data-input="passport"],
+                #mypublic-student .main-wrapper .main-content .profile-info .column .info-list [data-input="knowledge"],
+                #mypublic-student .main-wrapper .main-content .profile-info .column .info-list [data-input="interests"],
                 #mypublic-student .main-wrapper .main-content .profile-info .column .info-list [data-input="aim"],
                 #mypublic-student .main-wrapper .main-content .profile-info .column .info-list [data-input="phone2"],
-                #mypublic-student .main-wrapper .main-content .profile-info .column .info-list [data-input="skype"],
-                #mypublic-student .main-wrapper .main-content .profile-info .column .info-list [data-input="icq"],
-                #mypublic-student .main-wrapper .main-content .profile-info .column .info-list [data-input="birthday"] {
+                #mypublic-student .main-wrapper .main-content .profile-info .column .info-list [data-input="skype"] {
                   display: none; }
                 #mypublic-student .main-wrapper .main-content .profile-info .column .info-list li {
                   margin-top: 22px;
@@ -2808,8 +2815,8 @@ html {
       top: 0;
       left: 0; }
     #course-main-content .top-wrapper .top {
-      max-width: 1344px;
       width: 100%;
+      margin: 0 10%;
       display: -ms-flexbox;
       display: flex;
       -ms-flex-direction: row;
@@ -2836,13 +2843,13 @@ html {
         -ms-flex-item-align: start;
             align-self: flex-start;
         padding: 30px 0;
-        max-width: 50%; }
+        max-width: 70%; }
         #course-main-content .top-wrapper .top .title-wrapper a {
           color: #fff;
           font-size: 72px;
           line-height: 60px;
           display: block;
-          max-height: 120px;
+          max-height: 124px;
           width: 100%;
           overflow-x: visible;
           overflow-y: hidden; }
@@ -3543,9 +3550,18 @@ html {
                       display: block;
                       width: 16px;
                       height: 16px;
+                      min-width: 16px;
+                      min-height: 16px;
                       border: 2px solid rgba(161, 173, 179, 0.5);
                       border-radius: 50%;
-                      margin-right: 10px; }
+                      margin-right: 10px;
+                      position: absolute;
+                      top: 9px;
+                      left: 0; }
+                    #page-mod-quiz-attempt #page-wrapper section#region-main.has-blocks [role="main"] .que .content .formulation .ablock .answer > div label .answernumber {
+                      position: absolute;
+                      top: 4px;
+                      left: 20px; }
                   #page-mod-quiz-attempt #page-wrapper section#region-main.has-blocks [role="main"] .que .content .formulation .ablock .answer > div input {
                     position: absolute;
                     opacity: 0; }
