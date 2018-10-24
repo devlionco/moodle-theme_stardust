@@ -156,6 +156,14 @@ define(['jquery', 'jqueryui', 'core/str'], function($, jqui, str) {
                 $('#idnumber').focus();
                 errors = true;
               }
+
+              if($('#idnumber').parent().hasClass('danger') && item.value !== '' && !isNaN(item.value) && item.value.length  === 9){
+                $('#idnumber').parent().removeClass('danger').addClass('info');
+                if ($('#idnumber ~ .input-label .error').length > 0){
+                  $('#idnumber ~ .input-label  .error').text(' ').removeClass('error');
+                }
+              }
+
               break;
             case "email":
               item.value = $.trim(item.value);
@@ -171,6 +179,12 @@ define(['jquery', 'jqueryui', 'core/str'], function($, jqui, str) {
                 $('#email ~ .input-label .error').append( M.util.get_string('isrequired', 'theme_stardust') );
                 $('#email').focus();
                 errors = true;
+              }
+              if ($('#email').parent().hasClass('danger') && item.value !== ''){
+                $('#email').parent().removeClass('danger').addClass('info');
+                if ($('#email ~ .input-label .error').length > 0){
+                  $('#email ~ .input-label  .error').text(' ').removeClass('error');
+                }
               }
             // case "email2":
             case "aim":  // additional_email stores here
@@ -192,6 +206,12 @@ define(['jquery', 'jqueryui', 'core/str'], function($, jqui, str) {
                 $('#'+item.id).focus();
                 errors = true;
               }
+              if($('#'+item.id).parent().hasClass('danger') && regEx.test(item.value)){
+                $('#'+item.id).parent().removeClass('danger').addClass('info');
+                if ($('#'+item.id+' ~ .input-label .error').length > 0){
+                  $('#'+item.id+' ~ .input-label  .error').text(' ').removeClass('error');
+                }
+              }
               break;
             // case "phone1":
             //   // reqiured not empty
@@ -207,6 +227,12 @@ define(['jquery', 'jqueryui', 'core/str'], function($, jqui, str) {
             //     $('#'+item.id).focus();
             //     errors = true;
             //   }
+              // if ($('#'+item.id).parent().hasClass('danger') && item.value !== ''){
+              //   $('#'+item.id).parent().removeClass('danger').addClass('info');
+              //   if ($('#'+item.id+' ~ .input-label .error').length > 0){
+              //     $('#'+item.id+' ~ .input-label  .error').text(' ').removeClass('error');
+              //   }
+              // }
             case "phone2":
               // not required, but also might be in format like 123-123-1234 or (123) 123 1234 or 123.123.1234
               var regEx = /^[(]{0,1}[0-9]{3}[)]{0,1}[-\s\.]{0,1}[0-9]{3}[-\s\.]{0,1}[0-9]{4}$/;
@@ -221,6 +247,12 @@ define(['jquery', 'jqueryui', 'core/str'], function($, jqui, str) {
                 $('#'+item.id+' ~ .input-label .error').html(M.util.get_string('phoneerror', 'theme_stardust'));
                 $('#'+item.id).focus();
                 errors = true;
+              }
+              if($('#'+item.id).parent().hasClass('danger') && regEx.test(item.value)){
+                $('#'+item.id).parent().removeClass('danger').addClass('info');
+                if ($('#'+item.id+' ~ .input-label .error').length > 0){
+                  $('#'+item.id+' ~ .input-label  .error').text(' ').removeClass('error');
+                }
               }
               break;
             case "skype":
