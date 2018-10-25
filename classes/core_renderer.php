@@ -2172,6 +2172,30 @@ public function get_user_certificates(){
     return $certificates;
  }
 
+     /**
+     * Outputs a heading 
+     *
+     * @param string $text The text of the heading
+     * @param int $level The level of importance of the heading. Defaulting to 2
+     * @param string $classes A space-separated list of CSS classes. Defaulting to null
+     * @param string $id An optional ID
+     * @return string the HTML to output.
+     */
+    public function heading($text, $level = 2, $classes = null, $id = null) {
+        global $PAGE;
+        $level = (integer) $level;
+        if ($level < 1 or $level > 6) {
+            throw new coding_exception('Heading level must be an integer between 1 and 6.');
+        }
+        // SG - T-298 - change heading at course/edit.php
+        if ($PAGE->url->compare(new moodle_url('/course/edit.php'), URL_MATCH_BASE)) {
+            return html_writer::tag('h' . $level, $PAGE->course->shortname, array('id' => $id, 'class' => \renderer_base::prepare_classes($classes)));
+        } else {
+            // SG - render all other headings as usual
+            return html_writer::tag('h' . $level, $text, array('id' => $id, 'class' => \renderer_base::prepare_classes($classes)));
+        }
+    }
+
 }
 
 // SG - 20181010 - we have rewritten the renderer to reduce the profile page load, but it breaks some other user view pages. So comment for now
