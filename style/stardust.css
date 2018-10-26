@@ -1581,6 +1581,9 @@ body#page-login-signup {
           stroke-dashoffset: -100;
           animation: sussesAjax .9s .35s ease-in-out forwards; }
 
+[dir="rtl"] #course-main-content form.message input.message-input {
+  width: calc(100% - 5em); }
+
 .presence-title {
   color: #fff;
   font-size: 10px;
