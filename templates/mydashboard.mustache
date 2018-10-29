@@ -189,8 +189,8 @@ filters.addEventListener('click', function(e){
     type: "POST",
     async: true,
     url: M.cfg.wwwroot + '/theme/stardust/ajax.php',
-    method: 'save_course_filter',
     data:{
+      method: 'save_course_filter',
       userid: userid,
       sesskey: M.cfg.sesskey,
       filterstate: filterstate
