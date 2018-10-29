@@ -162,6 +162,20 @@ if (isset($userbackgroundimg)) {
     $mydahboardbackgroundimg = $OUTPUT->image_url('default-bg', 'theme');
 }
 
+// get course filter settings from user preferences
+$filterstate =  get_user_preferences('pagemy_filterstate', null, $USER->id);
+if ($filterstate) {
+    if ($filterstate === 'filter-date') {
+        $filtersmy['filter-date'] = 'filter-date active';
+        $filtersmy['filter-abc'] = 'filter-abc';
+    } else if ($filterstate === 'filter-abc') {
+        $filtersmy['filter-date'] = 'filter-date';
+        $filtersmy['filter-abc'] = 'filter-abc active';
+    }
+} else {
+    $filtersmy['filter-date'] = 'filter-date';
+    $filtersmy['filter-abc'] = 'filter-abc';
+}
 
 $templatecontext = [
 	'sitename' => format_string($SITE->shortname, true, ['context' => context_course::instance(SITEID) , "escape" => false]) ,
@@ -186,7 +200,8 @@ $templatecontext = [
     'bgcolor'=> isset($PAGE->theme->settings->mydashboardbgcolor) ? $PAGE->theme->settings->mydashboardbgcolor : null,
     'bgimage'=> $mydahboardbackgroundimg,
     'time' => time(),
-    'helplink' => true
+    'helplink' => true,
+    'filtersmy' => $filtersmy,
     // 'regionmainsettingsmenu' => $regionmainsettingsmenu,
     // 'hasregionmainsettingsmenu' => !empty($regionmainsettingsmenu)
 ];

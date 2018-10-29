@@ -276,4 +276,17 @@ class classAjax
 
     }
 
+    private function save_course_filter() {
+        global $DB;
+
+        $contextid = required_param('contextid', PARAM_INT);
+        $filterstate = required_param('filterstate', PARAM_RAW);
+
+        $userid = context::instance_by_id($contextid)->instanceid;
+
+        $response = set_user_preference('pagemy_filterstate', $filterstate, $userid);
+
+        return $response;
+    }
+
 }
