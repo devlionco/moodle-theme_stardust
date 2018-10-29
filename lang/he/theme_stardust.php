@@ -30,6 +30,7 @@ $string['configtitle'] = 'דוידסון';
 $string['tutorial_is_off'] = 'הדרכה כבויה';
 $string['tutorial_is_on'] = 'הדרכה פועלת';
 $string['tutorialisoffonthispage'] = 'סיור לא מוגדר בדף זה';
+$string['tutorialstart'] = 'Start tutorial on this page';
 // login page
 $string['entrance_to_moodle'] = 'כניסה למערכת מוודל של מכון דוידסון';
 $string['username'] = 'שם משתמש.ת';

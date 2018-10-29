@@ -71,8 +71,8 @@
             class = "dheader__tutorial-link"
             data-action="tool_usertours/resetpagetour"
             data-tooltip = "tooltip"
-            data-placement = "none"
-            data-original-title = "{{# str }} tutorialisoffonthispage, theme_stardust {{/ str }}"
+            data-placement = "bottom"
+            data-original-title = ""
             >
             <span
               class = "tutorialoff"
@@ -112,14 +112,18 @@ require(['jquery'], function($){
   let tutorilaBtn = document.querySelector('div[data-action="tool_usertours/resetpagetour"]');
 
   //TODO remove setTimeout
+
   $( document ).ready(function(e) {
     setTimeout(function(){
       if (M.str.tool_usertours) {
         if (M.str.tool_usertours.endtour) tutorilaBtn.classList.add('active');
+        tutorilaBtn.dataset.originalTitle = '{{# str }} tutorialstart, theme_stardust {{/ str }}';
+      } else {
+        tutorilaBtn.dataset.originalTitle = '{{# str }} tutorialisoffonthispage, theme_stardust {{/ str }}';
       }
     },2000)
-
   });
+
 
   // add class to tutorilaBtn if tour is active
   // if (tutorilaIndex) tutorilaBtn.classList.add('active');
