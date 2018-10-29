@@ -138,9 +138,12 @@ require(['theme_boost/drawer'], function(mod) {
 const container = document.querySelector(`.tab-pane.active ul`);
 const courses = Array.from(container.querySelectorAll(`li`));
 const filters = document.querySelector(`.filters`);
+const activefilter = document.querySelector(`.filters .active`);
 
 const filterDate = document.querySelector(`.filter-date`);
 const filterAbc = document.querySelector(`.filter-abc`);
+
+const userid = document.getElementById('nav-message-popover-container').dataset.userid;
 
 const compareByCourseName = (a, b) => {
   return (
@@ -154,19 +157,44 @@ const compareNumeric = (a, b) => {
   return Number(a.dataset.date) - Number(b.dataset.date);
 }
 
+//(function (){
+  if (activefilter){
+    if (activefilter.classList.contains(`filter-abc`)){
+      courses.sort(compareByCourseName);
+    } else if (activefilter.classList.contains(`filter-date`)) {
+      courses.sort(compareNumeric);
+    }
+  }
+//})();
+
 filters.addEventListener('click', function(e){
   e.target.classList.add(`active`);
+  var filterstate;
   if (e.target.classList.contains(`filter-abc`)) {
     filters.querySelector(`.filter-date`).classList.remove(`active`);
-    courses.sort(compareNumeric);
+    courses.sort(compareByCourseName);
+    filterstate = 'filter-abc';
   } else if  (e.target.classList.contains(`filter-date`)) {
     filters.querySelector(`.filter-abc`).classList.remove(`active`);
-    courses.sort(compareByCourseName)
+    courses.sort(compareNumeric);
+    filterstate = 'filter-date';
   }
 
   container.innerHTML = ``;
   courses.forEach((course)=>{
     container.appendChild(course);
+  });
+
+  $.ajax({
+    type: "POST",
+    async: true,
+    url: M.cfg.wwwroot + '/theme/stardust/ajax.php',
+    method: 'save_course_filter',
+    data:{
+      userid: userid,
+      sesskey: M.cfg.sesskey,
+      filterstate: filterstate
+    }
   });
 });
 {{/js}}
