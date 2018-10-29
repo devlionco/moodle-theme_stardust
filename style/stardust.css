@@ -2819,7 +2819,7 @@ html {
       left: 0; }
     #course-main-content .top-wrapper .top {
       width: 100%;
-      margin: 0 10%;
+      margin: 0 10% 0 10px;
       display: -ms-flexbox;
       display: flex;
       -ms-flex-direction: row;
