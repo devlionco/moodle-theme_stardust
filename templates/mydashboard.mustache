@@ -191,7 +191,7 @@ filters.addEventListener('click', function(e){
     url: M.cfg.wwwroot + '/theme/stardust/ajax.php',
     data:{
       method: 'save_course_filter',
-      userid: userid,
+      contextid: M.cfg.contextid,
       sesskey: M.cfg.sesskey,
       filterstate: filterstate
     }
