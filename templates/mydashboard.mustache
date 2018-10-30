@@ -188,6 +188,11 @@ filters.addEventListener('click', function(e){
       e.target.classList.add('za');
       courses.sort(compareByCourseName).reverse();
       direction = 0; // za
+    } else if (e.target.classList.contains('za')){
+      e.target.classList.remove('za');
+      e.target.classList.add('az');
+      courses.sort(compareByCourseName);
+      direction = 1; // az
     } else {
       e.target.classList.add('az');
       courses.sort(compareByCourseName);
@@ -204,6 +209,11 @@ filters.addEventListener('click', function(e){
       e.target.classList.add('za');
       courses.sort(compareNumeric).reverse();
       direction = 0; // za
+    } else if(e.target.classList.contains('za')){
+      e.target.classList.remove('za');
+      e.target.classList.add('az');
+      courses.sort(compareNumeric);
+      direction = 1; // az
     } else {
       e.target.classList.add('az');
       courses.sort(compareNumeric);
