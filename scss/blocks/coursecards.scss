@@ -43,6 +43,18 @@
         &:last-child {
           border: none;
         }
+        &.az{
+          &:after{
+            content:'\2193';
+            margin-left: .5rem;
+          }
+        }
+        &.za{
+          &:after{
+            content:'\2191';
+            margin-left: .5rem;
+          }
+        }
       }
     }
   }

@@ -138,12 +138,12 @@ require(['theme_boost/drawer'], function(mod) {
 const container = document.querySelector(`.tab-pane.active ul`);
 const courses = Array.from(container.querySelectorAll(`li`));
 const filters = document.querySelector(`.filters`);
-const activefilter = document.querySelector(`.filters .active`);
+
+const azfilter = document.querySelector(`.filters .az`);
+const zafilter = document.querySelector(`.filters .za`);
 
 const filterDate = document.querySelector(`.filter-date`);
 const filterAbc = document.querySelector(`.filter-abc`);
-
-const userid = document.getElementById('nav-message-popover-container').dataset.userid;
 
 const compareByCourseName = (a, b) => {
   return (
@@ -157,27 +157,58 @@ const compareNumeric = (a, b) => {
   return Number(a.dataset.date) - Number(b.dataset.date);
 }
 
+
 //(function (){
-  if (activefilter){
-    if (activefilter.classList.contains(`filter-abc`)){
+  if (azfilter){
+    if (azfilter.classList.contains(`filter-abc`)){
       courses.sort(compareByCourseName);
-    } else if (activefilter.classList.contains(`filter-date`)) {
+    } else if (azfilter.classList.contains(`filter-date`)) {
+      courses.sort(compareNumeric);
+    }
+  } else if (zafilter){
+    if (zafilter.classList.contains(`filter-abc`)){
+      courses.sort(compareByCourseName);
+    } else if (zafilter.classList.contains(`filter-date`)) {
       courses.sort(compareNumeric);
     }
   }
 //})();
 
 filters.addEventListener('click', function(e){
-  e.target.classList.add(`active`);
-  var filterstate;
+  //e.target.classList.add(`active`);
+  var filterstate, direction;
   if (e.target.classList.contains(`filter-abc`)) {
-    filters.querySelector(`.filter-date`).classList.remove(`active`);
-    courses.sort(compareByCourseName);
     filterstate = 'filter-abc';
+    if (filterDate.classList.contains('az') || filterDate.classList.contains('za')){
+      filterDate.classList.remove('az');
+      filterDate.classList.remove('za');
+    }
+    if (e.target.classList.contains('az')){
+      e.target.classList.remove('az');
+      e.target.classList.add('za');
+      courses.sort(compareByCourseName).reverse();
+      direction = 0; // za
+    } else {
+      e.target.classList.add('az');
+      courses.sort(compareByCourseName);
+      direction = 1; // az
+    }
   } else if  (e.target.classList.contains(`filter-date`)) {
-    filters.querySelector(`.filter-abc`).classList.remove(`active`);
-    courses.sort(compareNumeric);
     filterstate = 'filter-date';
+    if (filterAbc.classList.contains('az') || filterAbc.classList.contains('za')){
+      filterAbc.classList.remove('az');
+      filterAbc.classList.remove('za');
+    }
+    if (e.target.classList.contains('az')){
+      e.target.classList.remove('az');
+      e.target.classList.add('za');
+      courses.sort(compareNumeric).reverse();
+      direction = 0; // za
+    } else {
+      e.target.classList.add('az');
+      courses.sort(compareNumeric);
+      direction = 1; // az
+    }
   }
 
   container.innerHTML = ``;
@@ -193,7 +224,8 @@ filters.addEventListener('click', function(e){
       method: 'save_course_filter',
       contextid: M.cfg.contextid,
       sesskey: M.cfg.sesskey,
-      filterstate: filterstate
+      filterstate: filterstate,
+      direction: direction
     }
   });
 });
