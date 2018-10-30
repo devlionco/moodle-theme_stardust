@@ -163,16 +163,21 @@ if (isset($userbackgroundimg)) {
 }
 
 // get course filter settings from user preferences
-$filterstate =  get_user_preferences('pagemy_filterstate', null, $USER->id);
-if ($filterstate) {
-    if ($filterstate === 'filter-date') {
-        $filtersmy['filter-date'] = 'filter-date active';
-        $filtersmy['filter-abc'] = 'filter-abc';
-    } else if ($filterstate === 'filter-abc') {
-        $filtersmy['filter-date'] = 'filter-date';
-        $filtersmy['filter-abc'] = 'filter-abc active';
+$filterstate =  get_user_preferences(null, null, $USER->id);
+    // get filter direction
+    if ($filterstate['pagemy_filterdirection'] == 1) { 
+        $direction = 'az';
+    } else if ($filterstate['pagemy_filterdirection'] == 0) {
+        $direction = 'za';
     }
-} else {
+    // get filers classes
+    if ($filterstate['pagemy_filterstate'] === 'filter-date') {
+        $filtersmy['filter-date'] = 'filter-date active '.$direction;
+        $filtersmy['filter-abc'] = 'filter-abc';
+    } else if ($filterstate['pagemy_filterstate'] === 'filter-abc') {
+        $filtersmy['filter-date'] = 'filter-date';
+        $filtersmy['filter-abc'] = 'filter-abc active '.$direction;
+    } else {
     $filtersmy['filter-date'] = 'filter-date';
     $filtersmy['filter-abc'] = 'filter-abc';
 }

@@ -281,10 +281,11 @@ class classAjax
 
         $contextid = required_param('contextid', PARAM_INT);
         $filterstate = required_param('filterstate', PARAM_RAW);
+        $direction = required_param('direction', PARAM_RAW);
 
         $userid = context::instance_by_id($contextid)->instanceid;
 
-        $response = set_user_preference('pagemy_filterstate', $filterstate, $userid);
+        $response = set_user_preferences(array('pagemy_filterstate' => $filterstate, 'pagemy_filterdirection' => $direction), $userid);
 
         return $response;
     }
