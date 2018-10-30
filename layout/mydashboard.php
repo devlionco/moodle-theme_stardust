@@ -172,11 +172,11 @@ $filterstate =  get_user_preferences(null, null, $USER->id);
     }
     // get filers classes
     if ($filterstate['pagemy_filterstate'] === 'filter-date') {
-        $filtersmy['filter-date'] = 'filter-date active '.$direction;
+        $filtersmy['filter-date'] = 'filter-date '.$direction;
         $filtersmy['filter-abc'] = 'filter-abc';
     } else if ($filterstate['pagemy_filterstate'] === 'filter-abc') {
         $filtersmy['filter-date'] = 'filter-date';
-        $filtersmy['filter-abc'] = 'filter-abc active '.$direction;
+        $filtersmy['filter-abc'] = 'filter-abc '.$direction;
     } else {
     $filtersmy['filter-date'] = 'filter-date';
     $filtersmy['filter-abc'] = 'filter-abc';
