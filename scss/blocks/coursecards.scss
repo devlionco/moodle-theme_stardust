@@ -37,7 +37,7 @@
         padding: 0 8px;
         border-right: 1px solid $text-color;
         line-height: 16px;
-        &.active {
+        &.az, &.za {
           text-shadow: 0 0 1px black;
         }
         &:last-child {

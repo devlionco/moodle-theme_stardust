@@ -167,11 +167,15 @@ const compareNumeric = (a, b) => {
     }
   } else if (zafilter){
     if (zafilter.classList.contains(`filter-abc`)){
-      courses.sort(compareByCourseName);
+      courses.sort(compareByCourseName).reverse();
     } else if (zafilter.classList.contains(`filter-date`)) {
-      courses.sort(compareNumeric);
+      courses.sort(compareNumeric).reverse();
     }
   }
+  container.innerHTML = ``;
+  courses.forEach((course)=>{
+    container.appendChild(course);
+  });
 //})();
 
 filters.addEventListener('click', function(e){

@@ -1981,7 +1981,7 @@ body#page-login-signup {
         padding: 0 8px;
         border-right: 1px solid #3C3C3C;
         line-height: 16px; }
-        .course-cards-header .filters .filter.active {
+        .course-cards-header .filters .filter.az, .course-cards-header .filters .filter.za {
           text-shadow: 0 0 1px black; }
         .course-cards-header .filters .filter:last-child {
           border: none; }
