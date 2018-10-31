@@ -168,9 +168,14 @@
                         </button>
                         <ul class="info-list">
                             <li class="info" data-input="username">
-                              {{#canedit}}{{/canedit}}{{^canedit}}{{/canedit}}
-                              <span id="username" class="input">{{userinfo.username}}</span>
-                              <span class="input-label">{{#str}} username, theme_stardust{{/str}}</span>
+                                {{#canedit}}
+                                    <span id="username" class="input">{{userinfo.username}}</span>
+                                    <span class="input-label">{{#str}} username, theme_stardust{{/str}}</span>
+                                {{/canedit}}
+                                {{^canedit}}
+                                    <span id="username" class="static">{{userinfo.username}}</span>
+                                    <span class="input-label">{{#str}} username, theme_stardust{{/str}}</span>
+                                {{/canedit}}
                             </li>
                             <li class="info" data-input="pass">
                               <a  class="input" id="pass" href="/login/change_password.php?id={{userinfo.id}}">{{#str}} change_password_link, theme_stardust{{/str}}</a>
