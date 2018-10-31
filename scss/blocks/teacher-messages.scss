@@ -168,3 +168,6 @@
     }
   }
 }
+[dir="rtl"] #course-main-content form.message input.message-input {
+  width:calc(100% - 5em);
+}

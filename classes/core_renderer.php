@@ -2214,6 +2214,7 @@ public function get_user_certificates(){
      * Outputs the user menu.
      * @return custom_menu object
      */
+    /*
     public function custom_menu_user() {
         // Die if executed during install.
         if (during_initial_install()) {
@@ -2405,6 +2406,7 @@ public function get_user_certificates(){
 
         return $usermenu;
     }
+*/
 
     /* Quick action menu for each user, when user image is clicked.
    * integrated by : nadavkav@gmail.com
@@ -2460,7 +2462,7 @@ public function get_user_certificates(){
         if ((user_has_role_assignment($USER->id, 3 /* editingteacher */, $PAGE->context->id)
                 OR user_has_role_assignment($USER->id, 1 /* manager */, $PAGE->context->id)
                 OR array_key_exists($USER->id, get_admins()) )
-            AND ($userpicture->link and $size >= 35) ) {
+                AND ($userpicture->link and $size >= 35) ) {
             //if ($userpicture->link and $size >= 35) {
             $output .= $this->user_action_menu($user->id, $courseid, $attributes);
             //}
@@ -2473,7 +2475,7 @@ public function get_user_certificates(){
             $output .= html_writer::div(fullname($userpicture->user), 'fullname');
         }
         $output .= html_writer::end_tag('div');
-        
+
         /*
         if (user_has_role_assignment($user->id,3,$PAGE->context->id)) {
             $output .= html_writer::start_tag('div',array('style'=>'position: relative;top: -20px;right: 20px;'));
@@ -2675,6 +2677,30 @@ public function get_user_certificates(){
         return html_writer::tag('span', $content, $attributes);
     }
 
+    /**
+     * Outputs a heading
+     *
+     * @param string $text The text of the heading
+     * @param int $level The level of importance of the heading. Defaulting to 2
+     * @param string $classes A space-separated list of CSS classes. Defaulting to null
+     * @param string $id An optional ID
+     * @return string the HTML to output.
+     */
+    public function heading($text, $level = 2, $classes = null, $id = null) {
+        global $PAGE;
+        $level = (integer) $level;
+        if ($level < 1 or $level > 6) {
+            throw new coding_exception('Heading level must be an integer between 1 and 6.');
+        }
+        // SG - T-298 - change heading at course/edit.php
+        if ($PAGE->url->compare(new moodle_url('/course/edit.php'), URL_MATCH_BASE)) {
+            return html_writer::tag('h' . $level, $PAGE->course->shortname, array('id' => $id, 'class' => \renderer_base::prepare_classes($classes)));
+        } else {
+            // SG - render all other headings as usual
+            return html_writer::tag('h' . $level, $text, array('id' => $id, 'class' => \renderer_base::prepare_classes($classes)));
+        }
+
+    }
 }
 
 namespace theme_stardust\output\core_user\myprofile;

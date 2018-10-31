@@ -8,7 +8,7 @@
                     <input type="text" name="message" value="{{coursemessage.message}}" maxlength="100" placeholder="" class="message-input" readonly>
                     <div class="message-controls">
                       <input type="button" name="" value="&rarr;" class="message-submit" title="submit">
-                      <input type="button" name="" value="&times;" class="message-clear" title="clear message">
+                      <!-- <input type="button" name="" value="&times;" class="message-clear" title="clear message"> -->
                       <div class="submit-icons"></div>
                     </div>
                   </form>
@@ -26,7 +26,7 @@ require(['core/yui', 'jquery', 'theme_stardust/ajax'], function(Y, $, ajax){
 
   const message = document.querySelector('#course-main-content .message-input');
   const submit = document.querySelector('#course-main-content .message-submit');
-  const clear = document.querySelector('#course-main-content .message-clear');
+  // const clear = document.querySelector('#course-main-content .message-clear');
   const hider = document.querySelector('#course-main-content .message-hider');
 
   // on send spinner
@@ -37,7 +37,7 @@ require(['core/yui', 'jquery', 'theme_stardust/ajax'], function(Y, $, ajax){
 
   // hide controls
   $(submit).css({'display':'none'});
-  $(clear).css({'display':'none'});
+  //$(clear).css({'display':'none'});
 
   const getCourseId = function (){
     var queries = window.location.search.replace(/^\?/, '').split('&');
@@ -54,7 +54,7 @@ require(['core/yui', 'jquery', 'theme_stardust/ajax'], function(Y, $, ajax){
 
   const animation = function() {
     $(submit).css({'display':'none'});
-    $(clear).css({'display':'none'});
+    //$(clear).css({'display':'none'});
     //targetBlock.appendChild(spinner);
     targetBlock.innerHTML = spinner;
     setTimeout(function(){
@@ -94,20 +94,21 @@ require(['core/yui', 'jquery', 'theme_stardust/ajax'], function(Y, $, ajax){
   message.addEventListener('blur', function(e) {
     submit.click();
   }, true);
-  clear.addEventListener('click', function(){
-    message.value = "";
-  });
+  //clear.addEventListener('click', function(){
+  //  message.value = "";
+  //});
   message.addEventListener('keyup', function(e) {
     e.preventDefault();
     // Enter
     if (event.keyCode === 13) {
       submit.click();
     } else if (event.keyCode === 8) {
-      $(clear).css({'display':'inline-block'});
-      $(submit).css({'display':'none'});
+      //$(clear).css({'display':'inline-block'});
+      //$(submit).css({'display':'none'});
+      $(submit).css({'display':'inline-block'});
     } else {
       $(submit).css({'display':'inline-block'});
-      $(clear).css({'display':'none'});
+      //$(clear).css({'display':'none'});
     }
   });
   submit.addEventListener('click', function(){

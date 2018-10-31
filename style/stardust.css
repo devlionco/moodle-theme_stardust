@@ -1581,6 +1581,9 @@ body#page-login-signup {
           stroke-dashoffset: -100;
           animation: sussesAjax .9s .35s ease-in-out forwards; }
 
+[dir="rtl"] #course-main-content form.message input.message-input {
+  width: calc(100% - 5em); }
+
 .presence-title {
   color: #fff;
   font-size: 10px;
@@ -1978,10 +1981,16 @@ body#page-login-signup {
         padding: 0 8px;
         border-right: 1px solid #3C3C3C;
         line-height: 16px; }
-        .course-cards-header .filters .filter.active {
+        .course-cards-header .filters .filter.az, .course-cards-header .filters .filter.za {
           text-shadow: 0 0 1px black; }
         .course-cards-header .filters .filter:last-child {
           border: none; }
+        .course-cards-header .filters .filter.az:after {
+          content: '\2193';
+          margin-left: .5rem; }
+        .course-cards-header .filters .filter.za:after {
+          content: '\2191';
+          margin-left: .5rem; }
 
 [dir="rtl"] .courses-active .table-container {
   direction: rtl; }
@@ -2816,7 +2825,7 @@ html {
       left: 0; }
     #course-main-content .top-wrapper .top {
       width: 100%;
-      margin: 0 10%;
+      margin: 0 10% 0 10px;
       display: -ms-flexbox;
       display: flex;
       -ms-flex-direction: row;

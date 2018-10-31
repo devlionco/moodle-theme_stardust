@@ -162,6 +162,25 @@ if (isset($userbackgroundimg)) {
     $mydahboardbackgroundimg = $OUTPUT->image_url('default-bg', 'theme');
 }
 
+// get course filter settings from user preferences
+$filterstate =  get_user_preferences(null, null, $USER->id);
+    // get filter direction
+    if ($filterstate['pagemy_filterdirection'] == 1) { 
+        $direction = 'az';
+    } else if ($filterstate['pagemy_filterdirection'] == 0) {
+        $direction = 'za';
+    }
+    // get filers classes
+    if ($filterstate['pagemy_filterstate'] === 'filter-date') {
+        $filtersmy['filter-date'] = 'filter-date '.$direction;
+        $filtersmy['filter-abc'] = 'filter-abc';
+    } else if ($filterstate['pagemy_filterstate'] === 'filter-abc') {
+        $filtersmy['filter-date'] = 'filter-date';
+        $filtersmy['filter-abc'] = 'filter-abc '.$direction;
+    } else {
+    $filtersmy['filter-date'] = 'filter-date';
+    $filtersmy['filter-abc'] = 'filter-abc';
+}
 
 $templatecontext = [
 	'sitename' => format_string($SITE->shortname, true, ['context' => context_course::instance(SITEID) , "escape" => false]) ,
@@ -186,7 +205,8 @@ $templatecontext = [
     'bgcolor'=> isset($PAGE->theme->settings->mydashboardbgcolor) ? $PAGE->theme->settings->mydashboardbgcolor : null,
     'bgimage'=> $mydahboardbackgroundimg,
     'time' => time(),
-    'helplink' => true
+    'helplink' => true,
+    'filtersmy' => $filtersmy,
     // 'regionmainsettingsmenu' => $regionmainsettingsmenu,
     // 'hasregionmainsettingsmenu' => !empty($regionmainsettingsmenu)
 ];
