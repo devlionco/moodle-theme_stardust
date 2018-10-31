@@ -174,6 +174,9 @@ $string['contact_us'] = 'צור קשר';
 $string['privacy_policy'] = 'מדיניות הפרטיות';
 $string['terms_of_use'] = 'תנאי שימוש';
 $string['accessibility_statement'] = 'הצהרת נגישות';
+$string['list_of_courses'] = 'לרשימת הקורסים';
+$string['davidson_institute_wesite'] = 'לאתר מכון דוידסון';
+$string['download_application'] = 'להורדת האפליקציה';
 
 // course page
 $string['gohome'] = '< עמוד הבית';

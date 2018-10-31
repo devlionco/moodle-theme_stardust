@@ -287,7 +287,6 @@
   display: flex;
   -ms-flex-pack: center;
       justify-content: center;
-  max-width: 80%;
   margin: 0 auto; }
   #page-login-index .dlogin__flex .card {
     border: 0; }
@@ -299,8 +298,7 @@
   font-family: 'NextExitRound';
   color: #fff;
   text-align: center;
-  margin: 160px 0 32px 0;
-  margin-top: 86px; }
+  margin: 32px 0; }
 
 #page-login-index .dlogin__container {
   max-width: 660px;
@@ -316,7 +314,7 @@
 #page-login-index .dlogin__main {
   display: -ms-flexbox;
   display: flex;
-  margin-top: 50px;
+  margin-top: 30px;
   -ms-flex-pack: justify;
       justify-content: space-between; }
 
@@ -513,7 +511,8 @@
     text-shadow: 0 0 2px #fff; }
 
 #page-login-index #page {
-  margin-top: 0; }
+  margin-top: 0;
+  min-height: 80vh; }
 
 #page-login-index #page-wrapper::after {
   display: none; }
@@ -531,13 +530,13 @@ body#page-login-signup {
     display: flex;
     -ms-flex-direction: column;
         flex-direction: column;
-    min-height: 96vh;
     -ms-flex-pack: center;
         justify-content: center;
+    -ms-flex-align: center;
+        align-items: center;
     padding-top: 72px; }
   body#page-login-index div[role="main"],
   body#page-login-signup div[role="main"] {
-    min-height: 70vh;
     display: -ms-flexbox;
     display: flex;
     -ms-flex-direction: column;
@@ -578,11 +577,11 @@ body#page-login-signup {
         flex-flow: row wrap;
     min-height: 90px; }
     #page-footer #stardust-footer > div {
-      margin: 1rem 0; }
+      margin: 1.15rem 0; }
     #page-footer #stardust-footer .right-logo {
       display: block;
       width: 100%;
-      height: 60px;
+      height: 130px;
       background-image: url([[pix:theme|logo_right]]);
       background-position: top center;
       background-repeat: no-repeat;
@@ -678,6 +677,45 @@ body#page-login-signup {
       background-position: center;
       background-repeat: no-repeat;
       background-size: contain; }
+    #page-footer #stardust-footer .left-wrapper {
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
+      font-size: 1.125rem;
+      line-height: 1.75rem;
+      text-align: center;
+      color: #FFFFFF; }
+      #page-footer #stardust-footer .left-wrapper .external-link {
+        display: block;
+        width: 100%;
+        text-decoration: underline;
+        color: #FFFFFF; }
+      #page-footer #stardust-footer .left-wrapper > div {
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-flow: row wrap;
+            flex-flow: row wrap;
+        -ms-flex-pack: center;
+            justify-content: center;
+        -ms-flex-align: center;
+            align-items: center; }
+        #page-footer #stardust-footer .left-wrapper > div span {
+          display: block;
+          width: 100%;
+          -ms-flex-positive: 2;
+              flex-grow: 2; }
+        #page-footer #stardust-footer .left-wrapper > div .appstore {
+          display: block;
+          width: 110px;
+          height: 35px;
+          background-position: center;
+          background-size: contain;
+          margin: 0 .5rem; }
+          #page-footer #stardust-footer .left-wrapper > div .appstore.apple {
+            float: left;
+            background-image: url([[pix:theme|appstore_apple]]); }
+          #page-footer #stardust-footer .left-wrapper > div .appstore.google {
+            float: right;
+            background-image: url([[pix:theme|appstore_google]]); }
 
 .dheader .dropdown-menu {
   position: absolute;
@@ -1558,10 +1596,17 @@ body#page-login-signup {
         align-items: center;
     height: 100%;
     width: 3em; }
-    #course-main-content form.message .message-controls .message-submit, #course-main-content form.message .message-controls .message-clear {
-      font-size: 1.5em;
-      line-height: 1em;
-      font-weight: 700; }
+    #course-main-content form.message .message-controls .message-submit {
+      border: 0;
+      background-color: transparent;
+      color: #83D3AE; }
+      #course-main-content form.message .message-controls .message-submit:after {
+        font-family: fontAwesome;
+        content: '\f061';
+        display: block;
+        font-size: 1em;
+        line-height: 1em;
+        font-weight: 300; }
     #course-main-content form.message .message-controls .message-spin {
       display: block;
       width: 1em;

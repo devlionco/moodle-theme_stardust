@@ -251,6 +251,9 @@ $string['contact_us'] = 'Contact us';
 $string['privacy_policy'] = 'Privacy policy';
 $string['terms_of_use'] = 'Terms of use';
 $string['accessibility_statement'] = 'Accessibility statement';
+$string['list_of_courses'] = 'List of courses';
+$string['davidson_institute_wesite'] = 'Davidson Institute website';
+$string['download_application'] = 'Download application';
 
 // Content settings.
 $string['coursetileinfo'] = 'Course Display Options';
