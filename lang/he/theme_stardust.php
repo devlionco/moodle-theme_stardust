@@ -205,3 +205,14 @@ $string['show_notanswered'] = 'הצג שאלות שלא נענו';
 // Teacher dashboard (davidson)
 $string['extendeduserreport'] = 'פרטי משתמשים מורחב';
 $string['userspassreport'] = 'איפוס סיסמאות לתלמידים';
+
+// User actions
+$string['user_completereport'] = 'דוח קורס מלא';
+$string['user_outlinereport'] = 'דוח צפיה בקורס';
+$string['user_viewprofile'] = 'צפיה בפרופיל';
+$string['user_editprofile'] = 'עריכת פרופיל';
+$string['user_sendmessage'] = 'שליחת מסר';
+$string['user_coursecompletion'] = 'השלמת קורס';
+$string['user_courselogs'] = 'ניטור פעילות';
+$string['user_coursegrades'] = 'ציונים בקורס';
+$string['user_loginas'] = 'מזוהים כ:';

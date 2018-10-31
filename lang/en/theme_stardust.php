@@ -559,3 +559,14 @@ $string['show_notanswered'] = 'Show notanswered question';
 // Teacher dashboard (davidson)
 $string['extendeduserreport'] = 'Detailed user report';
 $string['userspassreport'] = 'users and passwords';
+
+// User actions
+$string['user_completereport'] = 'Full course report';
+$string['user_outlinereport'] = 'Basic course report';
+$string['user_viewprofile'] = 'View profile';
+$string['user_editprofile'] = 'Edit profile';
+$string['user_sendmessage'] = 'Send a message';
+$string['user_coursecompletion'] = 'Course completion';
+$string['user_courselogs'] = 'Activity log';
+$string['user_coursegrades'] = 'Course grades';
+$string['user_loginas'] = 'Login as...';
