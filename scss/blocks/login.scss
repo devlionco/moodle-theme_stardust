@@ -253,8 +253,13 @@
     margin-top: 0;
     min-height:80vh;
   }
-  #page-wrapper::after {
-    display: none;
+  #page-wrapper{
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-between;
+    &::after {
+      display: none;
+    }
   }
 }
 

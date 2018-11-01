@@ -514,8 +514,15 @@
   margin-top: 0;
   min-height: 80vh; }
 
-#page-login-index #page-wrapper::after {
-  display: none; }
+#page-login-index #page-wrapper {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-flow: column nowrap;
+      flex-flow: column nowrap;
+  -ms-flex-pack: justify;
+      justify-content: space-between; }
+  #page-login-index #page-wrapper::after {
+    display: none; }
 
 body#page-login-index,
 body#page-login-signup {
