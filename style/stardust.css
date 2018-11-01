@@ -3621,6 +3621,10 @@ html {
                     opacity: 0; }
                   #page-mod-quiz-attempt #page-wrapper section#region-main.has-blocks [role="main"] .que .content .formulation .ablock .answer > div input:checked + label::before {
                     background: #19284f; }
+                  #page-mod-quiz-attempt #page-wrapper section#region-main.has-blocks [role="main"] .que .content .formulation .ablock .answer > div i {
+                    position: absolute;
+                    top: 9px;
+                    left: -20px; }
         #page-mod-quiz-attempt #page-wrapper section#region-main.has-blocks [role="main"] .mod_quiz-section-heading {
           display: none; }
         #page-mod-quiz-attempt #page-wrapper section#region-main.has-blocks [role="main"] .qn_buttons {
