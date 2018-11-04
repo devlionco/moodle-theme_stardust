@@ -66,11 +66,14 @@ if ($interests) {
 // upload custom user fields (birthday and knowledge) to user object
 profile_load_data($user);
 
-// add knowledge as array for convenience
-if (!empty($user->profile_field_knowledge)) {
-    $user->knowledge = json_decode($user->profile_field_knowledge['text']);
-    unset($user->profile_field_knowledge);
-}
+// SG - decode from the json knwoledge data, that is stored in icq field
+$user->knowledge = json_decode($user->icq);
+
+// // SG - add knowledge as array for convenience // TOREMOVE if icq alternative above works fine
+// if (!empty($user->profile_field_knowledge)) {
+//     $user->knowledge = json_decode($user->profile_field_knowledge['text']);
+//     unset($user->profile_field_knowledge);
+// }
 
 // get profile fields, that are locked by auth plugins and set them disabled status
 $authplugin = get_auth_plugin($user->auth);

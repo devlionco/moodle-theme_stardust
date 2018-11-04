@@ -81,6 +81,10 @@ function save_mypublicpage_shortform() {
         if(!empty($address)){
             $user->address = $address;
         }
+        if(!empty($knowledge)){
+            $user->icq = $knowledge;    // use icq field as storage for knowledge
+        }
+
 
         $result = $DB->update_record('user', $user, $bulk=false);
         $response['user'] = ($result === true) ? 'OK' : $result;
@@ -112,22 +116,22 @@ function save_mypublicpage_shortform() {
             $response['interests'] = 'OK';
         }
 
-        // update knowledge
-        if(!empty($knowledge)){
-            $knowledgefieldid = $DB->get_field('user_info_field', 'id', array('shortname' => 'knowledge'));  // SG - ugly hack to define knowledge data field
-            // create DB object for update or insert
-            $knowledgefielddata = new stdClass();
-            $knowledgefielddata->fieldid = $knowledgefieldid;
-            $knowledgefielddata->userid = $userid;
-            $knowledgefielddata->data = $knowledge;
-            if ($dataid = $DB->get_field('user_info_data', 'id', array('userid' => $userid, 'fieldid' => $knowledgefieldid))) {
-                $knowledgefielddata->id = $dataid;
-                $result = $DB->update_record('user_info_data', $knowledgefielddata);
-            } else {
-                $result = $DB->insert_record('user_info_data', $knowledgefielddata);
-            }
-            $response['knowledge'] = ($result) ? 'OK. Row id:'.$result : $result;
-        }
+        // // SG - update knowledge (used for custom field) - TOREMOVE if icq alternative works fine - see above
+        // if(!empty($knowledge)){
+        //     $knowledgefieldid = $DB->get_field('user_info_field', 'id', array('shortname' => 'knowledge'));  // SG - ugly hack to define knowledge data field
+        //     // create DB object for update or insert
+        //     $knowledgefielddata = new stdClass();
+        //     $knowledgefielddata->fieldid = $knowledgefieldid;
+        //     $knowledgefielddata->userid = $userid;
+        //     $knowledgefielddata->data = $knowledge;
+        //     if ($dataid = $DB->get_field('user_info_data', 'id', array('userid' => $userid, 'fieldid' => $knowledgefieldid))) {
+        //         $knowledgefielddata->id = $dataid;
+        //         $result = $DB->update_record('user_info_data', $knowledgefielddata);
+        //     } else {
+        //         $result = $DB->insert_record('user_info_data', $knowledgefielddata);
+        //     }
+        //     $response['knowledge'] = ($result) ? 'OK. Row id:'.$result : $result;
+        // }
 
     echo json_encode($response);
 };
