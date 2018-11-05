@@ -3425,6 +3425,10 @@ html {
 
 [dir="rtl"] #page-mod-quiz-attempt section#region-main.has-blocks .qn_buttons {
   transform: translateX(50%); }
+  [dir="rtl"] #page-mod-quiz-attempt section#region-main.has-blocks .qn_buttons .qnbutton.partiallycorrect:before,
+  [dir="rtl"] #page-mod-quiz-attempt section#region-main.has-blocks .qn_buttons .qnbutton[title="Partially correct"]:before,
+  [dir="rtl"] #page-mod-quiz-attempt section#region-main.has-blocks .qn_buttons .qnbutton[title="נכון באופן חלקי"]:before {
+    transform: rotate(-45deg); }
 
 [dir="rtl"] #page-mod-quiz-attempt section#region-main.has-blocks .filter_toggle .filter_pin {
   transform: translateX(2px); }
@@ -3434,6 +3438,10 @@ html {
 
 [dir="ltr"] #page-mod-quiz-attempt section#region-main.has-blocks .qn_buttons {
   transform: translateX(-50%); }
+  [dir="ltr"] #page-mod-quiz-attempt section#region-main.has-blocks .qn_buttons .qnbutton.partiallycorrect:before,
+  [dir="ltr"] #page-mod-quiz-attempt section#region-main.has-blocks .qn_buttons .qnbutton[title="Partially correct"]:before,
+  [dir="ltr"] #page-mod-quiz-attempt section#region-main.has-blocks .qn_buttons .qnbutton[title="נכון באופן חלקי"]:before {
+    transform: rotate(45deg); }
 
 #page-mod-quiz-edit .endtestlink,
 #page-mod-quiz-summary .endtestlink {
@@ -3708,6 +3716,24 @@ html {
               color: #ff7e99 !important;
               border-color: #ff7e99 !important;
               border-width: 2px; }
+            #page-mod-quiz-attempt #page-wrapper section#region-main.has-blocks [role="main"] .qn_buttons .qnbutton.partiallycorrect, #page-mod-quiz-attempt #page-wrapper section#region-main.has-blocks [role="main"] .qn_buttons .qnbutton[title="Partially correct"], #page-mod-quiz-attempt #page-wrapper section#region-main.has-blocks [role="main"] .qn_buttons .qnbutton[title="נכון באופן חלקי"] {
+              color: #19284f; }
+              #page-mod-quiz-attempt #page-wrapper section#region-main.has-blocks [role="main"] .qn_buttons .qnbutton.partiallycorrect:before, #page-mod-quiz-attempt #page-wrapper section#region-main.has-blocks [role="main"] .qn_buttons .qnbutton[title="Partially correct"]:before, #page-mod-quiz-attempt #page-wrapper section#region-main.has-blocks [role="main"] .qn_buttons .qnbutton[title="נכון באופן חלקי"]:before {
+                content: '';
+                display: block;
+                position: absolute;
+                z-index: 10;
+                width: calc(100% + 4px);
+                height: calc(100% + 4px);
+                top: -2px;
+                bottom: -2px;
+                left: -2px;
+                right: -2px;
+                box-sizing: border-box;
+                border: 2px solid #19284f;
+                border-top-color: #B4C1C7;
+                border-left-color: #B4C1C7;
+                border-radius: 50%; }
         #page-mod-quiz-attempt #page-wrapper section#region-main.has-blocks [role="main"] .submitbtns {
           min-height: 70px; }
           #page-mod-quiz-attempt #page-wrapper section#region-main.has-blocks [role="main"] .submitbtns:after {

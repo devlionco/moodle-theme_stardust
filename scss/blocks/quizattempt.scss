@@ -4,6 +4,13 @@
   section#region-main.has-blocks {
     .qn_buttons {
       transform: translateX(50%);
+      .qnbutton.partiallycorrect,
+      .qnbutton[title="Partially correct"],
+      .qnbutton[title="נכון באופן חלקי"]{
+        &:before{
+          transform: rotate(-45deg);
+        }
+      }
     }
     .filter_toggle .filter_pin {
       transform: translateX(2px);
@@ -18,6 +25,13 @@
   section#region-main.has-blocks {
     .qn_buttons {
       transform: translateX(-50%);
+      .qnbutton.partiallycorrect,
+      .qnbutton[title="Partially correct"],
+      .qnbutton[title="נכון באופן חלקי"]{
+        &:before{
+          transform: rotate(45deg);
+        }
+      }
     }
   }
 }
@@ -361,6 +375,32 @@
               color: #ff7e99 !important;
               border-color: #ff7e99 !important;
               border-width: 2px;
+            }
+            &.partiallycorrect,&[title="Partially correct"],&[title="נכון באופן חלקי"] {
+              // border-bottom-color: $primary-color-1;
+              // border-right-color: $primary-color-1;
+              color: $primary-color-1;
+              // transform: rotate(45deg);
+              // & span, &:after{
+              //   transform:rotate(-45deg);
+              // }
+              &:before{
+                content:'';
+                display: block;
+                position: absolute;
+                z-index:10;
+                width: calc(100% + 4px);
+                height: calc(100% + 4px);
+                top:-2px;
+                bottom:-2px;
+                left:-2px;
+                right:-2px;
+                box-sizing: border-box;
+                border:2px solid $primary-color-1;
+                border-top-color: #B4C1C7;
+                border-left-color: #B4C1C7;
+                border-radius:50%;
+              }
             }
 
           }
