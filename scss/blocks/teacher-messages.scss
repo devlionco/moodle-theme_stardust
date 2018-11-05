@@ -121,12 +121,12 @@
     &.message-input{
       width:calc(100% - 3em);
     }
-    &[readonly] ~ .message-controls>.message-submit{
-      display:none;
-    }
-    &[readonly] ~ .message-controls>.message-clear{
-      display:none;
-    }
+    // &[readonly] ~ .message-controls>.message-submit{
+    //   display:none;
+    // }
+    // &[readonly] ~ .message-controls>.message-clear{
+    //   display:none;
+    // }
   }
   .message-controls{
     position:relative;
@@ -141,6 +141,7 @@
       border:0;
       background-color:transparent;
       color:#83D3AE;
+      outline:none;
       &:after{
         font-family: fontAwesome;
         content:'\f061';

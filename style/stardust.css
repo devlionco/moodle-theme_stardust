@@ -1587,10 +1587,6 @@ body#page-login-signup {
     cursor: pointer; }
     #course-main-content form.message input.message-input {
       width: calc(100% - 3em); }
-    #course-main-content form.message input[readonly] ~ .message-controls > .message-submit {
-      display: none; }
-    #course-main-content form.message input[readonly] ~ .message-controls > .message-clear {
-      display: none; }
   #course-main-content form.message .message-controls {
     position: relative;
     display: -ms-flexbox;
@@ -1606,7 +1602,8 @@ body#page-login-signup {
     #course-main-content form.message .message-controls .message-submit {
       border: 0;
       background-color: transparent;
-      color: #83D3AE; }
+      color: #83D3AE;
+      outline: none; }
       #course-main-content form.message .message-controls .message-submit:after {
         font-family: fontAwesome;
         content: '\f061';
