@@ -546,7 +546,7 @@ $string['backtosection'] = 'Back to section - {$a}';
 $string['backtoactivity'] = 'Back to {$a}';
 $string['sectionstitle'] = 'Section';
 $string['activitiestitle'] = 'Activity';
-$string['title_no_url'] = 'no url for this activity';
+$string['title_no_url'] = 'No URL for this activity type';
 
 // quiz attempt page
 $string['quizattemptbacktocourse'] = 'Back to course';
