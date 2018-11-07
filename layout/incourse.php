@@ -100,10 +100,13 @@ if ($PAGE->context && $PAGE->context->contextlevel == CONTEXT_MODULE && $PAGE->c
     foreach ($allactivitiesarr[$currentsectionnum] as $key => $activid) {
         $activinfo = $courseinfo->cms[$activid];
         if (!$activinfo->uservisible) continue;         // SG - T-308 - skip not visible for user activities
-        if ($activinfo->modname == 'label') continue;   // SG - T-308 - skip labels
         $allsectionactivities[$key]['name'] = $activinfo->name;
         $allsectionactivities[$key]['type'] = $activinfo->modname;
         $allsectionactivities[$key]['url'] = $activinfo->url ? $activinfo->url->out() : '';
+        if ($activinfo->modname == 'label') {
+            $allsectionactivities[$key]['url'] = 'javascript:void(0)';
+            $allsectionactivities[$key]['title'] = get_string('title_no_url', 'theme_stardust');
+        }
         if ($activid == $PAGE->cm->id) {
             $allsectionactivities[$key]['current'] = $activinfo->name;
         }

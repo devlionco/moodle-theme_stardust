@@ -192,6 +192,7 @@ $string['backtosection'] = 'Back to section - {$a}';
 $string['backtoactivity'] = 'Back to {$a}';
 $string['sectionstitle'] = 'יחידת הוראה';
 $string['activitiestitle'] = 'פעילות';
+$string['title_no_url'] = 'no url for this activity';
 
 // quiz attempt page
 $string['quizattemptbacktocourse'] = 'חזרה לקורס';
