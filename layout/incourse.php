@@ -83,7 +83,7 @@ if ($PAGE->context && $PAGE->context->contextlevel == CONTEXT_COURSE) {
 
 // get info for header in cm level pages
 if ($PAGE->context && $PAGE->context->contextlevel == CONTEXT_MODULE && $PAGE->cm) {
-    // defibe current section
+    // define current section
     $currentsectionnum = $PAGE->cm->sectionnum;
     $sectionlink = $courseformat->get_view_url($currentsectionnum);
     $textbacktosection = new lang_string('backtosection', 'theme_stardust', $courseformat->get_section_name($currentsectionnum));
@@ -94,14 +94,19 @@ if ($PAGE->context && $PAGE->context->contextlevel == CONTEXT_MODULE && $PAGE->c
     $courseinfo = $PAGE->cm->get_modinfo();
     $allcoursesectionsinfo = get_all_course_sections_info($courseinfo, $currentsectionnum);
 
-    // get activitie in current section
+    // get activities in current section
     $allactivitiesarr = $courseinfo->get_sections();
     $allsectionactivities = array();
     foreach ($allactivitiesarr[$currentsectionnum] as $key => $activid) {
         $activinfo = $courseinfo->cms[$activid];
+        if (!$activinfo->uservisible) continue;         // SG - T-308 - skip not visible for user activities
         $allsectionactivities[$key]['name'] = $activinfo->name;
         $allsectionactivities[$key]['type'] = $activinfo->modname;
         $allsectionactivities[$key]['url'] = $activinfo->url ? $activinfo->url->out() : '';
+        if ($activinfo->modname == 'label') {
+            $allsectionactivities[$key]['url'] = 'javascript:void(0)';
+            $allsectionactivities[$key]['title'] = get_string('title_no_url', 'theme_stardust');
+        }
         if ($activid == $PAGE->cm->id) {
             $allsectionactivities[$key]['current'] = $activinfo->name;
         }
@@ -153,7 +158,7 @@ $templatecontext = [
     'backtoactivity' => html_writer::link($activitylink, $textbacktoactivity),
     'allcoursesections' => $allcoursesectionsinfo['allcoursesections'] = array_values($allcoursesectionsinfo['allcoursesections']),
     'allcoursesectionspinned' => $allcoursesectionsinfo['allcoursesectionspinned'] = array_values($allcoursesectionsinfo['allcoursesectionspinned']),
-    'allsectionactivities' => $allsectionactivities
+    'allsectionactivities' => $allsectionactivities = array_values($allsectionactivities)
 ];
 
 $PAGE->requires->jquery();

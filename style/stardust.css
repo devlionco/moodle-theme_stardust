@@ -287,7 +287,6 @@
   display: flex;
   -ms-flex-pack: center;
       justify-content: center;
-  max-width: 80%;
   margin: 0 auto; }
   #page-login-index .dlogin__flex .card {
     border: 0; }
@@ -299,8 +298,7 @@
   font-family: 'NextExitRound';
   color: #fff;
   text-align: center;
-  margin: 160px 0 32px 0;
-  margin-top: 86px; }
+  margin: 32px 0; }
 
 #page-login-index .dlogin__container {
   max-width: 660px;
@@ -316,7 +314,7 @@
 #page-login-index .dlogin__main {
   display: -ms-flexbox;
   display: flex;
-  margin-top: 50px;
+  margin-top: 30px;
   -ms-flex-pack: justify;
       justify-content: space-between; }
 
@@ -513,10 +511,18 @@
     text-shadow: 0 0 2px #fff; }
 
 #page-login-index #page {
-  margin-top: 0; }
+  margin-top: 0;
+  min-height: 80vh; }
 
-#page-login-index #page-wrapper::after {
-  display: none; }
+#page-login-index #page-wrapper {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-flow: column nowrap;
+      flex-flow: column nowrap;
+  -ms-flex-pack: justify;
+      justify-content: space-between; }
+  #page-login-index #page-wrapper::after {
+    display: none; }
 
 body#page-login-index,
 body#page-login-signup {
@@ -531,13 +537,13 @@ body#page-login-signup {
     display: flex;
     -ms-flex-direction: column;
         flex-direction: column;
-    min-height: 96vh;
     -ms-flex-pack: center;
         justify-content: center;
+    -ms-flex-align: center;
+        align-items: center;
     padding-top: 72px; }
   body#page-login-index div[role="main"],
   body#page-login-signup div[role="main"] {
-    min-height: 70vh;
     display: -ms-flexbox;
     display: flex;
     -ms-flex-direction: column;
@@ -578,11 +584,11 @@ body#page-login-signup {
         flex-flow: row wrap;
     min-height: 90px; }
     #page-footer #stardust-footer > div {
-      margin: 1rem 0; }
+      margin: 1.15rem 0; }
     #page-footer #stardust-footer .right-logo {
       display: block;
       width: 100%;
-      height: 60px;
+      height: 130px;
       background-image: url([[pix:theme|logo_right]]);
       background-position: top center;
       background-repeat: no-repeat;
@@ -678,6 +684,45 @@ body#page-login-signup {
       background-position: center;
       background-repeat: no-repeat;
       background-size: contain; }
+    #page-footer #stardust-footer .left-wrapper {
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
+      font-size: 1.125rem;
+      line-height: 1.75rem;
+      text-align: center;
+      color: #FFFFFF; }
+      #page-footer #stardust-footer .left-wrapper .external-link {
+        display: block;
+        width: 100%;
+        text-decoration: underline;
+        color: #FFFFFF; }
+      #page-footer #stardust-footer .left-wrapper > div {
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-flow: row wrap;
+            flex-flow: row wrap;
+        -ms-flex-pack: center;
+            justify-content: center;
+        -ms-flex-align: center;
+            align-items: center; }
+        #page-footer #stardust-footer .left-wrapper > div span {
+          display: block;
+          width: 100%;
+          -ms-flex-positive: 2;
+              flex-grow: 2; }
+        #page-footer #stardust-footer .left-wrapper > div .appstore {
+          display: block;
+          width: 110px;
+          height: 35px;
+          background-position: center;
+          background-size: contain;
+          margin: 0 .5rem; }
+          #page-footer #stardust-footer .left-wrapper > div .appstore.apple {
+            float: left;
+            background-image: url([[pix:theme|appstore_apple]]); }
+          #page-footer #stardust-footer .left-wrapper > div .appstore.google {
+            float: right;
+            background-image: url([[pix:theme|appstore_google]]); }
 
 .dheader .dropdown-menu {
   position: absolute;
@@ -1542,10 +1587,6 @@ body#page-login-signup {
     cursor: pointer; }
     #course-main-content form.message input.message-input {
       width: calc(100% - 3em); }
-    #course-main-content form.message input[readonly] ~ .message-controls > .message-submit {
-      display: none; }
-    #course-main-content form.message input[readonly] ~ .message-controls > .message-clear {
-      display: none; }
   #course-main-content form.message .message-controls {
     position: relative;
     display: -ms-flexbox;
@@ -1558,10 +1599,18 @@ body#page-login-signup {
         align-items: center;
     height: 100%;
     width: 3em; }
-    #course-main-content form.message .message-controls .message-submit, #course-main-content form.message .message-controls .message-clear {
-      font-size: 1.5em;
-      line-height: 1em;
-      font-weight: 700; }
+    #course-main-content form.message .message-controls .message-submit {
+      border: 0;
+      background-color: transparent;
+      color: #83D3AE;
+      outline: none; }
+      #course-main-content form.message .message-controls .message-submit:after {
+        font-family: fontAwesome;
+        content: '\f061';
+        display: block;
+        font-size: 1em;
+        line-height: 1em;
+        font-weight: 300; }
     #course-main-content form.message .message-controls .message-spin {
       display: block;
       width: 1em;
@@ -3373,6 +3422,10 @@ html {
 
 [dir="rtl"] #page-mod-quiz-attempt section#region-main.has-blocks .qn_buttons {
   transform: translateX(50%); }
+  [dir="rtl"] #page-mod-quiz-attempt section#region-main.has-blocks .qn_buttons .qnbutton.partiallycorrect:before,
+  [dir="rtl"] #page-mod-quiz-attempt section#region-main.has-blocks .qn_buttons .qnbutton[title="Partially correct"]:before,
+  [dir="rtl"] #page-mod-quiz-attempt section#region-main.has-blocks .qn_buttons .qnbutton[title="נכון באופן חלקי"]:before {
+    transform: rotate(-45deg); }
 
 [dir="rtl"] #page-mod-quiz-attempt section#region-main.has-blocks .filter_toggle .filter_pin {
   transform: translateX(2px); }
@@ -3382,6 +3435,10 @@ html {
 
 [dir="ltr"] #page-mod-quiz-attempt section#region-main.has-blocks .qn_buttons {
   transform: translateX(-50%); }
+  [dir="ltr"] #page-mod-quiz-attempt section#region-main.has-blocks .qn_buttons .qnbutton.partiallycorrect:before,
+  [dir="ltr"] #page-mod-quiz-attempt section#region-main.has-blocks .qn_buttons .qnbutton[title="Partially correct"]:before,
+  [dir="ltr"] #page-mod-quiz-attempt section#region-main.has-blocks .qn_buttons .qnbutton[title="נכון באופן חלקי"]:before {
+    transform: rotate(45deg); }
 
 #page-mod-quiz-edit .endtestlink,
 #page-mod-quiz-summary .endtestlink {
@@ -3576,6 +3633,10 @@ html {
                     opacity: 0; }
                   #page-mod-quiz-attempt #page-wrapper section#region-main.has-blocks [role="main"] .que .content .formulation .ablock .answer > div input:checked + label::before {
                     background: #19284f; }
+                  #page-mod-quiz-attempt #page-wrapper section#region-main.has-blocks [role="main"] .que .content .formulation .ablock .answer > div i.fa-remove, #page-mod-quiz-attempt #page-wrapper section#region-main.has-blocks [role="main"] .que .content .formulation .ablock .answer > div i.fa-check {
+                    position: absolute;
+                    top: 9px;
+                    left: -20px; }
         #page-mod-quiz-attempt #page-wrapper section#region-main.has-blocks [role="main"] .mod_quiz-section-heading {
           display: none; }
         #page-mod-quiz-attempt #page-wrapper section#region-main.has-blocks [role="main"] .qn_buttons {
@@ -3652,6 +3713,24 @@ html {
               color: #ff7e99 !important;
               border-color: #ff7e99 !important;
               border-width: 2px; }
+            #page-mod-quiz-attempt #page-wrapper section#region-main.has-blocks [role="main"] .qn_buttons .qnbutton.partiallycorrect, #page-mod-quiz-attempt #page-wrapper section#region-main.has-blocks [role="main"] .qn_buttons .qnbutton[title="Partially correct"], #page-mod-quiz-attempt #page-wrapper section#region-main.has-blocks [role="main"] .qn_buttons .qnbutton[title="נכון באופן חלקי"] {
+              color: #19284f; }
+              #page-mod-quiz-attempt #page-wrapper section#region-main.has-blocks [role="main"] .qn_buttons .qnbutton.partiallycorrect:before, #page-mod-quiz-attempt #page-wrapper section#region-main.has-blocks [role="main"] .qn_buttons .qnbutton[title="Partially correct"]:before, #page-mod-quiz-attempt #page-wrapper section#region-main.has-blocks [role="main"] .qn_buttons .qnbutton[title="נכון באופן חלקי"]:before {
+                content: '';
+                display: block;
+                position: absolute;
+                z-index: 10;
+                width: calc(100% + 4px);
+                height: calc(100% + 4px);
+                top: -2px;
+                bottom: -2px;
+                left: -2px;
+                right: -2px;
+                box-sizing: border-box;
+                border: 2px solid #19284f;
+                border-top-color: #B4C1C7;
+                border-left-color: #B4C1C7;
+                border-radius: 50%; }
         #page-mod-quiz-attempt #page-wrapper section#region-main.has-blocks [role="main"] .submitbtns {
           min-height: 70px; }
           #page-mod-quiz-attempt #page-wrapper section#region-main.has-blocks [role="main"] .submitbtns:after {
@@ -3672,8 +3751,8 @@ html {
             transition: .2s; }
             #page-mod-quiz-attempt #page-wrapper section#region-main.has-blocks [role="main"] .submitbtns [type="submit"]:hover {
               box-shadow: 0 0 4px 2px #19b7ff; }
-        #page-mod-quiz-attempt #page-wrapper section#region-main.has-blocks [role="main"] .endtestlink,
-        #page-mod-quiz-attempt #page-wrapper section#region-main.has-blocks [role="main"] .singlebutton {
+        #page-mod-quiz-attempt #page-wrapper section#region-main.has-blocks [role="main"] .othernav .endtestlink,
+        #page-mod-quiz-attempt #page-wrapper section#region-main.has-blocks [role="main"] .othernav .singlebutton {
           display: none; }
       #page-mod-quiz-attempt #page-wrapper section#region-main.has-blocks #quiz-timer {
         position: fixed;

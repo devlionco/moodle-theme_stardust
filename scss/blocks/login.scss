@@ -19,7 +19,7 @@
     flex-grow: 1;
     display: flex;
     justify-content: center;
-    max-width:80%;
+    // max-width:80%;
     margin:0 auto;
     & .card{
       border:0;
@@ -34,8 +34,8 @@
     color: #fff;
     text-align: center;
     // margin: 160px 0 19px 0;
-    margin: 160px 0 32px 0;
-    margin-top: 86px;
+    margin: 32px 0;
+    // margin-top: 86px;
   }
   .dlogin__container {
     max-width: 660px;
@@ -54,7 +54,7 @@
   }
   .dlogin__main {
     display: flex;
-    margin-top: 50px;
+    margin-top: 30px;
     justify-content: space-between;
   }
   .dlogin__form {
@@ -251,9 +251,15 @@
   }
   #page {
     margin-top: 0;
+    min-height:80vh;
   }
-  #page-wrapper::after {
-    display: none;
+  #page-wrapper{
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-between;
+    &::after {
+      display: none;
+    }
   }
 }
 
@@ -269,13 +275,13 @@ body#page-login-signup {
   #region-main {
     display: flex;
     flex-direction: column;
-    min-height: 96vh;
+    // min-height: 96vh;
     justify-content: center;
+    align-items: center;
     padding-top: 72px;
   }
 
   div[role="main"] {
-    min-height: 70vh;
     display: flex;
     flex-direction: column;
   }

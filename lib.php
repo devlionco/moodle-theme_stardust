@@ -294,6 +294,11 @@ function get_activities_mydashboard($activitiesconf = array(), $numofrelevantact
                         continue;
                     }
 
+                    // dont't show submitted assignments 
+                    if (is_assign_submitted($module)) {
+                        continue;
+                    }
+
                     // add all activityinfo to general array
                     // $activities[$activityname][] = $activityinfo; // with activityname sorting
                     $activities[] = $activityinfo; // without activityname sorting
@@ -555,4 +560,22 @@ function get_module_overrides($module) {
     }
 
     return $module;
+}
+
+/**
+ * Function checks if activity (module) is an assignment and if it is submitted
+ *
+ * @param $module - cm details from DB and some extrafields (usually assign and quiz)
+ *
+ * @return bool
+ */
+
+function is_assign_submitted($module) {
+    global $USER, $DB;
+    if ($module->modname == 'assign') {
+        $submission = $DB->get_record('assign_submission', array('userid' => $USER->id, 'assignment' => $module->instance));
+        if ($submission && $submission->status === 'submitted') {
+            return true; 
+        }
+    }
 }

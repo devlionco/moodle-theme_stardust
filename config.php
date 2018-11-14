@@ -95,3 +95,7 @@ $THEME->layouts = [
 
 $THEME->rendererfactory = 'theme_overridden_renderer_factory';
 $THEME->csspostprocess = 'theme_stardust_process_css';
+
+// SG - ugly hack to avoid warnings
+// TODO - need to import settings from Fordson correctly in settings.php or here, because now settings are saved under theme_fordson namesapce in DB at config_plugins table
+$THEME->settings->blockdisplay = null;
