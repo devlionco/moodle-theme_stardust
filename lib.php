@@ -294,7 +294,7 @@ function get_activities_mydashboard($activitiesconf = array(), $numofrelevantact
                         continue;
                     }
 
-                    // dont't show submitted assignments 
+                    // dont't show submitted assignments
                     if (is_assign_submitted($module)) {
                         continue;
                     }
@@ -574,7 +574,28 @@ function is_assign_submitted($module) {
     if ($module->modname == 'assign') {
         $submission = $DB->get_record('assign_submission', array('userid' => $USER->id, 'assignment' => $module->instance));
         if ($submission && $submission->status === 'submitted') {
-            return true; 
+            return true;
         }
     }
+}
+
+/**
+ * Function gets the url of the course cover picture
+ *
+ * @param stdClass $course
+ * @return string the url of the course picture
+ */
+
+function get_courses_cover_images ($course) {
+  $courseobj = new course_in_list($course);
+  $coursecoverimgurl = '';
+  foreach ($courseobj->get_course_overviewfiles() as $file) {
+      $isimage = $file->is_valid_image();
+      $coursecoverimgurl = moodle_url::make_pluginfile_url($file->get_contextid(), $file->get_component(), $file->get_filearea(), null, $file->get_filepath(), $file->get_filename());
+  }
+  if (empty($coursecoverimgurl)) {
+      $coursecoverimgurl = $OUTPUT->image_url('banner', 'theme'); // define default course cover image in theme's pix folder
+  }
+
+  return $coursecoverimgurl->out();
 }

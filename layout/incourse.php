@@ -144,7 +144,8 @@ $templatecontext = [
     'backtoactivity' => html_writer::link($activitylink, $textbacktoactivity),
     'allcoursesections' => $allcoursesectionsinfo['allcoursesections'] = array_values($allcoursesectionsinfo['allcoursesections']),
     'allcoursesectionspinned' => $allcoursesectionsinfo['allcoursesectionspinned'] = array_values($allcoursesectionsinfo['allcoursesectionspinned']),
-    'allsectionactivities' => $allsectionactivities = array_values($allsectionactivities)
+    'allsectionactivities' => $allsectionactivities = array_values($allsectionactivities),
+    'coursecoverimg' => get_courses_cover_images ($PAGE->course)
 ];
 
 $PAGE->requires->jquery();
