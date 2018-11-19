@@ -454,6 +454,8 @@ $string['dayname_4'] = 'Thursday';
 $string['dayname_5'] = 'Friday';
 $string['dayname_6'] = 'Saturday';
 $string['no_submission_date'] = 'No submission date';
+$string['filter_courses_by_lastdate'] = 'Filter courses by date of last visit';
+$string['filter_courses_alphabetically'] = 'Filter_courses_alphabetically';
 
 
 $string['sort_type'] = 'Sort by type';

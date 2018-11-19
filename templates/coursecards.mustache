@@ -83,8 +83,20 @@
             </ul>
         </div>
         <div class="filters">
-            <div class="filter {{filtersmy.filter-date}}">{{#str}}by_date, theme_stardust{{/str}}</div>
-            <div class="filter {{filtersmy.filter-abc}}">{{#str}}by_abc, theme_stardust{{/str}}</div>
+            <div
+              class="filter {{filtersmy.filter-date}}"
+              data-tooltip = "tooltip"
+              data-placement = "bottom"
+              data-original-title = "{{#str}}filter_courses_by_lastdate, theme_stardust{{/str}}"
+              >{{#str}}by_date, theme_stardust{{/str}}
+            </div>
+            <div
+              class="filter {{filtersmy.filter-abc}}"
+              data-tooltip = "tooltip"
+              data-placement = "bottom"
+              data-original-title = "{{#str}}filter_courses_alphabetically, theme_stardust{{/str}}"
+              >{{#str}}by_abc, theme_stardust{{/str}}
+            </div>
         </div>
     </div>
     <div class="course-cards-content">
