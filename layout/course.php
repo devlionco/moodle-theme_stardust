@@ -267,7 +267,7 @@ $templatecontext = [
     'isteacher' => $isteacher,
     'userid' => $USER->id,
     'courseid' => $course->id,
-    'coursecoverimg' => get_courses_cover_images ($course),
+    'coursecoverimg' => get_courses_cover_images($course)
 
 ];
 

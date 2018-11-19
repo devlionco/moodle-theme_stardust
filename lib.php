@@ -587,6 +587,8 @@ function is_assign_submitted($module) {
  */
 
 function get_courses_cover_images ($course) {
+  global $OUTPUT;
+  
   $courseobj = new course_in_list($course);
   $coursecoverimgurl = '';
   foreach ($courseobj->get_course_overviewfiles() as $file) {
