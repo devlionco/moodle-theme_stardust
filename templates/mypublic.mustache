@@ -243,11 +243,13 @@
                         <div class="title">{{#str}} school_details, theme_stardust{{/str}}</div>
                         <ul class="info-list">
                             <li class="info">
-                                <input type="text" id="institution" class="input" {{canedit}} {{userinfo.institution_status}} value="{{userinfo.institution}}">
+                                <!-- <input type="text" id="institution" class="input" {{canedit}} {{userinfo.institution_status}} value="{{userinfo.institution}}"> -->
+                                <span id="institution" class="input">{{userinfo.institution}}</span>
                                 <span class="input-label">{{#str}} school, theme_stardust{{/str}}</span>
                             </li>
                             <li class="info">
-                                <input type="text" id="yahoo" class="input" {{canedit}} {{userinfo.yahoo_status}} value="{{userinfo.yahoo}}">
+                                <!-- <input type="text" id="yahoo" class="input" {{canedit}} {{userinfo.yahoo_status}} value="{{userinfo.yahoo}}"> -->
+                                <span type="text" id="yahoo" class="input">{{userinfo.yahoo}}</span>
                                 <span class="input-label">{{#str}} school_city, theme_stardust{{/str}}</span>
                             </li>
                             <!-- <li class="info">
