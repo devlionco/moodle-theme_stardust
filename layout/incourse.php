@@ -40,11 +40,23 @@ function get_all_course_sections_info($courseinfo, $currentsectionnum = null) {
     $allcoursesectionsinfo = $courseinfo->get_section_info_all();
     $sectionsinfo = array();
     $courseformat = $courseinfo->get_course()->format;
+
+    // get pinned sctions array for picturelink course format
+    if ($courseformat == "picturelink") {
+        $plpinnedsecsraw = json_decode(course_get_format($PAGE->course)->get_course()->picturelinkpinnedsections);
+        $plpinnedsecs = array();
+        foreach ($plpinnedsecsraw as $num => $psec) {
+            if ($psec[1] == 1) {
+                $plpinnedsecs[] = substr($psec[0], 1);
+            }
+        }
+    }
+
     foreach ($allcoursesectionsinfo as $secnum => $secinfo) {
         if (!$secinfo->uservisible) continue;   // SG - T-279 - skip not visible for user sections
         $secname = course_get_format($PAGE->course)->get_section_name($secnum);
         $seccustomnum = $secinfo->customnumber;
-        if ($courseformat== "stardust") {
+        if ($courseformat == "stardust") {
           $securl = new moodle_url('/course/view.php', array('id' => $PAGE->course->id, 'sectionid' => $secinfo->id));
         }else {
           $securl = new moodle_url('/course/view.php', array('id' => $PAGE->course->id));
@@ -59,6 +71,15 @@ function get_all_course_sections_info($courseinfo, $currentsectionnum = null) {
             }
         }
         if ($secinfo->pinned) {
+            $sectionsinfo['allcoursesectionspinned'][$secnum]['name'] = $secname;
+            $sectionsinfo['allcoursesectionspinned'][$secnum]['customnumber'] = $seccustomnum;
+            $sectionsinfo['allcoursesectionspinned'][$secnum]['url'] = $securl;
+            if ($secnum == $currentsectionnum) {
+                $sectionsinfo['allcoursesectionspinned'][$secnum]['current'] = $secname;
+            }
+        }
+        // pinned sections for picturelink format
+        if ($courseformat == "picturelink" && in_array($secinfo->id, $plpinnedsecs)) {
             $sectionsinfo['allcoursesectionspinned'][$secnum]['name'] = $secname;
             $sectionsinfo['allcoursesectionspinned'][$secnum]['customnumber'] = $seccustomnum;
             $sectionsinfo['allcoursesectionspinned'][$secnum]['url'] = $securl;
