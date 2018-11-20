@@ -331,6 +331,9 @@ function get_activities_mydashboard($activitiesconf = array(), $numofrelevantact
         //get course progress info
         $percentage = progress::get_course_progress_percentage($course);
 
+        // get User's last course access timestamp
+        $usercourselastaccess = (!empty($USER->currentcourseaccess[$id])) ? $USER->currentcourseaccess[$id] : $USER->lastcourseaccess[$id];
+
         if ($coursecomplstate){
             $coursearray['coursefinished'][]= array(
                 'id' => $courses[$id]->id,
@@ -343,7 +346,8 @@ function get_activities_mydashboard($activitiesconf = array(), $numofrelevantact
                 'progress' => $percentage,
                 'isteacher' => $isteacher,
                 'activities' => $activities,
-                'relevantactivities' => $relevantactivities
+                'relevantactivities' => $relevantactivities,
+                'usercourselastaccess' => $usercourselastaccess
             );
         }else {
             $coursearray['courseactive'][]= array(
@@ -357,7 +361,8 @@ function get_activities_mydashboard($activitiesconf = array(), $numofrelevantact
                 'progress' => $percentage,
                 'isteacher' => $isteacher,
                 'activities' => $activities,
-                'relevantactivities' => $relevantactivities
+                'relevantactivities' => $relevantactivities,
+                'usercourselastaccess' => $usercourselastaccess
             );
         }
 
