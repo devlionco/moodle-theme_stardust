@@ -62,7 +62,7 @@ function get_all_course_sections_info($courseinfo, $currentsectionnum = null) {
           $securl = new moodle_url('/course/view.php', array('id' => $PAGE->course->id));
           $securl->set_anchor('section-'.$secnum);
         }
-        if (empty($secinfo->pinned)) {
+        if (empty($secinfo->pinned) && ($courseformat == "picturelink" && !in_array($secinfo->id, $plpinnedsecs))) {
             $sectionsinfo['allcoursesections'][$secnum]['name'] = $secname;
             $sectionsinfo['allcoursesections'][$secnum]['customnumber'] = $seccustomnum;
             $sectionsinfo['allcoursesections'][$secnum]['url'] = $securl;
@@ -70,7 +70,7 @@ function get_all_course_sections_info($courseinfo, $currentsectionnum = null) {
                 $sectionsinfo['allcoursesections'][$secnum]['current'] = $secname;
             }
         }
-        if ($secinfo->pinned) {
+        if ($secinfo->pinned || ($courseformat == "picturelink" && in_array($secinfo->id, $plpinnedsecs)) ) {
             $sectionsinfo['allcoursesectionspinned'][$secnum]['name'] = $secname;
             $sectionsinfo['allcoursesectionspinned'][$secnum]['customnumber'] = $seccustomnum;
             $sectionsinfo['allcoursesectionspinned'][$secnum]['url'] = $securl;
@@ -79,14 +79,14 @@ function get_all_course_sections_info($courseinfo, $currentsectionnum = null) {
             }
         }
         // pinned sections for picturelink format
-        if ($courseformat == "picturelink" && in_array($secinfo->id, $plpinnedsecs)) {
-            $sectionsinfo['allcoursesectionspinned'][$secnum]['name'] = $secname;
-            $sectionsinfo['allcoursesectionspinned'][$secnum]['customnumber'] = $seccustomnum;
-            $sectionsinfo['allcoursesectionspinned'][$secnum]['url'] = $securl;
-            if ($secnum == $currentsectionnum) {
-                $sectionsinfo['allcoursesectionspinned'][$secnum]['current'] = $secname;
-            }
-        }
+        // if ($courseformat == "picturelink" && in_array($secinfo->id, $plpinnedsecs)) {
+        //     $sectionsinfo['allcoursesectionspinned'][$secnum]['name'] = $secname;
+        //     $sectionsinfo['allcoursesectionspinned'][$secnum]['customnumber'] = $seccustomnum;
+        //     $sectionsinfo['allcoursesectionspinned'][$secnum]['url'] = $securl;
+        //     if ($secnum == $currentsectionnum) {
+        //         $sectionsinfo['allcoursesectionspinned'][$secnum]['current'] = $secname;
+        //     }
+        // }
     }
 
     return $sectionsinfo;
@@ -144,6 +144,7 @@ $extraclasses = [];
 if ($navdraweropen) {
     $extraclasses[] = 'drawer-open-left';
 }
+
 $bodyattributes = $OUTPUT->body_attributes($extraclasses);
 $blockshtml = $OUTPUT->blocks('side-pre');
 $hasblocks = strpos($blockshtml, 'data-block=') !== false;
