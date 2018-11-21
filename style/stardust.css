@@ -1117,7 +1117,6 @@ body#page-login-signup {
         margin-bottom: 103px; }
         #my-page .main-wrapper .main-content .tasks-container {
           width: 100%;
-          min-height: 501px;
           background: #FFFFFF;
           box-shadow: 0 0 10px 3px rgba(0, 0, 0, 0.3); }
         #my-page .main-wrapper .main-content .tasks {
@@ -2907,7 +2906,8 @@ html {
           font-size: 72px;
           line-height: 60px;
           display: block;
-          max-height: 124px;
+          max-height: 186px;
+          
           width: 100%;
           overflow-x: visible;
           overflow-y: hidden; }

@@ -179,7 +179,7 @@
 
                             </li>
                             <li class="info" data-input="pass">
-                              <a  class="input" id="pass" href="/login/change_password.php?id=1">{{#str}} change_password_link, theme_stardust{{/str}}</a>
+                              <a  class="input" id="pass" href="{{config.wwwroot}}/login/change_password.php?id={{userinfo.id}}">{{#str}} change_password_link, theme_stardust{{/str}}</a>
                                 <span class="input-label">{{#str}} password, theme_stardust{{/str}}</span>
                             </li>
                             <li class="info" data-input="fullname">
@@ -238,11 +238,13 @@
                         <div class="title">{{#str}} school_details, theme_stardust{{/str}}</div>
                         <ul class="info-list">
                             <li class="info">
-                                <input type="text" id="institution" class="input" {{canedit}} {{userinfo.institution_status}} value="{{userinfo.institution}}">
+                                <!-- <input type="text" id="institution" class="input" {{canedit}} {{userinfo.institution_status}} value="{{userinfo.institution}}"> -->
+                                <span id="institution" class="input">{{userinfo.institution}}</span>
                                 <span class="input-label">{{#str}} school, theme_stardust{{/str}}</span>
                             </li>
                             <li class="info">
-                                <input type="text" id="yahoo" class="input" {{canedit}} {{userinfo.yahoo_status}} value="{{userinfo.yahoo}}">
+                                <!-- <input type="text" id="yahoo" class="input" {{canedit}} {{userinfo.yahoo_status}} value="{{userinfo.yahoo}}"> -->
+                                <span type="text" id="yahoo" class="input">{{userinfo.yahoo}}</span>
                                 <span class="input-label">{{#str}} school_city, theme_stardust{{/str}}</span>
                             </li>
                             <!-- <li class="info">

@@ -81,6 +81,8 @@ $string['dayname_4'] = 'חמישי';
 $string['dayname_5'] = 'שישי';
 $string['dayname_6'] = 'שבת';
 $string['no_submission_date'] = 'אין תאריך הגשה';
+$string['filter_courses_by_lastdate'] = 'Filter courses by date of last visit';
+$string['filter_courses_alphabetically'] = 'סנן קורסים לפי תאריך הביקור האחרון';
 
 
 $string['active_courses'] = 'קורסים פעילים';

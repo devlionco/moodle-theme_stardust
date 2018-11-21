@@ -36,7 +36,6 @@ if ($isstudent) {
 if (has_capability('moodle/site:config', context_system::instance())) {
     $userrole = ' role-admin';
 }
-//array_push($bodyclasses, $userrole);
 
 $templatecontext = [
     'sitename' => format_string($SITE->shortname, true, ['context' => context_course::instance(SITEID), "escape" => false]),
