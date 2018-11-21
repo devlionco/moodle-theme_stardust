@@ -2908,7 +2908,6 @@ html {
           line-height: 60px;
           display: block;
           max-height: 186px;
-          
           width: 100%;
           overflow-x: visible;
           overflow-y: hidden; }
@@ -3986,10 +3985,23 @@ html {
     height: 100%; }
     .blockpanelbtn a i {
       color: #fff;
-      font-size: 1.225rem; }
+      font-size: 1.225rem;
+      transition: 0.25s ease-in-out;
+      -webkit-transition: 0.25s ease-in-out;
+      -moz-transition: 0.25s ease-in-out;
+      -ms-transition: 0.25s ease-in-out;
+      -o-transition: 0.25s ease-in-out; }
     .blockpanelbtn a span {
       display: none; }
-    @media only screen and (min-width: 576px) and (max-width: 992px){
+
+.blocksliderbutton_open i {
+  transform: rotate(90deg);
+  -webkit-transform: rotate(90deg);
+  -moz-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  -o-transform: rotate(90deg); }
+
+@media only screen and (min-width: 576px) and (max-width: 992px){
   .dheader__tutorial{
     display: none  !important; }
   #my-page .main-wrapper .main{
@@ -4009,13 +4021,16 @@ html {
     flex-wrap: wrap; }
   #course-main-content .top-wrapper .top-content-item{
     margin-bottom: 24px; } }
-    @media (min-width: 1024px){
+
+@media (min-width: 1024px){
   #page-login-index .dlogin__title{
     min-width: 600px; } }
-    @media (max-width: 375px){
+
+@media (max-width: 375px){
   #page-login-index .dlogin__enter{
     margin-left: -15px; } }
-    @media (max-width: 768px){
+
+@media (max-width: 768px){
   #page-footer #stardust-footer .footer-nav{
     -ms-flex-order: 1;
     order: 1;
@@ -4046,7 +4061,8 @@ html {
     align-items: center;
     -ms-flex-pack: center;
     justify-content: center; } }
-    @media only screen and (max-width: 576px){
+
+@media only screen and (max-width: 576px){
   .dheader__tutorial{
     display: none !important; }
   #my-page .main-wrapper .main{
@@ -4066,7 +4082,8 @@ html {
     flex-wrap: wrap; }
   #course-main-content .top-wrapper .top-content-item{
     margin-bottom: 24px; } }
-    @media only screen and (max-width: 1344px){
+
+@media only screen and (max-width: 1344px){
   .card.card-block{
     min-height: auto;
     max-width: 1344px;
@@ -4077,11 +4094,13 @@ html {
   #page-mod-quiz-summary #page-wrapper section#region-main.has-blocks .card,
   #page-mod-quiz-attempt #page-wrapper section#region-main.has-blocks .card{
     margin: 0 4%; } }
-    @media only screen and (max-width: 992px){
+
+@media only screen and (max-width: 992px){
   #mypublic-student .main-wrapper .main-content{
     -ms-grid-columns: (minmax(200px, 100%))[auto-fill];
     grid-template-columns: repeat(auto-fill, minmax(200px, 100%)); } }
-    @media screen and (max-width: 800px){
+
+@media screen and (max-width: 800px){
   #page-mod-quiz-summary #page-wrapper section#region-main.has-blocks .card,
   #page-mod-quiz-attempt #page-wrapper section#region-main.has-blocks .card{
     margin: 0 4%; }

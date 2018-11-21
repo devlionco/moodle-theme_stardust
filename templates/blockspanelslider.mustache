@@ -32,3 +32,13 @@
 </div>
 
 {{/hascourseblocks}}
+
+
+{{#js}}
+{{! make animation for menu 'burger' icon }}
+$('#blocksliderbutton').click(function(){
+    $(this).toggleClass('blocksliderbutton_open');
+    $(this).find('i').delay(550).toggleClass('fa fa-bars');
+    $(this).find('i').delay(550).toggleClass('fa fa-times');
+});
+{{/js}}
