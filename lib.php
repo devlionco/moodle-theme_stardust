@@ -426,6 +426,7 @@ function stardust_activity_status($module) {
             $modstyle = 'mod_red';
             $modstatus = get_string('cut_of_date', 'theme_stardust');
             $turntotheteacher = true;
+            $nosubmissiondate = true; //SG - consider (mark) as 'no submission date', when submission date passed (to filter module on page MY)
         // one day before assignment
         }elseif ( 0 < ($mincutoffdate - $currenttime) &&  ($mincutoffdate - $currenttime) <= (1*24*60*60)) {
             $modstyle = 'mod_orange';
@@ -594,7 +595,9 @@ function is_assign_submitted($module) {
 }
 
 /**
- * Function checks if activity (module) is an assignment or quiz and their cutoffdate is null (they have no submission date or timeclose date)
+ * Function checks if activity (module) is an assignment or quiz 
+ * and their cutoffdate is null (they have no submission date or timeclose date)
+ * OR the date of submission is passed already!
  *
  * @param $module - cm details from DB and some extrafields (usually assign and quiz)
  *
