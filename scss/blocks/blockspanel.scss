@@ -36,5 +36,17 @@
         -moz-transform: rotate(90deg);
         -ms-transform: rotate(90deg);
         -o-transform: rotate(90deg);
+    }
 }
+.card-block {
+    position: relative;
+/*     overflow: hidden; */
+    .slidingblockpanel {
+        position: absolute;
+        right: 0;
+        z-index: 100;
+        .col-md-4:last-child {
+            max-width: 100%;
+        }
+    }
 }
