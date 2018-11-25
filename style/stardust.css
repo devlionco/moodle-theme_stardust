@@ -1117,7 +1117,6 @@ body#page-login-signup {
         margin-bottom: 103px; }
         #my-page .main-wrapper .main-content .tasks-container {
           width: 100%;
-          min-height: 501px;
           background: #FFFFFF;
           box-shadow: 0 0 10px 3px rgba(0, 0, 0, 0.3); }
         #my-page .main-wrapper .main-content .tasks {
@@ -3633,7 +3632,7 @@ html {
                     opacity: 0; }
                   #page-mod-quiz-attempt #page-wrapper section#region-main.has-blocks [role="main"] .que .content .formulation .ablock .answer > div input:checked + label::before {
                     background: #19284f; }
-                  #page-mod-quiz-attempt #page-wrapper section#region-main.has-blocks [role="main"] .que .content .formulation .ablock .answer > div i {
+                  #page-mod-quiz-attempt #page-wrapper section#region-main.has-blocks [role="main"] .que .content .formulation .ablock .answer > div i.fa-remove, #page-mod-quiz-attempt #page-wrapper section#region-main.has-blocks [role="main"] .que .content .formulation .ablock .answer > div i.fa-check {
                     position: absolute;
                     top: 9px;
                     left: -20px; }
@@ -3751,8 +3750,8 @@ html {
             transition: .2s; }
             #page-mod-quiz-attempt #page-wrapper section#region-main.has-blocks [role="main"] .submitbtns [type="submit"]:hover {
               box-shadow: 0 0 4px 2px #19b7ff; }
-        #page-mod-quiz-attempt #page-wrapper section#region-main.has-blocks [role="main"] .endtestlink,
-        #page-mod-quiz-attempt #page-wrapper section#region-main.has-blocks [role="main"] .singlebutton {
+        #page-mod-quiz-attempt #page-wrapper section#region-main.has-blocks [role="main"] .othernav .endtestlink,
+        #page-mod-quiz-attempt #page-wrapper section#region-main.has-blocks [role="main"] .othernav .singlebutton {
           display: none; }
       #page-mod-quiz-attempt #page-wrapper section#region-main.has-blocks #quiz-timer {
         position: fixed;

@@ -283,7 +283,7 @@
                     input:checked + label::before {
                       background: $primary-color-1;
                     }
-                    i{
+                    i.fa-remove, i.fa-check{
                       position: absolute;
                       top:9px;
                       left:-20px;
@@ -430,9 +430,11 @@
             }
           }
         }
-        .endtestlink,
-        .singlebutton {
-          display: none;
+        .othernav{
+          .endtestlink,
+          .singlebutton {
+            display: none;
+          }
         }
       }
       #quiz-timer {
