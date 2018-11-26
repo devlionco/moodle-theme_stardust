@@ -3248,6 +3248,7 @@ html {
       display: block;
       width: 1344px; }
     .incourse-header .top-wrapper .top .subtitle {
+      text-shadow: 0 0 6px black;
       margin-bottom: 16px;
       margin-top: 42px;
       font-size: 18px;
