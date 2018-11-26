@@ -1114,7 +1114,7 @@ body#page-login-signup {
         -ms-grid-columns: 1fr 312px;
             grid-template-columns: 1fr 312px;
         grid-gap: 24px;
-        margin-bottom: 103px; }
+        margin-bottom: 50px; }
         #my-page .main-wrapper .main-content .tasks-container {
           width: 100%;
           background: #FFFFFF;
