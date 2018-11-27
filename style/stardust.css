@@ -3203,8 +3203,11 @@ html {
           color: #3C3C3C;
           background: none; }
 
-[dir="rtl"] .incourse-header .top-wrapper {
-  background: linear-gradient(to right, transparent 0%, transparent 50%, #03146D 85%, #19284f 100%), url([[pix:theme|banner]]); }
+[dir="ltr"] .incourse-header .top-wrapper:before {
+  background: linear-gradient(-90deg, transparent 0%, transparent 50%, #03146D 85%, #19284f 100%); }
+
+[dir="rtl"] .incourse-header .top-wrapper:before {
+  background: linear-gradient(90deg, transparent 0%, transparent 50%, #03146D 85%, #19284f 100%); }
 
 .incourse-header .main-wrapper {
   display: -ms-flexbox;
@@ -3223,16 +3226,26 @@ html {
       top: -90px; }
 
 .incourse-header .top-wrapper {
-  height: 100%;
-  background: lightskyblue;
+  box-sizing: border-box;
+  height: 270px;
+  background: url([[pix:theme|banner]]);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
   display: -ms-flexbox;
   display: flex;
   -ms-flex-pack: center;
       justify-content: center;
   position: relative;
-  background: linear-gradient(to left, transparent 0%, transparent 50%, #03146D 85%, #19284f 100%), url([[pix:theme|banner]]);
-  background-size: cover;
+  box-sizing: border-box;
   border-bottom: 10px solid #19284f; }
+  .incourse-header .top-wrapper:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0; }
   .incourse-header .top-wrapper .top {
     max-width: 1344px;
     margin-bottom: 46px;
@@ -3241,7 +3254,8 @@ html {
     -ms-flex-direction: column;
         flex-direction: column;
     -ms-flex-align: start;
-        align-items: flex-start; }
+        align-items: flex-start;
+    z-index: 2; }
     .incourse-header .top-wrapper .top:before {
       content: '';
       position: relative;

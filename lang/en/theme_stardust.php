@@ -506,7 +506,7 @@ $string['school_details'] = 'School details';
 $string['school'] = 'School';
 $string['school_city'] = 'School city';
 $string['address'] = 'Address';
-$string['icq'] = 'ICQ';
+$string['icq'] = 'Knowledge';
 $string['knowledge'] = 'Knowledge';
 $string['position'] = 'Position';
 $string['birthday'] = 'Birthday';
@@ -562,3 +562,18 @@ $string['show_less'] = 'Show less';
 $string['show_flagged'] = 'Show flagged question';
 $string['show_answered'] = 'Show answered question';
 $string['show_notanswered'] = 'Show notanswered question';
+
+// Teacher dashboard (davidson)
+$string['extendeduserreport'] = 'Detailed user report';
+$string['userspassreport'] = 'users and passwords';
+
+// User actions
+$string['user_completereport'] = 'Full course report';
+$string['user_outlinereport'] = 'Basic course report';
+$string['user_viewprofile'] = 'View profile';
+$string['user_editprofile'] = 'Edit profile';
+$string['user_sendmessage'] = 'Send a message';
+$string['user_coursecompletion'] = 'Course completion';
+$string['user_courselogs'] = 'Activity log';
+$string['user_coursegrades'] = 'Course grades';
+$string['user_loginas'] = 'Login as...';

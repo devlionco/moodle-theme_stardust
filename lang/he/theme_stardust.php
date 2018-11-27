@@ -141,7 +141,7 @@ $string['school_details'] = 'פרטי בית הספר';
 $string['school'] = 'בית ספר';
 $string['school_city'] = 'עיר';
 $string['address'] = 'כתובת';
-$string['icq'] = 'ICQ';
+$string['icq'] = 'תחום דעת';
 $string['knowledge'] = 'תחום דעת';
 $string['position'] = 'תפקיד';
 $string['birthday'] = 'תאריך לידה';
@@ -201,10 +201,25 @@ $string['quizattemptbacktocourse'] = 'חזרה לקורס';
 $string['quizattemptbacktosection'] = 'Back to section - {$a}';
 $string['quizattemptbacktoactivity'] = 'חזרה לבוחן';
 $string['quizattemptfinishlink'] = 'הגשת המבחן';
-$string['quiz_filter'] = 'לפי סימון:';
+$string['quiz_filter'] = 'סינון שאלות לפי:';
 $string['quizsettings'] = 'עריכת בוחן';
 $string['show_more'] = 'הצג יותר';
 $string['show_less'] = 'הצג פחות';
 $string['show_flagged'] = 'הצג שאלה מסומנת';
 $string['show_answered'] = 'הצג שאלה שנענתה';
 $string['show_notanswered'] = 'הצג שאלות שלא נענו';
+
+// Teacher dashboard (davidson)
+$string['extendeduserreport'] = 'פרטי משתמשים מורחב';
+$string['userspassreport'] = 'איפוס סיסמאות לתלמידים';
+
+// User actions
+$string['user_completereport'] = 'דוח קורס מלא';
+$string['user_outlinereport'] = 'דוח צפיה בקורס';
+$string['user_viewprofile'] = 'צפיה בפרופיל';
+$string['user_editprofile'] = 'עריכת פרופיל';
+$string['user_sendmessage'] = 'שליחת מסר';
+$string['user_coursecompletion'] = 'השלמת קורס';
+$string['user_courselogs'] = 'ניטור פעילות';
+$string['user_coursegrades'] = 'ציונים בקורס';
+$string['user_loginas'] = 'מזוהים כ:';
