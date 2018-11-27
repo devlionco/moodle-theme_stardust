@@ -612,7 +612,7 @@ body#page-login-signup {
             justify-content: space-evenly;
         -ms-flex-align: center;
             align-items: center;
-        background-color: #19284f !important;
+        background-color: #19284f;
         border-bottom: 2px solid #FFFFFF;
         margin: 10px; }
         #page-footer #stardust-footer .footer-nav .social-nav .nav-link {
@@ -651,7 +651,7 @@ body#page-login-signup {
             justify-content: space-evenly;
         -ms-flex-align: stretch;
             align-items: stretch;
-        background-color: #19284f !important; }
+        background-color: #19284f; }
         #page-footer #stardust-footer .footer-nav .bottom-nav .nav-link {
           font-size: 1rem;
           text-decoration: none;
@@ -922,8 +922,10 @@ body#page-login-signup {
 .display__none {
   display: none !important; }
 
-.course-cards, .row, #page-content #region-main {
-  background-color: #FFFFFF !important; }
+.davidson .course-cards,
+.davidson .row,
+.davidson #page-content #region-main {
+  background-color: #FFFFFF; }
 
 /*fix for login page*/
 .pagelayout-login #page-content #region-main,
