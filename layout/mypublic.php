@@ -63,17 +63,11 @@ if ($interests) {
     $user->interests = array_values($interests);
 }
 
-// upload custom user fields (birthday and knowledge) to user object
+// upload custom user fields (birthday) to user object
 profile_load_data($user);
 
 // SG - decode from the json knwoledge data, that is stored in icq field
-$user->knowledge = json_decode($user->icq);
-
-// // SG - add knowledge as array for convenience // TOREMOVE if icq alternative above works fine
-// if (!empty($user->profile_field_knowledge)) {
-//     $user->knowledge = json_decode($user->profile_field_knowledge['text']);
-//     unset($user->profile_field_knowledge);
-// }
+$user->icq = json_decode($user->icq);
 
 // get profile fields, that are locked by auth plugins and set them disabled status
 $authplugin = get_auth_plugin($user->auth);
@@ -88,7 +82,7 @@ foreach ($fields as $field) {
         if ($user->id != $USER->id) {
             $locked[] = $field;
             // lock also custom fields
-            if (!in_array('knowledge', $locked)) $locked[] = 'knowledge';
+            if (!in_array('icq', $locked)) $locked[] = 'icq';
             if (!in_array('interests', $locked)) $locked[] = 'interests';
             if (!in_array('birthday', $locked)) $locked[] = 'birthday';
         } else {
@@ -161,13 +155,14 @@ $templatecontext = [
     'helplink' => true,
     'backgroundimg' => isset($backgroundimg) ? $backgroundimg : $mypublicdefaultbgimgurl
 ];
-
+// echo '<pre>'.print_r($user,1).'</pre>'; exit();
 // create $jscontext, which later send as param to js_call_amd (mypublicpage)
 $jsuser = clone($user);                         // clone user object to avoid its modification
 $jsuser->locked = $locked;                      // add locked fields array
 $jsuser->unlockedifempty = $unlockedifempty;    // add unlockedifempty fields array
 unset ($jsuser->password);                      // remove password hash from the object
 $jscontext = json_encode($jsuser);              // make JSON
+
 
 $PAGE->requires->jquery();
 if (isset($PAGE->theme->settings->showbacktotop) && $PAGE->theme->settings->showbacktotop == 1) {

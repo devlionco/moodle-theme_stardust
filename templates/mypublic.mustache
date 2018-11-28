@@ -208,10 +208,21 @@
                             </li>
                             <li class="info" data-input="icq">
                               <span id="icq" class="input">{{userinfo.icq}}</span>
-                                <span class="input-label">{{#str}} icq, theme_stardust{{/str}}</span>
+                              <span class="input-label">{{#str}} icq, theme_stardust{{/str}}</span>
+                              <div id = "icq-container" class = "tag-container">
+                                {{#userinfo.icq}}
+                                  <div
+                                      class = "tag-item"
+                                      style="background-color: #19284f;"
+                                      onclick="this.remove();"
+                                      >
+                                      {{{.}}}
+                                  </div>
+                                  {{/userinfo.icq}}
+                              </div>
                             </li>
                            <li class="info" data-input="birthday">
-                              <span id="birthday" class="input">{{#userdate}}{{userinfo.profile_field_birthday}}, %Y-%m-%d {{/userdate}}</span>
+                              <span id="birthday" class="input">{{#userdate}}{{userinfo.profile_field_birthday.text}}, %d/%m/%Y {{/userdate}}</span>
                                 <span class="input-label">{{#str}} birthday, theme_stardust{{/str}}</span>
                             </li>
                             <li class="info" data-input="interests">
