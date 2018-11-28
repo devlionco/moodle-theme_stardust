@@ -183,3 +183,7 @@ $string['quiz_filter'] = 'حسب الإشارة:';
 // Teacher dashboard (davidson)
 $string['extendeduserreport'] = 'פרטי משתמשים מורחב';
 $string['userspassreport'] = 'איפוס סיסמאות לתלמידים';
+
+// help menu 
+$string['contact_teacher'] = 'Contact the teacher';
+$string['technical_support'] = 'Technical support';

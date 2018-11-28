@@ -577,3 +577,7 @@ $string['user_coursecompletion'] = 'Course completion';
 $string['user_courselogs'] = 'Activity log';
 $string['user_coursegrades'] = 'Course grades';
 $string['user_loginas'] = 'Login as...';
+
+// help menu
+$string['contact_teacher'] = 'Contact the teacher';
+$string['technical_support'] = 'Technical support';

@@ -223,3 +223,7 @@ $string['user_coursecompletion'] = 'השלמת קורס';
 $string['user_courselogs'] = 'ניטור פעילות';
 $string['user_coursegrades'] = 'ציונים בקורס';
 $string['user_loginas'] = 'מזוהים כ:';
+
+// help menu
+$string['contact_teacher'] = 'פניה למורה';
+$string['technical_support'] = 'תמיכה טכנית';
