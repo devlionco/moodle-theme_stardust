@@ -2484,11 +2484,12 @@ body#page-login-signup {
               #mypublic-student .main-wrapper .main-content .profile-info .column .info-list {
                 list-style: none;
                 padding: 0; }
-                #mypublic-student .main-wrapper .main-content .profile-info .column .info-list [data-input="knowledge"],
-                #mypublic-student .main-wrapper .main-content .profile-info .column .info-list [data-input="interests"],
                 #mypublic-student .main-wrapper .main-content .profile-info .column .info-list [data-input="aim"],
                 #mypublic-student .main-wrapper .main-content .profile-info .column .info-list [data-input="phone2"],
-                #mypublic-student .main-wrapper .main-content .profile-info .column .info-list [data-input="skype"] {
+                #mypublic-student .main-wrapper .main-content .profile-info .column .info-list [data-input="skype"],
+                #mypublic-student .main-wrapper .main-content .profile-info .column .info-list [data-input="icq"],
+                #mypublic-student .main-wrapper .main-content .profile-info .column .info-list [data-input="birthday"],
+                #mypublic-student .main-wrapper .main-content .profile-info .column .info-list [data-input="interests"] {
                   display: none; }
                 #mypublic-student .main-wrapper .main-content .profile-info .column .info-list li {
                   margin-top: 22px;
