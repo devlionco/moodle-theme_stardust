@@ -922,9 +922,9 @@ body#page-login-signup {
 .display__none {
   display: none !important; }
 
-.row .course-cards,
-.row .row,
-.row #page-content #region-main {
+#page .course-cards,
+#page .row,
+#page #page-content #region-main {
   background-color: #FFFFFF; }
 
 /*fix for login page*/
