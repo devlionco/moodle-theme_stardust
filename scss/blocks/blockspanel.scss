@@ -29,7 +29,6 @@
     }
 }
 .blocksliderbutton_open {
-
     i {
         transform: rotate(90deg);
         -webkit-transform: rotate(90deg);
@@ -38,23 +37,22 @@
         -o-transform: rotate(90deg);
     }
 }
-html[dir='rtl']{
-    #my-page {
+/* html[dir='rtl']{
+    #page-content {
         .card-block{
-            slidingblockpanel {
+            .slidingblockpanel {
                 left: -1000px;
                 }
         }
     }
-}
-#my-page {
+} */
+#page-content {
  .card-block {
     position: relative;
-
     /*     overflow: hidden; */
     .slidingblockpanel {
         position: absolute;
-        right: -1000px;
+       /*  right: -1000px; */
         top: 1.5rem;
         z-index: 100;
         overflow: hidden;
