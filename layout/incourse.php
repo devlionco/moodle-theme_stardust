@@ -58,7 +58,9 @@ function get_all_course_sections_info($courseinfo, $currentsectionnum = null) {
         $seccustomnum = $secinfo->customnumber;
         if ($courseformat == "stardust") {
           $securl = new moodle_url('/course/view.php', array('id' => $PAGE->course->id, 'sectionid' => $secinfo->id));
-        }else {
+        } else if ($courseformat == "picturelink") {
+          $securl = new moodle_url('/course/view.php', array('id' => $PAGE->course->id, 'section' => $secinfo->section));
+        } else {
           $securl = new moodle_url('/course/view.php', array('id' => $PAGE->course->id));
           $securl->set_anchor('section-'.$secnum);
         }
