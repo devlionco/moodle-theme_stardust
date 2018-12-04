@@ -4005,9 +4005,71 @@ html {
     height: 100%; }
     .blockpanelbtn a i {
       color: #fff;
-      font-size: 1.225rem; }
+      font-size: 1.225rem;
+      transition: 0.25s ease-in-out;
+      -webkit-transition: 0.25s ease-in-out;
+      -moz-transition: 0.25s ease-in-out;
+      -ms-transition: 0.25s ease-in-out;
+      -o-transition: 0.25s ease-in-out; }
     .blockpanelbtn a span {
       display: none; }
+
+.blocksliderbutton_open i {
+  transform: rotate(90deg);
+  -webkit-transform: rotate(90deg);
+  -moz-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  -o-transform: rotate(90deg); }
+
+/* html[dir='rtl']{
+    #page-content {
+        .card-block{
+            .slidingblockpanel {
+                left: -1000px;
+                }
+        }
+    }
+} */
+#page-my-index #page-content #region-main-box {
+  width: 100vw;
+  overflow-x: hidden;
+  height: 100%;
+  overflow-y: -webkit-paged-y; }
+
+#page-my-index #page-content .card-block .slidingblockpanel {
+  position: absolute;
+  z-index: 100;
+  top: 2rem;
+  max-width: 30%; }
+  #page-my-index #page-content .card-block .slidingblockpanel .col-md-4:last-child {
+    -ms-flex: 0 0 100%;
+        flex: 0 0 100%;
+    max-width: 100%;
+    background-color: #f2f2f2; }
+
+#page-course-view-stardust header .container-fluid {
+  max-width: 100vw;
+  margin-right: 0; }
+
+#page-course-view-stardust #page-content #region-main-box {
+  width: 100vw;
+  overflow-x: hidden;
+  height: 100%;
+  overflow-y: -webkit-paged-y; }
+
+#page-course-view-stardust #page-content .card-block .slidingblockpanel {
+  position: absolute;
+  z-index: 100;
+  top: -4rem;
+  max-width: 30%;
+  background-color: #f2f2f2; }
+  #page-course-view-stardust #page-content .card-block .slidingblockpanel .container-fluid {
+    margin-right: 0;
+    overflow: hidden; }
+    #page-course-view-stardust #page-content .card-block .slidingblockpanel .container-fluid .col-md-4:last-child {
+      -ms-flex: 0 0 100%;
+          flex: 0 0 100%;
+      max-width: 100%; }
     @media only screen and (min-width: 576px) and (max-width: 992px){
   .dheader__tutorial{
     display: none  !important; }

@@ -1,40 +1,3 @@
-{{#hascourseblocks}}
-<div class="collapse slidingblockpanel" id="blockslider">
-
-    {{#hasfpblockregion}}
-        <div class="fp-blocks">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-md-4">
-                            <section data-region="blocks-fpa" class="hidden-print">
-                                {{{ fpablocks }}}
-                            </section>
-                    </div>
-                    <div class="col-md-4">
-                            <section data-region="blocks-fpb" class="hidden-print">
-                                {{{ fpbblocks }}}
-                            </section>
-                    </div>
-                    <div class="col-md-4">
-                            <section data-region="blocks-fpc" class="hidden-print">
-                                {{{ fpcblocks }}}
-                            </section>
-                    </div>
-                </div>
-            </div>
-        </div>
-    {{/hasfpblockregion}}
-
-</div>
-
-<div class="blockpanelbtn">
-  <a role="button" id="blocksliderbutton" class="btn blockpanelbutton" data-toggle="collapse" href="#blockslider" aria-expanded="false" aria-controls="blockslider" ><i class="fa fa-bars" aria-hidden="true"> </i> <span class="blockbtntext">{{# str }} courseblockpanelbtn, theme_fordson {{/ str }}</span> </a>
-</div>
-
-{{/hascourseblocks}}
-
-
-{{#js}}
 const windowWidth = $(window).width();
 const blockWidth = $(".card-block").width();
 const curentLang = document.querySelector("html").dir;
@@ -94,5 +57,3 @@ $("#blocksliderbutton").click(function() {
   $(this).find("i").delay(550).toggleClass("fa fa-bars");
   $(this).find("i").delay(550).toggleClass("fa fa-times");
 });
-
-{{/js}}
