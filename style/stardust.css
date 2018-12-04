@@ -1010,6 +1010,9 @@ body#page-login-signup {
   #page-my-index .mform > * {
     margin: 0 1.5rem; }
 
+#page-my-index #page .mform {
+  display: block; }
+
 #my-page {
   color: #3C3C3C;
   font-family: "openSans"; }
