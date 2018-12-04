@@ -69,6 +69,7 @@ require_once($CFG->libdir . '/behat/lib.php');
     // 'lti' => '',
     // 'page' => '',
     'quiz' => '',
+    'questionnaire' => '',
     // 'resource' => '',
     // 'scorm' => '',
     // 'survey' => '',
