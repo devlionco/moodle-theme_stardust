@@ -30,7 +30,7 @@ function save_mypublicpage_shortform() {
     $address = optional_param('address', '', PARAM_TEXT);   // not in use for now
     $birthday = optional_param('birthday', '', PARAM_RAW);
     $interests = optional_param('interests', '', PARAM_RAW);
-    $knowledge = optional_param('knowledge', '', PARAM_RAW);
+    $icq = optional_param('icq', '', PARAM_RAW);
 
 
         $fullname = preg_replace('/\s+/', ' ',$fullname);
@@ -81,8 +81,8 @@ function save_mypublicpage_shortform() {
         if(!empty($address)){
             $user->address = $address;
         }
-        if(!empty($knowledge)){
-            $user->icq = $knowledge;    // use icq field as storage for knowledge
+        if(!empty($icq)){
+            $user->icq = $icq;    // use icq field as storage for knowledge
         }
 
 
@@ -115,23 +115,6 @@ function save_mypublicpage_shortform() {
             $result = core_tag_tag::set_item_tags('core', 'user', $userid, context_user::instance($userid), $interests);
             $response['interests'] = 'OK';
         }
-
-        // // SG - update knowledge (used for custom field) - TOREMOVE if icq alternative works fine - see above
-        // if(!empty($knowledge)){
-        //     $knowledgefieldid = $DB->get_field('user_info_field', 'id', array('shortname' => 'knowledge'));  // SG - ugly hack to define knowledge data field
-        //     // create DB object for update or insert
-        //     $knowledgefielddata = new stdClass();
-        //     $knowledgefielddata->fieldid = $knowledgefieldid;
-        //     $knowledgefielddata->userid = $userid;
-        //     $knowledgefielddata->data = $knowledge;
-        //     if ($dataid = $DB->get_field('user_info_data', 'id', array('userid' => $userid, 'fieldid' => $knowledgefieldid))) {
-        //         $knowledgefielddata->id = $dataid;
-        //         $result = $DB->update_record('user_info_data', $knowledgefielddata);
-        //     } else {
-        //         $result = $DB->insert_record('user_info_data', $knowledgefielddata);
-        //     }
-        //     $response['knowledge'] = ($result) ? 'OK. Row id:'.$result : $result;
-        // }
 
     echo json_encode($response);
 };

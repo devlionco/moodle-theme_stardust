@@ -58,7 +58,9 @@ function get_all_course_sections_info($courseinfo, $currentsectionnum = null) {
         $seccustomnum = $secinfo->customnumber;
         if ($courseformat == "stardust") {
           $securl = new moodle_url('/course/view.php', array('id' => $PAGE->course->id, 'sectionid' => $secinfo->id));
-        }else {
+        } else if ($courseformat == "picturelink") {
+          $securl = new moodle_url('/course/view.php', array('id' => $PAGE->course->id, 'section' => $secinfo->section));
+        } else {
           $securl = new moodle_url('/course/view.php', array('id' => $PAGE->course->id));
           $securl->set_anchor('section-'.$secnum);
         }
@@ -144,6 +146,20 @@ $extraclasses = [];
 if ($navdraweropen) {
     $extraclasses[] = 'drawer-open-left';
 }
+
+$userrole = ' role-teacher';
+$isstudent = false;
+$userroles = get_user_roles($PAGE->context, $USER->id, true);
+foreach ($userroles as $role) {
+    if ($role->roleid == 5) $isstudent = true;
+}
+if ($isstudent) {
+    $userrole = ' role-student';
+}
+if (has_capability('moodle/site:config', context_system::instance())) {
+    $userrole = ' role-admin';
+}
+$extraclasses[] = $userrole;
 
 $bodyattributes = $OUTPUT->body_attributes($extraclasses);
 $blockshtml = $OUTPUT->blocks('side-pre');

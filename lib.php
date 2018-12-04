@@ -595,7 +595,7 @@ function is_assign_submitted($module) {
 }
 
 /**
- * Function checks if activity (module) is an assignment or quiz 
+ * Function checks if activity (module) is an assignment or quiz
  * and their cutoffdate is null (they have no submission date or timeclose date)
  * OR the date of submission is passed already!
  *
@@ -619,7 +619,7 @@ function is_assign_or_quiz_without_cutoffdate($activityinfo) {
 
 function get_courses_cover_images ($course) {
   global $OUTPUT;
-  
+
   $courseobj = new course_in_list($course);
   $coursecoverimgurl = '';
   foreach ($courseobj->get_course_overviewfiles() as $file) {

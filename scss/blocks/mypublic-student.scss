@@ -200,11 +200,14 @@ $achivement-margin-top: 42px;
               .info-list {
                 list-style: none;
                 padding: 0;
-                & [data-input="knowledge"],
-                & [data-input="interests"],
                 & [data-input="aim"],
                 & [data-input="phone2"],
-                & [data-input="skype"] {
+                & [data-input="skype"],
+                & [data-input="icq"],
+                & [data-input="birthday"],
+                & [data-input="interests"]             
+
+                {
                   display: none;
                 }
                 li{

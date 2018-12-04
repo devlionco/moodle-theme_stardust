@@ -10,9 +10,23 @@
     }
   }
 }
-[dir="rtl"] .incourse-header .top-wrapper{
-  background: linear-gradient(to right,transparent 0%,transparent 50%, #03146D 85%, $d_blue 100%), url([[pix:theme|banner]]);
+#{$LTR} {
+  .incourse-header{
+    .top-wrapper:before {
+      background: linear-gradient(-90deg,transparent 0%,transparent 50%, #03146D 85%, $d_blue 100%);
+    }
+  }
 }
+#{$RTL} {
+  .incourse-header {
+    .top-wrapper:before {
+      background: linear-gradient(90deg,transparent 0%,transparent 50%, #03146D 85%, $d_blue 100%);
+    }
+  }
+}
+// [dir="rtl"] .incourse-header .top-wrapper{
+//   background: linear-gradient(to right,transparent 0%,transparent 50%, #03146D 85%, $d_blue 100%), url([[pix:theme|banner]]);
+// }
 .incourse-header {
   .main-wrapper {
     display: flex;
@@ -32,45 +46,32 @@
     }
   }
   .top-wrapper {
-    height: 100%;
-    background: lightskyblue;
+    box-sizing: border-box;
+    height: 270px;
+    background: url([[pix:theme|banner]]);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
     display: flex;
     justify-content: center;
     position: relative;
-    background: linear-gradient(to left,transparent 0%,transparent 50%, #03146D 85%, $d_blue 100%), url([[pix:theme|banner]]);
-    background-size: cover;
+    box-sizing: border-box;
     border-bottom: 10px solid $d_blue;
-    // &:before {
-    //   content: "";
-    //   display: block;
-    //   width: 50%;
-    //   height: 0;
-    //   border-style: solid;
-    //   border-width: 0px 30px 30px 0px;
-    //   border-color: transparent transparent $gray_light transparent;
-    //   position: absolute;
-    //   bottom: 0;
-    //   left: 0;
-    // }
-    // &:after {
-    //   content: "";
-    //   display: block;
-    //   width: 50%;
-    //   height: 0;
-    //   border-style: solid;
-    //   border-width: 0 0px 30px 30px;
-    //   border-color: transparent transparent $gray_light transparent;
-    //   position: absolute;
-    //   bottom: 0;
-    //   right: 0;
-    // }
+    &:before{
+      content:'';
+      position: absolute;
+      top:0;
+      bottom: 0;
+      right: 0;
+      left:0;
+    }
     .top {
       max-width: 1344px;
       margin-bottom: 46px;
       display: flex;
       flex-direction: column;
       align-items: flex-start;
-      // overflow-x: hidden;
+      z-index: 2;
       &:before{
         content:'';
         position: relative;
@@ -78,6 +79,7 @@
         width:1344px;
       }
       .subtitle {
+        text-shadow: 0 0 6px black;
         margin-bottom: 16px;
         margin-top: 42px;
         font-size: 18px;

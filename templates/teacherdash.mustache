@@ -21,7 +21,7 @@
                 <div class="col-md-3 activities">
                     <div class="dashtitle">
                         <h3 class="card-title"><i class="fa fa-check-square-o dashicon"></i>{{{activitylinkstitle}}}</h3>
-                        <p>{{{activitylinkstitle_desc}}}</p>   
+                        <p>{{{activitylinkstitle_desc}}}</p>
                     </div>
                     <div class="list-group">
                     {{{courseactivities}}}
@@ -95,6 +95,28 @@
                     </div>
                 </div>
                 {{/hasuserpermission}}
+                {{#isteacherviewer}}
+                    <div class="col-md-3 userlinks">
+                        <div class="dashtitle">
+                            <h3><i class="fa fa-users dashicon"></i>{{{userlinkstitle}}}</h3>
+                            <p>{{{userlinksdesc}}}</p>
+                        </div>
+                        <div class="list-group">
+                            {{#haspermission}}
+                                {{#dashlinks}}
+                                    {{#haseasyenrollment}}
+                                        <a href="{{{url}}}" class="list-group-item">{{{title}}}</a>
+                                    {{/haseasyenrollment}}
+                                {{/dashlinks}}
+                            {{/haspermission}}
+                            {{#dashlinks}}
+                                {{#hasteacherviewerlinks}}
+                                    <a href="{{{url}}}" class="list-group-item">{{{title}}}</a>
+                                {{/hasteacherviewerlinks}}
+                            {{/dashlinks}}
+                        </div>
+                    </div>
+                {{/isteacherviewer}}
             </div>
 
         </div>
@@ -123,7 +145,7 @@
 
         <div class="studentdashboard">
         <div class="container-fluid">
-        
+
             <div class="row">
                     {{#studentdashboardtextbox}}
                     <div class="col-md-6">
@@ -203,7 +225,7 @@
 
                     <div class="col-md-3 activitylinks">
                         <div class="dashtitle">
-                            <h3><i class="fa fa-check-square-o dashicon"></i>{{{activitylinkstitle}}}</h3>     
+                            <h3><i class="fa fa-check-square-o dashicon"></i>{{{activitylinkstitle}}}</h3>
                         </div>
                         <div class="list-group">
                             {{{courseactivities}}}

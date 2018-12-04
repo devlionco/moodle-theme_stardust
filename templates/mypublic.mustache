@@ -168,12 +168,18 @@
                         </button>
                         <ul class="info-list">
                             <li class="info" data-input="username">
-                              {{#canedit}}{{/canedit}}{{^canedit}}{{/canedit}}
-                              <span id="username" class="input">{{userinfo.username}}</span>
-                              <span class="input-label">{{#str}} username, theme_stardust{{/str}}</span>
+                                {{#canedit}}
+                                    <span id="username" class="input">{{userinfo.username}}</span>
+                                    <span class="input-label">{{#str}} username, theme_stardust{{/str}}</span>
+                                {{/canedit}}
+                                {{^canedit}}
+                                    <span id="username" class="static">{{userinfo.username}}</span>
+                                    <span class="input-label">{{#str}} username, theme_stardust{{/str}}</span>
+                                {{/canedit}}
+
                             </li>
                             <li class="info" data-input="pass">
-                              <a  class="input" id="pass" href="{{config.wwwroot}}/login/change_password.php?id={{userinfo.id}}">{{#str}} change_password_link, theme_stardust{{/str}}</a>
+                              <a  class="input" id="pass" href="{{config.wwwroot}}/login/change_password.php?id=1">{{#str}} change_password_link, theme_stardust{{/str}}</a>
                                 <span class="input-label">{{#str}} password, theme_stardust{{/str}}</span>
                             </li>
                             <li class="info" data-input="fullname">
@@ -200,23 +206,23 @@
                               <span id="skype" class="input">{{userinfo.skype}}</span>
                                 <span class="input-label">{{#str}} position, theme_stardust{{/str}}</span>
                             </li>
-                            <li class="info" data-input="knowledge">
-                              <span id="knowledge" class="input">{{#str}} write_knowledges, theme_stardust{{/str}}</span>
-                                <span class="input-label">{{#str}} knowledge, theme_stardust{{/str}}</span>
-                                <div id = "knowledge-container" class = "knowledge-container">
-                                  {{#userinfo.knowledge}}
-                                    <div
-                                        class = "knowledge-item"
-                                        style="background-color: #19284f;"
-                                        onclick="this.remove();"
-                                        >
-                                        {{{.}}}
-                                    </div>
-                                    {{/userinfo.knowledge}}
-                                </div>
+                            <li class="info" data-input="icq">
+                              <span id="icq" class="input">{{userinfo.icq}}</span>
+                              <span class="input-label">{{#str}} icq, theme_stardust{{/str}}</span>
+                              <div id = "icq-container" class = "tag-container">
+                                {{#userinfo.icq}}
+                                  <div
+                                      class = "tag-item"
+                                      style="background-color: #19284f;"
+                                      onclick="this.remove();"
+                                      >
+                                      {{{.}}}
+                                  </div>
+                                  {{/userinfo.icq}}
+                              </div>
                             </li>
-                            <li class="info" data-input="birthday">
-                              <span id="birthday" class="input">{{#userdate}}{{userinfo.profile_field_birthday}}, %Y-%m-%d {{/userdate}}</span>
+                           <li class="info" data-input="birthday">
+                              <span id="birthday" class="input">{{#userdate}}{{userinfo.profile_field_birthday}}, %d/%m/%Y {{/userdate}}</span>
                                 <span class="input-label">{{#str}} birthday, theme_stardust{{/str}}</span>
                             </li>
                             <li class="info" data-input="interests">
@@ -336,7 +342,7 @@ require(['jquery'], function($) {
       #aim,
       #phone2,
       #skype,
-      #knowledge,
+      #icq,
       #birthday,
       #interests
     `).parent().slideToggle(function(e){

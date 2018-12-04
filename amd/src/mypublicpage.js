@@ -19,8 +19,14 @@ define(['jquery', 'jqueryui', 'core/str'], function($, jqui, str) {
       var dbdata = JSON.parse(jscontext);
       var restrictions = dbdata.locked;
       var allowonce = dbdata.unlockedifempty;
-      // console.log(jscontext);
 
+      // perevent form submittion by enter
+      $('#mypublicpage-profile-shortform').keydown(function (e) {
+          if (e.keyCode == 13) {
+              e.preventDefault();
+              return false;
+          }
+      });
       // query spans and add events to check restrictions: if not restricted replace it with input
       var spanQuery = document.querySelectorAll('span.input');
       for (var i=0; i<spanQuery.length;i++){
@@ -41,7 +47,7 @@ define(['jquery', 'jqueryui', 'core/str'], function($, jqui, str) {
             if (target.nodeName === "SPAN"){
               var inputNode = document.createElement('input');
               inputNode.classList += "input";
-              inputNode.type = 'text';
+              inputNode.type = (target.id === `birthday`)? 'date' : 'text';
               inputNode.id = target.id;
               inputNode.dataset.edited = false;
               if (target.dataset.placeholder){
@@ -51,20 +57,23 @@ define(['jquery', 'jqueryui', 'core/str'], function($, jqui, str) {
               target.parentNode.insertBefore( inputNode , target.nextSibling);
               target.remove();
               switch(inputNode.id) {
-                case 'knowledge':
-                  inputNode.addEventListener('change', function(e){
-                    // $('#mypublicpage-profile-shortform #knowledge-container').append('<div class = "knowledge-item" style = "background-color:#'+ (Math.random()*0xFFFFFF<<0).toString(16) +';" onClick = this.remove();>'+e.target.value+'</div>');
-                    $('#mypublicpage-profile-shortform #knowledge-container').append('<div class="knowledge-item" style="background-color:rgb('+ Math.round(Math.random()*255) + ',' + Math.round(Math.random()*255) + ',' + Math.round(Math.random()*255) + ');" onClick = this.remove();>'+e.target.value+'</div>');
-                    e.target.value = "";
-                    e.target.dataset.edited = true;
+                case 'icq':
+                  inputNode.addEventListener('keydown', function(e){
+                    if (e.keyCode === 13) {
+                      $('#mypublicpage-profile-shortform #icq-container').append('<div class="tag-item" style="background-color:rgb('+ Math.round(Math.random()*255) + ',' + Math.round(Math.random()*255) + ',' + Math.round(Math.random()*255) + ');" onClick = this.remove();>'+e.target.value+'</div>');
+                      e.target.value = "";
+                      e.target.dataset.edited = true;
+                    }
                   });
                   break;
                 case 'interests':
-                  inputNode.addEventListener('change', function(e){
-                    // $('#mypublicpage-profile-shortform #tag-container').append('<div class = "tag-item" style = "background-color:#'+ (Math.random()*0xFFFFFF<<0).toString(16) +';" onClick = this.remove();>'+e.target.value+'</div>');
-                    $('#mypublicpage-profile-shortform #tag-container').append('<div class="tag-item" style="background-color:rgb(' + Math.round(Math.random()*255) + ',' + Math.round(Math.random()*255) + ',' + Math.round(Math.random()*255) + ');" onClick = this.remove();>'+e.target.value+'</div>');
-                    e.target.value = "";
-                    e.target.dataset.edited = true;
+                  inputNode.addEventListener('keydown', function(e){
+                    if (e.keyCode === 13) {
+                      $('#mypublicpage-profile-shortform #tag-container').append('<div class="tag-item" style="background-color:rgb(' + Math.round(Math.random()*255) + ',' + Math.round(Math.random()*255) + ',' + Math.round(Math.random()*255) + ');" onClick = this.remove();>'+e.target.value+'</div>');
+                      e.target.value = "";
+                      e.target.dataset.edited = true;
+                    }
+
                   });
                   break;
                 default:
@@ -101,12 +110,12 @@ define(['jquery', 'jqueryui', 'core/str'], function($, jqui, str) {
             yahoo = dbdata.yahoo,
             errors = false;
 
-        // hide additional fields
-        // if (email === ''){ $('input#email2').parent().addClass('d-none') }
-        // if (phone1 === ''){ $('input#phone2').parent().addClass('d-none') }
-
         // query only changed fields and validate them
-        var queryInputs = document.querySelectorAll('#mypublicpage-profile-shortform input.input[data-edited="true"]');
+        var queryInputs = document.querySelectorAll(`
+          #mypublicpage-profile-shortform input.input[data-edited="true"],
+          #mypublicpage-profile-shortform #icq,
+          #mypublicpage-profile-shortform #interests
+        `);
 
         var changes = new Object();
         for (var i=0; i<queryInputs.length; i++){
@@ -258,9 +267,9 @@ define(['jquery', 'jqueryui', 'core/str'], function($, jqui, str) {
             case "skype":
               item.value = $.trim(item.value);
               break;
-            case "knowledge":
+            case "icq":
               var knowledge = [];
-              var knowledgeElements = $('#knowledge-container .knowledge-item');
+              var knowledgeElements = $('#icq-container .tag-item');
               if (knowledgeElements.length) {
                 $.map(knowledgeElements, function(elem){
                   knowledge.push($.trim($(elem).text()));
@@ -297,7 +306,7 @@ define(['jquery', 'jqueryui', 'core/str'], function($, jqui, str) {
           changes['action'] = 'mypublicpage-save-shortform';
         }
         // remove values from knowledge and interests intputs
-        document.getElementById('knowledge').value = '';
+        document.getElementById('icq').value = '';
         document.getElementById('interests').value = '';
 
         // console.log(JSON.stringify(changes));

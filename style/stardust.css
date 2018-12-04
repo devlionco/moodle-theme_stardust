@@ -612,7 +612,7 @@ body#page-login-signup {
             justify-content: space-evenly;
         -ms-flex-align: center;
             align-items: center;
-        background-color: #19284f !important;
+        background-color: #19284f;
         border-bottom: 2px solid #FFFFFF;
         margin: 10px; }
         #page-footer #stardust-footer .footer-nav .social-nav .nav-link {
@@ -651,7 +651,7 @@ body#page-login-signup {
             justify-content: space-evenly;
         -ms-flex-align: stretch;
             align-items: stretch;
-        background-color: #19284f !important; }
+        background-color: #19284f; }
         #page-footer #stardust-footer .footer-nav .bottom-nav .nav-link {
           font-size: 1rem;
           text-decoration: none;
@@ -922,8 +922,10 @@ body#page-login-signup {
 .display__none {
   display: none !important; }
 
-.course-cards, .row, #page-content #region-main {
-  background-color: #FFFFFF !important; }
+#page .course-cards,
+#page .row,
+#page #page-content #region-main {
+  background-color: #FFFFFF; }
 
 /*fix for login page*/
 .pagelayout-login #page-content #region-main,
@@ -1007,6 +1009,9 @@ body#page-login-signup {
   box-shadow: 0 0 5px 2px #bababa; }
   #page-my-index .mform > * {
     margin: 0 1.5rem; }
+
+#page-my-index #page .mform {
+  display: block; }
 
 #my-page {
   color: #3C3C3C;
@@ -1114,7 +1119,7 @@ body#page-login-signup {
         -ms-grid-columns: 1fr 312px;
             grid-template-columns: 1fr 312px;
         grid-gap: 24px;
-        margin-bottom: 103px; }
+        margin-bottom: 50px; }
         #my-page .main-wrapper .main-content .tasks-container {
           width: 100%;
           background: #FFFFFF;
@@ -2482,11 +2487,12 @@ body#page-login-signup {
               #mypublic-student .main-wrapper .main-content .profile-info .column .info-list {
                 list-style: none;
                 padding: 0; }
-                #mypublic-student .main-wrapper .main-content .profile-info .column .info-list [data-input="knowledge"],
-                #mypublic-student .main-wrapper .main-content .profile-info .column .info-list [data-input="interests"],
                 #mypublic-student .main-wrapper .main-content .profile-info .column .info-list [data-input="aim"],
                 #mypublic-student .main-wrapper .main-content .profile-info .column .info-list [data-input="phone2"],
-                #mypublic-student .main-wrapper .main-content .profile-info .column .info-list [data-input="skype"] {
+                #mypublic-student .main-wrapper .main-content .profile-info .column .info-list [data-input="skype"],
+                #mypublic-student .main-wrapper .main-content .profile-info .column .info-list [data-input="icq"],
+                #mypublic-student .main-wrapper .main-content .profile-info .column .info-list [data-input="birthday"],
+                #mypublic-student .main-wrapper .main-content .profile-info .column .info-list [data-input="interests"] {
                   display: none; }
                 #mypublic-student .main-wrapper .main-content .profile-info .column .info-list li {
                   margin-top: 22px;
@@ -3203,8 +3209,11 @@ html {
           color: #3C3C3C;
           background: none; }
 
-[dir="rtl"] .incourse-header .top-wrapper {
-  background: linear-gradient(to right, transparent 0%, transparent 50%, #03146D 85%, #19284f 100%), url([[pix:theme|banner]]); }
+[dir="ltr"] .incourse-header .top-wrapper:before {
+  background: linear-gradient(-90deg, transparent 0%, transparent 50%, #03146D 85%, #19284f 100%); }
+
+[dir="rtl"] .incourse-header .top-wrapper:before {
+  background: linear-gradient(90deg, transparent 0%, transparent 50%, #03146D 85%, #19284f 100%); }
 
 .incourse-header .main-wrapper {
   display: -ms-flexbox;
@@ -3223,16 +3232,26 @@ html {
       top: -90px; }
 
 .incourse-header .top-wrapper {
-  height: 100%;
-  background: lightskyblue;
+  box-sizing: border-box;
+  height: 270px;
+  background: url([[pix:theme|banner]]);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
   display: -ms-flexbox;
   display: flex;
   -ms-flex-pack: center;
       justify-content: center;
   position: relative;
-  background: linear-gradient(to left, transparent 0%, transparent 50%, #03146D 85%, #19284f 100%), url([[pix:theme|banner]]);
-  background-size: cover;
+  box-sizing: border-box;
   border-bottom: 10px solid #19284f; }
+  .incourse-header .top-wrapper:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0; }
   .incourse-header .top-wrapper .top {
     max-width: 1344px;
     margin-bottom: 46px;
@@ -3241,13 +3260,15 @@ html {
     -ms-flex-direction: column;
         flex-direction: column;
     -ms-flex-align: start;
-        align-items: flex-start; }
+        align-items: flex-start;
+    z-index: 2; }
     .incourse-header .top-wrapper .top:before {
       content: '';
       position: relative;
       display: block;
       width: 1344px; }
     .incourse-header .top-wrapper .top .subtitle {
+      text-shadow: 0 0 6px black;
       margin-bottom: 16px;
       margin-top: 42px;
       font-size: 18px;
@@ -3967,7 +3988,7 @@ html {
   position: absolute;
   top: -119px;
   right: 6%;
-  z-index: 1000;
+  z-index: 120;
   width: 46px;
   height: 46px;
   border-radius: 50%;

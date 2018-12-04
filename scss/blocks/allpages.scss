@@ -3,8 +3,13 @@
 .display__none {
   display: none !important;
 }
-.course-cards, .row, #page-content #region-main{
-  background-color: $white !important;
+
+#page {
+  .course-cards,
+  .row,
+  #page-content #region-main{
+    background-color: $white;
+  }
 }
 /*fix for login page*/
 .pagelayout-login #page-content #region-main,
