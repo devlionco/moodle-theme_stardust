@@ -69,15 +69,16 @@
       max-width: 1344px;
       margin-bottom: 46px;
       display: flex;
+      flex-grow: 1;
       flex-direction: column;
       align-items: flex-start;
       z-index: 2;
-      &:before{
-        content:'';
-        position: relative;
-        display: block;
-        width:1344px;
-      }
+      // &:before{
+      //   content:'';
+      //   position: relative;
+      //   display: block;
+      //   width:1344px;
+      // }
       .subtitle {
         text-shadow: 0 0 6px black;
         margin-bottom: 16px;

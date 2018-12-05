@@ -58,7 +58,9 @@ function get_all_course_sections_info($courseinfo, $currentsectionnum = null) {
         $seccustomnum = $secinfo->customnumber;
         if ($courseformat == "stardust") {
           $securl = new moodle_url('/course/view.php', array('id' => $PAGE->course->id, 'sectionid' => $secinfo->id));
-        }else {
+        } else if ($courseformat == "picturelink") {
+          $securl = new moodle_url('/course/view.php', array('id' => $PAGE->course->id, 'section' => $secinfo->section));
+        } else {
           $securl = new moodle_url('/course/view.php', array('id' => $PAGE->course->id));
           $securl->set_anchor('section-'.$secnum);
         }
@@ -120,7 +122,7 @@ if ($PAGE->context && $PAGE->context->contextlevel == CONTEXT_MODULE && $PAGE->c
     $allsectionactivities = array();
     foreach ($allactivitiesarr[$currentsectionnum] as $key => $activid) {
         $activinfo = $courseinfo->cms[$activid];
-        if (!$activinfo->uservisible) continue;         // SG - T-308 - skip not visible for user activities
+        if (!$activinfo->uservisible || !$activinfo->is_visible_on_course_page()) continue;         // SG - T-308, T-337 - skip not visible for user activities
         $allsectionactivities[$key]['name'] = $activinfo->name;
         $allsectionactivities[$key]['type'] = $activinfo->modname;
         $allsectionactivities[$key]['url'] = $activinfo->url ? $activinfo->url->out() : '';

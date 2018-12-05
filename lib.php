@@ -294,8 +294,13 @@ function get_activities_mydashboard($activitiesconf = array(), $numofrelevantact
                         continue;
                     }
 
-                    // dont't show submitted assignments
+                    // filter modules - dont't show submitted assignments
                     if (is_assign_submitted($module)) {
+                        continue;
+                    }
+
+                    // filter modules - dont show assigns or quiz without submission date
+                    if (is_assign_or_quiz_without_cutoffdate($activityinfo)) {
                         continue;
                     }
 
@@ -391,8 +396,7 @@ function stardust_activity_status($module) {
     $cmcomplstate = $cmcomplstateraw ? true : false; // completed or not activity
 
     // get module overrides
-    // TODO: FIX error invalidcoursemodule - userid = 1318 (nadavkav)
-    //$module = get_module_overrides($module);
+    $module = get_module_overrides($module);
 
     $activitystatus = array();
 
@@ -403,6 +407,7 @@ function stardust_activity_status($module) {
     $openforsubmission = false;
     $actionwithtask = false;
     $turntotheteacher = false;
+    $nosubmissiondate = false;
 
     $mincutoffdate =  ($cutoffdate * $duedate == 0) ? max($cutoffdate, $duedate) :  min($cutoffdate, $duedate);
 
@@ -440,6 +445,7 @@ function stardust_activity_status($module) {
         }
     } else {
         $modstatus =  get_string('no_submission_date', 'theme_stardust');
+        $nosubmissiondate = true;
         $modstyle = 'mod_gray';
         $timeline = 0;
         $mincutoffdate = time()+ 2*364*24*60*60;
@@ -452,6 +458,7 @@ function stardust_activity_status($module) {
     $activitystatus['timeline'] = $timeline;
     $activitystatus['modstyle'] = $modstyle;
     $activitystatus['modstatus'] = $modstatus;
+    $activitystatus['nosubmissiondate'] = $nosubmissiondate;
     $activitystatus['mincutoffdate'] = $mincutoffdate;
     $activitystatus['openforsubmission'] = $openforsubmission;
     $activitystatus['actionwithtask'] = $actionwithtask;
@@ -497,6 +504,7 @@ function set_icon_style_for_activity ($module) {
   $activityinfo['timeline'] = $activitystatus['timeline'];
   $activityinfo['iconstyle'] = isset($activitystatus['iconstyle']) ? $activitystatus['iconstyle'] : false;
   $activityinfo['modstatus'] = $activitystatus['modstatus'];
+  $activityinfo['nosubmissiondate'] = $activitystatus['nosubmissiondate'];
   $activityinfo['mincutoffdate'] = $activitystatus['mincutoffdate'];
   $activityinfo['unitname'] = $sectionname;
   $activityinfo['modstyle'] = $activitystatus['modstyle'];
