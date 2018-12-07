@@ -1377,7 +1377,7 @@ class core_renderer extends \theme_boost\output\core_renderer {
             'siteadminurl' => $siteadminurl,
             'haseditcog' => $haseditcog,
             'editcog' => isset($editcog) ? $editcog : null,
-            'quizsettingsbutton' => $quizsettingsbutton,
+            'quizsettingsbutton' => isset($quizsettingsbutton) ? $quizsettingsbutton : null,
         ];
 
         // Attach easy enrollment links if active.
@@ -1696,7 +1696,7 @@ class core_renderer extends \theme_boost\output\core_renderer {
         $hasuserpermission = has_capability('moodle/course:viewhiddenactivities', $context);
         $isteacherviewer = has_capability('moodle/grade:viewall', $context) && !$hasuserpermission;
         $hasgradebookshow = (isset($PAGE->course->showgrades) && $PAGE->course->showgrades == 1) && (isset($PAGE->theme->settings->showstudentgrades) && $PAGE->theme->settings->showstudentgrades == 1);
-        $hascompletionshow = $PAGE->course->enablecompletion == 1 && $PAGE->theme->settings->showstudentcompletion == 1;
+        $hascompletionshow = (isset($PAGE->course->enablecompletion) && $PAGE->course->enablecompletion == 1) && (isset($PAGE->theme->settings->showstudentcompletion) && $PAGE->theme->settings->showstudentcompletion == 1);
         $hascourseadminshow = isset($PAGE->theme->settings->showcourseadminstudents) && $PAGE->theme->settings->showcourseadminstudents == 1;
         $hascompetency = get_config('core_competency', 'enabled');
 
