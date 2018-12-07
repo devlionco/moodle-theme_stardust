@@ -1462,7 +1462,7 @@ class core_renderer extends \theme_boost\output\core_renderer {
         $gradeslink = new moodle_url('/grade/report/index.php', array(
             'id' => $PAGE->course->id
         ));
-        $participantstitle = ($PAGE->theme->settings->studentdashboardtextbox == 1) ? false : get_string('participants', 'moodle');
+        $participantstitle = (isset($PAGE->theme->settings->studentdashboardtextbox) && $PAGE->theme->settings->studentdashboardtextbox == 1) ? false : get_string('participants', 'moodle');
         $participantslink = new moodle_url('/user/index.php', array(
             'id' => $PAGE->course->id
         ));
@@ -1695,9 +1695,9 @@ class core_renderer extends \theme_boost\output\core_renderer {
         $hasbackuppermission = has_capability('moodle/backup:backupcourse', $context);
         $hasuserpermission = has_capability('moodle/course:viewhiddenactivities', $context);
         $isteacherviewer = has_capability('moodle/grade:viewall', $context) && !$hasuserpermission;
-        $hasgradebookshow = $PAGE->course->showgrades == 1 && $PAGE->theme->settings->showstudentgrades == 1;
+        $hasgradebookshow = (isset($PAGE->course->showgrades) && $PAGE->course->showgrades == 1) && (isset($PAGE->theme->settings->showstudentgrades) && $PAGE->theme->settings->showstudentgrades == 1);
         $hascompletionshow = $PAGE->course->enablecompletion == 1 && $PAGE->theme->settings->showstudentcompletion == 1;
-        $hascourseadminshow = $PAGE->theme->settings->showcourseadminstudents == 1;
+        $hascourseadminshow = isset($PAGE->theme->settings->showcourseadminstudents) && $PAGE->theme->settings->showcourseadminstudents == 1;
         $hascompetency = get_config('core_competency', 'enabled');
 
         // Send to template.
@@ -1980,13 +1980,13 @@ class core_renderer extends \theme_boost\output\core_renderer {
 
     public function headingfont() {
         $theme = theme_config::load('fordson');
-        $setting = $theme->settings->headingfont;
+        $setting = isset($theme->settings->headingfont) ? $theme->settings->headingfont : '';
         return $setting != '' ? $setting : '';
     }
 
     public function pagefont() {
         $theme = theme_config::load('fordson');
-        $setting = $theme->settings->pagefont;
+        $setting = isset($theme->settings->pagefont) ? $theme->settings->pagefont : '';
         return $setting != '' ? $setting : '';
     }
 
@@ -2113,7 +2113,7 @@ class core_renderer extends \theme_boost\output\core_renderer {
             foreach ($messages as $mid => $message) {
 
                 // Do not return deleted messages.
-                if (($useridto == $USER->id and $message->timeusertodeleted) or
+                if (($useridto == $USER->id and (isset($message->timeusertodeleted) && $message->timeusertodeleted)) or
                         ($useridfrom == $USER->id and $message->timeuserfromdeleted)) {
 
                     unset($messages[$mid]);
