@@ -48,8 +48,8 @@
 
     <div class="video-bg-container">
         <div class="overlay"></div>
-        <video loop muted autoplay poster="_/theme/stardust/assets/shutterstock_475909078_1600.jpg" class="fullscreen-bg__video">
-            <source src="/theme/stardust/assets/login-video.mp4" type="video/mp4">
+        <video loop muted autoplay poster="" class="fullscreen-bg__video">
+            <source src="{{config.wwwroot}}/theme/stardust/assets/login-video.mp4" type="video/mp4">
         </video>
     </div>
     <style>
@@ -102,21 +102,9 @@
             </div>
         </div>
     </div>
+
+    {{>theme_stardust/footer}}
 </div>
-<footer id="page-footer" class="p-y-1 bg-inverse display__none">
-    <div class="container">
-        <div id="course-footer">{{{ output.course_footer }}}</div>
-
-        {{# output.page_doc_link }}
-            <p class="helplink">{{{ output.page_doc_link }}}</p>
-        {{/ output.page_doc_link }}
-
-        {{{ output.login_info }}}
-        {{{ output.home_link }}}
-        {{{ output.standard_footer_html }}}
-        {{{ output.standard_end_of_body_html }}}
-    </div>
-</footer>
 
 </body>
 </html>

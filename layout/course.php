@@ -31,9 +31,10 @@ require_once($CFG->libdir . "/completionlib.php");
 global $DB,$COURSE, $USER;
 $course = $PAGE->course;
 $courseformat = course_get_format($course->id)->get_format_options();
+$PAGE->set_title($course->shortname);
 
 /**
- *  Get attednance info 
+ *  Get attednance info
  */
 $attmodid = $DB->get_record('modules', array('name' => 'attendance'), 'id')->id; // get attendance module id in system
 $att = $DB->get_record('course_modules', array('course' => $course->id, 'module' => $attmodid, 'deletioninprogress' => 0), 'instance', IGNORE_MULTIPLE); // get first attedndance instance on current course
@@ -67,7 +68,7 @@ if (!$att) {
  * @param $ccompetablecms - global script var
  * @param $usercmscompletions - global script var
  * @param $reset - set '0' for section in main stream (NOT for subsection). Is needed to reset static vars in recursion
- * 
+ *
  * @return array $sectioncompletion - field 'completed' has 1 if all bunch is completed, or 0 - if it is not
  */
 function count_section_cms_completions($secid, $coursefminfo, $ccompetablecms, $usercmscompletions, $reset = null) {
@@ -93,13 +94,13 @@ function count_section_cms_completions($secid, $coursefminfo, $ccompetablecms, $
             }
         }
     }
-    
+
     // count if current section is completed
     $cmsinsectioncount = count($sections[$secid]);
     if ($cmsinsectioncount == $completedactivitiescount) {
         $completedsectionscount++; // if completable cms are all completed - count section as completed
     }
-    
+
     // count completion of child sections (subsections) - start this func recursevly IF FORMAT == STARDUST, because of folded sections
     if (course_get_format($course->id)->get_format() == 'stardust') {
         $children = course_get_format($course->id)->get_subsections($secid);
@@ -112,13 +113,13 @@ function count_section_cms_completions($secid, $coursefminfo, $ccompetablecms, $
 
     // $sectioncompletion['completedsectionscount'] = $completedsectionscount; // SG -- need for debug
     // $sectioncompletion['childrencount'] = $childrencount;                   // SG -- need for debug
-    
+
     // if completed sections count are equal to children sections + 1 - all bunch is completed
     if ($completedsectionscount == $childrencount+1) {
-        $sectioncompletion['completed'] = 1; 
+        $sectioncompletion['completed'] = 1;
     } else {
         $sectioncompletion['completed'] = 0;
-    }  
+    }
 
     return $sectioncompletion;
 }
@@ -155,7 +156,7 @@ $sections = $coursefminfo->get_sections(); // get current course's sections
 // remove pinned sections and subsections from all sections array
 foreach ($sections as $sid => $sval) {
     $secinfo = course_get_format($course->id)->get_section($sid);
-    unset($sections[0]); // remove General section - 0 section - from counting 
+    unset($sections[0]); // remove General section - 0 section - from counting
     if (!empty($secinfo->pinned)) {
         unset($sections[$sid]); // unset pinned sections
     }
@@ -225,26 +226,17 @@ if ($checkblocka || $checkblockb || $checkblockc) {
 
 // get teacher's course message
 $coursemessage = $DB->get_record('theme_stardust_messages', array ('courseid' => $course->id));
-$coursemessage->buttonstatus = ($coursemessage->status == 1) ? 'show' : '';                         // define teacher's show/hide button (eye) class
-$coursemessage->buttontitle= ($coursemessage->status == 1) ? 'To hide message' : 'To show message'; // define teacher's show/hide button (eye) title
-$coursemessage->teachmessageshowhide= ($coursemessage->status == 1) ? '' : 'style = opacity:0.5;';  // define teacher's message box style with opacity
-$coursemessage->studmessageshowhide= ($coursemessage->status == 1) ? '' : 'style = display:none;';  // define student's message box style: display or not
-//$coursemessage->messageboxstatus = ($coursemessage->status == 1) ? '' : 'hide';                   // define student's message box status class
+if ($coursemessage) {
+    $coursemessage->buttonstatus = ($coursemessage->status == 1) ? 'show' : '';                         // define teacher's show/hide button (eye) class
+    $coursemessage->buttontitle= ($coursemessage->status == 1) ? 'To hide message' : 'To show message'; // define teacher's show/hide button (eye) title
+    $coursemessage->teachmessageshowhide= ($coursemessage->status == 1) ? '' : 'style = opacity:0.5;';  // define teacher's message box style with opacity
+    $coursemessage->studmessageshowhide= ($coursemessage->status == 1) ? '' : 'style = display:none;';  // define student's message box style: display or not
+    //$coursemessage->messageboxstatus = ($coursemessage->status == 1) ? '' : 'hide';                   // define student's message box status class
+}
 
 // is teacher marker
 $coursecontext = context_course::instance($course->id);
 $isteacher = (has_capability('moodle/course:update', $coursecontext)) ? true : false;
-
-// get courses cover images
-$courseobj = new course_in_list($course);
-$coursecoverimgurl = '';
-foreach ($courseobj->get_course_overviewfiles() as $file) {
-    $isimage = $file->is_valid_image();
-    $coursecoverimgurl = moodle_url::make_pluginfile_url($file->get_contextid(), $file->get_component(), $file->get_filearea(), null, $file->get_filepath(), $file->get_filename());
-}
-if (empty($coursecoverimgurl)) {
-    $coursecoverimgurl = $OUTPUT->image_url('banner', 'theme'); // define default course cover image in theme's pix folder
-}
 
 $templatecontext = [
     'sitename' => format_string($SITE->shortname, true, ['context' => context_course::instance(SITEID) , "escape" => false]) ,
@@ -266,7 +258,8 @@ $templatecontext = [
     'coursename' => $course->shortname,
     'coursfullname' => $course->fullname,
     'display_units' => (isset($courseformat['displayunits'])) ? $courseformat['displayunits'] : false,
-    'display_messages' => (isset($courseformat['displaymessages'])) ? $courseformat['displaymessages'] : false,
+    // 'display_messages' => (isset($courseformat['displaymessages'])) ? $courseformat['displaymessages'] : false, // SG - T-322
+    'display_messages' => true, // always show teacher messages block -- SG T-322
     'display_grades' => (isset($courseformat['displaygrades'])) ? $courseformat['displaygrades'] : false,
     'showbagestag' => (isset($courseformat['showbagestag'])) ? $courseformat['showbagestag'] : false,
     'showcertificatestag' => (isset($courseformat['showcertificatestag'])) ? $courseformat['showcertificatestag'] : false,
@@ -277,7 +270,7 @@ $templatecontext = [
     'isteacher' => $isteacher,
     'userid' => $USER->id,
     'courseid' => $course->id,
-    'coursecoverimg' => $coursecoverimgurl->out(),
+    'coursecoverimg' => get_courses_cover_images($course)
 
 ];
 

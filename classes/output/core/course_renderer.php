@@ -71,7 +71,10 @@ class course_renderer extends \core_course_renderer {
         // create temp $mod object with few fields to get current activity status correctly (for compat with func stardust_activity_status in lib.php)
         $tmod = new stdClass();
         $tmod->id = $mod->id;
+        $tmod->modname = $mod->modname;
+        $tmod->instance = $mod->instance;
         $tmod->added = $mod->added;
+        $tmod->course = $mextra->course;
 
         if ($mod->modname == 'assign' || $mod->modname == 'quiz') {
             // if (!isset($mextra->duedate) || !isset($mextra->cutoffdate) ) {
@@ -82,12 +85,14 @@ class course_renderer extends \core_course_renderer {
             //     $tmod->cutoffdate = $mextra->cutoffdate;
             // }
 
-            $tmod->duedate = isset($mextra->duedate) ? $mextra->duedate : 0;
-            $tmod->cutoffdate= isset($mextra->cutoffdate) ? $mextra->cutoffdate : 0;
-
-            if ($mod->modname == 'quiz'){
-              $tmod->cutoffdate= $mextra->timeclose ? : 0;
+            if ($mod->modname == 'assign') {
+                $tmod->duedate = isset($mextra->duedate) ? $mextra->duedate : 0;
+                $tmod->cutoffdate= isset($mextra->cutoffdate) ? $mextra->cutoffdate : 0;
             }
+
+            // if ($mod->modname == 'quiz'){
+            //     $tmod->cutoffdate = $mextra->timeclose ? : 0;
+            // }
           $activitystatus = stardust_activity_status($tmod);
           $micon = $this->output->image_url('/'.$mod->modname.'/'.$activitystatus['modstyle'], 'theme');
           $mstatus = $activitystatus['modstatus'];

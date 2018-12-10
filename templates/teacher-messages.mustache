@@ -7,8 +7,9 @@
                   <form class="message" data-userid={{userid}} {{coursemessage.teachmessageshowhide}}>
                     <input type="text" name="message" value="{{coursemessage.message}}" maxlength="100" placeholder="" class="message-input" readonly>
                     <div class="message-controls">
-                      <input type="button" name="" value="&rarr;" class="message-submit" title="submit">
-                      <input type="button" name="" value="&times;" class="message-clear" title="clear message">
+                      <button type="button" class="message-submit"></button>
+                      <!-- <input type="button" name="submit" value="&#8594;" class="message-submit fas fa-arrow-right" title="submit"> -->
+                      <!-- <input type="button" name="" value="&times;" class="message-clear" title="clear message"> -->
                       <div class="submit-icons"></div>
                     </div>
                   </form>
@@ -26,7 +27,7 @@ require(['core/yui', 'jquery', 'theme_stardust/ajax'], function(Y, $, ajax){
 
   const message = document.querySelector('#course-main-content .message-input');
   const submit = document.querySelector('#course-main-content .message-submit');
-  const clear = document.querySelector('#course-main-content .message-clear');
+  // const clear = document.querySelector('#course-main-content .message-clear');
   const hider = document.querySelector('#course-main-content .message-hider');
 
   // on send spinner
@@ -36,8 +37,8 @@ require(['core/yui', 'jquery', 'theme_stardust/ajax'], function(Y, $, ajax){
   const check = '<svg class="message-sent" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 130.2 130.2"><polyline class="path check" fill="none" stroke="#83D3AE" stroke-width="15" stroke-linecap="round" stroke-miterlimit="10" points="100.2,40.2 51.5,88.8 29.8,67.5 "/></svg>';
 
   // hide controls
-  $(submit).css({'display':'none'});
-  $(clear).css({'display':'none'});
+  //$(submit).css({'display':'none'});
+  //$(clear).css({'display':'none'});
 
   const getCourseId = function (){
     var queries = window.location.search.replace(/^\?/, '').split('&');
@@ -53,8 +54,8 @@ require(['core/yui', 'jquery', 'theme_stardust/ajax'], function(Y, $, ajax){
   const targetBlock = document.querySelector('.submit-icons');
 
   const animation = function() {
-    $(submit).css({'display':'none'});
-    $(clear).css({'display':'none'});
+    //$(submit).css({'display':'none'});
+    //$(clear).css({'display':'none'});
     //targetBlock.appendChild(spinner);
     targetBlock.innerHTML = spinner;
     setTimeout(function(){
@@ -94,20 +95,21 @@ require(['core/yui', 'jquery', 'theme_stardust/ajax'], function(Y, $, ajax){
   message.addEventListener('blur', function(e) {
     submit.click();
   }, true);
-  clear.addEventListener('click', function(){
-    message.value = "";
-  });
+  //clear.addEventListener('click', function(){
+  //  message.value = "";
+  //});
   message.addEventListener('keyup', function(e) {
     e.preventDefault();
     // Enter
     if (event.keyCode === 13) {
       submit.click();
     } else if (event.keyCode === 8) {
-      $(clear).css({'display':'inline-block'});
-      $(submit).css({'display':'none'});
+      //$(clear).css({'display':'inline-block'});
+      //$(submit).css({'display':'none'});
+      $(submit).css({'display':'inline-block'});
     } else {
       $(submit).css({'display':'inline-block'});
-      $(clear).css({'display':'none'});
+      //$(clear).css({'display':'none'});
     }
   });
   submit.addEventListener('click', function(){

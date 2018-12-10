@@ -5,6 +5,19 @@ $avatar-tooltip-height: 53px;
 $avatar-wrapper-margin-top: 66px;
 $achivement-margin-top: 42px;
 
+@keyframes spinDblueAjax {
+  to {
+    border-top-color: $d_blue;
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+@keyframes sussesDblueAjax {
+  0% {stroke-dashoffset: -100;}
+  100% {stroke-dashoffset: 900;}
+}
+
+
 #mypublic-student {
   color: $text-color;
   font-family: "openSans";
@@ -145,6 +158,7 @@ $achivement-margin-top: 42px;
             }
           }
           &-info {
+            position: relative;
             display: grid;
             grid-gap: 24px;
             grid-template-columns: repeat(auto-fit, minmax(285px, 1fr));
@@ -186,12 +200,14 @@ $achivement-margin-top: 42px;
               .info-list {
                 list-style: none;
                 padding: 0;
-                & [data-input="passport"],
                 & [data-input="aim"],
                 & [data-input="phone2"],
                 & [data-input="skype"],
                 & [data-input="icq"],
-                & [data-input="birthday"] {
+                & [data-input="birthday"],
+                & [data-input="interests"]             
+
+                {
                   display: none;
                 }
                 li{
@@ -199,6 +215,9 @@ $achivement-margin-top: 42px;
                   display: flex;
                   flex-direction: column;
                   .input {
+                    min-height:41px;
+                    padding:3px 3px 10px;
+                    width:100%;
                     border: none;
                     font-size: 18px;
                   }
@@ -222,7 +241,41 @@ $achivement-margin-top: 42px;
                       .btn-blue {
                         margin-top: 23px;
                         width: 140px;
+                        cursor:pointer;
                       }
+                    }
+                  }
+                  &.warning{
+                    font-weight: normal;
+                    .input {
+                        border-bottom: 2px solid $warning;
+                        color: $gray_input;
+                        padding-bottom: 10px;
+                        outline: none;
+                      }
+                      .input:-webkit-autofill {
+                        -webkit-box-shadow: 0 0 0 30px white inset;
+                      }
+                      .input-label {
+                        display: block;
+                        width: 100%;
+                        font-size: 12px;
+                        margin-top: 8px;
+                        .warning{
+                          font-weight: normal;
+                          display: block;
+                          float: right;
+                          text-align: right;
+                          color: $warning;
+                        }
+                      }
+                      &.submit {
+                        align-items: flex-end;
+                        .btn-blue {
+                          margin-top: 23px;
+                          width: 140px;
+                          cursor:pointer;
+                        }
                     }
                   }
                   &.danger{
@@ -252,8 +305,47 @@ $achivement-margin-top: 42px;
                         .btn-blue {
                           margin-top: 23px;
                           width: 140px;
+                          cursor:pointer;
                         }
                     }
+                  }
+                }
+              }
+            }
+            #sendajax{
+              position: absolute;
+              top:0;
+              left:0;
+              width:100%;
+              height:100%;
+              display:flex;
+              flex-flow: column nowrap;
+              justify-content:center;
+              align-items:center;
+              background-color: transparentize($d_blue, .5);
+              .spinner{
+                display: block;
+                width:5rem;
+                height:5rem;
+                border-radius: 50%;
+                -webkit-animation: spinDblueAjax 1s linear infinite;
+                animation: spinDblueAjax 1s linear infinite;
+                border: 1px solid transparentize($d_blue, .9);
+                border-top: 5px solid $d_blue;
+              }
+              .ajax-sent{
+                background: radial-gradient($white 0%, $white 50%, transparentize($d_blue, .5) 120%);
+                border-radius: 50%;
+                width: 5em;
+                height:5em;
+                display: block;
+                transition: opacity 1s linear;
+                .path {
+                stroke-dasharray: 1000;
+                stroke-dashoffset: 0;
+                  &.check {
+                    stroke-dashoffset: -100;
+                    animation: sussesDblueAjax .9s .35s ease-in-out forwards;
                   }
                 }
               }

@@ -47,7 +47,8 @@
               {{/ output.should_display_navbar_logo }}
               {{^ output.should_display_navbar_logo }}
                   <span class="dheader__logo-img">
-                      <img src="{{output.get_stardust_logo}}" alt="{{sitename}}">
+                    <img src="{{output.get_stardust_moodle_logo}}" alt="{{sitename}}">
+                    <img src="{{output.get_stardust_logo}}" alt="{{sitename}}">
                   </span>
               {{/ output.should_display_navbar_logo }}
               <!-- <span class="site-name hidden-sm-down">{{{ sitename }}}</span> -->
@@ -70,8 +71,8 @@
             class = "dheader__tutorial-link"
             data-action="tool_usertours/resetpagetour"
             data-tooltip = "tooltip"
-            data-placement = "none"
-            data-original-title = "{{# str }} tutorialisoffonthispage, theme_stardust {{/ str }}"
+            data-placement = "bottom"
+            data-original-title = ""
             >
             <span
               class = "tutorialoff"
@@ -107,16 +108,22 @@
 {{# js }}
 require(['jquery'], function($){
 
+
   let tutorilaBtn = document.querySelector('div[data-action="tool_usertours/resetpagetour"]');
+
   //TODO remove setTimeout
+
   $( document ).ready(function(e) {
     setTimeout(function(){
       if (M.str.tool_usertours) {
         if (M.str.tool_usertours.endtour) tutorilaBtn.classList.add('active');
+        tutorilaBtn.dataset.originalTitle = '{{# str }} tutorialstart, theme_stardust {{/ str }}';
+      } else {
+        tutorilaBtn.dataset.originalTitle = '{{# str }} tutorialisoffonthispage, theme_stardust {{/ str }}';
       }
     },2000)
-
   });
+
 
   // add class to tutorilaBtn if tour is active
   // if (tutorilaIndex) tutorilaBtn.classList.add('active');
@@ -135,12 +142,14 @@ require(['jquery'], function($){
 
   document.addEventListener('click', function(e){
     let target = e.target;
-    while (target.tagName != 'BODY') {
+
+    while (target.tagName != 'HTML') {
       if (target.dataset.role === 'end' || target.dataset.flexitour === 'backdrop' ) {
         tutorilaBtn.classList.remove('active');
         return;
       }
       target = target.parentNode;
+      if (!target) return;
     }
   });
 

@@ -18,6 +18,10 @@ $padding-blocks: 20px 27px 24px 24px;
        margin: 0 1.5rem;
      }
   }
+  #page .mform {
+    display: block;
+  }
+
 }
 
 
@@ -28,7 +32,18 @@ $padding-blocks: 20px 27px 24px 24px;
     height: 40px;
     width: 40px;
   }
-
+  .blockpanelbtn {
+    width: 56px;
+    height: 56px;
+    top: -36px;
+    right: 0;
+  }
+  .help-block {
+    position: absolute;
+    top: -36px;
+    right: 80px;
+    z-index: 1;
+  }
   .mod_complete {
     // width: 40px;
     width: 100%;
@@ -76,11 +91,12 @@ $padding-blocks: 20px 27px 24px 24px;
     display: flex;
     justify-content: center;
     align-items: center;
-    .help-block {
-      position: absolute;
-      bottom: -38px;
-      right: 46px;
-    }
+    // .help-block {
+    //   position: absolute;
+    //   bottom: -38px;
+    //   right: 46px;
+    //   z-index: 1;
+    // }
     .main {
       width: 100%;
       max-width: 78%;
@@ -135,10 +151,10 @@ $padding-blocks: 20px 27px 24px 24px;
         display: grid;
         grid-template-columns: 1fr 312px;
         grid-gap: 24px;
-        margin-bottom: 103px;
+        margin-bottom: 50px;
         .tasks-container {
           width: 100%;
-          min-height: 501px;
+          // min-height: 501px;
           background: $white;
           box-shadow: 0 0 10px 3px rgba(0,0,0,0.3);
         }

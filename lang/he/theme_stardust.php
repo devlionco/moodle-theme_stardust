@@ -30,6 +30,7 @@ $string['configtitle'] = 'דוידסון';
 $string['tutorial_is_off'] = 'הדרכה כבויה';
 $string['tutorial_is_on'] = 'הדרכה פועלת';
 $string['tutorialisoffonthispage'] = 'סיור לא מוגדר בדף זה';
+$string['tutorialstart'] = 'Start tutorial on this page';
 // login page
 $string['entrance_to_moodle'] = 'כניסה למערכת מוודל של מכון דוידסון';
 $string['username'] = 'שם משתמש.ת';
@@ -80,6 +81,8 @@ $string['dayname_4'] = 'חמישי';
 $string['dayname_5'] = 'שישי';
 $string['dayname_6'] = 'שבת';
 $string['no_submission_date'] = 'אין תאריך הגשה';
+$string['filter_courses_by_lastdate'] = 'Filter courses by date of last visit';
+$string['filter_courses_alphabetically'] = 'סנן קורסים לפי תאריך הביקור האחרון';
 
 
 $string['active_courses'] = 'קורסים פעילים';
@@ -139,6 +142,7 @@ $string['school'] = 'בית ספר';
 $string['school_city'] = 'עיר';
 $string['address'] = 'כתובת';
 $string['icq'] = 'תחום דעת';
+$string['knowledge'] = 'תחום דעת';
 $string['position'] = 'תפקיד';
 $string['birthday'] = 'תאריך לידה';
 $string['interests'] = 'תחומי עניין';
@@ -154,6 +158,7 @@ $string['mypublic_background_img_hdr'] = 'תמונת רקע';
 $string['mypublic_new_background_img'] = 'העלה תמונה חדשה';
 $string['mypublic_deletebackgroundimg'] = 'הסר את התמונה';
 $string['mypublic_save_backgroundimg'] = 'שמור תמונה';
+$string['write_knowledges'] = 'write skills';
 $string['write_tags'] = 'תרשום תחומי עניין';
 $string['change_password_link'] = 'לחץ לשינוי סיסמה';
 $string['isrequired'] = 'זהו שדה חובה';
@@ -161,6 +166,7 @@ $string['emailerror'] = 'פורמט דוא"ל שגוי';
 $string['phoneerror'] = 'הזן מספר טלפון באמצעות תבנית לדוגמה';
 $string['teudatzeutnotnumerical'] = 'הזן ערך מספר';
 $string['teudatzeutwrong'] = 'ערך שגוי';
+$string['editionrestricted'] = 'אין לך הרשאה לערוך את השדה הזה';
 
 // footer
 
@@ -170,6 +176,9 @@ $string['contact_us'] = 'צור קשר';
 $string['privacy_policy'] = 'מדיניות הפרטיות';
 $string['terms_of_use'] = 'תנאי שימוש';
 $string['accessibility_statement'] = 'הצהרת נגישות';
+$string['list_of_courses'] = 'לרשימת הקורסים';
+$string['davidson_institute_wesite'] = 'לאתר מכון דוידסון';
+$string['download_application'] = 'להורדת האפליקציה';
 
 // course page
 $string['gohome'] = '< עמוד הבית';
@@ -185,16 +194,36 @@ $string['backtosection'] = 'Back to section - {$a}';
 $string['backtoactivity'] = 'Back to {$a}';
 $string['sectionstitle'] = 'יחידת הוראה';
 $string['activitiestitle'] = 'פעילות';
+$string['title_no_url'] = 'אין קישור לפעילות';
 
 // quiz attempt page
 $string['quizattemptbacktocourse'] = 'חזרה לקורס';
 $string['quizattemptbacktosection'] = 'Back to section - {$a}';
 $string['quizattemptbacktoactivity'] = 'חזרה לבוחן';
 $string['quizattemptfinishlink'] = 'הגשת המבחן';
-$string['quiz_filter'] = 'לפי סימון:';
+$string['quiz_filter'] = 'סינון שאלות לפי:';
 $string['quizsettings'] = 'עריכת בוחן';
 $string['show_more'] = 'הצג יותר';
 $string['show_less'] = 'הצג פחות';
 $string['show_flagged'] = 'הצג שאלה מסומנת';
 $string['show_answered'] = 'הצג שאלה שנענתה';
 $string['show_notanswered'] = 'הצג שאלות שלא נענו';
+
+// Teacher dashboard (davidson)
+$string['extendeduserreport'] = 'פרטי משתמשים מורחב';
+$string['userspassreport'] = 'איפוס סיסמאות לתלמידים';
+
+// User actions
+$string['user_completereport'] = 'דוח קורס מלא';
+$string['user_outlinereport'] = 'דוח צפיה בקורס';
+$string['user_viewprofile'] = 'צפיה בפרופיל';
+$string['user_editprofile'] = 'עריכת פרופיל';
+$string['user_sendmessage'] = 'שליחת מסר';
+$string['user_coursecompletion'] = 'השלמת קורס';
+$string['user_courselogs'] = 'ניטור פעילות';
+$string['user_coursegrades'] = 'ציונים בקורס';
+$string['user_loginas'] = 'מזוהים כ:';
+
+// help menu
+$string['contact_teacher'] = 'פניה למורה';
+$string['technical_support'] = 'תמיכה טכנית';

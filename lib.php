@@ -294,6 +294,16 @@ function get_activities_mydashboard($activitiesconf = array(), $numofrelevantact
                         continue;
                     }
 
+                    // filter modules - dont't show submitted assignments
+                    if (is_assign_submitted($module)) {
+                        continue;
+                    }
+
+                    // filter modules - dont show assigns or quiz without submission date
+                    if (is_activity_without_cutoffdate($activityinfo)) {
+                        continue;
+                    }
+
                     // add all activityinfo to general array
                     // $activities[$activityname][] = $activityinfo; // with activityname sorting
                     $activities[] = $activityinfo; // without activityname sorting
@@ -326,6 +336,9 @@ function get_activities_mydashboard($activitiesconf = array(), $numofrelevantact
         //get course progress info
         $percentage = progress::get_course_progress_percentage($course);
 
+        // get User's last course access timestamp
+        $usercourselastaccess = (!empty($USER->currentcourseaccess[$id])) ? $USER->currentcourseaccess[$id] : $USER->lastcourseaccess[$id];
+
         if ($coursecomplstate){
             $coursearray['coursefinished'][]= array(
                 'id' => $courses[$id]->id,
@@ -338,7 +351,8 @@ function get_activities_mydashboard($activitiesconf = array(), $numofrelevantact
                 'progress' => $percentage,
                 'isteacher' => $isteacher,
                 'activities' => $activities,
-                'relevantactivities' => $relevantactivities
+                'relevantactivities' => $relevantactivities,
+                'usercourselastaccess' => $usercourselastaccess
             );
         }else {
             $coursearray['courseactive'][]= array(
@@ -352,7 +366,8 @@ function get_activities_mydashboard($activitiesconf = array(), $numofrelevantact
                 'progress' => $percentage,
                 'isteacher' => $isteacher,
                 'activities' => $activities,
-                'relevantactivities' => $relevantactivities
+                'relevantactivities' => $relevantactivities,
+                'usercourselastaccess' => $usercourselastaccess
             );
         }
 
@@ -380,6 +395,9 @@ function stardust_activity_status($module) {
     $cmcomplstateraw = $DB->get_record('course_modules_completion', array('coursemoduleid' => $module->id,'userid'=>$USER->id), 'completionstate');
     $cmcomplstate = $cmcomplstateraw ? true : false; // completed or not activity
 
+    // get module overrides
+    $module = get_module_overrides($module);
+
     $activitystatus = array();
 
     $added = $module->added;
@@ -389,6 +407,7 @@ function stardust_activity_status($module) {
     $openforsubmission = false;
     $actionwithtask = false;
     $turntotheteacher = false;
+    $nosubmissiondate = false;
 
     $mincutoffdate =  ($cutoffdate * $duedate == 0) ? max($cutoffdate, $duedate) :  min($cutoffdate, $duedate);
 
@@ -407,6 +426,7 @@ function stardust_activity_status($module) {
             $modstyle = 'mod_red';
             $modstatus = get_string('cut_of_date', 'theme_stardust');
             $turntotheteacher = true;
+            $nosubmissiondate = true; //SG - consider (mark) as 'no submission date', when submission date passed (to filter module on page MY)
         // one day before assignment
         }elseif ( 0 < ($mincutoffdate - $currenttime) &&  ($mincutoffdate - $currenttime) <= (1*24*60*60)) {
             $modstyle = 'mod_orange';
@@ -425,6 +445,7 @@ function stardust_activity_status($module) {
         }
     } else {
         $modstatus =  get_string('no_submission_date', 'theme_stardust');
+        $nosubmissiondate = true;
         $modstyle = 'mod_gray';
         $timeline = 0;
         $mincutoffdate = time()+ 2*364*24*60*60;
@@ -437,6 +458,7 @@ function stardust_activity_status($module) {
     $activitystatus['timeline'] = $timeline;
     $activitystatus['modstyle'] = $modstyle;
     $activitystatus['modstatus'] = $modstatus;
+    $activitystatus['nosubmissiondate'] = $nosubmissiondate;
     $activitystatus['mincutoffdate'] = $mincutoffdate;
     $activitystatus['openforsubmission'] = $openforsubmission;
     $activitystatus['actionwithtask'] = $actionwithtask;
@@ -482,6 +504,7 @@ function set_icon_style_for_activity ($module) {
   $activityinfo['timeline'] = $activitystatus['timeline'];
   $activityinfo['iconstyle'] = isset($activitystatus['iconstyle']) ? $activitystatus['iconstyle'] : false;
   $activityinfo['modstatus'] = $activitystatus['modstatus'];
+  $activityinfo['nosubmissiondate'] = $activitystatus['nosubmissiondate'];
   $activityinfo['mincutoffdate'] = $activitystatus['mincutoffdate'];
   $activityinfo['unitname'] = $sectionname;
   $activityinfo['modstyle'] = $activitystatus['modstyle'];
@@ -516,4 +539,96 @@ function mincutoffdatesort($a, $b) {
         return 0;
     }
     return ($tdiffa < $tdiffb) ? -1 : 1;
+}
+
+/**
+ * Function defines time overrides for activity (module)
+ *
+ * @param $module - cm details from DB and some extrafields (usually assign and quiz)
+ *
+ * @return array
+ */
+function get_module_overrides($module) {
+    global $DB, $USER, $CFG;
+
+    // process if assign
+    if ($module->modname == 'assign') {
+        require_once($CFG->dirroot . '/mod/assign/locallib.php');
+        list ($course, $cm) = get_course_and_cm_from_cmid($module->id, 'assign');
+        $context = context_module::instance($cm->id);
+        $assign = new assign($context, $cm, $course);
+        $overrides = $assign->override_exists($USER->id);
+        if (isset($overrides->assignid) && $overrides->assignid == $module->instance) {
+            $module->duedate    = (isset($overrides->duedate)) ? $overrides->duedate : $module->duedate;
+            $module->cutoffdate = (isset($overrides->cutoffdate)) ? $overrides->cutoffdate : $module->cutoffdate;
+        }
+    }
+
+    // process if quiz
+    if ($module->modname == 'quiz') {
+        require_once($CFG->dirroot . '/mod/quiz/locallib.php');
+        $overrides = quiz_get_user_timeclose($module->course);
+        if (isset($overrides[$module->instance])) {
+            $module->cutoffdate = $overrides[$module->instance]->usertimeclose;
+        }
+    }
+
+    return $module;
+}
+
+/**
+ * Function checks if activity (module) is an assignment and if it is submitted
+ *
+ * @param $module - cm details from DB and some extrafields (usually assign and quiz)
+ *
+ * @return bool
+ */
+
+function is_assign_submitted($module) {
+    global $USER, $DB;
+    if ($module->modname == 'assign') {
+        $submission = $DB->get_record('assign_submission', array('userid' => $USER->id, 'assignment' => $module->instance));
+        if ($submission && $submission->status === 'submitted') {
+            return true;
+        }
+    }
+}
+
+/**
+ * Function checks if activity (module) is an assignment or quiz or questionnaire
+ * and their cutoffdate is null (they have no submission date or timeclose date)
+ * OR the date of submission is passed already!
+ *
+ * @param $module - cm details from DB and some extrafields (usually assign and quiz)
+ *
+ * @return bool
+ */
+
+function is_activity_without_cutoffdate($activityinfo) {
+    if (($activityinfo['modname'] == 'assign' || $activityinfo['modname'] == 'quiz' || $activityinfo['modname'] == 'questionnaire') && $activityinfo['nosubmissiondate'])  {
+        return true;
+    }
+}
+
+/**
+ * Function gets the url of the course cover picture
+ *
+ * @param stdClass $course
+ * @return string the url of the course picture
+ */
+
+function get_courses_cover_images ($course) {
+  global $OUTPUT;
+
+  $courseobj = new course_in_list($course);
+  $coursecoverimgurl = '';
+  foreach ($courseobj->get_course_overviewfiles() as $file) {
+      $isimage = $file->is_valid_image();
+      $coursecoverimgurl = moodle_url::make_pluginfile_url($file->get_contextid(), $file->get_component(), $file->get_filearea(), null, $file->get_filepath(), $file->get_filename());
+  }
+  if (empty($coursecoverimgurl)) {
+      $coursecoverimgurl = $OUTPUT->image_url('banner', 'theme'); // define default course cover image in theme's pix folder
+  }
+
+  return $coursecoverimgurl->out();
 }

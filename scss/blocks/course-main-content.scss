@@ -43,9 +43,9 @@ $progress-height-open: 12px;
       left:0;
     }
     .top {
-      max-width: 1344px;
+      // max-width: 1344px;
       width:100%;
-      // margin: 37px 0 69px;
+      margin: 0 10% 0 10px;
       display: flex;
       flex-direction: row;
       align-items: center;
@@ -70,13 +70,14 @@ $progress-height-open: 12px;
       .title-wrapper{
         align-self: flex-start;
         padding:30px 0;
-        max-width: 50%;
+        // max-width: 50%;
+        max-width: 70%;
         a{
           color: #fff;
           font-size: 72px;
           line-height: 60px;
           display: block;
-          max-height:120px;
+          max-height: 186px;
           width:100%;
           overflow-x: visible;
           overflow-y: hidden;

@@ -40,16 +40,31 @@ function get_all_course_sections_info($courseinfo, $currentsectionnum = null) {
     $allcoursesectionsinfo = $courseinfo->get_section_info_all();
     $sectionsinfo = array();
     $courseformat = $courseinfo->get_course()->format;
+
+    // get pinned sctions array for picturelink course format
+    if ($courseformat == "picturelink") {
+        $plpinnedsecsraw = json_decode(course_get_format($PAGE->course)->get_course()->picturelinkpinnedsections);
+        $plpinnedsecs = array();
+        foreach ($plpinnedsecsraw as $num => $psec) {
+            if ($psec[1] == 1) {
+                $plpinnedsecs[] = substr($psec[0], 1);
+            }
+        }
+    }
+
     foreach ($allcoursesectionsinfo as $secnum => $secinfo) {
+        if (!$secinfo->uservisible) continue;   // SG - T-279 - skip not visible for user sections
         $secname = course_get_format($PAGE->course)->get_section_name($secnum);
         $seccustomnum = $secinfo->customnumber;
-        if ($courseformat== "stardust") {
+        if ($courseformat == "stardust") {
           $securl = new moodle_url('/course/view.php', array('id' => $PAGE->course->id, 'sectionid' => $secinfo->id));
-        }else {
+        } else if ($courseformat == "picturelink") {
+          $securl = new moodle_url('/course/view.php', array('id' => $PAGE->course->id, 'section' => $secinfo->section));
+        } else {
           $securl = new moodle_url('/course/view.php', array('id' => $PAGE->course->id));
           $securl->set_anchor('section-'.$secnum);
         }
-        if (empty($secinfo->pinned)) {
+        if (empty($secinfo->pinned) && ($courseformat == "picturelink" && !in_array($secinfo->id, $plpinnedsecs))) {
             $sectionsinfo['allcoursesections'][$secnum]['name'] = $secname;
             $sectionsinfo['allcoursesections'][$secnum]['customnumber'] = $seccustomnum;
             $sectionsinfo['allcoursesections'][$secnum]['url'] = $securl;
@@ -57,7 +72,7 @@ function get_all_course_sections_info($courseinfo, $currentsectionnum = null) {
                 $sectionsinfo['allcoursesections'][$secnum]['current'] = $secname;
             }
         }
-        if ($secinfo->pinned) {
+        if ($secinfo->pinned || ($courseformat == "picturelink" && in_array($secinfo->id, $plpinnedsecs)) ) {
             $sectionsinfo['allcoursesectionspinned'][$secnum]['name'] = $secname;
             $sectionsinfo['allcoursesectionspinned'][$secnum]['customnumber'] = $seccustomnum;
             $sectionsinfo['allcoursesectionspinned'][$secnum]['url'] = $securl;
@@ -65,6 +80,15 @@ function get_all_course_sections_info($courseinfo, $currentsectionnum = null) {
                 $sectionsinfo['allcoursesectionspinned'][$secnum]['current'] = $secname;
             }
         }
+        // pinned sections for picturelink format
+        // if ($courseformat == "picturelink" && in_array($secinfo->id, $plpinnedsecs)) {
+        //     $sectionsinfo['allcoursesectionspinned'][$secnum]['name'] = $secname;
+        //     $sectionsinfo['allcoursesectionspinned'][$secnum]['customnumber'] = $seccustomnum;
+        //     $sectionsinfo['allcoursesectionspinned'][$secnum]['url'] = $securl;
+        //     if ($secnum == $currentsectionnum) {
+        //         $sectionsinfo['allcoursesectionspinned'][$secnum]['current'] = $secname;
+        //     }
+        // }
     }
 
     return $sectionsinfo;
@@ -82,7 +106,7 @@ if ($PAGE->context && $PAGE->context->contextlevel == CONTEXT_COURSE) {
 
 // get info for header in cm level pages
 if ($PAGE->context && $PAGE->context->contextlevel == CONTEXT_MODULE && $PAGE->cm) {
-    // defibe current section
+    // define current section
     $currentsectionnum = $PAGE->cm->sectionnum;
     $sectionlink = $courseformat->get_view_url($currentsectionnum);
     $textbacktosection = new lang_string('backtosection', 'theme_stardust', $courseformat->get_section_name($currentsectionnum));
@@ -93,14 +117,19 @@ if ($PAGE->context && $PAGE->context->contextlevel == CONTEXT_MODULE && $PAGE->c
     $courseinfo = $PAGE->cm->get_modinfo();
     $allcoursesectionsinfo = get_all_course_sections_info($courseinfo, $currentsectionnum);
 
-    // get activitie in current section
+    // get activities in current section
     $allactivitiesarr = $courseinfo->get_sections();
     $allsectionactivities = array();
     foreach ($allactivitiesarr[$currentsectionnum] as $key => $activid) {
         $activinfo = $courseinfo->cms[$activid];
+        if (!$activinfo->uservisible || !$activinfo->is_visible_on_course_page()) continue;         // SG - T-308, T-337 - skip not visible for user activities
         $allsectionactivities[$key]['name'] = $activinfo->name;
         $allsectionactivities[$key]['type'] = $activinfo->modname;
         $allsectionactivities[$key]['url'] = $activinfo->url ? $activinfo->url->out() : '';
+        if ($activinfo->modname == 'label') {
+            $allsectionactivities[$key]['url'] = 'javascript:void(0)';
+            $allsectionactivities[$key]['title'] = get_string('title_no_url', 'theme_stardust');
+        }
         if ($activid == $PAGE->cm->id) {
             $allsectionactivities[$key]['current'] = $activinfo->name;
         }
@@ -117,6 +146,21 @@ $extraclasses = [];
 if ($navdraweropen) {
     $extraclasses[] = 'drawer-open-left';
 }
+
+$userrole = ' role-teacher';
+$isstudent = false;
+$userroles = get_user_roles($PAGE->context, $USER->id, true);
+foreach ($userroles as $role) {
+    if ($role->roleid == 5) $isstudent = true;
+}
+if ($isstudent) {
+    $userrole = ' role-student';
+}
+if (has_capability('moodle/site:config', context_system::instance())) {
+    $userrole = ' role-admin';
+}
+$extraclasses[] = $userrole;
+
 $bodyattributes = $OUTPUT->body_attributes($extraclasses);
 $blockshtml = $OUTPUT->blocks('side-pre');
 $hasblocks = strpos($blockshtml, 'data-block=') !== false;
@@ -138,7 +182,8 @@ $templatecontext = [
     'backtoactivity' => html_writer::link($activitylink, $textbacktoactivity),
     'allcoursesections' => $allcoursesectionsinfo['allcoursesections'] = array_values($allcoursesectionsinfo['allcoursesections']),
     'allcoursesectionspinned' => $allcoursesectionsinfo['allcoursesectionspinned'] = array_values($allcoursesectionsinfo['allcoursesectionspinned']),
-    'allsectionactivities' => $allsectionactivities
+    'allsectionactivities' => $allsectionactivities = array_values($allsectionactivities),
+    'coursecoverimg' => get_courses_cover_images ($PAGE->course)
 ];
 
 $PAGE->requires->jquery();

@@ -31,6 +31,7 @@ $string['pluginname'] = 'Stardust';
 $string['tutorial_is_off'] = 'Tutorial is off';
 $string['tutorial_is_on'] = 'Tutorial is on';
 $string['tutorialisoffonthispage'] = 'Tutorial not defined on this page';
+$string['tutorialstart'] = 'Start tutorial on this page';
 //login page
 $string['entrance_to_moodle'] = 'Entrance to the Moodle system by the Stardust Institute';
 $string['username'] = 'Username';
@@ -250,6 +251,9 @@ $string['contact_us'] = 'Contact us';
 $string['privacy_policy'] = 'Privacy policy';
 $string['terms_of_use'] = 'Terms of use';
 $string['accessibility_statement'] = 'Accessibility statement';
+$string['list_of_courses'] = 'List of courses';
+$string['davidson_institute_wesite'] = 'Davidson Institute website';
+$string['download_application'] = 'Download application';
 
 // Content settings.
 $string['coursetileinfo'] = 'Course Display Options';
@@ -450,6 +454,8 @@ $string['dayname_4'] = 'Thursday';
 $string['dayname_5'] = 'Friday';
 $string['dayname_6'] = 'Saturday';
 $string['no_submission_date'] = 'No submission date';
+$string['filter_courses_by_lastdate'] = 'Filter courses by date of last visit';
+$string['filter_courses_alphabetically'] = 'Filter_courses_alphabetically';
 
 
 $string['sort_type'] = 'Sort by type';
@@ -501,6 +507,7 @@ $string['school'] = 'School';
 $string['school_city'] = 'School city';
 $string['address'] = 'Address';
 $string['icq'] = 'Knowledge';
+$string['knowledge'] = 'Knowledge';
 $string['position'] = 'Position';
 $string['birthday'] = 'Birthday';
 $string['interests'] = 'Interests';
@@ -517,12 +524,14 @@ $string['mypublic_new_background_img'] = 'Upload new image';
 $string['mypublic_deletebackgroundimg'] = 'Remove image';
 $string['mypublic_save_backgroundimg'] = 'Save image';
 $string['write_tags'] = 'write tags';
+$string['write_knowledges'] = 'write skills';
 $string['change_password_link'] = 'Click here to change your password';
 $string['isrequired'] = 'This field is required';
 $string['emailerror'] = 'Wrong email format';
 $string['phoneerror'] = 'Please enter number using example format';
 $string['teudatzeutnotnumerical'] = 'Enter number value';
 $string['teudatzeutwrong'] = 'Incorrect value';
+$string['editionrestricted'] = 'Sorry, you have no permission to edit this field';
 
 
 // course page
@@ -539,6 +548,7 @@ $string['backtosection'] = 'Back to section - {$a}';
 $string['backtoactivity'] = 'Back to {$a}';
 $string['sectionstitle'] = 'Section';
 $string['activitiestitle'] = 'Activity';
+$string['title_no_url'] = 'No URL for this activity type';
 
 // quiz attempt page
 $string['quizattemptbacktocourse'] = 'Back to course';
@@ -552,3 +562,22 @@ $string['show_less'] = 'Show less';
 $string['show_flagged'] = 'Show flagged question';
 $string['show_answered'] = 'Show answered question';
 $string['show_notanswered'] = 'Show notanswered question';
+
+// Teacher dashboard (davidson)
+$string['extendeduserreport'] = 'Detailed user report';
+$string['userspassreport'] = 'users and passwords';
+
+// User actions
+$string['user_completereport'] = 'Full course report';
+$string['user_outlinereport'] = 'Basic course report';
+$string['user_viewprofile'] = 'View profile';
+$string['user_editprofile'] = 'Edit profile';
+$string['user_sendmessage'] = 'Send a message';
+$string['user_coursecompletion'] = 'Course completion';
+$string['user_courselogs'] = 'Activity log';
+$string['user_coursegrades'] = 'Course grades';
+$string['user_loginas'] = 'Login as...';
+
+// help menu
+$string['contact_teacher'] = 'Contact the teacher';
+$string['technical_support'] = 'Technical support';

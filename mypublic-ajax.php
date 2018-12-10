@@ -28,9 +28,9 @@ function save_mypublicpage_shortform() {
     $phone2 = optional_param('phone2', '', PARAM_TEXT);     // additional phone
     $institution = optional_param('institution', '', PARAM_TEXT);
     $address = optional_param('address', '', PARAM_TEXT);   // not in use for now
-    $icq = optional_param('icq', '', PARAM_INT);            // ???
     $birthday = optional_param('birthday', '', PARAM_RAW);
     $interests = optional_param('interests', '', PARAM_RAW);
+    $icq = optional_param('icq', '', PARAM_RAW);
 
 
         $fullname = preg_replace('/\s+/', ' ',$fullname);
@@ -82,8 +82,9 @@ function save_mypublicpage_shortform() {
             $user->address = $address;
         }
         if(!empty($icq)){
-            $user->icq = $icq;
+            $user->icq = $icq;    // use icq field as storage for knowledge
         }
+
 
         $result = $DB->update_record('user', $user, $bulk=false);
         $response['user'] = ($result === true) ? 'OK' : $result;

@@ -121,12 +121,12 @@
     &.message-input{
       width:calc(100% - 3em);
     }
-    &[readonly] ~ .message-controls>.message-submit{
-      display:none;
-    }
-    &[readonly] ~ .message-controls>.message-clear{
-      display:none;
-    }
+    // &[readonly] ~ .message-controls>.message-submit{
+    //   display:none;
+    // }
+    // &[readonly] ~ .message-controls>.message-clear{
+    //   display:none;
+    // }
   }
   .message-controls{
     position:relative;
@@ -137,10 +137,19 @@
     height:100%;
     width:3em;
     // overflow: hidden;
-    .message-submit, .message-clear{
-      font-size:1.5em;
-      line-height:1em;
-      font-weight:700;
+    .message-submit{
+      border:0;
+      background-color:transparent;
+      color:#83D3AE;
+      outline:none;
+      &:after{
+        font-family: fontAwesome;
+        content:'\f061';
+        display: block;
+        font-size:1em;
+        line-height:1em;
+        font-weight:300;
+      }
     }
     .message-spin{
       display: block;
@@ -167,4 +176,7 @@
       }
     }
   }
+}
+[dir="rtl"] #course-main-content form.message input.message-input {
+  width:calc(100% - 5em);
 }

@@ -51,14 +51,14 @@
 <!-- url({{defaultbg}})  -->
 <div id="my-page">
     <div id="main-wrapper" class="main-wrapper" style="background-image: url({{bgimage}});">
-        <div class="help-block">
+        <!-- <div class="help-block">
                 {{#helplink}}
                     {{>theme_stardust/help-link}}
                 {{/helplink}}
                 {{^helplink}}
                     {{>theme_stardust/help-menu}}
                 {{/helplink}}
-        </div>
+        </div> -->
         <div class="main">
             <div id="main-header" class="main-header">
                 <div class="block-left">
@@ -161,6 +161,17 @@
                 </div>
             </div>
         </div>
+    </div>
+    <div class="card card-block mt-2">
+        <div class="help-block">
+                {{#helplink}}
+                    {{>theme_stardust/help-link}}
+                {{/helplink}}
+                {{^helplink}}
+                    {{>theme_stardust/help-menu}}
+                {{/helplink}}
+        </div>
+        {{>theme_stardust/blockspanelslider}}
     </div>
     {{>theme_stardust/coursecards}}
 </div>

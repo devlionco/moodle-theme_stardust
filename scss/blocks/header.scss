@@ -49,13 +49,22 @@
     .dheader__left{
       display: flex;
       flex-flow: row nowrap;
+      align-items: center;
       .dheader__logo{
         margin: 0;
         background: none;
         padding: 0;
         margin-right: 60px;
-        .dheader__logo-img img{
-          width: 24px;
+        .dheader__logo-img {
+          display: inline-block;
+          height: 45px;
+          padding: 4px 0;
+          width: 128px;
+          display: flex;
+          justify-content: space-between;
+          & img{
+            height: 100%;
+          }
         }
       }
     }
@@ -81,13 +90,38 @@
         margin:0 1.5vw;
         color: #fff;
         .dheader__tutorial-link {
+          position: relative;
+          width: 130px;
           font: $bold 12px 'openSans';
           color: #fff;
-          padding-left: 27px;
-          background-position: left;
-          background-repeat: no-repeat;
-          background-size: 22px;
-          background-image:url([[pix:theme|header/toggle]]);
+          padding-left: 37px;
+          &::before, &::after {
+            content: "";
+            position: absolute;
+            top: -1px;
+            background-color: #fff;
+            left: 0;
+            height: 20px;
+            width: 30px;
+            border-radius: 10px;
+          }
+          &::after {
+            transition: .2s;
+            background-color: $primary-color;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            position: absolute;
+            top: 4px;
+            left: 5px;
+          }
+          &.active::after {
+            left: 12px;
+          }
+          &.active::before {
+            background-color: #5cb85c;
+          }
+
           .tutorialon {
             display: none;
           }

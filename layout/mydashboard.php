@@ -69,6 +69,7 @@ require_once($CFG->libdir . '/behat/lib.php');
     // 'lti' => '',
     // 'page' => '',
     'quiz' => '',
+    'questionnaire' => 'm.closedate as cutoffdate',
     // 'resource' => '',
     // 'scorm' => '',
     // 'survey' => '',
@@ -122,6 +123,26 @@ $blockshtml = $OUTPUT->blocks('side-pre');
 $hasblocks = strpos($blockshtml, 'data-block=') !== false;
 $regionmainsettingsmenu = $OUTPUT->region_main_settings_menu();
 
+// is teacher marker
+$coursecontext = context_course::instance(SITEID);
+$isteacher = (has_capability('moodle/course:update', $coursecontext)) ? true : false;
+
+// block from fordson
+$blockshtmla = $OUTPUT->blocks('fp-a');
+$blockshtmlb = $OUTPUT->blocks('fp-b');
+$blockshtmlc = $OUTPUT->blocks('fp-c');
+$checkblocka = strpos($blockshtmla, 'data-block=') !== false;
+$checkblockb = strpos($blockshtmlb, 'data-block=') !== false;
+$checkblockc = strpos($blockshtmlc, 'data-block=') !== false;
+//TODO  add to theme_stardust settings
+// $hasfpblockregion = ($PAGE->theme->settings->blockdisplay == 1) !== false;
+$hasfpblockregion = 1;
+
+$hascourseblocks = false;
+if ($checkblocka || $checkblockb || $checkblockc && $isteacher) {
+    $hascourseblocks = true;
+}
+
 // get background image for mypublic page
 $themebackgroundimg = $PAGE->theme->setting_file_url('mydashboardbgimage', 'mydashboardbgimage');
 $usercontext = context_user::instance($USER->id);
@@ -142,6 +163,29 @@ if (isset($userbackgroundimg)) {
     $mydahboardbackgroundimg = $OUTPUT->image_url('default-bg', 'theme');
 }
 
+// get course filter settings from user preferences
+$filterstate =  get_user_preferences(null, null, $USER->id);
+// get filter direction
+if (isset($filterstate['pagemy_filterdirection'])) {
+    if ($filterstate['pagemy_filterdirection'] == 1) { 
+        $direction = 'az';
+    } else if ($filterstate['pagemy_filterdirection'] == 0) {
+        $direction = 'za';
+    }
+}
+    // get filers classes
+if (isset($filterstate['pagemy_filterstate'])) {
+    if ($filterstate['pagemy_filterstate'] === 'filter-date') {
+        $filtersmy['filter-date'] = 'filter-date '.$direction;
+        $filtersmy['filter-abc'] = 'filter-abc';
+    } else if ($filterstate['pagemy_filterstate'] === 'filter-abc') {
+        $filtersmy['filter-date'] = 'filter-date';
+        $filtersmy['filter-abc'] = 'filter-abc '.$direction;
+    } 
+} else {
+    $filtersmy['filter-date'] = 'filter-date';
+    $filtersmy['filter-abc'] = 'filter-abc';
+}
 
 $templatecontext = [
 	'sitename' => format_string($SITE->shortname, true, ['context' => context_course::instance(SITEID) , "escape" => false]) ,
@@ -153,6 +197,11 @@ $templatecontext = [
     'navdraweropen' => isset($navdraweropen) ? $navdraweropen : '',
     'hasfhsdrawer' => $hasfhsdrawer,
     // 'hasfhsdrawer' => false,
+    'hascourseblocks' => $hascourseblocks, // block in course
+    'hasfpblockregion' => $hasfpblockregion,
+    'fpablocks' => $blockshtmla,
+    'fpbblocks' => $blockshtmlb,
+    'fpcblocks' => $blockshtmlc,
     'sitesettingsbutton' => false,
     'username' => $USER->firstname.' '.$USER->lastname,
     'allactivities' => get_activities_mydashboard($activitiesconf, 3), // second argument is for num of relevant activities for course cards
@@ -161,7 +210,8 @@ $templatecontext = [
     'bgcolor'=> isset($PAGE->theme->settings->mydashboardbgcolor) ? $PAGE->theme->settings->mydashboardbgcolor : null,
     'bgimage'=> $mydahboardbackgroundimg,
     'time' => time(),
-    'helplink' => true
+    'helplink' => true,
+    'filtersmy' => $filtersmy,
     // 'regionmainsettingsmenu' => $regionmainsettingsmenu,
     // 'hasregionmainsettingsmenu' => !empty($regionmainsettingsmenu)
 ];

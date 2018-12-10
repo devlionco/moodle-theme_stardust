@@ -1,5 +1,5 @@
 <div class="incourse-header">
-  <div class="top-wrapper">
+  <div class="top-wrapper" style="background-image:url({{{coursecoverimg}}});">
       <div class="top">
           <div class="subtitle">
               <span class="home-icon"></span>
@@ -37,7 +37,7 @@
                       </div>
                   </div>
               </li>
-              <li class="block"">
+              <li class="block">
                 <span class="block-title">{{#str}}activitiestitle, theme_stardust{{/str}}</span>
                   <div class="allsection-wrapper">
                     <div id="allactivities" class = "allactivities">
@@ -49,7 +49,7 @@
                         {{#allsectionactivities}}
                           {{^current}}
                               <div class = "section-item">
-                                <a href = "{{{url}}}">{{{name}}}</a>
+                                <a href = "{{{url}}}" title="{{title}}">{{{name}}}</a>
                               </div>
                           {{/current}}
                         {{/allsectionactivities}}
