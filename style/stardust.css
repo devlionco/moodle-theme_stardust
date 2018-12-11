@@ -2506,6 +2506,7 @@ body#page-login-signup {
                     width: 100%;
                     border: none;
                     font-size: 18px; }
+                  #mypublic-student .main-wrapper .main-content .profile-info .column .info-list li.info #gender,
                   #mypublic-student .main-wrapper .main-content .profile-info .column .info-list li.info .input {
                     border-bottom: 2px solid #19284f;
                     color: #717171;

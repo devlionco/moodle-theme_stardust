@@ -205,7 +205,7 @@ $achivement-margin-top: 42px;
                 & [data-input="skype"],
                 & [data-input="icq"],
                 & [data-input="birthday"],
-                & [data-input="interests"]             
+                & [data-input="interests"]
 
                 {
                   display: none;
@@ -222,6 +222,7 @@ $achivement-margin-top: 42px;
                     font-size: 18px;
                   }
                   &.info{
+                    #gender,
                     .input {
                       border-bottom: 2px solid $primary-color-1;
                       color: $gray_input;
