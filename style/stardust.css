@@ -3288,9 +3288,7 @@ html {
       padding: 0;
       list-style: none;
       display: -ms-flexbox;
-      display: flex;
-      -ms-flex-wrap: wrap;
-          flex-wrap: wrap; }
+      display: flex; }
       .incourse-header .top-wrapper .top .blocks-list .block {
         cursor: pointer;
         width: 204px;
