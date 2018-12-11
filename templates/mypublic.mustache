@@ -201,7 +201,20 @@
 
                             <!-- additional fields -->
                             <li class="info" data-input="gender">
-                              <span id="gender" class="input">{{userinfo.gender}}</span>
+                              <span id="gender" class="input">
+                                <label>{{#str}} man, theme_stardust{{/str}}
+                                  <input
+                                    type = "radio"
+                                    name = "gender"
+                                    value = "1" {{#gender.men}} checked {{/gender.men}}>
+                                </label>
+                                <label>{{#str}} woman, theme_stardust{{/str}}
+                                  <input
+                                    type = "radio"
+                                    name = "gender"
+                                    value = "2" {{#gender.woman}} checked {{/gender.woman}}>
+                                </label>
+                              </span>
                               <span class="input-label">{{#str}} gender, theme_stardust{{/str}}</span>
                             </li>
                             <li class="info" data-input="city">

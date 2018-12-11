@@ -101,7 +101,7 @@ define(['jquery', 'jqueryui', 'core/str'], function($, jqui, str) {
             aim = dbdata.aim,
             phone1 = dbdata.phone1,
             phone2 = dbdata.phone2,
-            gender = dbdata.gender,
+            // gender = dbdata.gender,
             city = dbdata.city,
             address = dbdata.address,
             skype = dbdata.skype,
@@ -116,7 +116,8 @@ define(['jquery', 'jqueryui', 'core/str'], function($, jqui, str) {
         var queryInputs = document.querySelectorAll(`
           #mypublicpage-profile-shortform input.input[data-edited="true"],
           #mypublicpage-profile-shortform #icq,
-          #mypublicpage-profile-shortform #interests
+          #mypublicpage-profile-shortform #interests,
+          #mypublicpage-profile-shortform #gender
         `);
 
         var changes = new Object();
@@ -245,7 +246,7 @@ define(['jquery', 'jqueryui', 'core/str'], function($, jqui, str) {
               //   }
               // }
             case "gender":
-                item.value  = $.trim($('#gender').val());
+                item.value  = $('#gender input:checked').val();
                 break;
             case "city":
                 item.value  = $.trim($('#city').val());
