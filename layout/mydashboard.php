@@ -167,7 +167,7 @@ if (isset($userbackgroundimg)) {
 $filterstate =  get_user_preferences(null, null, $USER->id);
 // get filter direction
 if (isset($filterstate['pagemy_filterdirection'])) {
-    if ($filterstate['pagemy_filterdirection'] == 1) { 
+    if ($filterstate['pagemy_filterdirection'] == 1) {
         $direction = 'az';
     } else if ($filterstate['pagemy_filterdirection'] == 0) {
         $direction = 'za';
@@ -181,7 +181,7 @@ if (isset($filterstate['pagemy_filterstate'])) {
     } else if ($filterstate['pagemy_filterstate'] === 'filter-abc') {
         $filtersmy['filter-date'] = 'filter-date';
         $filtersmy['filter-abc'] = 'filter-abc '.$direction;
-    } 
+    }
 } else {
     $filtersmy['filter-date'] = 'filter-date';
     $filtersmy['filter-abc'] = 'filter-abc';

@@ -307,6 +307,7 @@ function get_activities_mydashboard($activitiesconf = array(), $numofrelevantact
                     // add all activityinfo to general array
                     // $activities[$activityname][] = $activityinfo; // with activityname sorting
                     $activities[] = $activityinfo; // without activityname sorting
+
                 } // end foreach module
             } // end if module exists
         } // end foreach activity
