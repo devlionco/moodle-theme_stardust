@@ -138,15 +138,12 @@ $hasblocks = strpos($blockshtml, 'data-block=') !== false;
 $regionmainsettingsmenu = $OUTPUT->region_main_settings_menu();
 $mypublicdefaultbgimgurl = $OUTPUT->image_url('profilebg', 'theme');
 
-//gender
-$gender = ($user->gender == 1)? 'men' : ($user->gender == 2) ? 'woman' : '';
 $gender = new stdClass();
 if (isset($user->gender)) {
   if ($user->gender == 1) {
     $gender->men = 1;
   }else $gender->woman = 1;
 }
-$gender->men =
 $a->oldversion = "$CFG->release (".sprintf('%.2f', $CFG->version).")";
 $a->newversion = "$release (".sprintf('%.2f', $version).")";
 $templatecontext = [
