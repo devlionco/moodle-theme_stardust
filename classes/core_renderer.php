@@ -386,6 +386,8 @@ class core_renderer extends \theme_boost\output\core_renderer {
     }
 
     public function headerimage() {
+      // TODO remove headerimage setting from theme-setting
+        return '';
         global $CFG, $COURSE, $PAGE, $OUTPUT;
         // Get course overview files.
         if (empty($CFG->courseoverviewfileslimit)) {
