@@ -198,6 +198,29 @@
                               <span id="phone1" class="input">{{userinfo.phone1}}</span>
                               <span class="input-label">{{#str}} phone, theme_stardust{{/str}}</span>
                             </li>
+
+                            <!-- additional fields -->
+                            <li class="info" data-input="gender">
+                              <span id="gender">
+                                <label>{{#str}} man, theme_stardust{{/str}}
+                                  <input
+                                    type = "radio"
+                                    name = "gender"
+                                    value = "1" {{#gender.men}} checked {{/gender.men}}>
+                                </label>
+                                <label>{{#str}} woman, theme_stardust{{/str}}
+                                  <input
+                                    type = "radio"
+                                    name = "gender"
+                                    value = "2" {{#gender.woman}} checked {{/gender.woman}}>
+                                </label>
+                              </span>
+                              <span class="input-label">{{#str}} gender, theme_stardust{{/str}}</span>
+                            </li>
+                            <li class="info" data-input="city">
+                              <span id="city" class="input">{{userinfo.city}}</span>
+                              <span class="input-label">{{#str}} city, theme_stardust{{/str}}</span>
+                            </li>
                             <li class="info" data-input="phone2">
                               <span id="phone2" class="input">{{userinfo.phone2}}</span>
                               <span class="input-label">{{#str}} additional_phone, theme_stardust{{/str}}</span>
@@ -340,6 +363,8 @@ require(['jquery'], function($) {
     $(this).toggleClass('show');
     $(`
       #aim,
+      #gender,
+      #city,
       #phone2,
       #skype,
       #icq,

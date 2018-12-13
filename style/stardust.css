@@ -2513,6 +2513,7 @@ body#page-login-signup {
                     width: 100%;
                     border: none;
                     font-size: 18px; }
+                  #mypublic-student .main-wrapper .main-content .profile-info .column .info-list li.info #gender,
                   #mypublic-student .main-wrapper .main-content .profile-info .column .info-list li.info .input {
                     border-bottom: 2px solid #19284f;
                     color: #717171;
@@ -3294,9 +3295,7 @@ html {
       padding: 0;
       list-style: none;
       display: -ms-flexbox;
-      display: flex;
-      -ms-flex-wrap: wrap;
-          flex-wrap: wrap; }
+      display: flex; }
       .incourse-header .top-wrapper .top .blocks-list .block {
         cursor: pointer;
         width: 204px;
@@ -3643,7 +3642,6 @@ html {
                       min-width: 16px;
                       min-height: 16px;
                       border: 2px solid rgba(161, 173, 179, 0.5);
-                      border-radius: 50%;
                       margin-right: 10px;
                       position: absolute;
                       top: 9px;

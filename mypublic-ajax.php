@@ -31,6 +31,8 @@ function save_mypublicpage_shortform() {
     $birthday = optional_param('birthday', '', PARAM_RAW);
     $interests = optional_param('interests', '', PARAM_RAW);
     $icq = optional_param('icq', '', PARAM_RAW);
+    $gender = optional_param('gender', '', PARAM_RAW);
+    $city = optional_param('city', '', PARAM_RAW);
 
 
         $fullname = preg_replace('/\s+/', ' ',$fullname);
@@ -83,6 +85,12 @@ function save_mypublicpage_shortform() {
         }
         if(!empty($icq)){
             $user->icq = $icq;    // use icq field as storage for knowledge
+        }
+        if(!empty($city)){
+            $user->city = $city;
+        }
+        if(!empty($gender)){
+            $user->gender = $gender;  
         }
 
 
