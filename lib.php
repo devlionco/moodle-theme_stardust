@@ -290,7 +290,7 @@ function get_activities_mydashboard($activitiesconf = array(), $numofrelevantact
 
                     // filter modules. Show only visible and available to current user activities
                     $cminfo = get_fast_modinfo($course->id)->cms[$module->id];
-                    if (!$cminfo->uservisible || !$cminfo->is_visible_on_course_page()) {
+                    if (!$cminfo->uservisible || !$cminfo->is_visible_on_course_page() || $cminfo->is_stealth()) {
                         continue;
                     }
 
