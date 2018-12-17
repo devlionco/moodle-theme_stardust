@@ -97,41 +97,6 @@
                     /* padding-left: 37px; */
                     display: flex;
 
-                    &::after,
-                    &::before {
-                        /*             content: "";
-          position: absolute;
-          top: -1px;
-          background-color: #fff;
-          left: 0;
-          height: 20px;
-          width: 30px;
-          border-radius: 10px; */
-                    }
-                    &::after {
-                        /*             transition: .2s;
-          background-color: $primary-color;
-         /*  background-color: red; */
-                        /* background-image: url([[pix:theme|header/moddle_filter_B_general_OFF]]); */
-                        /*      background-position: 50% 50%;
-          background-size: cover;
-          width: 12px;
-          height: 12px;
-          border-radius: 50%;
-          position: absolute;
-          top: 3px;
-          left: 14px; */
-                    }
-                    &.active::after {
-                        /* left: 4px; */
-                    }
-                    &.active::before {
-                        /* background-color: #5cb85c; */
-                        /*          background-image: url([[pix:theme|header/line_ON]]);
-          background-size: cover;
-          background-position: center; */
-                    }
-
                     //custom toggler
                     .tutorial__toggler {
                         position: relative;
@@ -148,10 +113,6 @@
                             width: 14px;
                             height: 14px;
                             border-radius: 50%;
-                            -webkit-border-radius: 50%;
-                            -moz-border-radius: 50%;
-                            -ms-border-radius: 50%;
-                            -o-border-radius: 50%;
                             background-color: $primary-color;
                             top: 3px;
                             left: 13px;
@@ -167,10 +128,6 @@
                             position: absolute;
                             top: 8px;
                             left: 22px;
-                            -webkit-border-radius: 4px;
-                            -moz-border-radius: 4px;
-                            -ms-border-radius: 4px;
-                            -o-border-radius: 4px;
 
                         }
 

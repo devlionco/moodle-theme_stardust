@@ -827,35 +827,6 @@ body#page-login-signup {
           /* padding-left: 37px; */
           display: -ms-flexbox;
           display: flex; }
-          .dheader .dheader__inner .dheader__right .dheader__tutorial .dheader__tutorial-link::after, .dheader .dheader__inner .dheader__right .dheader__tutorial .dheader__tutorial-link::before {
-            /*             content: "";
-          position: absolute;
-          top: -1px;
-          background-color: #fff;
-          left: 0;
-          height: 20px;
-          width: 30px;
-          border-radius: 10px; */ }
-          .dheader .dheader__inner .dheader__right .dheader__tutorial .dheader__tutorial-link::after {
-            /*             transition: .2s;
-          background-color: $primary-color;
-         /*  background-color: red; */
-            /* background-image: url([[pix:theme|header/moddle_filter_B_general_OFF]]); */
-            /*      background-position: 50% 50%;
-          background-size: cover;
-          width: 12px;
-          height: 12px;
-          border-radius: 50%;
-          position: absolute;
-          top: 3px;
-          left: 14px; */ }
-          .dheader .dheader__inner .dheader__right .dheader__tutorial .dheader__tutorial-link.active::after {
-            /* left: 4px; */ }
-          .dheader .dheader__inner .dheader__right .dheader__tutorial .dheader__tutorial-link.active::before {
-            /* background-color: #5cb85c; */
-            /*          background-image: url([[pix:theme|header/line_ON]]);
-          background-size: cover;
-          background-position: center; */ }
           .dheader .dheader__inner .dheader__right .dheader__tutorial .dheader__tutorial-link .tutorial__toggler {
             position: relative;
             top: -1px;
@@ -871,10 +842,6 @@ body#page-login-signup {
               width: 14px;
               height: 14px;
               border-radius: 50%;
-              -webkit-border-radius: 50%;
-              -moz-border-radius: 50%;
-              -ms-border-radius: 50%;
-              -o-border-radius: 50%;
               background-color: #19284f;
               top: 3px;
               left: 13px; }
@@ -887,11 +854,7 @@ body#page-login-signup {
               border-radius: 4px;
               position: absolute;
               top: 8px;
-              left: 22px;
-              -webkit-border-radius: 4px;
-              -moz-border-radius: 4px;
-              -ms-border-radius: 4px;
-              -o-border-radius: 4px; }
+              left: 22px; }
           .dheader .dheader__inner .dheader__right .dheader__tutorial .dheader__tutorial-link.active .point {
             width: 20px;
             left: 5px; }
