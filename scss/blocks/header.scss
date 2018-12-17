@@ -1,232 +1,292 @@
 .dheader {
-  .dropdown-menu{
-    position: absolute;
-    top: 50px;
-  }
-  .dheader__settings {
-    margin-right: 30px;
-  }
-  .btn-secondary {
-    margin-right: 10px;
-  }
-  .stardust  {
-    a[data-title="mymoodle,admin"],
-    a[data-title="grades,grades"] {
-      display: none;
+    .dropdown-menu {
+        position: absolute;
+        top: 50px;
     }
-  }
+    .dheader__settings {
+        margin-right: 30px;
+    }
+    .btn-secondary {
+        margin-right: 10px;
+    }
+    .stardust {
+        a[data-title="mymoodle, admin"],
+        a[data-title="grades, grades"] {
+            display: none;
+        }
+    }
 }
 .navbar .count-container {
-  min-width: 14px;
-  height: 14px;
-  border-radius: 50%;
-  color: #3C3C3C;
-  text-align: center;
-  background-color: #FF7E99;
-  box-shadow: 0 0 0 1px #F3F2F0;
+    min-width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    color: #3C3C3C;
+    text-align: center;
+    background-color: #FF7E99;
+    box-shadow: 0 0 0 1px #F3F2F0;
 }
 
 .dheader {
-  position: fixed;
-  top: 0;
-  right: 0;
-  left: 0;
-  z-index: 1030;
-  max-height: 45px;
-  padding: 0;
-  border-bottom: none;
-  // background-color: $gray_light;
-  background-color: $d_blue;
-  // box-shadow: 0 0px 8px #b1b1b1;
-  .dheader__inner{
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: space-between;
-    align-items: center;
-    // max-width: 1344px;
-    height: 45px;
-    padding: 0 23px;
-    .dheader__left{
-      display: flex;
-      flex-flow: row nowrap;
-      align-items: center;
-      .dheader__logo{
-        margin: 0;
-        background: none;
-        padding: 0;
-        margin-right: 60px;
-        .dheader__logo-img {
-          display: inline-block;
-          height: 45px;
-          padding: 4px 0;
-          width: 128px;
-          display: flex;
-          justify-content: space-between;
-          & img{
-            height: 100%;
-          }
-        }
-      }
-    }
-    .dheader__center{
-      display: flex;
-      flex-flow: row nowrap;
-    }
-    .dheader__right{
-      display: flex;
-      flex-flow: row nowrap;
-      justify-content: space-between;
-      align-items: center;
-      &>div{
-        align-items: center;
-      }
-      .coursecontrols{
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 1030;
+    max-height: 45px;
+    padding: 0;
+    border-bottom: none;
+    // background-color: $gray_light;
+    background-color: $d_blue;
+    // box-shadow: 0 0px 8px #b1b1b1;
+    .dheader__inner {
         display: flex;
-      }
-      .dheader__tutorial{
-        cursor: pointer;
-        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-between;
         align-items: center;
-        margin:0 1.5vw;
-        color: #fff;
-        .dheader__tutorial-link {
-          position: relative;
-          width: 130px;
-          font: $bold 12px 'openSans';
-          color: #fff;
-          padding-left: 37px;
-          &::before, &::after {
-            content: "";
-            position: absolute;
-            top: -1px;
-            background-color: #fff;
-            left: 0;
-            height: 20px;
-            width: 30px;
-            border-radius: 10px;
-          }
-          &::after {
-            transition: .2s;
-            background-color: $primary-color;
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            position: absolute;
-            top: 4px;
-            left: 5px;
-          }
-          &.active::after {
-            left: 12px;
-          }
-          &.active::before {
-            background-color: #5cb85c;
-          }
-
-          .tutorialon {
-            display: none;
-          }
-          &.active .tutorialon {
-            display: inline-block;
-          }
-          &.active .tutorialoff {
-            display: none;
-          }
-          &:hover {
-            text-decoration: none;
-            color: #fff;
-          }
-        }
-      }
-      // .hidden-md-down{}
-      .dheader__lang{
-        margin:0 1vw;
-        // color: $text-color-gray !important;
-        color: #fff !important;
-        font: $bold 12px 'openSans';
-        padding-left: 27px;
-        background-position: left;
-        background-repeat: no-repeat;
-        background-size: 22px;
-        background-image:url([[pix:theme|header/lang]]);
-        &:after {
-          display: none;
-        }
-      }
-      .popover-region{
-        margin:0 1vw;
-        .popover-region-toggle{
-          &:after{
-            width:24px;
-            box-sizing: border-box;
-            border-top: 12px solid transparent;
-            border-right: 12px solid #fff;
-            border-bottom: 12px solid #fff;
-            border-left: 12px solid  transparent;
-            left: 0px;
-          }
-        }
-        .popover-region-container {
-          // right: auto;
-          left: auto;
-          .img-wrap img{
-            margin: 0;
-            width: unset;
-            height: unset;
+        // max-width: 1344px;
+        height: 45px;
+        padding: 0 23px;
+        .dheader__left {
             display: flex;
             flex-flow: row nowrap;
             align-items: center;
-            justify-content: center;
-          }
+            .dheader__logo {
+                margin: 0;
+                background: none;
+                padding: 0;
+                margin-right: 60px;
+                .dheader__logo-img {
+                    display: inline-block;
+                    height: 45px;
+                    padding: 4px 0;
+                    width: 128px;
+                    display: flex;
+                    justify-content: space-between;
+                    & img {
+                        height: 100%;
+                    }
+                }
+            }
         }
-        &.popover-region-messages{}
-        &.popover-region-notifications{
-          .popover-region-container{
-          }
+        .dheader__center {
+            display: flex;
+            flex-flow: row nowrap;
         }
-      }
-      .usermenu{
-        margin:0;
-        img {
+        .dheader__right {
+            display: flex;
+            flex-flow: row nowrap;
+            justify-content: space-between;
+            align-items: center;
+            & > div {
+                align-items: center;
+            }
+            .coursecontrols {
+                display: flex;
+            }
+            .dheader__tutorial {
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+                margin: 0 1.5vw;
+                color: #fff;
+                .dheader__tutorial-link {
+                    position: relative;
+                    width: 160px;
+                    font: $bold 12px 'openSans';
+                    color: #fff;
+                    /* padding-left: 37px; */
+                    display: flex;
+
+                    &::after,
+                    &::before {
+                        /*             content: "";
+          position: absolute;
+          top: -1px;
+          background-color: #fff;
+          left: 0;
+          height: 20px;
+          width: 30px;
+          border-radius: 10px; */
+                    }
+                    &::after {
+                        /*             transition: .2s;
+          background-color: $primary-color;
+         /*  background-color: red; */
+                        /* background-image: url([[pix:theme|header/moddle_filter_B_general_OFF]]); */
+                        /*      background-position: 50% 50%;
+          background-size: cover;
+          width: 12px;
+          height: 12px;
           border-radius: 50%;
-          overflow: hidden;
-          margin-left: 0;
+          position: absolute;
+          top: 3px;
+          left: 14px; */
+                    }
+                    &.active::after {
+                        /* left: 4px; */
+                    }
+                    &.active::before {
+                        /* background-color: #5cb85c; */
+                        /*          background-image: url([[pix:theme|header/line_ON]]);
+          background-size: cover;
+          background-position: center; */
+                    }
+
+                    //custom toggler
+                    .tutorial__toggler {
+                        position: relative;
+                        top: -1px;
+                        background-color: #fff;
+                        height: 20px;
+                        width: 30px;
+                        border-radius: 10px;
+                        margin: 0 10px;
+                        &::after {
+                            content: '';
+                            position: absolute;
+                            transition: 0.2s;
+                            width: 14px;
+                            height: 14px;
+                            border-radius: 50%;
+                            -webkit-border-radius: 50%;
+                            -moz-border-radius: 50%;
+                            -ms-border-radius: 50%;
+                            -o-border-radius: 50%;
+                            background-color: $primary-color;
+                            top: 3px;
+                            left: 13px;
+                        }
+
+                        .point {
+                            position: absolute;
+                            transition: 0.2s;
+                            background-color: $primary-color;
+                            width: 4px;
+                            height: 4px;
+                            border-radius: 4px;
+                            position: absolute;
+                            top: 8px;
+                            left: 22px;
+                            -webkit-border-radius: 4px;
+                            -moz-border-radius: 4px;
+                            -ms-border-radius: 4px;
+                            -o-border-radius: 4px;
+
+                        }
+
+                    }
+                    &.active .point {
+                        width: 20px;
+                        left: 5px;
+                    }
+
+                    .tutorialon {
+                        display: none;
+                    }
+                    &.active .tutorialon {
+                        display: block;
+                    }
+                    &.active .tutorialoff {
+                        display: none;
+                    }
+                    &:hover {
+                        text-decoration: none;
+                        color: #fff;
+                    }
+                }
+                .dheader__tutorial-link.active .tutorial__toggler::after {
+                    left: 3px;
+                }
+            }
+            // .hidden-md-down{}
+            .dheader__lang {
+                margin: 0 1vw;
+                // color: $text-color-gray !important;
+                color: #fff !important;
+                font: $bold 12px 'openSans';
+                padding-left: 27px;
+                background-position: left;
+                background-repeat: no-repeat;
+                background-size: 22px;
+                background-image: url("[[pix:theme|header/lang]]");
+                &:after {
+                    display: none;
+                }
+            }
+            .popover-region {
+                margin: 0 1vw;
+                .popover-region-toggle {
+                    &:after {
+                        width: 24px;
+                        box-sizing: border-box;
+                        border-top: 12px solid transparent;
+                        border-right: 12px solid #fff;
+                        border-bottom: 12px solid #fff;
+                        border-left: 12px solid transparent;
+                        left: 0;
+                    }
+                }
+                .popover-region-container {
+                    // right: auto;
+                    left: auto;
+                    .img-wrap img {
+                        margin: 0;
+                        width: unset;
+                        height: unset;
+                        display: flex;
+                        flex-flow: row nowrap;
+                        align-items: center;
+                        justify-content: center;
+                    }
+                }
+                &.popover-region-messages {}
+                &.popover-region-notifications {
+                    .popover-region-container {}
+                }
+            }
+            .usermenu {
+                margin: 0;
+                img {
+                    border-radius: 50%;
+                    overflow: hidden;
+                    margin-left: 0;
+                }
+                .dropdown-toggle::after {
+                    display: none;
+                }
+                .usertext {
+                    color: #fff;
+                    font: $bold 14px 'openSans';
+                    width: 96px;
+                    text-align: right;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                }
+                .action-menu .userpicture {
+                    margin: 5px 0;
+                }
+                .userbutton {
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                }
+                .dropdown-menu {
+                    left: -36px;
+                }
+            }
         }
-        .dropdown-toggle::after {
-          display: none;
-        }
-        .usertext {
-          color: #fff;
-          font: $bold 14px 'openSans';
-          width: 96px;
-          text-align: right;
-          white-space: nowrap;
-          overflow: hidden;
-          text-overflow: ellipsis;
-        }
-        .action-menu .userpicture {
-          margin: 5px 0;
-        }
-        .userbutton {
-          display: flex;
-          flex-direction: row;
-          align-items: center;
-        }
-        .dropdown-menu{
-          left:-36px;
-        }
-      }
     }
-  }
 }
 
 @media #{$is-tablet} {
-  .dheader__tutorial {
-    display: none  !important;
-  }
+    .dheader__tutorial {
+        display: none !important;
+    }
 }
 
 @media #{$is-mobile} {
-  .dheader__tutorial {
-    display: none !important;
-  }
+    .dheader__tutorial {
+        display: none !important;
+    }
 }
