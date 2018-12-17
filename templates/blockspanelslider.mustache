@@ -51,6 +51,9 @@ const BlockMargin = {
   left: -(besidesMargin + sliderWidth)
 };
 
+const slidingBlockHeight = $(".slidingblockpanel").height();
+const regionMainHeight = $("#region-main").height();
+
 
 $(document).ready(function() {
   if (curentLang == "ltr") {
@@ -64,6 +67,10 @@ $("#blocksliderbutton").click(function() {
   $(this).toggleClass("blocksliderbutton_open");
     
   if ($("#blocksliderbutton").hasClass("blocksliderbutton_open")) {
+      $("#region-main").css({
+        'margin-bottom': `${slidingBlockHeight - regionMainHeight}px`
+    });
+
     var theOffset = $(this).offset();
     $("body, html").animate(
       {
@@ -84,6 +91,7 @@ $("#blocksliderbutton").click(function() {
         .animate({ left: Margin.left }, 600);
     }
   } else {
+    $("#region-main").css("margin-bottom", "0");
     if (curentLang == "ltr") {
       $(".slidingblockpanel").animate({ right: BlockMargin.right }, 300);
     } else {
