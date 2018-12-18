@@ -4006,20 +4006,12 @@ html {
     .blockpanelbtn a i {
       color: #fff;
       font-size: 1.225rem;
-      transition: 0.25s ease-in-out;
-      -webkit-transition: 0.25s ease-in-out;
-      -moz-transition: 0.25s ease-in-out;
-      -ms-transition: 0.25s ease-in-out;
-      -o-transition: 0.25s ease-in-out; }
+      transition: 0.25s ease-in-out; }
     .blockpanelbtn a span {
       display: none; }
 
 .blocksliderbutton_open i {
-  transform: rotate(90deg);
-  -webkit-transform: rotate(90deg);
-  -moz-transform: rotate(90deg);
-  -ms-transform: rotate(90deg);
-  -o-transform: rotate(90deg); }
+  transform: rotate(90deg); }
 
 .blockpanelbtn_clone {
   position: fixed;
@@ -4063,7 +4055,7 @@ html {
   height: 104%;
   z-index: 100;
   top: 15px;
-  max-width: 300px; }
+  max-width: 24%; }
   #page-my-index #page-content .card-block .slidingblockpanel .col-md-4:last-child {
     -ms-flex: 0 0 100%;
         flex: 0 0 100%;
