@@ -1561,6 +1561,8 @@ class core_renderer extends \theme_boost\output\core_renderer {
             $courserestorelink = new moodle_url('/backup/restorefile.php', array(
                 'contextid' => $PAGE->context->id
             ));
+        } else {
+            $courseadmintitle = $courseadminlink = $courseresettitle = $courseresetlink = $coursebackuptitle = $coursebackuplink = $courserestoretitle = $courserestorelink = null;
         }
 
         $courseimporttitle = get_string('import', 'moodle');
@@ -1596,6 +1598,8 @@ class core_renderer extends \theme_boost\output\core_renderer {
             $eventmonitoringlink = new moodle_url('/admin/tool/monitor/managerules.php', array(
                 'courseid' => $PAGE->course->id
             ));
+        } else {
+            $filtertitle = $filterlink = $eventmonitoringtitle = $eventmonitoringlink = null;
         }
 
 
@@ -1740,7 +1744,7 @@ class core_renderer extends \theme_boost\output\core_renderer {
             'hasstudentdash' => $hasstudentdash,
             'hasgradebookshow' => $hasgradebookshow,
             'hascompletionshow' => $hascompletionshow,
-            'studentcourseadminlink' => $courseadminlink,
+            'studentcourseadminlink' => isset($courseadminlink) ? $courseadminlink : null,
             'studentcoursemanage' => $studentcoursemanage,
             'hascourseadminshow' => $hascourseadminshow,
             'hascompetency' => $hascompetency,
@@ -1799,14 +1803,14 @@ class core_renderer extends \theme_boost\output\core_renderer {
                 'url' => $activitylink
             ) ,
             array(
-                'hasuserlinks' => $extendeduserreporttitle,
-                'title' => $extendeduserreporttitle,
-                'url' => $extendeduserreportlink
+                'hasuserlinks' => isset($extendeduserreporttitle) ? $extendeduserreporttitle : null,
+                'title' => isset($extendeduserreporttitle) ? $extendeduserreporttitle: null,
+                'url' => isset($extendeduserreportlink) ? $extendeduserreportlink : null,
             ) ,
             array(
-                'hasteacherviewerlinks' => $extendeduserreporttitle,
-                'title' => $extendeduserreporttitle,
-                'url' => $extendeduserreportlink
+                'hasteacherviewerlinks' => isset($extendeduserreporttitle) ? $extendeduserreporttitle : null,
+                'title' => isset($extendeduserreporttitle) ? $extendeduserreporttitle : null,
+                'url' => isset($extendeduserreportlink) ? $extendeduserreportlink : null,
             ) ,
             array(
                 'hasteacherviewerlinks' => $participantstitle,
