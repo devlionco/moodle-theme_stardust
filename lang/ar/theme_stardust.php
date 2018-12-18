@@ -130,6 +130,10 @@ $string['lastname_firstname'] = 'الاسم الشخصي + اسم العائلة
 $string['passport'] = 'Passport';
 $string['phone'] = 'الهاتف';
 $string['additional_phone'] = 'Additional phone';
+$string['gender'] = 'جنس';
+$string['man'] = 'ذكر';
+$string['woman'] = 'أنثى';
+$string['city'] = 'مدينة';
 $string['email'] = 'البريد الإلكتروني';
 $string['additional_email'] = 'Additional email';
 $string['school_details'] = 'تفاصيل المدرسة';
@@ -184,6 +188,6 @@ $string['quiz_filter'] = 'حسب الإشارة:';
 $string['extendeduserreport'] = 'פרטי משתמשים מורחב';
 $string['userspassreport'] = 'איפוס סיסמאות לתלמידים';
 
-// help menu 
+// help menu
 $string['contact_teacher'] = 'Contact the teacher';
 $string['technical_support'] = 'Technical support';

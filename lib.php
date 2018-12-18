@@ -290,7 +290,7 @@ function get_activities_mydashboard($activitiesconf = array(), $numofrelevantact
 
                     // filter modules. Show only visible and available to current user activities
                     $cminfo = get_fast_modinfo($course->id)->cms[$module->id];
-                    if (!$cminfo->uservisible || !$cminfo->is_visible_on_course_page()) {
+                    if (!$cminfo->uservisible || !$cminfo->is_visible_on_course_page() || $cminfo->is_stealth()) {
                         continue;
                     }
 
@@ -300,13 +300,14 @@ function get_activities_mydashboard($activitiesconf = array(), $numofrelevantact
                     }
 
                     // filter modules - dont show assigns or quiz without submission date
-                    if (is_assign_or_quiz_without_cutoffdate($activityinfo)) {
+                    if (is_activity_without_cutoffdate($activityinfo)) {
                         continue;
                     }
 
                     // add all activityinfo to general array
                     // $activities[$activityname][] = $activityinfo; // with activityname sorting
                     $activities[] = $activityinfo; // without activityname sorting
+
                 } // end foreach module
             } // end if module exists
         } // end foreach activity
@@ -564,7 +565,7 @@ function get_module_overrides($module) {
         }
     }
 
-    //process if quiz
+    // process if quiz
     if ($module->modname == 'quiz') {
         require_once($CFG->dirroot . '/mod/quiz/locallib.php');
         $overrides = quiz_get_user_timeclose($module->course);
@@ -595,7 +596,7 @@ function is_assign_submitted($module) {
 }
 
 /**
- * Function checks if activity (module) is an assignment or quiz
+ * Function checks if activity (module) is an assignment or quiz or questionnaire
  * and their cutoffdate is null (they have no submission date or timeclose date)
  * OR the date of submission is passed already!
  *
@@ -604,8 +605,8 @@ function is_assign_submitted($module) {
  * @return bool
  */
 
-function is_assign_or_quiz_without_cutoffdate($activityinfo) {
-    if (($activityinfo['modname'] == 'assign' || $activityinfo['modname'] == 'quiz') && $activityinfo['nosubmissiondate'])  {
+function is_activity_without_cutoffdate($activityinfo) {
+    if (($activityinfo['modname'] == 'assign' || $activityinfo['modname'] == 'quiz' || $activityinfo['modname'] == 'questionnaire') && $activityinfo['nosubmissiondate'])  {
         return true;
     }
 }

@@ -69,6 +69,7 @@ require_once($CFG->libdir . '/behat/lib.php');
     // 'lti' => '',
     // 'page' => '',
     'quiz' => '',
+    'questionnaire' => 'm.closedate as cutoffdate',
     // 'resource' => '',
     // 'scorm' => '',
     // 'survey' => '',
@@ -164,20 +165,24 @@ if (isset($userbackgroundimg)) {
 
 // get course filter settings from user preferences
 $filterstate =  get_user_preferences(null, null, $USER->id);
-    // get filter direction
-    if ($filterstate['pagemy_filterdirection'] == 1) { 
+// get filter direction
+if (isset($filterstate['pagemy_filterdirection'])) {
+    if ($filterstate['pagemy_filterdirection'] == 1) {
         $direction = 'az';
     } else if ($filterstate['pagemy_filterdirection'] == 0) {
         $direction = 'za';
     }
+}
     // get filers classes
+if (isset($filterstate['pagemy_filterstate'])) {
     if ($filterstate['pagemy_filterstate'] === 'filter-date') {
         $filtersmy['filter-date'] = 'filter-date '.$direction;
         $filtersmy['filter-abc'] = 'filter-abc';
     } else if ($filterstate['pagemy_filterstate'] === 'filter-abc') {
         $filtersmy['filter-date'] = 'filter-date';
         $filtersmy['filter-abc'] = 'filter-abc '.$direction;
-    } else {
+    }
+} else {
     $filtersmy['filter-date'] = 'filter-date';
     $filtersmy['filter-abc'] = 'filter-abc';
 }

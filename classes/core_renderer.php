@@ -386,6 +386,8 @@ class core_renderer extends \theme_boost\output\core_renderer {
     }
 
     public function headerimage() {
+      // TODO remove headerimage setting from theme-setting
+        return '';
         global $CFG, $COURSE, $PAGE, $OUTPUT;
         // Get course overview files.
         if (empty($CFG->courseoverviewfileslimit)) {
@@ -1377,7 +1379,7 @@ class core_renderer extends \theme_boost\output\core_renderer {
             'siteadminurl' => $siteadminurl,
             'haseditcog' => $haseditcog,
             'editcog' => isset($editcog) ? $editcog : null,
-            'quizsettingsbutton' => $quizsettingsbutton,
+            'quizsettingsbutton' => isset($quizsettingsbutton) ? $quizsettingsbutton : null,
         ];
 
         // Attach easy enrollment links if active.
@@ -1462,7 +1464,7 @@ class core_renderer extends \theme_boost\output\core_renderer {
         $gradeslink = new moodle_url('/grade/report/index.php', array(
             'id' => $PAGE->course->id
         ));
-        $participantstitle = ($PAGE->theme->settings->studentdashboardtextbox == 1) ? false : get_string('participants', 'moodle');
+        $participantstitle = (isset($PAGE->theme->settings->studentdashboardtextbox) && $PAGE->theme->settings->studentdashboardtextbox == 1) ? false : get_string('participants', 'moodle');
         $participantslink = new moodle_url('/user/index.php', array(
             'id' => $PAGE->course->id
         ));
@@ -1695,9 +1697,9 @@ class core_renderer extends \theme_boost\output\core_renderer {
         $hasbackuppermission = has_capability('moodle/backup:backupcourse', $context);
         $hasuserpermission = has_capability('moodle/course:viewhiddenactivities', $context);
         $isteacherviewer = has_capability('moodle/grade:viewall', $context) && !$hasuserpermission;
-        $hasgradebookshow = $PAGE->course->showgrades == 1 && $PAGE->theme->settings->showstudentgrades == 1;
-        $hascompletionshow = $PAGE->course->enablecompletion == 1 && $PAGE->theme->settings->showstudentcompletion == 1;
-        $hascourseadminshow = $PAGE->theme->settings->showcourseadminstudents == 1;
+        $hasgradebookshow = (isset($PAGE->course->showgrades) && $PAGE->course->showgrades == 1) && (isset($PAGE->theme->settings->showstudentgrades) && $PAGE->theme->settings->showstudentgrades == 1);
+        $hascompletionshow = (isset($PAGE->course->enablecompletion) && $PAGE->course->enablecompletion == 1) && (isset($PAGE->theme->settings->showstudentcompletion) && $PAGE->theme->settings->showstudentcompletion == 1);
+        $hascourseadminshow = isset($PAGE->theme->settings->showcourseadminstudents) && $PAGE->theme->settings->showcourseadminstudents == 1;
         $hascompetency = get_config('core_competency', 'enabled');
 
         // Send to template.
@@ -1960,11 +1962,11 @@ class core_renderer extends \theme_boost\output\core_renderer {
         $url = $this->get_logo_url();
 
         // Custom logins.
-        $context->logintext_custom = format_text($PAGE->theme->settings->fptextboxlogout);
+        $context->logintext_custom = isset($PAGE->theme->settings->fptextboxlogout) ? format_text($PAGE->theme->settings->fptextboxlogout) : '';
         $context->logintopimage = $PAGE->theme->setting_file_url('logintopimage', 'logintopimage');
-        $context->hascustomlogin = $PAGE->theme->settings->showcustomlogin == 1;
-        $context->hasdefaultlogin = $PAGE->theme->settings->showcustomlogin == 0;
-        $context->alertbox = format_text($PAGE->theme->settings->alertbox);
+        $context->hascustomlogin = (isset($PAGE->theme->settings->showcustomlogin) && $PAGE->theme->settings->showcustomlogin == 1) ? true : false;
+        $context->hasdefaultlogin = (isset($PAGE->theme->settings->showcustomlogin) && $PAGE->theme->settings->showcustomlogin == 0) ? true : false;
+        $context->alertbox = isset($PAGE->theme->settings->alertbox) ? format_text($PAGE->theme->settings->alertbox) : '';
         if ($url) {
             $url = $url->out(false);
         }
@@ -1980,13 +1982,13 @@ class core_renderer extends \theme_boost\output\core_renderer {
 
     public function headingfont() {
         $theme = theme_config::load('fordson');
-        $setting = $theme->settings->headingfont;
+        $setting = isset($theme->settings->headingfont) ? $theme->settings->headingfont : '';
         return $setting != '' ? $setting : '';
     }
 
     public function pagefont() {
         $theme = theme_config::load('fordson');
-        $setting = $theme->settings->pagefont;
+        $setting = isset($theme->settings->pagefont) ? $theme->settings->pagefont : '';
         return $setting != '' ? $setting : '';
     }
 
@@ -2113,7 +2115,7 @@ class core_renderer extends \theme_boost\output\core_renderer {
             foreach ($messages as $mid => $message) {
 
                 // Do not return deleted messages.
-                if (($useridto == $USER->id and $message->timeusertodeleted) or
+                if (($useridto == $USER->id and (isset($message->timeusertodeleted) && $message->timeusertodeleted)) or
                         ($useridfrom == $USER->id and $message->timeuserfromdeleted)) {
 
                     unset($messages[$mid]);
@@ -2703,16 +2705,17 @@ public function get_user_certificates(){
     }
 }
 
-namespace theme_stardust\output\core_user\myprofile;
-/**
- * Override user profile renderer
- *
- * We disable profile TREE render to not overload page with extra information
- */
+// SG - 20181214 - T-263, T-341 -  we have rewritten the renderer to reduce the profile page load, but it breaks some other user view pages. So comment for now
+// namespace theme_stardust\output\core_user\myprofile;
+// /**
+//  * Override user profile renderer
+//  *
+//  * We disable profile TREE render to not overload page with extra information
+//  */
 
-class renderer extends \core_user\output\myprofile\renderer {
+// class renderer extends \core_user\output\myprofile\renderer {
 
-    public function render_tree(\core_user\output\myprofile\tree $tree) {
-        return "";
-    }
-}
+//     public function render_tree(\core_user\output\myprofile\tree $tree) {
+//         return "";
+//     }
+// }

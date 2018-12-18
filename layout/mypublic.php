@@ -137,6 +137,15 @@ $blockshtml = $OUTPUT->blocks('side-pre');
 $hasblocks = strpos($blockshtml, 'data-block=') !== false;
 $regionmainsettingsmenu = $OUTPUT->region_main_settings_menu();
 $mypublicdefaultbgimgurl = $OUTPUT->image_url('profilebg', 'theme');
+
+$gender = new stdClass();
+if (isset($user->gender)) {
+  if ($user->gender == 1) {
+    $gender->men = 1;
+  }else $gender->woman = 1;
+}
+$a->oldversion = "$CFG->release (".sprintf('%.2f', $CFG->version).")";
+$a->newversion = "$release (".sprintf('%.2f', $version).")";
 $templatecontext = [
 	'sitename' => format_string($SITE->shortname, true, ['context' => context_course::instance(SITEID) , "escape" => false]) ,
     'output' => $OUTPUT,
@@ -153,7 +162,8 @@ $templatecontext = [
     'userpictureurl' => $userpictureurl,
     'usercoursesprogress' => $usercoursesprogress,
     'helplink' => true,
-    'backgroundimg' => isset($backgroundimg) ? $backgroundimg : $mypublicdefaultbgimgurl
+    'backgroundimg' => isset($backgroundimg) ? $backgroundimg : $mypublicdefaultbgimgurl,
+    'gender' => $gender
 ];
 // echo '<pre>'.print_r($user,1).'</pre>'; exit();
 // create $jscontext, which later send as param to js_call_amd (mypublicpage)

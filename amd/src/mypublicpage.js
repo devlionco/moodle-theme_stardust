@@ -101,6 +101,8 @@ define(['jquery', 'jqueryui', 'core/str'], function($, jqui, str) {
             aim = dbdata.aim,
             phone1 = dbdata.phone1,
             phone2 = dbdata.phone2,
+            // gender = dbdata.gender,
+            city = dbdata.city,
             address = dbdata.address,
             skype = dbdata.skype,
             knowledge = dbdata.knowledge,
@@ -114,7 +116,8 @@ define(['jquery', 'jqueryui', 'core/str'], function($, jqui, str) {
         var queryInputs = document.querySelectorAll(`
           #mypublicpage-profile-shortform input.input[data-edited="true"],
           #mypublicpage-profile-shortform #icq,
-          #mypublicpage-profile-shortform #interests
+          #mypublicpage-profile-shortform #interests,
+          #mypublicpage-profile-shortform #gender
         `);
 
         var changes = new Object();
@@ -242,6 +245,12 @@ define(['jquery', 'jqueryui', 'core/str'], function($, jqui, str) {
               //     $('#'+item.id+' ~ .input-label  .error').text(' ').removeClass('error');
               //   }
               // }
+            case "gender":
+                item.value  = $('#gender input:checked').val();
+                break;
+            case "city":
+                item.value  = $.trim($('#city').val());
+                break;
             case "phone2":
               // not required, but also might be in format like 123-123-1234 or (123) 123 1234 or 123.123.1234
               var regEx = /^[(]{0,1}[0-9]{3}[)]{0,1}[-\s\.]{0,1}[0-9]{3}[-\s\.]{0,1}[0-9]{4}$/;

@@ -734,8 +734,8 @@ body#page-login-signup {
 .dheader .btn-secondary {
   margin-right: 10px; }
 
-.dheader .stardust a[data-title="mymoodle,admin"],
-.dheader .stardust a[data-title="grades,grades"] {
+.dheader .stardust a[data-title="mymoodle, admin"],
+.dheader .stardust a[data-title="grades, grades"] {
   display: none; }
 
 .navbar .count-container {
@@ -821,41 +821,54 @@ body#page-login-signup {
         color: #fff; }
         .dheader .dheader__inner .dheader__right .dheader__tutorial .dheader__tutorial-link {
           position: relative;
-          width: 130px;
+          width: 160px;
           font: 600 12px "openSans";
           color: #fff;
-          padding-left: 37px; }
-          .dheader .dheader__inner .dheader__right .dheader__tutorial .dheader__tutorial-link::before, .dheader .dheader__inner .dheader__right .dheader__tutorial .dheader__tutorial-link::after {
-            content: "";
-            position: absolute;
+          /* padding-left: 37px; */
+          display: -ms-flexbox;
+          display: flex; }
+          .dheader .dheader__inner .dheader__right .dheader__tutorial .dheader__tutorial-link .tutorial__toggler {
+            position: relative;
             top: -1px;
             background-color: #fff;
-            left: 0;
             height: 20px;
             width: 30px;
-            border-radius: 10px; }
-          .dheader .dheader__inner .dheader__right .dheader__tutorial .dheader__tutorial-link::after {
-            transition: .2s;
-            background-color: #19284f;
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            position: absolute;
-            top: 4px;
+            border-radius: 10px;
+            margin: 0 10px; }
+            .dheader .dheader__inner .dheader__right .dheader__tutorial .dheader__tutorial-link .tutorial__toggler::after {
+              content: '';
+              position: absolute;
+              transition: 0.2s;
+              width: 14px;
+              height: 14px;
+              border-radius: 50%;
+              background-color: #19284f;
+              top: 3px;
+              left: 13px; }
+            .dheader .dheader__inner .dheader__right .dheader__tutorial .dheader__tutorial-link .tutorial__toggler .point {
+              position: absolute;
+              transition: 0.2s;
+              background-color: #19284f;
+              width: 4px;
+              height: 4px;
+              border-radius: 4px;
+              position: absolute;
+              top: 8px;
+              left: 22px; }
+          .dheader .dheader__inner .dheader__right .dheader__tutorial .dheader__tutorial-link.active .point {
+            width: 20px;
             left: 5px; }
-          .dheader .dheader__inner .dheader__right .dheader__tutorial .dheader__tutorial-link.active::after {
-            left: 12px; }
-          .dheader .dheader__inner .dheader__right .dheader__tutorial .dheader__tutorial-link.active::before {
-            background-color: #5cb85c; }
           .dheader .dheader__inner .dheader__right .dheader__tutorial .dheader__tutorial-link .tutorialon {
             display: none; }
           .dheader .dheader__inner .dheader__right .dheader__tutorial .dheader__tutorial-link.active .tutorialon {
-            display: inline-block; }
+            display: block; }
           .dheader .dheader__inner .dheader__right .dheader__tutorial .dheader__tutorial-link.active .tutorialoff {
             display: none; }
           .dheader .dheader__inner .dheader__right .dheader__tutorial .dheader__tutorial-link:hover {
             text-decoration: none;
             color: #fff; }
+        .dheader .dheader__inner .dheader__right .dheader__tutorial .dheader__tutorial-link.active .tutorial__toggler::after {
+          left: 3px; }
       .dheader .dheader__inner .dheader__right .dheader__lang {
         margin: 0 1vw;
         color: #fff !important;
@@ -864,7 +877,7 @@ body#page-login-signup {
         background-position: left;
         background-repeat: no-repeat;
         background-size: 22px;
-        background-image: url([[pix:theme|header/lang]]); }
+        background-image: url("[[pix:theme|header/lang]]"); }
         .dheader .dheader__inner .dheader__right .dheader__lang:after {
           display: none; }
       .dheader .dheader__inner .dheader__right .popover-region {
@@ -875,8 +888,8 @@ body#page-login-signup {
           border-top: 12px solid transparent;
           border-right: 12px solid #fff;
           border-bottom: 12px solid #fff;
-          border-left: 12px solid  transparent;
-          left: 0px; }
+          border-left: 12px solid transparent;
+          left: 0; }
         .dheader .dheader__inner .dheader__right .popover-region .popover-region-container {
           left: auto; }
           .dheader .dheader__inner .dheader__right .popover-region .popover-region-container .img-wrap img {
@@ -2506,6 +2519,7 @@ body#page-login-signup {
                     width: 100%;
                     border: none;
                     font-size: 18px; }
+                  #mypublic-student .main-wrapper .main-content .profile-info .column .info-list li.info #gender,
                   #mypublic-student .main-wrapper .main-content .profile-info .column .info-list li.info .input {
                     border-bottom: 2px solid #19284f;
                     color: #717171;
@@ -3257,16 +3271,13 @@ html {
     margin-bottom: 46px;
     display: -ms-flexbox;
     display: flex;
+    -ms-flex-positive: 1;
+        flex-grow: 1;
     -ms-flex-direction: column;
         flex-direction: column;
     -ms-flex-align: start;
         align-items: flex-start;
     z-index: 2; }
-    .incourse-header .top-wrapper .top:before {
-      content: '';
-      position: relative;
-      display: block;
-      width: 1344px; }
     .incourse-header .top-wrapper .top .subtitle {
       text-shadow: 0 0 6px black;
       margin-bottom: 16px;
@@ -3290,9 +3301,7 @@ html {
       padding: 0;
       list-style: none;
       display: -ms-flexbox;
-      display: flex;
-      -ms-flex-wrap: wrap;
-          flex-wrap: wrap; }
+      display: flex; }
       .incourse-header .top-wrapper .top .blocks-list .block {
         cursor: pointer;
         width: 204px;
@@ -3639,7 +3648,6 @@ html {
                       min-width: 16px;
                       min-height: 16px;
                       border: 2px solid rgba(161, 173, 179, 0.5);
-                      border-radius: 50%;
                       margin-right: 10px;
                       position: absolute;
                       top: 9px;
@@ -3653,6 +3661,8 @@ html {
                     opacity: 0; }
                   #page-mod-quiz-attempt #page-wrapper section#region-main.has-blocks [role="main"] .que .content .formulation .ablock .answer > div input:checked + label::before {
                     background: #19284f; }
+                  #page-mod-quiz-attempt #page-wrapper section#region-main.has-blocks [role="main"] .que .content .formulation .ablock .answer > div input[type="radio"] + label::before {
+                    border-radius: 50%; }
                   #page-mod-quiz-attempt #page-wrapper section#region-main.has-blocks [role="main"] .que .content .formulation .ablock .answer > div i.fa-remove, #page-mod-quiz-attempt #page-wrapper section#region-main.has-blocks [role="main"] .que .content .formulation .ablock .answer > div i.fa-check {
                     position: absolute;
                     top: 9px;
@@ -4056,7 +4066,7 @@ html {
     overflow-y: auto; }
   @media only screen and (min-width: 576px) and (max-width: 992px){
   .dheader__tutorial{
-    display: none  !important; }
+    display: none !important; }
   #my-page .main-wrapper .main{
     max-width: 95%; }
   #my-page .main-wrapper .main-content{
