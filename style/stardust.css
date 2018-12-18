@@ -2295,7 +2295,7 @@ body#page-login-signup {
         padding-bottom: 18px; }
 
 #course-main-content #help-menu .btn-help, .incourse-header #help-menu .btn-help {
-  transform: scale(0.85);
+  /*   transform: scale(.85); */
   background: url([[pix:theme|pagemy/help-dblue]]) no-repeat center;
   cursor: pointer; }
 
@@ -2971,7 +2971,7 @@ html {
       position: relative; }
       #course-main-content .main-wrapper .main .help-block {
         position: absolute;
-        top: -116px;
+        top: -112px;
         right: 0; }
       #course-main-content .main-wrapper .main .courses-list {
         list-style: none;
@@ -3988,9 +3988,9 @@ html {
   position: absolute;
   top: -119px;
   right: 6%;
-  z-index: 120;
-  width: 46px;
-  height: 46px;
+  z-index: 1000;
+  width: 56px;
+  height: 56px;
   border-radius: 50%;
   color: #fff;
   background-color: #19284f;
@@ -4021,6 +4021,29 @@ html {
   -ms-transform: rotate(90deg);
   -o-transform: rotate(90deg); }
 
+.blockpanelbtn_clone {
+  position: fixed;
+  right: 285px;
+  top: 60px;
+  z-index: 1000;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  color: #fff;
+  background-color: #19284f;
+  box-shadow: 1.5px 1.5px 2px #19284f;
+  font-size: 1rem;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: center;
+      justify-content: center;
+  -ms-flex-align: center;
+      align-items: center;
+  text-decoration: none; }
+  .blockpanelbtn_clone:hover {
+    color: #fff;
+    text-decoration: none; }
+
 /* html[dir='rtl']{
     #page-content {
         .card-block{
@@ -4032,45 +4055,53 @@ html {
 } */
 #page-my-index #page-content #region-main-box {
   width: 100vw;
-  overflow-x: hidden;
-  height: 100%;
-  overflow-y: -webkit-paged-y; }
+  height: 100%; }
 
 #page-my-index #page-content .card-block .slidingblockpanel {
-  position: absolute;
+  position: fixed;
+  overflow-y: scroll;
+  height: 104%;
   z-index: 100;
-  top: 2rem;
-  max-width: 30%; }
+  top: 15px;
+  max-width: 300px; }
   #page-my-index #page-content .card-block .slidingblockpanel .col-md-4:last-child {
     -ms-flex: 0 0 100%;
         flex: 0 0 100%;
     max-width: 100%;
-    background-color: #f2f2f2; }
+    background-color: #f2f2f2;
+    padding-top: 15px; }
 
-#page-course-view-stardust header .container-fluid {
-  max-width: 100vw;
-  margin-right: 0; }
-
-#page-course-view-stardust #page-content #region-main-box {
-  width: 100vw;
-  overflow-x: hidden;
-  height: 100%;
-  overflow-y: -webkit-paged-y; }
-
-#page-course-view-stardust #page-content .card-block .slidingblockpanel {
-  position: absolute;
-  z-index: 100;
-  top: -4rem;
-  max-width: 30%;
-  background-color: #f2f2f2; }
-  #page-course-view-stardust #page-content .card-block .slidingblockpanel .container-fluid {
-    margin-right: 0;
-    overflow: hidden; }
-    #page-course-view-stardust #page-content .card-block .slidingblockpanel .container-fluid .col-md-4:last-child {
-      -ms-flex: 0 0 100%;
-          flex: 0 0 100%;
-      max-width: 100%; }
-    @media only screen and (min-width: 576px) and (max-width: 992px){
+#page-course-view-stardust {
+  /*   .fixedbtn{
+        position: fixed;
+        right: 550px;
+        top: 49px;
+    } */ }
+  #page-course-view-stardust header .container-fluid {
+    max-width: 100vw;
+    margin-right: 0; }
+  #page-course-view-stardust #page-content #region-main-box {
+    width: 100vw;
+    height: 100%; }
+  #page-course-view-stardust #page-content .card-block .slidingblockpanel {
+    position: fixed;
+    overflow-y: scroll;
+    height: 100%;
+    z-index: 100;
+    top: 35px;
+    max-width: 300px;
+    padding-top: 8px; }
+    #page-course-view-stardust #page-content .card-block .slidingblockpanel .container-fluid {
+      margin-right: 0; }
+      #page-course-view-stardust #page-content .card-block .slidingblockpanel .container-fluid .col-md-4:last-child {
+        -ms-flex: 0 0 100%;
+            flex: 0 0 100%;
+        max-width: 100%;
+        background-color: #f2f2f2;
+        padding-top: 15px; }
+        #page-course-view-stardust #page-content .card-block .slidingblockpanel .container-fluid .col-md-4:last-child .block {
+          background-color: #fff; }
+        @media only screen and (min-width: 576px) and (max-width: 992px){
   .dheader__tutorial{
     display: none  !important; }
   #my-page .main-wrapper .main{
@@ -4090,13 +4121,13 @@ html {
     flex-wrap: wrap; }
   #course-main-content .top-wrapper .top-content-item{
     margin-bottom: 24px; } }
-    @media (min-width: 1024px){
+        @media (min-width: 1024px){
   #page-login-index .dlogin__title{
     min-width: 600px; } }
-    @media (max-width: 375px){
+        @media (max-width: 375px){
   #page-login-index .dlogin__enter{
     margin-left: -15px; } }
-    @media (max-width: 768px){
+        @media (max-width: 768px){
   #page-footer #stardust-footer .footer-nav{
     -ms-flex-order: 1;
     order: 1;
@@ -4127,7 +4158,7 @@ html {
     align-items: center;
     -ms-flex-pack: center;
     justify-content: center; } }
-    @media only screen and (max-width: 576px){
+        @media only screen and (max-width: 576px){
   .dheader__tutorial{
     display: none !important; }
   #my-page .main-wrapper .main{
@@ -4147,7 +4178,7 @@ html {
     flex-wrap: wrap; }
   #course-main-content .top-wrapper .top-content-item{
     margin-bottom: 24px; } }
-    @media only screen and (max-width: 1344px){
+        @media only screen and (max-width: 1344px){
   .card.card-block{
     min-height: auto;
     max-width: 1344px;
@@ -4158,11 +4189,11 @@ html {
   #page-mod-quiz-summary #page-wrapper section#region-main.has-blocks .card,
   #page-mod-quiz-attempt #page-wrapper section#region-main.has-blocks .card{
     margin: 0 4%; } }
-    @media only screen and (max-width: 992px){
+        @media only screen and (max-width: 992px){
   #mypublic-student .main-wrapper .main-content{
     -ms-grid-columns: (minmax(200px, 100%))[auto-fill];
     grid-template-columns: repeat(auto-fill, minmax(200px, 100%)); } }
-    @media screen and (max-width: 800px){
+        @media screen and (max-width: 800px){
   #page-mod-quiz-summary #page-wrapper section#region-main.has-blocks .card,
   #page-mod-quiz-attempt #page-wrapper section#region-main.has-blocks .card{
     margin: 0 4%; }

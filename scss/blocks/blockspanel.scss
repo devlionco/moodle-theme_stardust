@@ -3,8 +3,8 @@
     top: -119px;
     right: 6%;
     z-index: 1000;
-    width: 46px;
-    height: 46px;
+    width: 56px;
+    height: 56px;
     border-radius: 50%;
     color: #fff;
     background-color: $primary-color;
@@ -38,6 +38,29 @@
         -o-transform: rotate(90deg);
     }
 }
+
+.blockpanelbtn_clone {
+    position: fixed;
+    right: 285px;
+    top: 60px;
+    z-index: 1000;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    color: #fff;
+    background-color: $primary-color;
+    box-shadow: 1.5px 1.5px 2px $primary-color;
+    font-size: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    &:hover {
+        color: #fff;
+        text-decoration: none;
+    }
+
+}
 /* html[dir='rtl']{
     #page-content {
         .card-block{
@@ -51,26 +74,30 @@
     #page-content {
         #region-main-box {
             width: 100vw;
-            overflow-x: hidden;
             height: 100%;
-            overflow-y: -webkit-paged-y;
+
         }
         .card-block {
 
             .slidingblockpanel {
-                position: absolute;
+                position: fixed;
+                overflow-y: scroll;
+                height: 104%;
                 z-index: 100;
-                top: 2rem;
-                max-width: 30%;
-                
+                top: 15px;
+                max-width: 300px;
+
                 .col-md-4:last-child {
                     flex: 0 0 100%;
                     max-width: 100%;
                     background-color: #f2f2f2;
+                    padding-top: 15px;
                 }
+
                 .container-fluid {
 
-                    .row {}
+                    .row {
+                        }
                 }
             }
         }
@@ -85,28 +112,38 @@
 
         }
     }
+    /*   .fixedbtn{
+        position: fixed;
+        right: 550px;
+        top: 49px;
+    } */
     #page-content {
         #region-main-box {
             width: 100vw;
-            overflow-x: hidden;
             height: 100%;
-            overflow-y: -webkit-paged-y;
         }
         .card-block {
 
             .slidingblockpanel {
-                position: absolute;
+                position: fixed;
+                overflow-y: scroll;
+                height: 100%;
                 z-index: 100;
-                top: -4rem;
-                max-width: 30%;
-                background-color: #f2f2f2;
+                top: 35px;
+                max-width: 300px;
+
+                padding-top: 8px;
                 .container-fluid {
                     margin-right: 0;
-                    overflow: hidden;
 
                     .col-md-4:last-child {
                         flex: 0 0 100%;
                         max-width: 100%;
+                        background-color: #f2f2f2;
+                        padding-top: 15px;
+                        .block {
+                            background-color: #fff;
+                        }
                     }
 
                 }

@@ -1,8 +1,11 @@
 {{#hascourseblocks}}
 <div class="collapse slidingblockpanel" id="blockslider">
-
+        
+          <a class="blockpanelbtn_clone" href="#" ><i class="fa fa-times" aria-hidden="true"></i></a>
+        
     {{#hasfpblockregion}}
         <div class="fp-blocks">
+
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-md-4">
@@ -51,56 +54,49 @@ const BlockMargin = {
   left: -(besidesMargin + sliderWidth)
 };
 
-const slidingBlockHeight = $(".slidingblockpanel").height();
-const regionMainHeight = $("#region-main").height();
-
-
 $(document).ready(function() {
   if (curentLang == "ltr") {
     $(".slidingblockpanel").css({ right: BlockMargin.right });
+    $(".blockpanelbtn_clone").css({ right: BlockMargin.right });
   } else {
     $(".slidingblockpanel").css({ left: BlockMargin.left });
+    $(".blockpanelbtn_clone").css({ left: BlockMargin.left });
   }
 });
 
 $("#blocksliderbutton").click(function() {
-  $(this).toggleClass("blocksliderbutton_open");
-    
-  if ($("#blocksliderbutton").hasClass("blocksliderbutton_open")) {
-      $("#region-main").css({
-        'margin-bottom': `${slidingBlockHeight - regionMainHeight}px`
-    });
-
-    var theOffset = $(this).offset();
-    $("body, html").animate(
-      {
-        scrollTop: theOffset.top - 50
-      },
-      400
-    );
-    $(".slidingblockpanel").css({ display: "none" });
-    if (curentLang == "ltr") {
-      $(".slidingblockpanel").css({ display: "block" });
-      $(".slidingblockpanel")
-        .delay(600)
-        .animate({ right: Margin.right }, 600);
-    } else {
-      $(".slidingblockpanel").css({ display: "block" });
-      $(".slidingblockpanel")
-        .delay(600)
-        .animate({ left: Margin.left }, 600);
-    }
+  $(".blockpanelbtn").fadeTo(300, 0, function() {
+    $(".blockpanelbtn").css({ visibility: "hidden" });
+  });
+  $(".slidingblockpanel").css({ display: "none" });
+  if (curentLang == "ltr") {
+    $(".slidingblockpanel").css({ display: "block" });
+    $(".slidingblockpanel").delay(300).animate({ right: 0 }, 600);
+    $(".blockpanelbtn_clone").delay(300).animate({ right: 287 }, 600);
   } else {
-    $("#region-main").css("margin-bottom", "0");
-    if (curentLang == "ltr") {
-      $(".slidingblockpanel").animate({ right: BlockMargin.right }, 300);
-    } else {
-      $(".slidingblockpanel").animate({ left: BlockMargin.left }, 300);
-    }
+    $(".slidingblockpanel").css({ display: "block" });
+    $(".slidingblockpanel").delay(300).animate({ left: 0 }, 600);
+    $(".blockpanelbtn_clone").delay(300).animate({ left: 287 }, 600);
   }
+});
 
-  $(this).find("i").delay(550).toggleClass("fa fa-bars");
-  $(this).find("i").delay(550).toggleClass("fa fa-times");
+$(".blockpanelbtn_clone").click(function() {
+  $(".blockpanelbtn").css({ visibility: "visible" });
+  $(".blockpanelbtn").fadeTo(300, 1);
+
+  if (curentLang == "ltr") {
+    $(".slidingblockpanel").animate({ right: BlockMargin.right }, 300);
+    $(".blockpanelbtn_clone").animate(
+      { right: BlockMargin.right, transform: "rotate(180deg)" },
+      300
+    );
+  } else {
+    $(".slidingblockpanel").animate({ left: BlockMargin.left }, 300);
+    $(".blockpanelbtn_clone").animate(
+      { left: BlockMargin.left, transform: "rotate(180deg)" },
+      300
+    );
+  }
 });
 
 {{/js}}
