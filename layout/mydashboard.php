@@ -223,7 +223,6 @@ if (isset($PAGE->theme->settings->showbacktotop) && $PAGE->theme->settings->show
 $PAGE->requires->js('/theme/fordson/javascript/scrolltotop.js');
 $PAGE->requires->js('/theme/fordson/javascript/tooltipfix.js');
 
-// $PAGE->requires->js_call_amd('theme_stardust/lightslider', 'init');
 $PAGE->requires->js_call_amd('theme_stardust/tabweek', 'init');
 $PAGE->requires->js_call_amd('theme_stardust/filter', 'init');
 

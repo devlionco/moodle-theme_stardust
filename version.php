@@ -18,7 +18,7 @@
  * Version file.
  *
  *
- * @package    theme_clean
+ * @package    theme_stardust
  * @copyright  2013 Moodle, moodle.org
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
