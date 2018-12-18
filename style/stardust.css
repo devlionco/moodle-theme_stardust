@@ -2308,7 +2308,7 @@ body#page-login-signup {
         padding-bottom: 18px; }
 
 #course-main-content #help-menu .btn-help, .incourse-header #help-menu .btn-help {
-  transform: scale(0.85);
+  /*   transform: scale(.85); */
   background: url([[pix:theme|pagemy/help-dblue]]) no-repeat center;
   cursor: pointer; }
 
@@ -2985,7 +2985,7 @@ html {
       position: relative; }
       #course-main-content .main-wrapper .main .help-block {
         position: absolute;
-        top: -116px;
+        top: -112px;
         right: 0; }
       #course-main-content .main-wrapper .main .courses-list {
         list-style: none;
@@ -3998,9 +3998,9 @@ html {
   position: absolute;
   top: -119px;
   right: 6%;
-  z-index: 120;
-  width: 46px;
-  height: 46px;
+  z-index: 1000;
+  width: 56px;
+  height: 56px;
   border-radius: 50%;
   color: #fff;
   background-color: #19284f;
@@ -4015,10 +4015,56 @@ html {
     height: 100%; }
     .blockpanelbtn a i {
       color: #fff;
-      font-size: 1.225rem; }
+      font-size: 1.225rem;
+      transition: 0.25s ease-in-out; }
     .blockpanelbtn a span {
       display: none; }
-    @media only screen and (min-width: 576px) and (max-width: 992px){
+
+.blocksliderbutton_open i {
+  transform: rotate(90deg); }
+
+.blockpanelbtn_clone {
+  position: fixed;
+  right: 285px;
+  top: 50px;
+  z-index: 1000;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  color: #fff;
+  background-color: #19284f;
+  box-shadow: 1.5px 1.5px 2px #19284f;
+  font-size: 1rem;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: center;
+      justify-content: center;
+  -ms-flex-align: center;
+      align-items: center;
+  text-decoration: none; }
+  .blockpanelbtn_clone:hover {
+    color: #fff;
+    text-decoration: none; }
+
+#page-content .slidingblockpanel {
+  position: fixed;
+  z-index: 100;
+  top: 45px;
+  bottom: 0;
+  background-color: #f2f2f2;
+  padding: 15px;
+  max-width: 400px; }
+  #page-content .slidingblockpanel .col-md-4:last-child {
+    -ms-flex: 0 0 100%;
+        flex: 0 0 100%;
+    max-width: 100%;
+    padding: 0; }
+  #page-content .slidingblockpanel .row {
+    background-color: #f2f2f2; }
+  #page-content .slidingblockpanel .fp-blocks {
+    height: 100%;
+    overflow-y: auto; }
+  @media only screen and (min-width: 576px) and (max-width: 992px){
   .dheader__tutorial{
     display: none !important; }
   #my-page .main-wrapper .main{
@@ -4038,13 +4084,13 @@ html {
     flex-wrap: wrap; }
   #course-main-content .top-wrapper .top-content-item{
     margin-bottom: 24px; } }
-    @media (min-width: 1024px){
+  @media (min-width: 1024px){
   #page-login-index .dlogin__title{
     min-width: 600px; } }
-    @media (max-width: 375px){
+  @media (max-width: 375px){
   #page-login-index .dlogin__enter{
     margin-left: -15px; } }
-    @media (max-width: 768px){
+  @media (max-width: 768px){
   #page-footer #stardust-footer .footer-nav{
     -ms-flex-order: 1;
     order: 1;
@@ -4075,7 +4121,7 @@ html {
     align-items: center;
     -ms-flex-pack: center;
     justify-content: center; } }
-    @media only screen and (max-width: 576px){
+  @media only screen and (max-width: 576px){
   .dheader__tutorial{
     display: none !important; }
   #my-page .main-wrapper .main{
@@ -4095,7 +4141,7 @@ html {
     flex-wrap: wrap; }
   #course-main-content .top-wrapper .top-content-item{
     margin-bottom: 24px; } }
-    @media only screen and (max-width: 1344px){
+  @media only screen and (max-width: 1344px){
   .card.card-block{
     min-height: auto;
     max-width: 1344px;
@@ -4106,11 +4152,11 @@ html {
   #page-mod-quiz-summary #page-wrapper section#region-main.has-blocks .card,
   #page-mod-quiz-attempt #page-wrapper section#region-main.has-blocks .card{
     margin: 0 4%; } }
-    @media only screen and (max-width: 992px){
+  @media only screen and (max-width: 992px){
   #mypublic-student .main-wrapper .main-content{
     -ms-grid-columns: (minmax(200px, 100%))[auto-fill];
     grid-template-columns: repeat(auto-fill, minmax(200px, 100%)); } }
-    @media screen and (max-width: 800px){
+  @media screen and (max-width: 800px){
   #page-mod-quiz-summary #page-wrapper section#region-main.has-blocks .card,
   #page-mod-quiz-attempt #page-wrapper section#region-main.has-blocks .card{
     margin: 0 4%; }

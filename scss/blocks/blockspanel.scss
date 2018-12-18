@@ -1,25 +1,79 @@
 .blockpanelbtn {
-  position: absolute;
-  top: -119px;
-  right: 6%;
-  z-index: 120;
-  width:46px;
-  height:46px;
-  border-radius: 50%;
-  color: #fff;
-  background-color: $primary-color;
-  box-shadow: 1.5px 1.5px 2px $primary-color;
-  a{
+    position: absolute;
+    top: -119px;
+    right: 6%;
+    z-index: 1000;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    color: #fff;
+    background-color: $primary-color;
+    box-shadow: 1.5px 1.5px 2px $primary-color;
+    a {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        i {
+            color: #fff;
+            font-size: 1.225rem;
+            transition: 0.25s ease-in-out;
+        }
+        span {
+            display: none;
+        }
+    }
+}
+.blocksliderbutton_open {
+    i {
+        transform: rotate(90deg);
+    }
+}
+
+.blockpanelbtn_clone {
+    position: fixed;
+    right: 285px;
+    top: 50px;
+    z-index: 1000;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    color: #fff;
+    background-color: $primary-color;
+    box-shadow: 1.5px 1.5px 2px $primary-color;
+    font-size: 1rem;
     display: flex;
     justify-content: center;
     align-items: center;
-    height:100%;
-    i {
-      color: #fff;
-      font-size: 1.225rem;
+    text-decoration: none;
+    &:hover {
+        color: #fff;
+        text-decoration: none;
     }
-    span{
-      display: none;
+
+}
+
+#page-content {
+    .slidingblockpanel {
+        position: fixed;
+        z-index: 100;
+        top: 45px;
+        bottom: 0;
+        background-color: #f2f2f2;
+        padding: 15px;
+        max-width: 400px;
+        .col-md-4:last-child {
+            flex: 0 0 100%;
+            max-width: 100%;
+            padding: 0;
+        }
+        .row {
+        background-color: #f2f2f2;
+        }
+        .fp-blocks{
+          height: 100%;
+          overflow-y: auto;
+        }
     }
   }
 }
