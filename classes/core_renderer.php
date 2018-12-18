@@ -1962,11 +1962,11 @@ class core_renderer extends \theme_boost\output\core_renderer {
         $url = $this->get_logo_url();
 
         // Custom logins.
-        $context->logintext_custom = format_text($PAGE->theme->settings->fptextboxlogout);
+        $context->logintext_custom = isset($PAGE->theme->settings->fptextboxlogout) ? format_text($PAGE->theme->settings->fptextboxlogout) : '';
         $context->logintopimage = $PAGE->theme->setting_file_url('logintopimage', 'logintopimage');
-        $context->hascustomlogin = $PAGE->theme->settings->showcustomlogin == 1;
-        $context->hasdefaultlogin = $PAGE->theme->settings->showcustomlogin == 0;
-        $context->alertbox = format_text($PAGE->theme->settings->alertbox);
+        $context->hascustomlogin = (isset($PAGE->theme->settings->showcustomlogin) && $PAGE->theme->settings->showcustomlogin == 1) ? true : false;
+        $context->hasdefaultlogin = (isset($PAGE->theme->settings->showcustomlogin) && $PAGE->theme->settings->showcustomlogin == 0) ? true : false;
+        $context->alertbox = isset($PAGE->theme->settings->alertbox) ? format_text($PAGE->theme->settings->alertbox) : '';
         if ($url) {
             $url = $url->out(false);
         }
