@@ -61,10 +61,10 @@
         background-color: #f2f2f2;
         padding: 15px;
         width: 400px;
-        .col-md-4:last-child {
-            flex: 0 0 100%;
-            max-width: 100%;
-            padding: 0;
+        .col-md-4 {
+            // flex: 0 0 100%;
+            // max-width: 100%;
+            // padding: 0;
         }
         .row {
           background-color: #f2f2f2;

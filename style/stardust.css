@@ -4054,11 +4054,6 @@ html {
   background-color: #f2f2f2;
   padding: 15px;
   width: 400px; }
-  #page-content .slidingblockpanel .col-md-4:last-child {
-    -ms-flex: 0 0 100%;
-        flex: 0 0 100%;
-    max-width: 100%;
-    padding: 0; }
   #page-content .slidingblockpanel .row {
     background-color: #f2f2f2; }
   #page-content .slidingblockpanel .fp-blocks {
