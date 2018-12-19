@@ -734,8 +734,8 @@ body#page-login-signup {
 .dheader .btn-secondary {
   margin-right: 10px; }
 
-.dheader .stardust a[data-title="mymoodle,admin"],
-.dheader .stardust a[data-title="grades,grades"] {
+.dheader .stardust a[data-title="mymoodle, admin"],
+.dheader .stardust a[data-title="grades, grades"] {
   display: none; }
 
 .navbar .count-container {
@@ -821,41 +821,54 @@ body#page-login-signup {
         color: #fff; }
         .dheader .dheader__inner .dheader__right .dheader__tutorial .dheader__tutorial-link {
           position: relative;
-          width: 130px;
+          width: 160px;
           font: 600 12px "openSans";
           color: #fff;
-          padding-left: 37px; }
-          .dheader .dheader__inner .dheader__right .dheader__tutorial .dheader__tutorial-link::before, .dheader .dheader__inner .dheader__right .dheader__tutorial .dheader__tutorial-link::after {
-            content: "";
-            position: absolute;
+          /* padding-left: 37px; */
+          display: -ms-flexbox;
+          display: flex; }
+          .dheader .dheader__inner .dheader__right .dheader__tutorial .dheader__tutorial-link .tutorial__toggler {
+            position: relative;
             top: -1px;
             background-color: #fff;
-            left: 0;
             height: 20px;
             width: 30px;
-            border-radius: 10px; }
-          .dheader .dheader__inner .dheader__right .dheader__tutorial .dheader__tutorial-link::after {
-            transition: .2s;
-            background-color: #19284f;
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            position: absolute;
-            top: 4px;
+            border-radius: 10px;
+            margin: 0 10px; }
+            .dheader .dheader__inner .dheader__right .dheader__tutorial .dheader__tutorial-link .tutorial__toggler::after {
+              content: '';
+              position: absolute;
+              transition: 0.2s;
+              width: 14px;
+              height: 14px;
+              border-radius: 50%;
+              background-color: #19284f;
+              top: 3px;
+              left: 13px; }
+            .dheader .dheader__inner .dheader__right .dheader__tutorial .dheader__tutorial-link .tutorial__toggler .point {
+              position: absolute;
+              transition: 0.2s;
+              background-color: #19284f;
+              width: 4px;
+              height: 4px;
+              border-radius: 4px;
+              position: absolute;
+              top: 8px;
+              left: 22px; }
+          .dheader .dheader__inner .dheader__right .dheader__tutorial .dheader__tutorial-link.active .point {
+            width: 20px;
             left: 5px; }
-          .dheader .dheader__inner .dheader__right .dheader__tutorial .dheader__tutorial-link.active::after {
-            left: 12px; }
-          .dheader .dheader__inner .dheader__right .dheader__tutorial .dheader__tutorial-link.active::before {
-            background-color: #5cb85c; }
           .dheader .dheader__inner .dheader__right .dheader__tutorial .dheader__tutorial-link .tutorialon {
             display: none; }
           .dheader .dheader__inner .dheader__right .dheader__tutorial .dheader__tutorial-link.active .tutorialon {
-            display: inline-block; }
+            display: block; }
           .dheader .dheader__inner .dheader__right .dheader__tutorial .dheader__tutorial-link.active .tutorialoff {
             display: none; }
           .dheader .dheader__inner .dheader__right .dheader__tutorial .dheader__tutorial-link:hover {
             text-decoration: none;
             color: #fff; }
+        .dheader .dheader__inner .dheader__right .dheader__tutorial .dheader__tutorial-link.active .tutorial__toggler::after {
+          left: 3px; }
       .dheader .dheader__inner .dheader__right .dheader__lang {
         margin: 0 1vw;
         color: #fff !important;
@@ -864,7 +877,7 @@ body#page-login-signup {
         background-position: left;
         background-repeat: no-repeat;
         background-size: 22px;
-        background-image: url([[pix:theme|header/lang]]); }
+        background-image: url("[[pix:theme|header/lang]]"); }
         .dheader .dheader__inner .dheader__right .dheader__lang:after {
           display: none; }
       .dheader .dheader__inner .dheader__right .popover-region {
@@ -875,8 +888,8 @@ body#page-login-signup {
           border-top: 12px solid transparent;
           border-right: 12px solid #fff;
           border-bottom: 12px solid #fff;
-          border-left: 12px solid  transparent;
-          left: 0px; }
+          border-left: 12px solid transparent;
+          left: 0; }
         .dheader .dheader__inner .dheader__right .popover-region .popover-region-container {
           left: auto; }
           .dheader .dheader__inner .dheader__right .popover-region .popover-region-container .img-wrap img {
@@ -2302,7 +2315,7 @@ body#page-login-signup {
         padding-bottom: 18px; }
 
 #course-main-content #help-menu .btn-help, .incourse-header #help-menu .btn-help {
-  transform: scale(0.85);
+  /*   transform: scale(.85); */
   background: url([[pix:theme|pagemy/help-dblue]]) no-repeat center;
   cursor: pointer; }
 
@@ -2979,7 +2992,7 @@ html {
       position: relative; }
       #course-main-content .main-wrapper .main .help-block {
         position: absolute;
-        top: -116px;
+        top: -112px;
         right: 0; }
       #course-main-content .main-wrapper .main .courses-list {
         list-style: none;
@@ -3610,8 +3623,7 @@ html {
               #page-mod-quiz-attempt #page-wrapper section#region-main.has-blocks [role="main"] .que .content .formulation .qtext img {
                 max-width: 50%;
                 text-align: center;
-                margin: 0 auto;
-                display: block; }
+                margin: 0 auto; }
               #page-mod-quiz-attempt #page-wrapper section#region-main.has-blocks [role="main"] .que .content .formulation .ablock .answer {
                 display: -ms-flexbox;
                 display: flex;
@@ -3655,6 +3667,8 @@ html {
                     opacity: 0; }
                   #page-mod-quiz-attempt #page-wrapper section#region-main.has-blocks [role="main"] .que .content .formulation .ablock .answer > div input:checked + label::before {
                     background: #19284f; }
+                  #page-mod-quiz-attempt #page-wrapper section#region-main.has-blocks [role="main"] .que .content .formulation .ablock .answer > div input[type="radio"] + label::before {
+                    border-radius: 50%; }
                   #page-mod-quiz-attempt #page-wrapper section#region-main.has-blocks [role="main"] .que .content .formulation .ablock .answer > div i.fa-remove, #page-mod-quiz-attempt #page-wrapper section#region-main.has-blocks [role="main"] .que .content .formulation .ablock .answer > div i.fa-check {
                     position: absolute;
                     top: 9px;
@@ -3990,9 +4004,9 @@ html {
   position: absolute;
   top: -119px;
   right: 6%;
-  z-index: 120;
-  width: 46px;
-  height: 46px;
+  z-index: 1000;
+  width: 56px;
+  height: 56px;
   border-radius: 50%;
   color: #fff;
   background-color: #19284f;
@@ -4007,12 +4021,53 @@ html {
     height: 100%; }
     .blockpanelbtn a i {
       color: #fff;
-      font-size: 1.225rem; }
+      font-size: 1.225rem;
+      transition: 0.25s ease-in-out; }
     .blockpanelbtn a span {
       display: none; }
-    @media only screen and (min-width: 576px) and (max-width: 992px){
+
+.blocksliderbutton_open i {
+  transform: rotate(90deg); }
+
+.blockpanelbtn_clone {
+  position: fixed;
+  right: 285px;
+  top: 50px;
+  z-index: 1000;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  color: #fff;
+  background-color: #19284f;
+  box-shadow: 1.5px 1.5px 2px #19284f;
+  font-size: 1rem;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: center;
+      justify-content: center;
+  -ms-flex-align: center;
+      align-items: center;
+  text-decoration: none; }
+  .blockpanelbtn_clone:hover {
+    color: #fff;
+    text-decoration: none; }
+
+#page-content .slidingblockpanel {
+  position: fixed;
+  z-index: 100;
+  top: 45px;
+  bottom: 0;
+  background-color: #f2f2f2;
+  padding: 15px;
+  width: 400px; }
+  #page-content .slidingblockpanel .row {
+    background-color: #f2f2f2; }
+  #page-content .slidingblockpanel .fp-blocks {
+    height: 100%;
+    overflow-y: auto; }
+  @media only screen and (min-width: 576px) and (max-width: 992px){
   .dheader__tutorial{
-    display: none  !important; }
+    display: none !important; }
   #my-page .main-wrapper .main{
     max-width: 95%; }
   #my-page .main-wrapper .main-content{
@@ -4030,13 +4085,13 @@ html {
     flex-wrap: wrap; }
   #course-main-content .top-wrapper .top-content-item{
     margin-bottom: 24px; } }
-    @media (min-width: 1024px){
+  @media (min-width: 1024px){
   #page-login-index .dlogin__title{
     min-width: 600px; } }
-    @media (max-width: 375px){
+  @media (max-width: 375px){
   #page-login-index .dlogin__enter{
     margin-left: -15px; } }
-    @media (max-width: 768px){
+  @media (max-width: 768px){
   #page-footer #stardust-footer .footer-nav{
     -ms-flex-order: 1;
     order: 1;
@@ -4067,7 +4122,7 @@ html {
     align-items: center;
     -ms-flex-pack: center;
     justify-content: center; } }
-    @media only screen and (max-width: 576px){
+  @media only screen and (max-width: 576px){
   .dheader__tutorial{
     display: none !important; }
   #my-page .main-wrapper .main{
@@ -4087,7 +4142,7 @@ html {
     flex-wrap: wrap; }
   #course-main-content .top-wrapper .top-content-item{
     margin-bottom: 24px; } }
-    @media only screen and (max-width: 1344px){
+  @media only screen and (max-width: 1344px){
   .card.card-block{
     min-height: auto;
     max-width: 1344px;
@@ -4098,11 +4153,11 @@ html {
   #page-mod-quiz-summary #page-wrapper section#region-main.has-blocks .card,
   #page-mod-quiz-attempt #page-wrapper section#region-main.has-blocks .card{
     margin: 0 4%; } }
-    @media only screen and (max-width: 992px){
+  @media only screen and (max-width: 992px){
   #mypublic-student .main-wrapper .main-content{
     -ms-grid-columns: (minmax(200px, 100%))[auto-fill];
     grid-template-columns: repeat(auto-fill, minmax(200px, 100%)); } }
-    @media screen and (max-width: 800px){
+  @media screen and (max-width: 800px){
   #page-mod-quiz-summary #page-wrapper section#region-main.has-blocks .card,
   #page-mod-quiz-attempt #page-wrapper section#region-main.has-blocks .card{
     margin: 0 4%; }

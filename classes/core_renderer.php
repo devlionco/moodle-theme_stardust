@@ -1561,6 +1561,8 @@ class core_renderer extends \theme_boost\output\core_renderer {
             $courserestorelink = new moodle_url('/backup/restorefile.php', array(
                 'contextid' => $PAGE->context->id
             ));
+        } else {
+            $courseadmintitle = $courseadminlink = $courseresettitle = $courseresetlink = $coursebackuptitle = $coursebackuplink = $courserestoretitle = $courserestorelink = null;
         }
 
         $courseimporttitle = get_string('import', 'moodle');
@@ -1596,6 +1598,8 @@ class core_renderer extends \theme_boost\output\core_renderer {
             $eventmonitoringlink = new moodle_url('/admin/tool/monitor/managerules.php', array(
                 'courseid' => $PAGE->course->id
             ));
+        } else {
+            $filtertitle = $filterlink = $eventmonitoringtitle = $eventmonitoringlink = null;
         }
 
 
@@ -1740,7 +1744,7 @@ class core_renderer extends \theme_boost\output\core_renderer {
             'hasstudentdash' => $hasstudentdash,
             'hasgradebookshow' => $hasgradebookshow,
             'hascompletionshow' => $hascompletionshow,
-            'studentcourseadminlink' => $courseadminlink,
+            'studentcourseadminlink' => isset($courseadminlink) ? $courseadminlink : null,
             'studentcoursemanage' => $studentcoursemanage,
             'hascourseadminshow' => $hascourseadminshow,
             'hascompetency' => $hascompetency,
@@ -1799,14 +1803,14 @@ class core_renderer extends \theme_boost\output\core_renderer {
                 'url' => $activitylink
             ) ,
             array(
-                'hasuserlinks' => $extendeduserreporttitle,
-                'title' => $extendeduserreporttitle,
-                'url' => $extendeduserreportlink
+                'hasuserlinks' => isset($extendeduserreporttitle) ? $extendeduserreporttitle : null,
+                'title' => isset($extendeduserreporttitle) ? $extendeduserreporttitle: null,
+                'url' => isset($extendeduserreportlink) ? $extendeduserreportlink : null,
             ) ,
             array(
-                'hasteacherviewerlinks' => $extendeduserreporttitle,
-                'title' => $extendeduserreporttitle,
-                'url' => $extendeduserreportlink
+                'hasteacherviewerlinks' => isset($extendeduserreporttitle) ? $extendeduserreporttitle : null,
+                'title' => isset($extendeduserreporttitle) ? $extendeduserreporttitle : null,
+                'url' => isset($extendeduserreportlink) ? $extendeduserreportlink : null,
             ) ,
             array(
                 'hasteacherviewerlinks' => $participantstitle,
@@ -1962,11 +1966,11 @@ class core_renderer extends \theme_boost\output\core_renderer {
         $url = $this->get_logo_url();
 
         // Custom logins.
-        $context->logintext_custom = format_text($PAGE->theme->settings->fptextboxlogout);
+        $context->logintext_custom = isset($PAGE->theme->settings->fptextboxlogout) ? format_text($PAGE->theme->settings->fptextboxlogout) : '';
         $context->logintopimage = $PAGE->theme->setting_file_url('logintopimage', 'logintopimage');
-        $context->hascustomlogin = $PAGE->theme->settings->showcustomlogin == 1;
-        $context->hasdefaultlogin = $PAGE->theme->settings->showcustomlogin == 0;
-        $context->alertbox = format_text($PAGE->theme->settings->alertbox);
+        $context->hascustomlogin = (isset($PAGE->theme->settings->showcustomlogin) && $PAGE->theme->settings->showcustomlogin == 1) ? true : false;
+        $context->hasdefaultlogin = (isset($PAGE->theme->settings->showcustomlogin) && $PAGE->theme->settings->showcustomlogin == 0) ? true : false;
+        $context->alertbox = isset($PAGE->theme->settings->alertbox) ? format_text($PAGE->theme->settings->alertbox) : '';
         if ($url) {
             $url = $url->out(false);
         }
@@ -2705,16 +2709,17 @@ public function get_user_certificates(){
     }
 }
 
-namespace theme_stardust\output\core_user\myprofile;
-/**
- * Override user profile renderer
- *
- * We disable profile TREE render to not overload page with extra information
- */
+// SG - 20181214 - T-263, T-341 -  we have rewritten the renderer to reduce the profile page load, but it breaks some other user view pages. So comment for now
+// namespace theme_stardust\output\core_user\myprofile;
+// /**
+//  * Override user profile renderer
+//  *
+//  * We disable profile TREE render to not overload page with extra information
+//  */
 
-class renderer extends \core_user\output\myprofile\renderer {
+// class renderer extends \core_user\output\myprofile\renderer {
 
-    public function render_tree(\core_user\output\myprofile\tree $tree) {
-        return "";
-    }
-}
+//     public function render_tree(\core_user\output\myprofile\tree $tree) {
+//         return "";
+//     }
+// }

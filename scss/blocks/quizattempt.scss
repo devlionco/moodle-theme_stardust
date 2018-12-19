@@ -1,5 +1,3 @@
-@import "../variables";
-
 #{$RTL} #page-mod-quiz-attempt {
   section#region-main.has-blocks {
     .qn_buttons {
@@ -44,9 +42,6 @@
   .m-t-2.m-b-1 {
     padding: 0 4%;
     background-color: rgba(0,0,0,.05);
-    // &>.row {
-    //   display: flex;
-    // }
   }
   #page-wrapper {
     section#region-main.has-blocks {
@@ -62,8 +57,6 @@
 #page-mod-quiz-attempt {
   background: $white;
   position: relative;
-  // min-height: 100%;
-  // padding-bottom: 144px;
   height: auto;
   #page-wrapper {
     min-height: auto;
@@ -74,13 +67,6 @@
     }
     div.m-t-2.m-b-1 {
       display: none;
-    }
-    .main-wrapper {
-      .main {
-        .help-block {
-          // top: -119px;
-        }
-      }
     }
 
     // aside menu cust
@@ -120,7 +106,6 @@
         }
       }
       .quiz_endtest {
-        // background-color: $primary-color-1 !important;
         color: #fff !important;
       }
       width: 100%;
@@ -189,9 +174,6 @@
             padding: 0;
             margin-bottom: 20px;
             border-bottom: 1px solid #ddd;
-            // .state,
-            // .grade,
-            // .questionflag,
             .editquestion {
               // display: none;
             }
@@ -233,7 +215,7 @@
                   max-width: 50%;
                   text-align: center;
                   margin: 0 auto;
-                  display: block;
+                  // display: block;
               }
               .ablock {
                 .answer {
@@ -254,8 +236,6 @@
                       margin: 0;
                       padding: 0;
                       left: 0;
-                      // top: 50%;
-                      // transform: translateY(-50%);
                       &::before {
                         content: '';
                         display: block;
@@ -282,6 +262,9 @@
                     }
                     input:checked + label::before {
                       background: $primary-color-1;
+                    }
+                    input[type="radio"] + label::before {
+                      border-radius: 50%;
                     }
                     i.fa-remove, i.fa-check{
                       position: absolute;
@@ -321,7 +304,6 @@
              background-color: #b4c1c7;
              border-radius: 8px;
              cursor: pointer;
-              // -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
           }
            &::-webkit-scrollbar-thumb {
             background-color: $primary-color-1;
@@ -377,13 +359,7 @@
               border-width: 2px;
             }
             &.partiallycorrect,&[title="Partially correct"],&[title="נכון באופן חלקי"] {
-              // border-bottom-color: $primary-color-1;
-              // border-right-color: $primary-color-1;
               color: $primary-color-1;
-              // transform: rotate(45deg);
-              // & span, &:after{
-              //   transform:rotate(-45deg);
-              // }
               &:before{
                 content:'';
                 display: block;

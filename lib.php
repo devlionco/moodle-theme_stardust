@@ -290,7 +290,7 @@ function get_activities_mydashboard($activitiesconf = array(), $numofrelevantact
 
                     // filter modules. Show only visible and available to current user activities
                     $cminfo = get_fast_modinfo($course->id)->cms[$module->id];
-                    if (!$cminfo->uservisible || !$cminfo->is_visible_on_course_page()) {
+                    if (!$cminfo->uservisible || !$cminfo->is_visible_on_course_page() || $cminfo->is_stealth()) {
                         continue;
                     }
 
@@ -338,7 +338,11 @@ function get_activities_mydashboard($activitiesconf = array(), $numofrelevantact
         $percentage = progress::get_course_progress_percentage($course);
 
         // get User's last course access timestamp
-        $usercourselastaccess = (!empty($USER->currentcourseaccess[$id])) ? $USER->currentcourseaccess[$id] : $USER->lastcourseaccess[$id];
+        if (isset($USER->currentcourseaccess[$id]) || isset($USER->lastcourseaccess[$id])) {
+            $usercourselastaccess = (!empty($USER->currentcourseaccess[$id])) ? $USER->currentcourseaccess[$id] : $USER->lastcourseaccess[$id];
+        } else {
+            $usercourselastaccess = null;
+        }
 
         if ($coursecomplstate){
             $coursearray['coursefinished'][]= array(
