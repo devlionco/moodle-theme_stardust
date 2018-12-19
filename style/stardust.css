@@ -4053,7 +4053,7 @@ html {
   bottom: 0;
   background-color: #f2f2f2;
   padding: 15px;
-  max-width: 400px; }
+  width: 400px; }
   #page-content .slidingblockpanel .col-md-4:last-child {
     -ms-flex: 0 0 100%;
         flex: 0 0 100%;
