@@ -3616,8 +3616,7 @@ html {
               #page-mod-quiz-attempt #page-wrapper section#region-main.has-blocks [role="main"] .que .content .formulation .qtext img {
                 max-width: 50%;
                 text-align: center;
-                margin: 0 auto;
-                display: block; }
+                margin: 0 auto; }
               #page-mod-quiz-attempt #page-wrapper section#region-main.has-blocks [role="main"] .que .content .formulation .ablock .answer {
                 display: -ms-flexbox;
                 display: flex;
