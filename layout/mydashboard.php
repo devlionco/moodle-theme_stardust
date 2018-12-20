@@ -53,7 +53,7 @@ require_once($CFG->libdir . '/behat/lib.php');
  */
 
  $activitiesconf = array (
-    'assign' => 'm.id as activityid, m.course, m.duedate, m.cutoffdate',
+    'assign' => 'm.id as activityid, m.course, m.duedate, m.cutoffdate, m.allowsubmissionsfromdate as opendate',
     // 'assignment' => '',
     // 'book' => '',
     // 'chat' => '',
@@ -68,8 +68,8 @@ require_once($CFG->libdir . '/behat/lib.php');
     // 'lesson' => '',
     // 'lti' => '',
     // 'page' => '',
-    'quiz' => '',
-    'questionnaire' => 'm.closedate as cutoffdate',
+    'quiz' => 'm.timeopen as opendate',
+    'questionnaire' => 'm.closedate as cutoffdate, m.opendate',
     // 'resource' => '',
     // 'scorm' => '',
     // 'survey' => '',
