@@ -623,12 +623,23 @@ function is_activity_without_cutoffdate($activityinfo) {
             if (empty($activityinfo['opendate'])) {
                 return true;
             }
+            
             // compute dates
             $now = new DateTime('', core_date::get_user_timezone_object());
             $cmopened = clone $now;
             $cmopened = $cmopened->setTimestamp($activityinfo['opendate']);
             $weekaftercmopened = clone $cmopened;
             $weekaftercmopened = $weekaftercmopened->add(new DateInterval('P7D'));
+
+            // id closedate passed - we filter the activity
+            if (!empty($activityinfo['mincutoffdate'])) {
+                $cmclosed = clone $now;
+                $cmclosed = $cmclosed->setTimestamp($activityinfo['mincutoffdate']);
+
+                if ($cmclosed < $now) {
+                    return true;
+                }
+            }
 
             if ($cmopened < $now && $now < $weekaftercmopened) {
                 return false; // SG - #TD205 - We show CM in page MY if it was created less than 1 week ago and has no submission date
