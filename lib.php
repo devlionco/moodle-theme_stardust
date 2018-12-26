@@ -299,7 +299,7 @@ function get_activities_mydashboard($activitiesconf = array(), $numofrelevantact
                         continue;
                     }
 
-                    // filter modules - dont show assigns or quiz without submission date
+                    // filter modules - dont show assigns or quiz without submission date and if from opendate passed more than 1 week
                     if (is_activity_without_cutoffdate($activityinfo)) {
                         continue;
                     }
@@ -600,9 +600,13 @@ function is_assign_submitted($module) {
 }
 
 /**
- * Function checks if activity (module) is an assignment or quiz or questionnaire
- * and their cutoffdate is null (they have no submission date or timeclose date)
- * OR the date of submission is passed already!
+ * Function checks:
+ * - if activity (module) is an assignment or quiz or questionnaire
+ *  - if their cutoffdate is null (they have no submission date or timeclose date)
+ *  - OR if the date of submission is passed already!
+ *
+ * Also it checks (excludes from filtering):
+ * - if cutoffdate is null AND from OPENDATE to NOW passed less than 1 week
  *
  * @param $module - cm details from DB and some extrafields (usually assign and quiz)
  *
@@ -610,8 +614,38 @@ function is_assign_submitted($module) {
  */
 
 function is_activity_without_cutoffdate($activityinfo) {
-    if (($activityinfo['modname'] == 'assign' || $activityinfo['modname'] == 'quiz' || $activityinfo['modname'] == 'questionnaire') && $activityinfo['nosubmissiondate'])  {
-        return true;
+    if (($activityinfo['modname'] == 'assign'
+        || $activityinfo['modname'] == 'quiz'
+        || $activityinfo['modname'] == 'questionnaire')
+        && $activityinfo['nosubmissiondate'])  {
+
+            // id opendate is empty - we filter the activity
+            if (empty($activityinfo['opendate'])) {
+                return true;
+            }
+            
+            // compute dates
+            $now = new DateTime('', core_date::get_user_timezone_object());
+            $cmopened = clone $now;
+            $cmopened = $cmopened->setTimestamp($activityinfo['opendate']);
+            $weekaftercmopened = clone $cmopened;
+            $weekaftercmopened = $weekaftercmopened->add(new DateInterval('P7D'));
+
+            // id closedate passed - we filter the activity
+            if (!empty($activityinfo['mincutoffdate'])) {
+                $cmclosed = clone $now;
+                $cmclosed = $cmclosed->setTimestamp($activityinfo['mincutoffdate']);
+
+                if ($cmclosed < $now) {
+                    return true;
+                }
+            }
+
+            if ($cmopened < $now && $now < $weekaftercmopened) {
+                return false; // SG - #TD205 - We show CM in page MY if it was created less than 1 week ago and has no submission date
+            } else {
+                return true;
+            }
     }
 }
 
