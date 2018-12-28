@@ -45,7 +45,7 @@ if ($ADMIN->fulltree) {
     require($CFG->dirroot .'/theme/fordson/settings/menu_settings.php');
     require($CFG->dirroot .'/theme/fordson/settings/content_settings.php');
     require($CFG->dirroot .'/theme/fordson/settings/image_settings.php');
-    require($CFG->dirroot .'/theme/fordson/settings/footer_settings.php');
+    //require($CFG->dirroot .'/theme/fordson/settings/footer_settings.php');
     require($CFG->dirroot .'/theme/fordson/settings/fpicons_settings.php');
     require($CFG->dirroot .'/theme/fordson/settings/markettiles_settings.php');
     require($CFG->dirroot .'/theme/fordson/settings/slideshow_settings.php');
@@ -54,10 +54,10 @@ if ($ADMIN->fulltree) {
     require($CFG->dirroot .'/theme/fordson/settings/customlogin_settings.php');
 
 
-    // My dahsboard setup
+    /* My dahsboard setup PAGE */
     $page = new admin_settingpage('theme_stardust_mydashboardsettigs', get_string('mydashboardsettigs', 'theme_stardust'));
 
-    // Description
+    // My dahsboard heading
     $name = 'theme_stardust/mydashboardsettigs';
     $heading = get_string('mydashboardsettigs', 'theme_stardust');
     $information = get_string('mydashboardsettigs_desc', 'theme_stardust');
@@ -84,8 +84,6 @@ if ($ADMIN->fulltree) {
 //    $page->add(new admin_setting_configcheckbox('theme_stardust/display_grades', get_string('display_grades','theme_stardust'),
 //    get_string('display_grades_desc', 'theme_stardust'), 1));
     
-    
-    
 
     // Background color.
     // $name = 'theme_stardust/mydashboardbgcolor';
@@ -94,6 +92,155 @@ if ($ADMIN->fulltree) {
     // $setting = new admin_setting_configcolourpicker($name, $title, $description, '#87CEFA'); //lightskyblue - default color
     // $setting->set_updatedcallback('theme_reset_all_caches');
     // $page->add($setting);
+
+    // Must add the page after definiting all the settings!
+    $settings->add($page);
+
+
+    /* FOOTER setup PAGE */
+    $page = new admin_settingpage('theme_stardust_footersettings', get_string('footersettigs', 'theme_stardust'));
+
+    // Footer setup heading
+    $name = 'theme_stardust/footersettigs_header';
+    $heading = get_string('footersettigs_header', 'theme_stardust');
+    $information = get_string('footersettigs_header_desc', 'theme_stardust');
+    $setting = new admin_setting_heading($name, $heading, $information);
+    $page->add($setting);
+
+    // Main logo URL
+    $name = 'theme_stardust/footersettigs_mainlogo_url';
+    $title = get_string('footersettigs_mainlogo_url', 'theme_stardust');
+    $description = get_string('footersettigs_mainlogo_url_desc', 'theme_stardust');
+    $default = $CFG->wwwroot . '/my/';
+    $setting = new admin_setting_configtext($name, $title, $description, $default);
+    $setting->set_updatedcallback('theme_reset_all_caches');
+    $page->add($setting);
+
+    // Youtube URL
+    $name = 'theme_stardust/footersettigs_youtube_url';
+    $title = get_string('footersettigs_youtube_url', 'theme_stardust');
+    $description = get_string('footersettigs_youtube_url_desc', 'theme_stardust');
+    $default = 'https://www.youtube.com/user/davidsonweb';
+    $setting = new admin_setting_configtext($name, $title, $description, $default);
+    $setting->set_updatedcallback('theme_reset_all_caches');
+    $page->add($setting);
+
+    // Facebook URL
+    $name = 'theme_stardust/footersettigs_facebook_url';
+    $title = get_string('footersettigs_facebook_url', 'theme_stardust');
+    $description = get_string('footersettigs_facebook_url_desc', 'theme_stardust');
+    $default = 'https://www.facebook.com/DavidsonOnLine';
+    $setting = new admin_setting_configtext($name, $title, $description, $default);
+    $setting->set_updatedcallback('theme_reset_all_caches');
+    $page->add($setting);
+
+    // Twitter URL
+    $name = 'theme_stardust/footersettigs_twitter_url';
+    $title = get_string('footersettigs_twitter_url', 'theme_stardust');
+    $description = get_string('footersettigs_twitter_url_desc', 'theme_stardust');
+    $default = 'https://twitter.com/DavidsonOnline';
+    $setting = new admin_setting_configtext($name, $title, $description, $default);
+    $setting->set_updatedcallback('theme_reset_all_caches');
+    $page->add($setting);
+
+    // Instagram URL
+    $name = 'theme_stardust/footersettigs_instagram_url';
+    $title = get_string('footersettigs_instagram_url', 'theme_stardust');
+    $description = get_string('footersettigs_instagram_url_desc', 'theme_stardust');
+    $default = 'https://www.instagram.com/davidsononline';
+    $setting = new admin_setting_configtext($name, $title, $description, $default);
+    $setting->set_updatedcallback('theme_reset_all_caches');
+    $page->add($setting);
+
+    // Home page URL
+    $name = 'theme_stardust/footersettigs_homepage_url';
+    $title = get_string('footersettigs_homepage_url', 'theme_stardust');
+    $description = get_string('footersettigs_homepage_url_desc', 'theme_stardust');
+    $default = $CFG->wwwroot;
+    $setting = new admin_setting_configtext($name, $title, $description, $default);
+    $setting->set_updatedcallback('theme_reset_all_caches');
+    $page->add($setting);
+
+    // About us page URL
+    $name = 'theme_stardust/footersettigs_aboutus_url';
+    $title = get_string('footersettigs_aboutus_url', 'theme_stardust');
+    $description = get_string('footersettigs_aboutus_url_desc', 'theme_stardust');
+    $default = '';
+    $setting = new admin_setting_configtext($name, $title, $description, $default);
+    $setting->set_updatedcallback('theme_reset_all_caches');
+    $page->add($setting);
+
+    // Contact us page URL
+    $name = 'theme_stardust/footersettigs_contactus_url';
+    $title = get_string('footersettigs_contactus_url', 'theme_stardust');
+    $description = get_string('footersettigs_contactus_url_desc', 'theme_stardust');
+    $default = '';
+    $setting = new admin_setting_configtext($name, $title, $description, $default);
+    $setting->set_updatedcallback('theme_reset_all_caches');
+    $page->add($setting);
+
+    // Privacy policy page URL
+    $name = 'theme_stardust/footersettigs_privacypolicy_url';
+    $title = get_string('footersettigs_privacypolicy_url', 'theme_stardust');
+    $description = get_string('footersettigs_privacypolicy_url_desc', 'theme_stardust');
+    $default = '';
+    $setting = new admin_setting_configtext($name, $title, $description, $default);
+    $setting->set_updatedcallback('theme_reset_all_caches');
+    $page->add($setting);
+
+    // Terms of use page URL
+    $name = 'theme_stardust/footersettigs_termsofuse_url';
+    $title = get_string('footersettigs_termsofuse_url', 'theme_stardust');
+    $description = get_string('footersettigs_termsofuse_url_desc', 'theme_stardust');
+    $default = '';
+    $setting = new admin_setting_configtext($name, $title, $description, $default);
+    $setting->set_updatedcallback('theme_reset_all_caches');
+    $page->add($setting);
+
+    // Accessibility statement page URL
+    $name = 'theme_stardust/footersettigs_accessibilitystatement_url';
+    $title = get_string('footersettigs_accessibilitystatement_url', 'theme_stardust');
+    $description = get_string('footersettigs_accessibilitystatement_url_desc', 'theme_stardust');
+    $default = '';
+    $setting = new admin_setting_configtext($name, $title, $description, $default);
+    $setting->set_updatedcallback('theme_reset_all_caches');
+    $page->add($setting);
+
+    // List of courses page URL
+    $name = 'theme_stardust/footersettigs_listofcourses_url';
+    $title = get_string('footersettigs_listofcourses_url', 'theme_stardust');
+    $description = get_string('footersettigs_listofcourses_url_desc', 'theme_stardust');
+    $default = '';
+    $setting = new admin_setting_configtext($name, $title, $description, $default);
+    $setting->set_updatedcallback('theme_reset_all_caches');
+    $page->add($setting);
+
+    // Davidson Institute Website URL
+    $name = 'theme_stardust/footersettigs_davidsonsite_url';
+    $title = get_string('footersettigs_davidsonsite_url', 'theme_stardust');
+    $description = get_string('footersettigs_davidsonsite_url_desc', 'theme_stardust');
+    $default = 'https://davidson.weizmann.ac.il/';
+    $setting = new admin_setting_configtext($name, $title, $description, $default);
+    $setting->set_updatedcallback('theme_reset_all_caches');
+    $page->add($setting);
+
+    // Apple Appstore application URL
+    $name = 'theme_stardust/footersettigs_appstore_url';
+    $title = get_string('footersettigs_appstore_url', 'theme_stardust');
+    $description = get_string('footersettigs_appstore_url_desc', 'theme_stardust');
+    $default = '';
+    $setting = new admin_setting_configtext($name, $title, $description, $default);
+    $setting->set_updatedcallback('theme_reset_all_caches');
+    $page->add($setting);
+
+    // Google Play application URL
+    $name = 'theme_stardust/footersettigs_googleplay_url';
+    $title = get_string('footersettigs_googleplay_url', 'theme_stardust');
+    $description = get_string('footersettigs_googleplay_url_desc', 'theme_stardust');
+    $default = '';
+    $setting = new admin_setting_configtext($name, $title, $description, $default);
+    $setting->set_updatedcallback('theme_reset_all_caches');
+    $page->add($setting);
 
     // Must add the page after definiting all the settings!
     $settings->add($page);
