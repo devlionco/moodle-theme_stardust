@@ -41,7 +41,12 @@
                 <span class="block-title">{{#str}}activitiestitle, theme_stardust{{/str}}</span>
                   <div class="allsection-wrapper">
                     <div id="allactivities" class = "allactivities">
-                      <span class = "section-name">{{#allsectionactivities}}{{current}}{{/allsectionactivities}}</span>
+                        <!--<span class = "section-name">{{#allsectionactivities}}{{current}}{{/allsectionactivities}}</span>-->
+                        {{#allsectionactivities}}
+                            {{#current}}
+                                <span class = "section-name"><a href = "{{{url}}}" title="{{title}}">{{{name}}}</a></span>
+                            {{/current}}
+                        {{/allsectionactivities}}
                       <span class="select-icon"></span>
                     </div>
                     <div class = "section-wrap">
