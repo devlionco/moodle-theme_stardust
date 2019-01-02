@@ -197,8 +197,7 @@ $string['slidecontent_desc'] = 'Add a description for this slide.';
 $string['slideimage'] = 'Slide Image';
 $string['slideimage_desc'] = 'Add a background image for this slide.';
 
-
-// Footer
+// Footer FROM FORDSON (don not use!)
 $string['footerheading'] = 'Footer';
 $string['brandorganization'] = 'Organization Name';
 $string['brandorganizationdesc'] = 'Organization name to appear in the footer.';
@@ -245,6 +244,8 @@ $string['sociallinkdesc'] = 'Enter the URL of your your custom social media link
 $string['sociallinkicon'] = 'Link Icon';
 $string['sociallinkicondesc'] = 'Enter the fontawesome name of the icon for your link<br />A full list of FontAwesome icons can be found at http://fontawesome.io/icons/';
 
+
+// Footer links 
 $string['home_page'] = 'Home page';
 $string['about'] = 'About us';
 $string['contact_us'] = 'Contact us';
@@ -254,6 +255,41 @@ $string['accessibility_statement'] = 'Accessibility statement';
 $string['list_of_courses'] = 'List of courses';
 $string['davidson_institute_wesite'] = 'Davidson Institute website';
 $string['download_application'] = 'Download application';
+
+// Footer settings
+$string['footersettigs'] = 'Footer';
+$string['footersettigs_header'] = 'Footer links';
+$string['footersettigs_header_desc'] = 'Enter the URLs for links in the Footer';
+$string['footersettigs_mainlogo_url'] = 'Main logo URL';
+$string['footersettigs_mainlogo_url_desc'] = 'Enter the URL for the main logo banner';
+$string['footersettigs_youtube_url'] = 'YouTube URL';
+$string['footersettigs_youtube_url_desc'] = 'Enter the URL of your YouTube channel. (i.e http://www.youtube.com/)';
+$string['footersettigs_facebook_url'] = 'Facebook URL';
+$string['footersettigs_facebook_url_desc'] = 'Enter the URL of your Facebook page. (i.e http://www.facebook.com/)';
+$string['footersettigs_twitter_url'] = 'Twitter URL';
+$string['footersettigs_twitter_url_desc'] = 'Enter the URL of your Twitter feed. (i.e http://www.twitter.com/)';
+$string['footersettigs_instagram_url'] = 'Instagram URL';
+$string['footersettigs_instagram_url_desc'] = 'Enter the URL of your Instagram page. (i.e http://instagram.com/)';
+$string['footersettigs_homepage_url'] = 'Home page URL';
+$string['footersettigs_homepage_url_desc'] = 'Enter Home page URL';
+$string['footersettigs_aboutus_url'] = 'About Us page URL';
+$string['footersettigs_aboutus_url_desc'] = 'Enter About Us page URL';
+$string['footersettigs_contactus_url'] = 'Contact Us page URL';
+$string['footersettigs_contactus_url_desc'] = 'Enter Contact Us page URL';
+$string['footersettigs_privacypolicy_url'] = 'Privacy Policy page URL';
+$string['footersettigs_privacypolicy_url_desc'] = 'Enter Privacy Policy page URL';
+$string['footersettigs_termsofuse_url'] = 'Terms of use page URL';
+$string['footersettigs_termsofuse_url_desc'] = 'Enter Terms of use page URL';
+$string['footersettigs_accessibilitystatement_url'] = 'Accessibility statement page URL';
+$string['footersettigs_accessibilitystatement_url_desc'] = 'Enter Accessibility statement page URL';
+$string['footersettigs_listofcourses_url'] = 'List of courses page URL';
+$string['footersettigs_listofcourses_url_desc'] = 'Enter List of courses page URL';
+$string['footersettigs_davidsonsite_url'] = 'Davidson Institite website URL';
+$string['footersettigs_davidsonsite_url_desc'] = 'Enter Davidson Institite website URL';
+$string['footersettigs_appstore_url'] = 'Apple Appstore application URL';
+$string['footersettigs_appstore_url_desc'] = 'Enter Apple Appstore application UR';
+$string['footersettigs_googleplay_url'] = 'Google Play application URL';
+$string['footersettigs_googleplay_url_desc'] = 'Enter Google Play application URL';
 
 // Content settings.
 $string['coursetileinfo'] = 'Course Display Options';

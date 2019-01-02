@@ -184,6 +184,41 @@ $string['list_of_courses'] = 'לרשימת הקורסים';
 $string['davidson_institute_wesite'] = 'לאתר מכון דוידסון';
 $string['download_application'] = 'להורדת האפליקציה';
 
+// Footer settings
+$string['footersettigs'] = 'Footer';
+$string['footersettigs_header'] = 'Footer links';
+$string['footersettigs_header_desc'] = 'Enter the URLs for links in the Footer';
+$string['footersettigs_mainlogo_url'] = 'Main logo URL';
+$string['footersettigs_mainlogo_url_desc'] = 'Enter the URL for the main logo banner';
+$string['footersettigs_youtube_url'] = 'YouTube URL';
+$string['footersettigs_youtube_url_desc'] = 'Enter the URL of your YouTube channel. (i.e http://www.youtube.com/)';
+$string['footersettigs_facebook_url'] = 'Facebook URL';
+$string['footersettigs_facebook_url_desc'] = 'Enter the URL of your Facebook page. (i.e http://www.facebook.com/)';
+$string['footersettigs_twitter_url'] = 'Twitter URL';
+$string['footersettigs_twitter_url_desc'] = 'Enter the URL of your Twitter feed. (i.e http://www.twitter.com/)';
+$string['footersettigs_instagram_url'] = 'Instagram URL';
+$string['footersettigs_instagram_url_desc'] = 'Enter the URL of your Instagram page. (i.e http://instagram.com/)';
+$string['footersettigs_homepage_url'] = 'Home page URL';
+$string['footersettigs_homepage_url_desc'] = 'Enter Home page URL';
+$string['footersettigs_aboutus_url'] = 'About Us page URL';
+$string['footersettigs_aboutus_url_desc'] = 'Enter About Us page URL';
+$string['footersettigs_contactus_url'] = 'Contact Us page URL';
+$string['footersettigs_contactus_url_desc'] = 'Enter Contact Us page URL';
+$string['footersettigs_privacypolicy_url'] = 'Privacy Policy page URL';
+$string['footersettigs_privacypolicy_url_desc'] = 'Enter Privacy Policy page URL';
+$string['footersettigs_termsofuse_url'] = 'Terms of use page URL';
+$string['footersettigs_termsofuse_url_desc'] = 'Enter Terms of use page URL';
+$string['footersettigs_accessibilitystatement_url'] = 'Accessibility statement page URL';
+$string['footersettigs_accessibilitystatement_url_desc'] = 'Enter Accessibility statement page URL';
+$string['footersettigs_listofcourses_url'] = 'List of courses page URL';
+$string['footersettigs_listofcourses_url_desc'] = 'Enter List of courses page URL';
+$string['footersettigs_davidsonsite_url'] = 'Davidson Institite website URL';
+$string['footersettigs_davidsonsite_url_desc'] = 'Enter Davidson Institite website URL';
+$string['footersettigs_appstore_url'] = 'Apple Appstore application URL';
+$string['footersettigs_appstore_url_desc'] = 'Enter Apple Appstore application UR';
+$string['footersettigs_googleplay_url'] = 'Google Play application URL';
+$string['footersettigs_googleplay_url_desc'] = 'Enter Google Play application URL';
+
 // course page
 $string['gohome'] = '< עמוד הבית';
 $string['study_units'] = 'יחידות לימוד';

@@ -2707,6 +2707,34 @@ public function get_user_certificates(){
         }
 
     }
+
+    /**
+     * Prepare links for Footer from theme's settings
+     * Is called from template directly
+     * Example: {{output.footerlinks.youtube}}
+     */
+    public function footerlinks() {
+        global $CFG, $PAGE;
+
+        $footerlinks = array();
+        $footerlinks['mainlogo'] = empty($PAGE->theme->settings->footersettigs_mainlogo_url) ? '#' : $PAGE->theme->settings->footersettigs_mainlogo_url;
+        $footerlinks['youtube'] = empty($PAGE->theme->settings->footersettigs_youtube_url) ? '#' : $PAGE->theme->settings->footersettigs_youtube_url;
+        $footerlinks['facebook'] = empty($PAGE->theme->settings->footersettigs_facebook_url) ? '#' : $PAGE->theme->settings->footersettigs_facebook_url;
+        $footerlinks['twitter'] = empty($PAGE->theme->settings->footersettigs_twitter_url) ? '#' : $PAGE->theme->settings->footersettigs_twitter_url;
+        $footerlinks['instagram'] = empty($PAGE->theme->settings->footersettigs_instagram_url) ? '#' : $PAGE->theme->settings->footersettigs_instagram_url;
+        $footerlinks['homepage'] = empty($PAGE->theme->settings->footersettigs_homepage_url) ? $CFG->wwwroot : $PAGE->theme->settings->footersettigs_homepage_url;
+        $footerlinks['aboutus'] = empty($PAGE->theme->settings->footersettigs_aboutus_url) ? '#' : $PAGE->theme->settings->footersettigs_aboutus_url;
+        $footerlinks['contactus'] = empty($PAGE->theme->settings->footersettigs_contactus_url) ? '#' : $PAGE->theme->settings->footersettigs_contactus_url;
+        $footerlinks['privacypolicy'] = empty($PAGE->theme->settings->footersettigs_privacypolicy_url) ? '#' : $PAGE->theme->settings->footersettigs_privacypolicy_url;
+        $footerlinks['termsofuse'] = empty($PAGE->theme->settings->footersettigs_termsofuse_url) ? '#' : $PAGE->theme->settings->footersettigs_termsofuse_url;
+        $footerlinks['accessibilitystatement'] = empty($PAGE->theme->settings->footersettigs_accessibilitystatement_url) ? '#' : $PAGE->theme->settings->footersettigs_accessibilitystatement_url;
+        $footerlinks['listofcourses'] = empty($PAGE->theme->settings->footersettigs_listofcourses_url) ? '#' : $PAGE->theme->settings->footersettigs_listofcourses_url;
+        $footerlinks['davidsonsite'] = empty($PAGE->theme->settings->footersettigs_davidsonsite_url) ? '#' : $PAGE->theme->settings->footersettigs_davidsonsite_url;
+        $footerlinks['appstore'] = empty($PAGE->theme->settings->footersettigs_appstore_url) ? '#' : $PAGE->theme->settings->footersettigs_appstore_url;
+        $footerlinks['googleplay'] = empty($PAGE->theme->settings->footersettigs_googleplay_url) ? '#' : $PAGE->theme->settings->footersettigs_googleplay_url;
+
+        return $footerlinks;
+    }
 }
 
 // SG - 20181214 - T-263, T-341 -  we have rewritten the renderer to reduce the profile page load, but it breaks some other user view pages. So comment for now
