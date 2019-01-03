@@ -590,7 +590,7 @@ body#page-login-signup {
       width: 100%;
       height: 130px;
       background-image: url([[pix:theme|logo_right]]);
-      background-position: top center;
+      background-position: center;
       background-repeat: no-repeat;
       background-size: contain; }
     #page-footer #stardust-footer .footer-nav {
@@ -672,7 +672,7 @@ body#page-login-signup {
             justify-content: space-evenly;
         -ms-flex-align: stretch;
             align-items: stretch;
-        background-color: #19284f !important;
+        background-color: transparent;
         color: #FFFFFF; }
         #page-footer #stardust-footer .footer-nav .default-items a {
           color: #FFFFFF; }
@@ -4092,23 +4092,14 @@ html {
     border: 0; }
   #page-footer #stardust-footer .right-logo-wrapper{
     -ms-flex-order: 2;
-    order: 2; }
-  #page-footer #stardust-footer .left-logo-wrapper{
-    -ms-flex-order: 3;
-    order: 3; }
-  #page-footer #stardust-footer .footer-nav{
-    -ms-flex-order: 1;
-    order: 1;
-    border-color: transparent;
-    border: 0; }
-  #page-footer #stardust-footer .right-logo-wrapper{
-    -ms-flex-order: 2;
     order: 2;
     -ms-flex-align: center;
     align-items: center;
     -ms-flex-pack: center;
-    justify-content: center; }
-  #page-footer #stardust-footer .left-logo-wrapper{
+    justify-content: center;
+    margin: 0; }
+  #page-footer #stardust-footer .left-wrapper{
+    margin: 0;
     -ms-flex-order: 3;
     order: 3;
     -ms-flex-align: center;
