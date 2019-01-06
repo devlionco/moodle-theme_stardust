@@ -2,8 +2,7 @@
 @keyframes spinAjax {
   to {
     border-top-color: $d_blue;
-    -webkit-transform: rotate(360deg);
-            transform: rotate(360deg);
+    transform: rotate(360deg);
   }
 }
 @keyframes sussesAjax {
@@ -30,7 +29,6 @@
       }
       .messages-title {
         line-height: 18pt;
-        // margin-bottom: 8px;
         margin-bottom: 0;
         color: $d_blue;
         font-weight: normal;
@@ -71,7 +69,7 @@
           .message {
             display: flex;
             flex-flow: row nowrap;
-            justify-content: flex-start;
+            justify-content: space-between;
             align-items: center;
             padding: 0 1rem;
             .messages-title {
@@ -106,6 +104,8 @@
     }
   }
 }
+
+// teacher-messages
 #course-main-content form.message{
   position:relative;
   display:flex;
@@ -120,12 +120,6 @@
     &.message-input{
       width:calc(100% - 3em);
     }
-    // &[readonly] ~ .message-controls>.message-submit{
-    //   display:none;
-    // }
-    // &[readonly] ~ .message-controls>.message-clear{
-    //   display:none;
-    // }
   }
   .message-controls{
     position:relative;
@@ -135,7 +129,6 @@
     align-items:center;
     height:100%;
     width:3em;
-    // overflow: hidden;
     .message-submit{
       border:0;
       background-color:transparent;
@@ -155,8 +148,7 @@
       width:1em;
       height:1em;
       border-radius:50%;
-      -webkit-animation: spinAjax 1s linear infinite;
-              animation: spinAjax 1s linear infinite;
+      animation: spinAjax 1s linear infinite;
       border: 3px solid #ddd;
       border-top: 3px solid #83D3AE;
     }
@@ -169,13 +161,12 @@
         stroke-dashoffset: 0;
         &.check {
           stroke-dashoffset: -100;
-          -webkit-animation: sussesAjax .9s .35s ease-in-out forwards;
           animation: sussesAjax .9s .35s ease-in-out forwards;
         }
       }
     }
   }
 }
-[dir="rtl"] #course-main-content form.message input.message-input {
+[dir="rtl"] #course-main-content div.message div.message-input {
   width:calc(100% - 5em);
 }

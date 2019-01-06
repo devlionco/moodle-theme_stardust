@@ -4,18 +4,16 @@
         <div class="messages-list-wrapper">
           <div class="messages-list">
             {{#isteacher}}
-                  <form class="message" data-userid={{userid}} {{coursemessage.teachmessageshowhide}}>
-                    <input type="text" name="message" value="{{coursemessage.message}}" maxlength="100" placeholder="" class="message-input" readonly>
+                  <form class="message" data-courseid = {{courseid}} data-userid={{userid}} {{coursemessage.teachmessageshowhide}}>
+                    <input type="text" class="message-input" value = "{{coursemessage.message}}" name = "">
                     <div class="message-controls">
                       <button type="button" class="message-submit"></button>
-                      <!-- <input type="button" name="submit" value="&#8594;" class="message-submit fas fa-arrow-right" title="submit"> -->
-                      <!-- <input type="button" name="" value="&times;" class="message-clear" title="clear message"> -->
                       <div class="submit-icons"></div>
                     </div>
                   </form>
             {{/isteacher}}
             {{^isteacher}}
-                <div class="message" {{coursemessage.studmessageshowhide}}>{{coursemessage.message}}</div>
+                <div class="message" {{coursemessage.studmessageshowhide}}> {{{coursemessage.message}}}</div>
             {{/isteacher}}
           </div>
         </div>

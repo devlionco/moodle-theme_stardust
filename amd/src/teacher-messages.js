@@ -10,14 +10,11 @@ define(['jquery', 'theme_stardust/ajax'], function($, ajax){
   const check = '<svg class="message-sent" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 130.2 130.2"><polyline class="path check" fill="none" stroke="#83D3AE" stroke-width="15" stroke-linecap="round" stroke-miterlimit="10" points="100.2,40.2 51.5,88.8 29.8,67.5 "/></svg>';
 
   const getCourseId = function (){
-    var queries = window.location.search.replace(/^\?/, '').split('&');
-    for( i = 0; i < queries.length; i++ ) {
-      var q = queries[i].trim();
-      if (q.indexOf('id') == 0){
-        var courseid = q.substring(3, q.length);
-      }
-    }
-    return courseid;
+    return document.querySelector('form.message').dataset.courseid;
+  };
+
+  const getUserId = function (){
+    return document.querySelector('form.message').dataset.userid;
   };
 
   const targetBlock = document.querySelector('.submit-icons');
@@ -48,8 +45,8 @@ define(['jquery', 'theme_stardust/ajax'], function($, ajax){
         }
         ajax.data = {
           method: "toggle_course_message_status",
-          url: "{{config.wwwroot}}/theme/stardust/classes/classAjax.php",
-          user: document.querySelector('form.message').dataset.userid,
+          url: M.cfg.wwwroot+"/theme/stardust/classes/classAjax.php",
+          user: getUserId(),
           courseid: getCourseId(),
           sesskey: M.cfg.sesskey,
           status: hiderstatus
@@ -80,8 +77,8 @@ define(['jquery', 'theme_stardust/ajax'], function($, ajax){
 
         ajax.data = {
           method: "send_course_message",
-          url: "{{config.wwwroot}}/theme/stardust/classes/classAjax.php",
-          user: document.querySelector('form.message').dataset.userid,
+          url: M.cfg.wwwroot+"/theme/stardust/classes/classAjax.php",
+          user: getUserId(),
           courseid: getCourseId(),
           sesskey: M.cfg.sesskey,
           message: message.value
