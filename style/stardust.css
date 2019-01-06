@@ -1563,8 +1563,8 @@ body#page-login-signup {
           display: flex;
           -ms-flex-flow: row nowrap;
               flex-flow: row nowrap;
-          -ms-flex-pack: start;
-              justify-content: flex-start;
+          -ms-flex-pack: justify;
+              justify-content: space-between;
           -ms-flex-align: center;
               align-items: center;
           padding: 0 1rem; }
@@ -1647,7 +1647,7 @@ body#page-login-signup {
           stroke-dashoffset: -100;
           animation: sussesAjax .9s .35s ease-in-out forwards; }
 
-[dir="rtl"] #course-main-content form.message input.message-input {
+[dir="rtl"] #course-main-content div.message div.message-input {
   width: calc(100% - 5em); }
 
 .presence-title {
