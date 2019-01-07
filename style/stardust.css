@@ -1218,7 +1218,20 @@ body#page-login-signup {
                   height: 50px;
                   width: 50px;
                   border-radius: 50%;
-                  background: url([[pix:theme|medal_icon]]) no-repeat center center; }
+                  background: url([[pix:theme|medal_icon]]) no-repeat center center;
+                  position: relative; }
+                  #my-page .main-wrapper .main-content .achievements-block .profile .achievments a .achievment .icon-medal .icon-counter {
+                    position: absolute;
+                    top: -3px;
+                    height: 22px;
+                    width: 22px;
+                    border-radius: 50%;
+                    color: #646464;
+                    background: #e7e7e7;
+                    border: 1.28px solid #1177d1;
+                    line-height: 22px;
+                    text-align: center;
+                    font-size: 12px; }
                 #my-page .main-wrapper .main-content .achievements-block .profile .achievments a .achievment .icon-diplom {
                   height: 50px;
                   width: 50px;
@@ -1247,8 +1260,8 @@ body#page-login-signup {
   display: flex;
   -ms-flex-flow: row nowrap;
       flex-flow: row nowrap;
-  -ms-flex-pack: center;
-      justify-content: center; }
+  -ms-flex-pack: start;
+      justify-content: flex-start; }
   .achievements a {
     color: inherit;
     display: -ms-flexbox;
@@ -1264,49 +1277,45 @@ body#page-login-signup {
     display: flex;
     list-style: none;
     padding-left: 0; }
-    .achievements ul .achievment {
-      margin: 0 14px;
-      display: -ms-flexbox;
-      display: flex;
-      -ms-flex-direction: column;
-          flex-direction: column;
-      -ms-flex-align: center;
-          align-items: center; }
-      .achievements ul .achievment .icon-label {
-        font-size: 15px;
-        margin-bottom: 30px; }
-      .achievements ul .achievment .icon-report {
-        height: 57px;
-        width: 40px;
-        background: url([[pix:theme|pagemy/course-grade]]) no-repeat center center;
-        background-size: contain; }
-      .achievements ul .achievment .icon-medal {
-        height: 60px;
-        width: 49px;
-        background: url([[pix:theme|pagemy/course-medals]]) no-repeat center center;
-        background-size: contain;
-        position: relative; }
-        .achievements ul .achievment .icon-medal .icon-counter {
-          position: absolute;
-          top: -3px;
-          height: 22px;
-          width: 22px;
-          border-radius: 50%;
-          color: #646464;
-          background: #e7e7e7;
-          border: 1.28px solid #FFFFFF;
-          display: -ms-flexbox;
-          display: flex;
-          -ms-flex-pack: center;
-              justify-content: center;
-          -ms-flex-align: center;
-              align-items: center;
-          font-size: 12px; }
-      .achievements ul .achievment .icon-diplom {
-        height: 57px;
-        width: 46px;
-        background: url([[pix:theme|pagemy/course-diplom]]) no-repeat center center;
-        background-size: contain; }
+  .achievements .achievment {
+    margin: 0 14px;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+        flex-direction: column;
+    -ms-flex-align: center;
+        align-items: center; }
+    .achievements .achievment .icon-label {
+      font-size: 15px;
+      margin-bottom: 30px; }
+    .achievements .achievment .icon-report {
+      height: 57px;
+      width: 40px;
+      background: url([[pix:theme|pagemy/course-grade]]) no-repeat center center;
+      background-size: contain; }
+    .achievements .achievment .icon-medal {
+      height: 60px;
+      width: 49px;
+      background: url([[pix:theme|pagemy/course-medals]]) no-repeat center center;
+      background-size: contain;
+      position: relative; }
+      .achievements .achievment .icon-medal .icon-counter {
+        position: absolute;
+        top: -3px;
+        height: 22px;
+        width: 22px;
+        border-radius: 50%;
+        color: #646464;
+        background: #e7e7e7;
+        border: 1.28px solid #1177d1;
+        line-height: 22px;
+        text-align: center;
+        font-size: 12px; }
+    .achievements .achievment .icon-diplom {
+      height: 57px;
+      width: 46px;
+      background: url([[pix:theme|pagemy/course-diplom]]) no-repeat center center;
+      background-size: contain; }
 
 #course-main-content .achievements {
   margin: 0 1px; }
@@ -2255,7 +2264,7 @@ body#page-login-signup {
     background: url([[pix:theme|pagemy/help-dblue]]) no-repeat center;
     outline: none; }
   #help-menu .menu {
-    z-index: 121;
+    z-index: 2000;
     margin-top: 0;
     top: -15px;
     padding: 24px 24px 36px;
