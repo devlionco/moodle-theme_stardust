@@ -94,6 +94,8 @@
       z-index: 2;
     }
     .circle-inner{
+      border: 1px solid $d_blue;
+      box-sizing: content-box;
       background: $d_blue;
       .circle-label{
         font-size: 50pt;

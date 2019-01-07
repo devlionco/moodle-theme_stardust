@@ -1738,6 +1738,8 @@ body#page-login-signup {
   z-index: 2; }
 
 #course-main-content .presence-content .circle-wrapper .circle-inner {
+  border: 1px solid #19284f;
+  box-sizing: content-box;
   background: #19284f; }
   #course-main-content .presence-content .circle-wrapper .circle-inner .circle-label {
     font-size: 50pt;
