@@ -239,12 +239,12 @@ if ($coursemessage) {
 
     // parse links in message for students
     $regexp = "/(?i)\b([a-z][\w-]+:\/{1,3})?((www\d{0,3}[.]|[a-z0-9.\-]+[.][a-z]{2,})+(?:\/[^\s()<>]+|\(([^\s()<>]+|(\([^\s()<>]+\)))*\))?(?:\(([^\s()<>]+|(\([^\s()<>]+\)))*\)|[^\s`!()\[\]{};:'\".,<>?«»“”‘’])?)/";
-    
-        function replace_urls_clbk($link) {
+
+    function replace_urls_clbk($link) {
         $scheme = $link[1] ? $link[1] : '//';
         $fullurl = $link[2];
         $sitename = $link[3];
-        return  "<a href='{$scheme}{$fullurl}'>{$sitename}</a>";
+        return  "<a href='{$scheme}{$fullurl}' target='_blank'>{$sitename}</a>";
     }
 
     if(preg_match($regexp, $coursemessage->message, $links) && !$isteacher) {

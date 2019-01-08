@@ -1580,6 +1580,19 @@ body#page-login-signup {
           padding: 0 1rem; }
           #course-main-content .course-messages .messages-container .messages-list-wrapper .message .messages-title {
             margin-bottom: 0; }
+      #course-main-content .course-messages .messages-container .messages .noteacher {
+        -ms-flex-pack: start;
+            justify-content: flex-start; }
+        #course-main-content .course-messages .messages-container .messages .noteacher a {
+          display: block;
+          font-weight: bold;
+          cursor: pointer;
+          color: #19284f;
+          text-decoration: underline; }
+          #course-main-content .course-messages .messages-container .messages .noteacher a::before, #course-main-content .course-messages .messages-container .messages .noteacher a::after {
+            content: " ";
+            display: inline-block;
+            width: 10px; }
   #course-main-content .course-messages .message-hider {
     background: transparent;
     border: 0;

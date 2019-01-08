@@ -77,6 +77,22 @@
             }
           }
         }
+        .noteacher {
+          justify-content: flex-start;
+          a {
+            display: block;
+            font-weight: bold;
+            cursor: pointer;
+            color: #19284f;
+            text-decoration: underline;
+            &::before,
+            &::after {
+              content: " ";
+              display: inline-block;
+              width: 10px;
+            }
+          }
+        }
       }
     }
     .message-hider{
