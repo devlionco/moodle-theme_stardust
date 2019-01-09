@@ -1,7 +1,6 @@
 define(['jquery', 'theme_stardust/slick'], function ($, slick) {
   'use strict';
 
-
   return {
     init: function () {
 

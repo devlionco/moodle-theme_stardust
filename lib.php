@@ -285,13 +285,18 @@ function get_activities_mydashboard($activitiesconf = array(), $numofrelevantact
                 foreach ($modules as $module) {
                     $context = context_module::instance($module->id);
 
-                    // add additional content and modify added into activityinfo
-                    $activityinfo = set_icon_style_for_activity($module);
+                    // SG - here we try to catch some DB issues on prod - if activity on the course is lost
+                    try {
+                        // add additional content and modify added into activityinfo
+                        $activityinfo = set_icon_style_for_activity($module);
 
-                    // filter modules. Show only visible and available to current user activities
-                    $cminfo = get_fast_modinfo($course->id)->cms[$module->id];
-                    if (!$cminfo->uservisible || !$cminfo->is_visible_on_course_page() || $cminfo->is_stealth()) {
-                        continue;
+                        // filter modules. Show only visible and available to current user activities
+                        $cminfo = get_fast_modinfo($course->id)->cms[$module->id];
+                        if (!$cminfo->uservisible || !$cminfo->is_visible_on_course_page() || $cminfo->is_stealth()) {
+                            continue;
+                        }
+                    } catch (Exception $e) {
+                        continue; // skip the broken activity
                     }
 
                     // filter modules - dont't show submitted assignments

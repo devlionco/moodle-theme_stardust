@@ -224,6 +224,10 @@ if ($checkblocka || $checkblockb || $checkblockc) {
     $hascourseblocks = true;
 }
 
+// is teacher marker
+$coursecontext = context_course::instance($course->id);
+$isteacher = (has_capability('moodle/course:update', $coursecontext)) ? true : false;
+
 // get teacher's course message
 $coursemessage = $DB->get_record('theme_stardust_messages', array ('courseid' => $course->id));
 if ($coursemessage) {
@@ -232,11 +236,22 @@ if ($coursemessage) {
     $coursemessage->teachmessageshowhide= ($coursemessage->status == 1) ? '' : 'style = opacity:0.5;';  // define teacher's message box style with opacity
     $coursemessage->studmessageshowhide= ($coursemessage->status == 1) ? '' : 'style = display:none;';  // define student's message box style: display or not
     //$coursemessage->messageboxstatus = ($coursemessage->status == 1) ? '' : 'hide';                   // define student's message box status class
-}
 
-// is teacher marker
-$coursecontext = context_course::instance($course->id);
-$isteacher = (has_capability('moodle/course:update', $coursecontext)) ? true : false;
+    // parse links in message for students
+    $regexp = "/(?i)\b([a-z][\w-]+:\/{1,3})?((www\d{0,3}[.]|[a-z0-9.\-]+[.][a-z]{2,})+(?:\/[^\s()<>]+|\(([^\s()<>]+|(\([^\s()<>]+\)))*\))?(?:\(([^\s()<>]+|(\([^\s()<>]+\)))*\)|[^\s`!()\[\]{};:'\".,<>?«»“”‘’])?)/";
+
+    function replace_urls_clbk($link) {
+        $scheme = $link[1] ? $link[1] : '//';
+        $fullurl = $link[2];
+        $sitename = $link[3];
+        return  "<a href='{$scheme}{$fullurl}' target='_blank'>{$sitename}</a>";
+    }
+
+    if(preg_match($regexp, $coursemessage->message, $links) && !$isteacher) {
+        $coursemessage->message = preg_replace_callback($regexp, 'replace_urls_clbk', $coursemessage->message);
+    }
+
+}
 
 $templatecontext = [
     'sitename' => format_string($SITE->shortname, true, ['context' => context_course::instance(SITEID) , "escape" => false]) ,
@@ -280,6 +295,8 @@ if (isset($PAGE->theme->settings->showbacktotop) && $PAGE->theme->settings->show
     $PAGE->requires->js('/theme/fordson/javascript/scrollspy.js');
 }
 $PAGE->requires->js('/theme/fordson/javascript/tooltipfix.js');
+
+if ($isteacher) $PAGE->requires->js_call_amd('theme_stardust/teacher-messages', 'init');
 
 $templatecontext['flatnavigation'] = $PAGE->flatnav;
 // echo $OUTPUT->render_from_template('theme_stardust/columns-course', $templatecontext);
