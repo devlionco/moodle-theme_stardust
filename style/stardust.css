@@ -3248,6 +3248,39 @@ html {
           color: #3C3C3C;
           background: none; }
 
+.activityicon_wrapper {
+  width: 42px;
+  height: 42px;
+  border: 1px solid transparent;
+  border-radius: 50%;
+  margin-left: 28px;
+  display: -ms-flexbox !important;
+  display: flex !important;
+  -ms-flex-pack: center;
+      justify-content: center;
+  -ms-flex-align: center;
+      align-items: center; }
+  .activityicon_wrapper .activityicon {
+    width: 30px !important;
+    height: 30px !important;
+    display: block;
+    margin: 0 !important; }
+
+.activityicon_wrapper.mod_gray .activityicon,
+.activityicon_wrapper.mod_green .activityicon,
+.activityicon_wrapper.mod_red .activityicon {
+  width: 28px !important;
+  height: 28px !important; }
+
+.activityicon_wrapper.mod_red {
+  border-color: red; }
+
+.activityicon_wrapper.mod_green {
+  border-color: green; }
+
+.activityicon_wrapper.mod_gray {
+  border-color: gray; }
+
 [dir="ltr"] .incourse-header .top-wrapper:before {
   background: linear-gradient(-90deg, transparent 0%, transparent 50%, #03146D 85%, #19284f 100%); }
 
