@@ -309,6 +309,8 @@ function get_activities_mydashboard($activitiesconf = array(), $numofrelevantact
                         continue;
                     }
 
+                    // add activity icon url
+                    $activityinfo['iconurl'] = $cminfo->get_icon_url();
                     // add all activityinfo to general array
                     // $activities[$activityname][] = $activityinfo; // with activityname sorting
                     $activities[] = $activityinfo; // without activityname sorting
