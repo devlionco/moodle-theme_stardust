@@ -178,6 +178,16 @@
             {{/courseactive}}
         {{/.}}
     {{/allactivities.courses}} -->
+    {{^allactivities.activitiescount}}
+        <tr>
+            <td></td>
+            <td>
+                {{#str}} noanyactivities, theme_stardust {{/str}}
+            </td>
+            <td></td>
+            <td></td>
+        </tr>
+    {{/allactivities.activitiescount}}
     {{#allactivities.courses}}
         {{#.}}
             {{^courseactive}}

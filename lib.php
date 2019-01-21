@@ -266,6 +266,8 @@ function get_activities_mydashboard($activitiesconf = array(), $numofrelevantact
 
     // build courses array
     $coursearray = array();
+    // count all activities in all courses
+    $activitiescount = 0;
     // begin courses iteration
     foreach ($courses as $id => $course) {
 
@@ -364,7 +366,7 @@ function get_activities_mydashboard($activitiesconf = array(), $numofrelevantact
                 'relevantactivities' => $relevantactivities,
                 'usercourselastaccess' => $usercourselastaccess
             );
-        }else {
+        } else {
             $coursearray['courseactive'][]= array(
                 'id' => $courses[$id]->id,
                 'fullname' => format_string($courses[$id]->fullname, $course->contextid),
@@ -381,10 +383,12 @@ function get_activities_mydashboard($activitiesconf = array(), $numofrelevantact
             );
         }
 
+        $activitiescount += count($activities);
     } // end courses iteration
 
     $result = array(
         'courses' => $coursearray,
+        'activitiescount' => $activitiescount,
         'warnings' => $warnings
     );
     // echo '<pre>'.print_r($result,1).'</pre>';exit();
