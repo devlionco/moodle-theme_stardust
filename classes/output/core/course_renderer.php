@@ -83,8 +83,8 @@ class course_renderer extends \core_course_renderer {
             }
           $activitystatus = stardust_activity_status($tmod);
 
-          $micon = $this->output->image_url('/'.$mod->modname.'/'.$activitystatus['modstyle'], 'theme');
-          // $micon = $mod->get_icon_url();
+         /*  $micon = $this->output->image_url('/'.$mod->modname.'/'.$activitystatus['modstyle'], 'theme'); */
+          $micon = $mod->get_icon_url();
           $mstatus = $activitystatus['modstatus'];
         } else {
           $micon = $mod->get_icon_url();
@@ -94,10 +94,14 @@ class course_renderer extends \core_course_renderer {
         // Display link itself.
         $modstyle = (!empty($activitystatus['modstyle']))? $activitystatus['modstyle'] : '';
 
-        $activitylink = html_writer::empty_tag('img', array('src' => $micon,
+        $activitylink = html_writer::tag('div',  
+        html_writer::empty_tag('img', array('src' => $micon,
                 'class' => 'iconlarge activityicon '.$modstyle,
                 'alt' => ' ',
-                'role' => 'presentation')) .
+                'role' => 'presentation')),
+                array('class' => 'activityicon_wrapper ' .$modstyle)
+                ) .
+
                 html_writer::tag('span', $instancename . $altname, array('class' => 'instancename'));
                 // html_writer::tag('span', $mstatus, array('class' => 'mstatus ' .$activitystatus['modstyle']));
         if ($mod->uservisible) {
