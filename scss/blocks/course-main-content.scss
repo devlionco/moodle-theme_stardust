@@ -494,3 +494,42 @@ $progress-height-open: 12px;
     }
   }
 }
+
+
+//change assigments icon style
+.activityicon_wrapper {
+    width: 42px;
+    height: 42px;
+    border: 1px solid transparent;
+    border-radius: 50%;
+    margin-left: 28px;
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+    .activityicon {
+        width: 30px !important;
+        height: 30px !important;
+        display: block;
+        margin: 0 !important;
+    }
+}
+.activityicon_wrapper.mod_gray,
+.activityicon_wrapper.mod_green,
+.activityicon_wrapper.mod_red {
+    .activityicon {
+        width: 28px !important;
+        height: 28px !important;
+    }
+}
+.activityicon_wrapper.mod_red {
+    border-color: red;
+}
+.activityicon_wrapper.mod_green {
+    border-color: green;
+}
+.activityicon_wrapper.mod_gray {
+    border-color: gray;
+}
+
+
+

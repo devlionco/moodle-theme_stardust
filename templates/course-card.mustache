@@ -26,7 +26,7 @@
             {{#relevantactivities}}
                 {{#.}}
                     <tr>
-                        <td class="table-column-document-icon"><div class="course-icon icon-{{modstyle}}"></div></td>
+                        <td class="table-column-document-icon"><div class="document-icon activityicon_wrapper {{modstyle}}"><img src="{{iconurl}}" class="iconlarge activityicon {{modstyle}}"/></div></td>
                         <td class="table-column-name-assigment"><a href = "{{ config.wwwroot}}/mod/{{modname}}/view.php?id={{cmid}}" class="name-assigment" title = "{{{name}}}">{{{name}}}</a></td>
                         <td class="name-unit"><p>{{unitname}}</p></td>
                         <td class="table-column-date"><p>{{{modstatus}}}</p></td>
