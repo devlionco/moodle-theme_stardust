@@ -1084,8 +1084,8 @@ body#page-login-signup {
       width: 100%;
       max-width: 78%; }
       #my-page .main-wrapper .main-header {
-        padding-top: 40px;
-        margin-bottom: 35px;
+        padding-top: 2vh;
+        margin-bottom: 2vh;
         height: 124px;
         color: #FFFFFF;
         display: -ms-flexbox;
@@ -1832,7 +1832,7 @@ body#page-login-signup {
   #tabtoday tbody {
     display: block;
     overflow: auto;
-    /*     height: 315px; */
+    height: 30vh;
     width: 100%; }
     #tabtoday tbody tr {
       display: -ms-flexbox;
