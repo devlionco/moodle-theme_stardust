@@ -83,20 +83,6 @@ $progress-height-open: 12px;
           &:hover {
             text-decoration: none;
           }
-          // text-decoration: underline $white;
-          // &:first-line{
-          //   text-decoration:underline $d_blue;
-          // }
-          // &:after{
-          //   position:relative;
-          //   display:inline-block;
-          //   content:"";
-          //   width:100%;
-          //   margin-left:-100%;
-          //   height:4px;
-          //   bottom:-10px;
-          //   background-color:#fff;
-          // }
         }
         p{
           display: block;
@@ -108,8 +94,6 @@ $progress-height-open: 12px;
         }
         .title {
           color: $white;
-          // font-size: 56px;
-          // margin-bottom: 40px;
         }
       }
       &-content {
@@ -120,14 +104,9 @@ $progress-height-open: 12px;
         justify-content: center;
         &-item {
           min-width: 204px;
-          // margin-right: 24px;
           height: 128px;
           padding: 19px 24px;
           list-style-type: none;
-          // box-shadow: 0 0 10px 3px rgba(0,0,0,0.3);
-          &:last-child {
-            // margin-right: 0;
-          }
         }
       }
     }
@@ -153,7 +132,6 @@ $progress-height-open: 12px;
   .main-wrapper {
     display: flex;
     justify-content: center;
-    // padding: 56px 0 0;
     background: #f4f3f0;
     .main {
       max-width: 1344px;
@@ -161,7 +139,6 @@ $progress-height-open: 12px;
       position: relative;
       .help-block {
         position: absolute;
-        // top: -169px;
         top: -112px;
         right: 0;
       }
@@ -493,4 +470,61 @@ $progress-height-open: 12px;
       }
     }
   }
+}
+
+
+//change assigments icon style
+// .activityicon_wrapper {
+//     width: 42px;
+//     height: 42px;
+//     border: 1px solid transparent;
+//     border-radius: 50%;
+//     margin-right: 28px;
+//     display: flex !important;
+//     justify-content: center;
+//     align-items: center;
+//     .activityicon {
+//         width: 28px !important;
+//         height: 28px !important;
+//         display: block;
+//         margin: 0;
+//     }
+// }
+
+.activityicon_wrapper.mod_gray,
+.activityicon_wrapper.mod_green,
+.activityicon_wrapper.mod_orange,
+.activityicon_wrapper.mod_red {
+  display: flex !important;
+  border: 1px solid transparent;
+  border-radius: 50%;
+  width: 44px;
+  height: 44px;
+  margin-left: 28px;
+    .activityicon {
+        margin: auto !important;
+        width: 28px !important;
+        height: 28px !important;
+    }
+}
+table {
+  .activityicon_wrapper.mod_gray,
+  .activityicon_wrapper.mod_green,
+  .activityicon_wrapper.mod_orange,
+  .activityicon_wrapper.mod_red {
+    margin-right: 28px;
+    margin-left: 0;
+  }
+}
+.activityicon_wrapper.mod_red {
+    border-color: red;
+}
+.activityicon_wrapper.mod_green {
+    border-color: green;
+}
+.activityicon_wrapper.mod_gray {
+    border-color: gray;
+}
+.activityicon_wrapper.mod_orange {
+    border-color: #ff8e4b;
 }

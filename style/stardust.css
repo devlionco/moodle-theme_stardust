@@ -1037,9 +1037,6 @@ body#page-login-signup {
 #my-page {
   color: #3C3C3C;
   font-family: "openSans"; }
-  #my-page .document-icon {
-    height: 40px;
-    width: 40px; }
   #my-page .blockpanelbtn {
     width: 56px;
     height: 56px;
@@ -1091,8 +1088,8 @@ body#page-login-signup {
       width: 100%;
       max-width: 78%; }
       #my-page .main-wrapper .main-header {
-        padding-top: 40px;
-        margin-bottom: 35px;
+        padding-top: 2vh;
+        margin-bottom: 2vh;
         height: 124px;
         color: #FFFFFF;
         display: -ms-flexbox;
@@ -1839,7 +1836,7 @@ body#page-login-signup {
   #tabtoday tbody {
     display: block;
     overflow: auto;
-    height: 315px;
+    height: 30vh;
     width: 100%; }
     #tabtoday tbody tr {
       display: -ms-flexbox;
@@ -3254,6 +3251,44 @@ html {
           padding: 0;
           color: #3C3C3C;
           background: none; }
+
+.activityicon_wrapper.mod_gray,
+.activityicon_wrapper.mod_green,
+.activityicon_wrapper.mod_orange,
+.activityicon_wrapper.mod_red {
+  display: -ms-flexbox !important;
+  display: flex !important;
+  border: 1px solid transparent;
+  border-radius: 50%;
+  width: 44px;
+  height: 44px;
+  margin-left: 28px; }
+  .activityicon_wrapper.mod_gray .activityicon,
+  .activityicon_wrapper.mod_green .activityicon,
+  .activityicon_wrapper.mod_orange .activityicon,
+  .activityicon_wrapper.mod_red .activityicon {
+    margin: auto !important;
+    width: 28px !important;
+    height: 28px !important; }
+
+table .activityicon_wrapper.mod_gray,
+table .activityicon_wrapper.mod_green,
+table .activityicon_wrapper.mod_orange,
+table .activityicon_wrapper.mod_red {
+  margin-right: 28px;
+  margin-left: 0; }
+
+.activityicon_wrapper.mod_red {
+  border-color: red; }
+
+.activityicon_wrapper.mod_green {
+  border-color: green; }
+
+.activityicon_wrapper.mod_gray {
+  border-color: gray; }
+
+.activityicon_wrapper.mod_orange {
+  border-color: #ff8e4b; }
 
 [dir="ltr"] .incourse-header .top-wrapper:before {
   background: linear-gradient(-90deg, transparent 0%, transparent 50%, #03146D 85%, #19284f 100%); }

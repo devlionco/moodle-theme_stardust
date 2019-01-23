@@ -94,7 +94,9 @@
                             data-type = "{{modname}}"
                             >
                                 <th class="column-document-icon" scope="row">
-                                    <div class="document-icon icon-{{modstyle}}"></div>
+                                    <div class="document-icon activityicon_wrapper {{modstyle}}">
+                                        <img src="{{iconurl}}" class="iconlarge activityicon {{modstyle}}"/>
+                                    </div>
                                 </th>
                                 <td class="column-name-assigment">
                                     <a
@@ -178,12 +180,22 @@
             {{/courseactive}}
         {{/.}}
     {{/allactivities.courses}} -->
+    {{^allactivities.activitiescount}}
+        <tr>
+            <td></td>
+            <td style = "color: #19284f; font-weight: bold;">
+                {{#str}} noanyactivities, theme_stardust {{/str}}
+            </td>
+            <td></td>
+            <td></td>
+        </tr>
+    {{/allactivities.activitiescount}}
     {{#allactivities.courses}}
         {{#.}}
             {{^courseactive}}
                 <tr>
                     <td></td>
-                    <td>
+                    <td style = "color: #19284f; font-weight: bold;">
                         {{#str}} noanyactivities, theme_stardust {{/str}}
                     </td>
                     <td></td>
@@ -195,7 +207,7 @@
     {{^allactivities.courses}}
         <tr>
             <td></td>
-            <td>
+            <td style = "color: #19284f; font-weight: bold;">
                 {{#str}} noanyactivities, theme_stardust {{/str}}
             </td>
             <td></td>

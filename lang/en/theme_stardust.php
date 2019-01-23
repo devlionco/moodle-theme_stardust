@@ -245,7 +245,7 @@ $string['sociallinkicon'] = 'Link Icon';
 $string['sociallinkicondesc'] = 'Enter the fontawesome name of the icon for your link<br />A full list of FontAwesome icons can be found at http://fontawesome.io/icons/';
 
 
-// Footer links 
+// Footer links
 $string['home_page'] = 'Home page';
 $string['about'] = 'About us';
 $string['contact_us'] = 'Contact us';
@@ -479,7 +479,7 @@ $string['two_days_before_assignment'] = 'Two days before the assignment';
 $string['one_days_before_assignment'] = 'One day before the assignment';
 $string['nofinishedcourses'] = 'No finished courses';
 $string['noanycourses'] = 'No courses';
-$string['noanyactivities'] = 'No activities';
+$string['noanyactivities'] = 'You have no open events';
 $string['change_background'] = 'Change background';
 $string['no_messages'] = 'You do not have new messages.';
 $string['dayname_0'] = 'Sunday';

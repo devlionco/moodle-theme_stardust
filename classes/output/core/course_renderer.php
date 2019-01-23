@@ -77,24 +77,14 @@ class course_renderer extends \core_course_renderer {
         $tmod->course = $mextra->course;
 
         if ($mod->modname == 'assign' || $mod->modname == 'quiz') {
-            // if (!isset($mextra->duedate) || !isset($mextra->cutoffdate) ) {
-            //     $tmod->cutoffdate = 0;
-            //     $tmod->duedate = 0;
-            // } else {
-            //     $tmod->duedate = $mextra->duedate;
-            //     $tmod->cutoffdate = $mextra->cutoffdate;
-            // }
-
             if ($mod->modname == 'assign') {
                 $tmod->duedate = isset($mextra->duedate) ? $mextra->duedate : 0;
                 $tmod->cutoffdate= isset($mextra->cutoffdate) ? $mextra->cutoffdate : 0;
             }
-
-            // if ($mod->modname == 'quiz'){
-            //     $tmod->cutoffdate = $mextra->timeclose ? : 0;
-            // }
           $activitystatus = stardust_activity_status($tmod);
-          $micon = $this->output->image_url('/'.$mod->modname.'/'.$activitystatus['modstyle'], 'theme');
+
+         /*  $micon = $this->output->image_url('/'.$mod->modname.'/'.$activitystatus['modstyle'], 'theme'); */
+          $micon = $mod->get_icon_url();
           $mstatus = $activitystatus['modstatus'];
         } else {
           $micon = $mod->get_icon_url();
@@ -102,8 +92,16 @@ class course_renderer extends \core_course_renderer {
         }
 
         // Display link itself.
-        $activitylink = html_writer::empty_tag('img', array('src' => $micon,
-                'class' => 'iconlarge activityicon', 'alt' => ' ', 'role' => 'presentation')) .
+        $modstyle = (!empty($activitystatus['modstyle']))? $activitystatus['modstyle'] : '';
+
+        $activitylink = html_writer::tag('div',  
+        html_writer::empty_tag('img', array('src' => $micon,
+                'class' => 'iconlarge activityicon '.$modstyle,
+                'alt' => ' ',
+                'role' => 'presentation')),
+                array('class' => 'activityicon_wrapper ' .$modstyle)
+                ) .
+
                 html_writer::tag('span', $instancename . $altname, array('class' => 'instancename'));
                 // html_writer::tag('span', $mstatus, array('class' => 'mstatus ' .$activitystatus['modstyle']));
         if ($mod->uservisible) {

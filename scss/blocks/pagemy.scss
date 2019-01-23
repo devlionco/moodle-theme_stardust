@@ -26,10 +26,6 @@ $padding-blocks: 20px 27px 24px 24px;
 #my-page {
   color: $text-color;
   font-family: "openSans";
-  .document-icon {
-    height: 40px;
-    width: 40px;
-  }
   .blockpanelbtn {
     width: 56px;
     height: 56px;
@@ -99,8 +95,8 @@ $padding-blocks: 20px 27px 24px 24px;
       width: 100%;
       max-width: 78%;
       &-header {
-        padding-top: 40px;
-        margin-bottom: 35px;
+        padding-top: 2vh;
+        margin-bottom: 2vh;
         height: $content-header-height;
         color: $white;
         display: flex;
