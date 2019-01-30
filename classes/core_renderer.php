@@ -1626,7 +1626,7 @@ class core_renderer extends \theme_boost\output\core_renderer {
         $summarytrim = theme_fordson_course_trim_char($summary, 300);
         $courseinfo = array(
             array(
-                'content' => format_text($summarytrim) ,
+                //'content' => format_text($summarytrim) ,
             )
         );
         $hascoursestaff = array(

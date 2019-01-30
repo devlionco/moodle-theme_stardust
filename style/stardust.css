@@ -2902,7 +2902,7 @@ html {
   #course-main-content .top-wrapper {
     box-sizing: border-box;
     height: 270px;
-    background: url([[pix:theme|banner]]);
+    background: url("[[pix:theme|banner]]");
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -2942,7 +2942,7 @@ html {
           #course-main-content .top-wrapper .top .subtitle .route > a:hover {
             text-decoration: none; }
         #course-main-content .top-wrapper .top .subtitle .home-icon {
-          background: url([[pix:theme|course/home]]) no-repeat center center;
+          background: url("[[pix:theme|course/home]]") no-repeat center center;
           width: 28px;
           height: 28px; }
       #course-main-content .top-wrapper .top .title-wrapper {
@@ -3018,7 +3018,7 @@ html {
         right: 0; }
       #course-main-content .main-wrapper .main .courses-list {
         list-style: none;
-        margin: 0 0 82px 0;
+        margin: 0 0 82px;
         padding: 0; }
         #course-main-content .main-wrapper .main .courses-list .course {
           display: -ms-flexbox;
@@ -3074,7 +3074,7 @@ html {
                 width: 50px;
                 height: 50px;
                 border: none;
-                background: url([[pix:theme|course/open]]) no-repeat center center;
+                background: url("[[pix:theme|course/open]]") no-repeat center center;
                 background-size: contain;
                 outline: none;
                 margin: 0 20px 0 0; }
@@ -3113,18 +3113,18 @@ html {
                 -ms-flex-align: center;
                     align-items: center; }
                 #course-main-content .main-wrapper .main .courses-list .course-items .course-item-icon-block .icon-document {
-                  background: url([[pix:theme|pagemy/document]]) no-repeat center center;
+                  background: url("[[pix:theme|pagemy/document]]") no-repeat center center;
                   background-size: contain;
                   width: 41px;
                   height: 41px; }
                   #course-main-content .main-wrapper .main .courses-list .course-items .course-item-icon-block .icon-document-orange {
-                    background: url([[pix:theme|pagemy/document-orange]]) no-repeat center center;
+                    background: url("[[pix:theme|pagemy/document-orange]]") no-repeat center center;
                     background-size: contain; }
                   #course-main-content .main-wrapper .main .courses-list .course-items .course-item-icon-block .icon-document-red {
-                    background: url([[pix:theme|pagemy/document-red]]) no-repeat center center;
+                    background: url("[[pix:theme|pagemy/document-red]]") no-repeat center center;
                     background-size: contain; }
                   #course-main-content .main-wrapper .main .courses-list .course-items .course-item-icon-block .icon-document-green {
-                    background: url([[pix:theme|pagemy/document-green]]) no-repeat center center;
+                    background: url("[[pix:theme|pagemy/document-green]]") no-repeat center center;
                     background-size: contain; }
               #course-main-content .main-wrapper .main .courses-list .course-items .course-item-content {
                 width: auto;
@@ -3161,15 +3161,15 @@ html {
                   font-size: 18px;
                   white-space: nowrap; }
             #course-main-content .main-wrapper .main .courses-list .course-items .course-item-green .course-item-icon-block .icon-document {
-              background: url([[pix:theme|pagemy/document-green]]) no-repeat center center;
+              background: url("[[pix:theme|pagemy/document-green]]") no-repeat center center;
               background-size: contain; }
             #course-main-content .main-wrapper .main .courses-list .course-items .course-item-green .course-item-status-block .course-item-status {
               height: 40px;
               width: 40px;
-              background: url([[pix:theme|course/check]]) no-repeat center center;
+              background: url("[[pix:theme|course/check]]") no-repeat center center;
               background-size: contain; }
             #course-main-content .main-wrapper .main .courses-list .course-items .course-item-orange .course-item-icon-block .icon-document {
-              background: url([[pix:theme|pagemy/document-orange]]) no-repeat center center;
+              background: url("[[pix:theme|pagemy/document-orange]]") no-repeat center center;
               background-size: contain; }
             #course-main-content .main-wrapper .main .courses-list .course-items .course-item-orange .course-item-status-block .course-item-status {
               font-weight: 600;
@@ -3178,7 +3178,7 @@ html {
               text-overflow: ellipsis;
               overflow: hidden; }
             #course-main-content .main-wrapper .main .courses-list .course-items .course-item-red .course-item-icon-block .icon-document {
-              background: url([[pix:theme|pagemy/document-red]]) no-repeat center center;
+              background: url("[[pix:theme|pagemy/document-red]]") no-repeat center center;
               background-size: contain; }
             #course-main-content .main-wrapper .main .courses-list .course-items .course-item-red .course-item-status-block .course-item-status {
               font-weight: 600;
@@ -3193,7 +3193,7 @@ html {
             background: #19284f; }
             #course-main-content .main-wrapper .main .courses-list .course-selected .course-header .course-icon-block .course-icon {
               display: block;
-              background: url([[pix:theme|course/pushpin]]) no-repeat center center;
+              background: url("[[pix:theme|course/pushpin]]") no-repeat center center;
               width: 36px;
               height: 36px;
               background-size: contain; }
@@ -3206,7 +3206,7 @@ html {
         #course-main-content .main-wrapper .main .courses-list .course.opened .course-header {
           height: 86px; }
           #course-main-content .main-wrapper .main .courses-list .course.opened .course-header .course-toggle-block .btn-toggle-course {
-            background: url([[pix:theme|course/close]]) no-repeat center center;
+            background: url("[[pix:theme|course/close]]") no-repeat center center;
             background-size: contain; }
         #course-main-content .main-wrapper .main .courses-list .course.opened .course-progress {
           height: 12px;
@@ -3228,7 +3228,7 @@ html {
         #course-main-content .main-wrapper .main .courses-list .course-selected.opened .course-header {
           height: 98px; }
           #course-main-content .main-wrapper .main .courses-list .course-selected.opened .course-header .course-toggle-block .btn-toggle-course {
-            background: url([[pix:theme|course/close]]) no-repeat center center;
+            background: url("[[pix:theme|course/close]]") no-repeat center center;
             background-size: contain; }
       #course-main-content .main-wrapper .main .all-course-list {
         display: -ms-flexbox;
@@ -3244,7 +3244,7 @@ html {
           font-size: 24px;
           font-weight: 600;
           color: #929191;
-          margin: 0 0 10px 0; }
+          margin: 0 0 10px; }
         #course-main-content .main-wrapper .main .all-course-list .btn-open-all {
           border: none;
           margin: 0;
@@ -3252,24 +3252,32 @@ html {
           color: #3C3C3C;
           background: none; }
 
-.activityicon_wrapper.mod_gray,
-.activityicon_wrapper.mod_green,
-.activityicon_wrapper.mod_orange,
-.activityicon_wrapper.mod_red {
+.activityinstance > a {
+  display: -ms-flexbox !important;
+  display: flex !important;
+  -ms-flex-align: center;
+      align-items: center;
+  text-indent: 0 !important;
+  padding-left: 0; }
+
+.activityinstance .activityicon_wrapper.mod_gray,
+.activityinstance .activityicon_wrapper.mod_green,
+.activityinstance .activityicon_wrapper.mod_orange,
+.activityinstance .activityicon_wrapper.mod_red {
   display: -ms-flexbox !important;
   display: flex !important;
   border: 1px solid transparent;
   border-radius: 50%;
-  width: 44px;
-  height: 44px;
-  margin-left: 28px; }
-  .activityicon_wrapper.mod_gray .activityicon,
-  .activityicon_wrapper.mod_green .activityicon,
-  .activityicon_wrapper.mod_orange .activityicon,
-  .activityicon_wrapper.mod_red .activityicon {
-    margin: auto !important;
-    width: 28px !important;
-    height: 28px !important; }
+  width: 30px;
+  height: 30px;
+  margin-right: 6px; }
+  .activityinstance .activityicon_wrapper.mod_gray .activityicon,
+  .activityinstance .activityicon_wrapper.mod_green .activityicon,
+  .activityinstance .activityicon_wrapper.mod_orange .activityicon,
+  .activityinstance .activityicon_wrapper.mod_red .activityicon {
+    margin: auto;
+    width: 22px;
+    height: 22px; }
 
 table .activityicon_wrapper.mod_gray,
 table .activityicon_wrapper.mod_green,
@@ -3279,16 +3287,49 @@ table .activityicon_wrapper.mod_red {
   margin-left: 0; }
 
 .activityicon_wrapper.mod_red {
-  border-color: red; }
+  border-color: red !important; }
 
 .activityicon_wrapper.mod_green {
-  border-color: green; }
+  border-color: green !important; }
 
 .activityicon_wrapper.mod_gray {
-  border-color: gray; }
+  border-color: gray !important; }
 
 .activityicon_wrapper.mod_orange {
-  border-color: #ff8e4b; }
+  border-color: #ff8e4b !important; }
+
+.inplaceeditable {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+      align-items: center; }
+  .inplaceeditable > a {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+        align-items: center; }
+    .inplaceeditable > a .instancename {
+      margin: 0 6px; }
+
+.format-stardust {
+  /*     .course-content .section li.activity img.activityicon {
+      
+  } */ }
+  .format-stardust .activityinstance .activityicon_wrapper.mod_gray,
+  .format-stardust .activityinstance .activityicon_wrapper.mod_green,
+  .format-stardust .activityinstance .activityicon_wrapper.mod_orange,
+  .format-stardust .activityinstance .activityicon_wrapper.mod_red {
+    margin-left: 28px;
+    width: 44px;
+    height: 44px; }
+    .format-stardust .activityinstance .activityicon_wrapper.mod_gray img,
+    .format-stardust .activityinstance .activityicon_wrapper.mod_green img,
+    .format-stardust .activityinstance .activityicon_wrapper.mod_orange img,
+    .format-stardust .activityinstance .activityicon_wrapper.mod_red img {
+      width: 32px !important;
+      height: 32px !important;
+      margin-left: 4px !important;
+      margin-top: 6px !important; }
 
 [dir="ltr"] .incourse-header .top-wrapper:before {
   background: linear-gradient(-90deg, transparent 0%, transparent 50%, #03146D 85%, #19284f 100%); }

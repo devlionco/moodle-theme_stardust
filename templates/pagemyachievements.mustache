@@ -4,9 +4,11 @@
         <a href = "{{config.wwwroot}}/badges/mybadges.php">
             <li class="achievment">
                 <div class="icon-medal">
-
-                        <div class="icon-counter">2</div>
-        
+                  {{#output.get_user_badges.count}}
+                      {{#.}}
+                          <div class="icon-counter">{{output.get_user_badges.count}}</div>
+                      {{/.}}
+                  {{/output.get_user_badges.count}}
                 </div>
                 <p class="icon-label">{{#str}} medal, theme_stardust{{/str}}</p>
             </li>
@@ -26,7 +28,3 @@
         </a>
     </ul>
 </div>
-
-{{#js}}
-
-{{/js}}

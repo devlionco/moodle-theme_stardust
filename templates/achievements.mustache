@@ -2,7 +2,6 @@
     <ul>
         {{#showgrades}}
         <li class="achievment">
-            <!-- <a href = "{{config.wwwroot}}/grade/report/grader/index.php?id={{courseid}}"> -->
             <a href = "{{config.wwwroot}}/grade/report/user/index.php?id={{courseid}}">
                 <p class="icon-label">{{#str}}grades, theme_stardust{{/str}}</p>
                 <div class="icon-report"></div>
@@ -14,7 +13,11 @@
             <a href = "{{config.wwwroot}}/badges/mybadges.php">
                 <p class="icon-label">{{#str}}medal, theme_stardust{{/str}}</p>
                 <div class="icon-medal">
-                            <div class="icon-counter">2</div>
+                    {{#output.get_user_badges.count}}
+                        {{#.}}
+                            <div class="icon-counter">{{output.get_user_badges.count}}</div>
+                        {{/.}}
+                    {{/output.get_user_badges.count}}
                 </div>
             </a>
         </li>
