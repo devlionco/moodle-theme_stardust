@@ -313,10 +313,15 @@ class core_renderer extends \theme_boost\output\core_renderer {
     }
 
     public function get_stardust_logo() {
+  
         global $OUTPUT;
-        $output = $OUTPUT->image_url('header/logo_davidson', 'theme');
-
-        return $output;
+        if(current_language() == "he"){
+            $output = $OUTPUT->image_url('header/logo_davidson', 'theme');
+            return $output;
+        } else if (current_language() == "en"){
+            $output = $OUTPUT->image_url('header/logo_davidson_eng', 'theme');
+            return $output;
+        }      
     }
 
     public function get_stardust_moodle_logo() {
