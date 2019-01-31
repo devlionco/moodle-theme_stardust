@@ -3630,7 +3630,7 @@ table .activityicon_wrapper.mod_red {
       display: none; }
     #page-mod-quiz-attempt #page-wrapper section[data-region="blocks-column"] {
       position: absolute;
-      left: -250px;
+      left: -100%;
       transition: .4s;
       border: 1px solid #ddd;
       z-index: 1000;
