@@ -590,7 +590,6 @@ body#page-login-signup {
       display: block;
       width: 100%;
       height: 130px;
-      background-image: url([[pix:theme|logo_right]]);
       background-position: center;
       background-repeat: no-repeat;
       background-size: contain; }
@@ -757,9 +756,7 @@ body#page-login-signup {
   max-height: 45px;
   padding: 0;
   border-bottom: none;
-  background-color: #19284f;
-  /*     max-width: 100vw;
-    overflow-x: hidden; */ }
+  background-color: #19284f; }
   .dheader .dheader__inner {
     display: -ms-flexbox;
     display: flex;
@@ -2965,8 +2962,6 @@ html {
           overflow: hidden; }
         #course-main-content .top-wrapper .top .title-wrapper .title {
           color: #FFFFFF; }
-        #course-main-content .top-wrapper .top .title-wrapper .underlined {
-          text-decoration: underline; }
       #course-main-content .top-wrapper .top-content {
         margin: 0;
         padding: 0;
@@ -4194,12 +4189,7 @@ table .activityicon_wrapper.mod_red {
   #page-content .slidingblockpanel .fp-blocks {
     height: 100%;
     overflow-y: auto; }
-
-#page-mod-forum-view #page-wrapper {
-  max-width: 100vw;
-  overflow-x: hidden; }
-
-@media only screen and (min-width: 576px) and (max-width: 992px){
+  @media only screen and (min-width: 576px) and (max-width: 992px){
   .dheader__tutorial{
     display: none !important; }
   #my-page .main-wrapper .main{
@@ -4219,16 +4209,13 @@ table .activityicon_wrapper.mod_red {
     flex-wrap: wrap; }
   #course-main-content .top-wrapper .top-content-item{
     margin-bottom: 24px; } }
-
-@media (min-width: 1024px){
+  @media (min-width: 1024px){
   #page-login-index .dlogin__title{
     min-width: 600px; } }
-
-@media (max-width: 375px){
+  @media (max-width: 375px){
   #page-login-index .dlogin__enter{
     margin-left: -15px; } }
-
-@media (max-width: 768px){
+  @media (max-width: 768px){
   #page-footer #stardust-footer .footer-nav{
     -ms-flex-order: 1;
     order: 1;
@@ -4250,8 +4237,7 @@ table .activityicon_wrapper.mod_red {
     align-items: center;
     -ms-flex-pack: center;
     justify-content: center; } }
-
-@media only screen and (max-width: 576px){
+  @media only screen and (max-width: 576px){
   .dheader__tutorial{
     display: none !important; }
   #my-page .main-wrapper .main{
@@ -4271,8 +4257,7 @@ table .activityicon_wrapper.mod_red {
     flex-wrap: wrap; }
   #course-main-content .top-wrapper .top-content-item{
     margin-bottom: 24px; } }
-
-@media only screen and (max-width: 1344px){
+  @media only screen and (max-width: 1344px){
   .card.card-block{
     min-height: auto;
     max-width: 1344px;
@@ -4283,13 +4268,11 @@ table .activityicon_wrapper.mod_red {
   #page-mod-quiz-summary #page-wrapper section#region-main.has-blocks .card,
   #page-mod-quiz-attempt #page-wrapper section#region-main.has-blocks .card{
     margin: 0 4%; } }
-
-@media only screen and (max-width: 992px){
+  @media only screen and (max-width: 992px){
   #mypublic-student .main-wrapper .main-content{
     -ms-grid-columns: (minmax(200px, 100%))[auto-fill];
     grid-template-columns: repeat(auto-fill, minmax(200px, 100%)); } }
-
-@media screen and (max-width: 800px){
+  @media screen and (max-width: 800px){
   #page-mod-quiz-summary #page-wrapper section#region-main.has-blocks .card,
   #page-mod-quiz-attempt #page-wrapper section#region-main.has-blocks .card{
     margin: 0 4%; }
