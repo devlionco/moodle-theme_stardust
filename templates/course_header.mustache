@@ -58,3 +58,28 @@
   </div>
 
 </div>
+{{#js}}
+require(['jquery'], function($){
+$('.title a').each(function(index, elem) {
+	//create <span> element and append it into title
+	$(elem).html($(elem).html() + "<span class='endline'></span>");
+
+	var endline = $(elem).find('.endline');
+
+	let linewidth;
+	//calculate element width
+	if (document.documentElement.lang === 'he') {
+		var width = endline.offset().left - $('.title').offset().left;
+		linewidth = $('.title').width() - width;
+	} else {
+		linewidth = endline.offset().left;
+	}
+	//set <span> width
+	endline.css('width', parseInt(linewidth));
+	//add class - create underline
+	endline.addClass('processed');
+});
+
+});
+
+{{/js}}

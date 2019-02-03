@@ -2946,7 +2946,7 @@ html {
           color: #fff;
           font-size: 72px;
           line-height: 60px;
-          display: block;
+          /*                 display: block; */
           max-height: 186px;
           width: 100%;
           overflow-x: visible;
@@ -2961,7 +2961,16 @@ html {
           width: 100%;
           overflow: hidden; }
         #course-main-content .top-wrapper .top .title-wrapper .title {
-          color: #FFFFFF; }
+          color: #FFFFFF;
+          position: relative; }
+        #course-main-content .top-wrapper .top .title-wrapper .endline.processed {
+          position: absolute;
+          bottom: -1px;
+          left: 0;
+          height: 2px;
+          display: block;
+          background-color: #fff;
+          z-index: -1; }
       #course-main-content .top-wrapper .top-content {
         margin: 0;
         padding: 0;
