@@ -314,7 +314,7 @@ class core_renderer extends \theme_boost\output\core_renderer {
     public function get_stardust_logo() {
         global $OUTPUT;
 
-        $logourl = (current_language() == "he") ? 'header/logo_davidson' : 'header/logo_davidson_eng';
+        $logourl = (current_language() == "he") ? 'header/logo_davidson_he' : 'header/logo_davidson_eng';
         $output = $OUTPUT->image_url($logourl, 'theme');
 
         return $output;
