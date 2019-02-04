@@ -276,7 +276,6 @@ class core_renderer extends \theme_boost\output\core_renderer {
         }
 
         return $output;
-        // return 'atik';
     }
 
     protected function render_custom_menu(custom_menu $menu) {
@@ -313,15 +312,12 @@ class core_renderer extends \theme_boost\output\core_renderer {
     }
 
     public function get_stardust_logo() {
-  
         global $OUTPUT;
-        if(current_language() == "he"){
-            $output = $OUTPUT->image_url('header/logo_davidson', 'theme');
-            return $output;
-        } else if (current_language() == "en"){
-            $output = $OUTPUT->image_url('header/logo_davidson_eng', 'theme');
-            return $output;
-        }      
+
+        $logourl = (current_language() == "he") ? 'header/logo_davidson' : 'header/logo_davidson_eng';
+        $output = $OUTPUT->image_url($logourl, 'theme');
+
+        return $output;
     }
 
     public function get_stardust_moodle_logo() {

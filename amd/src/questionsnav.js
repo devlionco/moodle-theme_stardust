@@ -11,7 +11,6 @@ define(['jquery'], function ($) {
     var dir = document.dir, fixrtl = false;
 
     // set computed width for inner block;
-    // $('.qn_buttons-inner').css('width', $('.qnbutton.thispage').outerWidth(true)*collectionAll.length +'px');
     $('.qn_buttons-inner').css('width', 68.5*collectionAll.length-30 +'px');
 
     if (dir == 'rtl'){
@@ -24,22 +23,9 @@ define(['jquery'], function ($) {
     function getXCenter(elem){
         return elem.offsetLeft + elem.offsetWidth/2;
     }
-    // var scrollNegative = startPos.scrollLeft > 0 ? false : true;
-    // console.log('wrapperLeftPos:'+wrapper.offsetLeft);
-    // console.log('wrapperWidth:'+wrapper.offsetWidth);
-    // console.log('wrapperWidth/2 - padding:'+wrapper.offsetWidth/2);
     var a = wrapper.offsetLeft+wrapper.offsetWidth;
-    // console.log('wrapperRightPos:'+a);
-    // console.log('wrapperScrL:'+wrapper.scrollLeft);
-    // console.log('firstOffsetPos:'+firstOnThisPage.offsetLeft);
-    // console.log('firstOffsetWidth:'+firstOnThisPage.offsetWidth);
     var b = firstOnThisPage.offsetLeft + firstOnThisPage.offsetWidth;
-    // console.log('firstRightPos:'+b);
-    // console.log('inner.offsetLeft:'+ inner.offsetLeft);
-    // console.log('inner.offsetWidth:'+ inner.offsetWidth);
     var c = inner.offsetWidth+ inner.offsetLeft;
-    // console.log('inner.RightPos:'+ c);
-    // console.log('inner.outerWidth:'+ $('.qn_buttons-inner').outerWidth());
 
     // set padding to normalize center position
     var padding = wrapper.offsetWidth/2;
@@ -50,13 +36,9 @@ define(['jquery'], function ($) {
       var listStart = inner.offsetLeft + inner.offsetWidth;
       var startPos = firstOnThisPage.offsetLeft + firstOnThisPage.offsetWidth - wrapper.offsetWidth; //display ccenter
       firstOnThisPage.style.color = '#f00';
-      // console.log('startPos rtl only:'+startPos);
-      // console.log('wrapperScrollLeft:'+wrapper.scrollLeft);
       $('.qn_buttons').animate({scrollLeft: startPos}, 1000);
     } else {
       var startPos = getXCenter(firstOnThisPage) - firstOnThisPage.offsetWidth/2;
-      // console.log('wrapperScrollLeft:'+wrapper.scrollLeft);
-      // console.log('startPos ltr only:'+startPos);
       $('.qn_buttons').animate({scrollLeft: startPos}, 1000);
     }
 
