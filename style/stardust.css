@@ -1011,6 +1011,10 @@ body#page-login-signup {
 #learningcontent .m-t-2.m-b-1 {
   display: none; }
 
+#page-mod-forum-view #page-wrapper {
+  width: 100vw;
+  overflow-x: hidden; }
+
 #page-my-index .mform {
   display: none;
   position: fixed;
