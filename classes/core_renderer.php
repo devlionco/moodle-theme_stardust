@@ -276,7 +276,6 @@ class core_renderer extends \theme_boost\output\core_renderer {
         }
 
         return $output;
-        // return 'atik';
     }
 
     protected function render_custom_menu(custom_menu $menu) {
@@ -314,7 +313,9 @@ class core_renderer extends \theme_boost\output\core_renderer {
 
     public function get_stardust_logo() {
         global $OUTPUT;
-        $output = $OUTPUT->image_url('header/logo_davidson', 'theme');
+
+        $logourl = (current_language() == "he") ? 'header/logo_davidson_he' : 'header/logo_davidson_eng';
+        $output = $OUTPUT->image_url($logourl, 'theme');
 
         return $output;
     }
