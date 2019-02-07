@@ -253,6 +253,10 @@ if ($coursemessage) {
 
 }
 
+// Get help contacts.
+$helpcontactroles = get_config('theme_stardust', 'help_contact_roles');
+$helpcontacts = array_values(get_role_users(explode(',', $helpcontactroles), $coursecontext, false, 'ra.id, u.id, u.firstname, u.lastname, u.email'));
+
 $templatecontext = [
     'sitename' => format_string($SITE->shortname, true, ['context' => context_course::instance(SITEID) , "escape" => false]) ,
     'output' => $OUTPUT,
@@ -285,8 +289,8 @@ $templatecontext = [
     'isteacher' => $isteacher,
     'userid' => $USER->id,
     'courseid' => $course->id,
-    'coursecoverimg' => get_courses_cover_images($course)
-
+    'coursecoverimg' => get_courses_cover_images($course),
+    'teachers' => $helpcontacts ?? null,
 ];
 
 $PAGE->requires->jquery();

@@ -60,18 +60,24 @@
             <button id="btn-close" class="btn-close"></button>
         </div>
         <div class="menu-content">
-            <a class="item contact_teacher_btn" href="#" >
+            <!--<a class="item" href="#">
                 <div class="item-icon item-icon-teacher-hat"></div>
                 <div class="item-name">{{# str }} contact_teacher, theme_stardust {{/ str }}</div>
-            </a>
-          {{#teacher}}  
-          <div class = "teacher_list" style="display: none;">
-               <a
-                  class = "teacher"
-                  href = "mailto:{{teacher.email}}"
-                  >{{teacher.name}}</a> 
+            </a>-->
+            {{#teachers}}
+              <div class = "teacher_list">
+                {{#.}}
+                    <a
+                    class = "teacher item"
+                    href = "mailto:{{email}}"
+                    >
+                        <div class="item-icon item-icon-teacher-hat"></div>
+                        <div class="item-name">Contact {{firstname}} {{lastname}}</div>
+                    </a>
+                {{/.}}
               </div>
-           {{/teacher}}
+            {{/teachers}}
+
             <a class="item" href="mailto:moodle.davidson@weizmann.ac.il">
                 <div class="item-icon item-icon-tech-support"></div>
                 <div class="item-name">{{# str }} technical_support, theme_stardust {{/ str }}</div>

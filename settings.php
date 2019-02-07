@@ -96,6 +96,33 @@ if ($ADMIN->fulltree) {
     // Must add the page after definiting all the settings!
     $settings->add($page);
 
+    /* My dahsboard setup PAGE */
+    $page = new admin_settingpage('theme_stardust_help_contacts', get_string('help_contacts_tab', 'theme_stardust'));
+
+    // Help contacts roles heading
+    $name = 'theme_stardust/help_contacts_header';
+    $heading = get_string('help_contacts_header', 'theme_stardust');
+    $information = get_string('help_contacts_header_desc', 'theme_stardust');
+    $setting = new admin_setting_heading($name, $heading, $information);
+    $page->add($setting);
+
+
+    // Add roles, whos contacs will be set in teacher contact block.
+    $roles = get_roles_with_capability('moodle/course:update');
+    $roles = role_fix_names($roles);
+    $choices = array();
+    foreach ($roles as $id => $role) {
+        $choices[$id] = $role->localname;
+    }
+    $defaultchoices = [3 => 'editingteacher']; // By defaut - editingteacher role is defined.
+    $page->add(new admin_setting_configmulticheckbox('theme_stardust/help_contact_roles',
+         get_string('help_contact_roles','theme_stardust'),
+         get_string('help_contact_roles_desc', 'theme_stardust'),
+         $defaultchoices,
+         $choices));
+
+    // Must add the page after definiting all the settings!
+    $settings->add($page);
 
     /* FOOTER setup PAGE */
     $page = new admin_settingpage('theme_stardust_footersettings', get_string('footersettigs', 'theme_stardust'));
