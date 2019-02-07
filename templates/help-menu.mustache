@@ -102,7 +102,8 @@ require(['jquery'], function($){
 });
 
 require(['jquery'], function($){
-    $(".contact_teacher_btn").click(function(){
+    $(".contact_teacher_btn").click(function(event){
+        event.preventDefault();
         $(".contact_teacher_btn").toggleClass('closed_list');
         if($(".contact_teacher_btn").hasClass('closed_list')){
             $(".teacher_list").slideDown();
