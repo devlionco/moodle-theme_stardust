@@ -60,18 +60,18 @@
             <button id="btn-close" class="btn-close"></button>
         </div>
         <div class="menu-content">
-            <a class="item" href="#">
+            <a class="item contact_teacher_btn" href="#" >
                 <div class="item-icon item-icon-teacher-hat"></div>
                 <div class="item-name">{{# str }} contact_teacher, theme_stardust {{/ str }}</div>
             </a>
-            {{#teacher}}
-              <div class = "teacher_list">
-                <a
+          {{#teacher}}  
+          <div class = "teacher_list" style="display: none;">
+               <a
                   class = "teacher"
                   href = "mailto:{{teacher.email}}"
-                  >{{teacher.name}}</a>
+                  >{{teacher.name}}</a> 
               </div>
-            {{/teacher}}
+           {{/teacher}}
             <a class="item" href="mailto:moodle.davidson@weizmann.ac.il">
                 <div class="item-icon item-icon-tech-support"></div>
                 <div class="item-name">{{# str }} technical_support, theme_stardust {{/ str }}</div>
@@ -99,5 +99,17 @@ require(['jquery'], function($){
         $('#help-menu .menu').fadeToggle('fast');
         $(document).off('keyup', handleEsc);
     });
+});
+
+require(['jquery'], function($){
+    $(".contact_teacher_btn").click(function(){
+        $(".contact_teacher_btn").toggleClass('closed_list');
+        if($(".contact_teacher_btn").hasClass('closed_list')){
+            $(".teacher_list").slideDown();
+        } else{
+            $(".teacher_list").slideUp(300);
+        }
+    })
+
 });
 {{/js}}

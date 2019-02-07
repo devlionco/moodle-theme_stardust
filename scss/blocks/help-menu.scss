@@ -48,6 +48,8 @@
         background: none;
         &:hover {
           text-decoration: none;
+          cursor: pointer;
+        text-shadow: 0 6px 14px rgb(0, 0, 0);
         }
         .item-icon {
           min-width: 20px;
@@ -74,6 +76,27 @@
         }
       }
     }
+  }
+  .teacher_list {
+    display: block;
+    .teacher {
+      display: block;
+      color: #fff;
+      padding: 0.5rem 1rem;
+      font-size: 1rem;
+      padding-left: 2rem;
+      text-decoration: none;
+      &:first-child{
+        padding-top: 1rem;
+      }
+      &:hover{
+        cursor: pointer;
+        text-shadow: 0 6px 14px rgb(0, 0, 0);
+      }
+    }
+  }
+  .closed_list {
+    display: none;
   }
 }
 #course-main-content, .incourse-header {

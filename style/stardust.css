@@ -2313,7 +2313,9 @@ body#page-login-signup {
       padding-left: 5px;
       background: none; }
       #help-menu .menu .menu-content .item:hover {
-        text-decoration: none; }
+        text-decoration: none;
+        cursor: pointer;
+        text-shadow: 0 6px 14px black; }
       #help-menu .menu .menu-content .item .item-icon {
         min-width: 20px;
         min-height: 20px; }
@@ -2331,6 +2333,22 @@ body#page-login-signup {
         padding-top: 16px;
         padding-left: 20px;
         padding-bottom: 18px; }
+  #help-menu .teacher_list {
+    display: block; }
+    #help-menu .teacher_list .teacher {
+      display: block;
+      color: #fff;
+      padding: 0.5rem 1rem;
+      font-size: 1rem;
+      padding-left: 2rem;
+      text-decoration: none; }
+      #help-menu .teacher_list .teacher:first-child {
+        padding-top: 1rem; }
+      #help-menu .teacher_list .teacher:hover {
+        cursor: pointer;
+        text-shadow: 0 6px 14px black; }
+  #help-menu .closed_list {
+    display: none; }
 
 #course-main-content #help-menu .btn-help, .incourse-header #help-menu .btn-help {
   /*   transform: scale(.85); */
