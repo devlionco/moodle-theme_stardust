@@ -516,6 +516,13 @@ $string['mydashboardbgimage_desc'] = 'Upload background image for dashboard page
 $string['mydashboardbgcolor'] = 'Background color';
 $string['mydashboardbgcolor_desc'] = 'Set background color for dashboard page';
 
+// Help contacts settings
+$string['help_contacts_tab'] = 'Help contacts';
+$string['help_contacts_header'] = 'Help contacts roles';
+$string['help_contacts_header_desc'] = 'Define roles, who\'s contacts must appear in the help box';
+$string['help_contact_roles'] = 'Help contact roles';
+$string['help_contact_roles_desc'] = 'Choose one or couple of them';
+
 // header blocks settings
 $string['display_units'] = 'Display study units';
 $string['display_units_desc'] = 'Show or hide block';
