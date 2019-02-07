@@ -64,18 +64,18 @@
                 <div class="item-icon item-icon-teacher-hat"></div>
                 <div class="item-name">{{# str }} contact_teacher, theme_stardust {{/ str }}</div>
             </a>
+            {{#teacher}}
+              <div class = "teacher_list">
+                <a
+                  class = "teacher"
+                  href = "mailto:{{teacher.email}}"
+                  >{{teacher.name}}</a>
+              </div>
+            {{#teacher}}
             <a class="item" href="mailto:moodle.davidson@weizmann.ac.il">
                 <div class="item-icon item-icon-tech-support"></div>
                 <div class="item-name">{{# str }} technical_support, theme_stardust {{/ str }}</div>
             </a>
-            <!-- <a class="item" href="#">
-                <div class="item-icon item-icon-forum"></div>
-                <div class="item-name">פורום תלמידים</div>
-            </a>
-            <a class="item" href="#">
-                <div class="item-icon item-icon-info"></div>
-                <div class="item-name">אודות הקורס וצוות</div>
-            </a> -->
         </div>
     </div>
 </div>
