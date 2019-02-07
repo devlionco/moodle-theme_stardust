@@ -77,6 +77,7 @@
                 {{/.}}
               </div>
             {{/teachers}}
+
             <a class="item" href="mailto:moodle.davidson@weizmann.ac.il">
                 <div class="item-icon item-icon-tech-support"></div>
                 <div class="item-name">{{# str }} technical_support, theme_stardust {{/ str }}</div>
@@ -104,5 +105,18 @@ require(['jquery'], function($){
         $('#help-menu .menu').fadeToggle('fast');
         $(document).off('keyup', handleEsc);
     });
+});
+
+require(['jquery'], function($){
+    $(".contact_teacher_btn").click(function(event){
+        event.preventDefault();
+        $(".contact_teacher_btn").toggleClass('closed_list');
+        if($(".contact_teacher_btn").hasClass('closed_list')){
+            $(".teacher_list").slideDown();
+        } else{
+            $(".teacher_list").slideUp(300);
+        }
+    })
+
 });
 {{/js}}
