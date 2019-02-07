@@ -185,11 +185,11 @@ $string['davidson_institute_wesite'] = 'לאתר מכון דוידסון';
 $string['download_application'] = 'להורדת האפליקציה';
 
 // Help contacts settings
-$string['help_contacts_tab'] = 'Help contacts';
-$string['help_contacts_header'] = 'Help contacts roles';
-$string['help_contacts_header_desc'] = 'Define roles, who\'s contacts must appear in the help box';
-$string['help_contact_roles'] = 'Help contact roles';
-$string['help_contact_roles_desc'] = 'Choose one or couple of them';
+$string['help_contacts_tab'] = 'אנשי קשר של עזרה';
+$string['help_contacts_header'] = 'הגדרת תפקידים אנשי קשר בקורס';
+$string['help_contacts_header_desc'] = "הגדר תפקידים, אנשי הקשר חייבים להופיע בתיבה 'עזרה'";
+$string['help_contact_roles'] = 'הגדרת תפקיד איש קשר בקורס';
+$string['help_contact_roles_desc'] = 'בחר אחד או כמה מהם';
 
 // Footer settings
 $string['footersettigs'] = 'Footer';
