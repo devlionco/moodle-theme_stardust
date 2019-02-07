@@ -191,6 +191,7 @@ $string['userspassreport'] = 'איפוס סיסמאות לתלמידים';
 // help menu
 $string['contact_teacher'] = 'Contact the teacher';
 $string['technical_support'] = 'Technical support';
+$string['send_mail'] = 'Send mail to ';
 
 // Help contacts settings
 $string['help_contacts_tab'] = 'Help contacts';

@@ -273,3 +273,4 @@ $string['user_loginas'] = 'מזוהים כ:';
 // help menu
 $string['contact_teacher'] = 'פניה למורה';
 $string['technical_support'] = 'תמיכה טכנית';
+$string['send_mail'] = 'לשלוח מייל ל';

@@ -628,3 +628,4 @@ $string['user_loginas'] = 'Login as...';
 // help menu
 $string['contact_teacher'] = 'Contact the teacher';
 $string['technical_support'] = 'Technical support';
+$string['send_mail'] = 'Send mail to ';

@@ -60,21 +60,21 @@
             <button id="btn-close" class="btn-close"></button>
         </div>
         <div class="menu-content">
-            <!--<a class="item" href="#">
+            <div class="item contact_teacher_btn">
                 <div class="item-icon item-icon-teacher-hat"></div>
                 <div class="item-name">{{# str }} contact_teacher, theme_stardust {{/ str }}</div>
-            </a>-->
+            </div>
             {{#teachers}}
               <div class = "teacher_list">
-                {{#.}}
-                    <a
-                    class = "teacher item"
-                    href = "mailto:{{email}}"
-                    >
-                        <div class="item-icon item-icon-teacher-hat"></div>
-                        <div class="item-name">Contact {{firstname}} {{lastname}}</div>
-                    </a>
-                {{/.}}
+                  <a
+                  class = "teacher item"
+                  href = "mailto:{{email}}"
+                  data-tooltip = "tooltip"
+                  data-placement = "bottom"
+                  title = "{{# str }} send_mail, theme_stardust {{/ str }}{{firstname}} {{lastname}}"
+                  >
+                      <div class="item-name">{{firstname}} {{lastname}}</div>
+                  </a>
               </div>
             {{/teachers}}
 
@@ -87,9 +87,11 @@
 </div>
 
 {{#js}}
-const KEYCODE_ESC = 27;
+
+require(['jquery','theme_boost/tooltip'], function($){$('[data-tooltip="tooltip"]').tooltip()});
 
 require(['jquery'], function($){
+  const KEYCODE_ESC = 27;
     function handleEsc(e) {
         if (e.keyCode == KEYCODE_ESC) {
             $('#help-menu .menu').fadeToggle('fast');
@@ -105,17 +107,9 @@ require(['jquery'], function($){
         $('#help-menu .menu').fadeToggle('fast');
         $(document).off('keyup', handleEsc);
     });
-});
 
-require(['jquery'], function($){
-    $(".contact_teacher_btn").click(function(event){
-        event.preventDefault();
-        $(".contact_teacher_btn").toggleClass('closed_list');
-        if($(".contact_teacher_btn").hasClass('closed_list')){
-            $(".teacher_list").slideDown();
-        } else{
-            $(".teacher_list").slideUp(300);
-        }
+    $(".contact_teacher_btn").click(function(){
+      $(".teacher_list").slideToggle();
     })
 
 });
