@@ -108,8 +108,9 @@ if ($ADMIN->fulltree) {
 
 
     // Add roles, whos contacs will be set in teacher contact block.
-    $roles = get_roles_with_capability('moodle/course:update');
-    $roles = role_fix_names($roles);
+    // $roles = get_roles_with_capability('moodle/course:update'); // Add only roles with some capability.
+    // $roles = role_fix_names($roles);
+    $roles = role_get_names(); // Get all system roles.
     $choices = array();
     foreach ($roles as $id => $role) {
         $choices[$id] = $role->localname;
