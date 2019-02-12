@@ -682,3 +682,23 @@ function get_courses_cover_images ($course) {
 
   return $coursecoverimgurl->out();
 }
+
+/**
+ * Theme callback for page init
+ * @param $page
+ * 
+ * Here we check:
+ * - if user is prohibited to use messaging system -
+ *     we will avoid him visiting this module and redirect him to Dashboard
+ * 
+ */
+function theme_stardust_page_init ($page) {
+    global $USER;
+    // Disable using messaging system for users, if they are prohoboted to use it.
+    if (strpos($page->pagetype, 'message') !== false) { 
+        $usermessagesdisabled = get_user_preferences('messagesdisabled', 1, $USER);
+        if ($usermessagesdisabled == 0) {
+            redirect('/');
+        }
+    }
+}

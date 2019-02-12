@@ -102,7 +102,9 @@
         </nav>
         <div class="d-flex flex-row-reverse">
           <!-- navbar_plugin_output: messages, notifications -->
-          {{{ output.navbar_plugin_output }}}
+          {{#output.is_user_messaging_enabled}}
+              {{{ output.navbar_plugin_output }}}
+          {{/output.is_user_messaging_enabled}}
         </div>
         <!-- user -->
         {{{ output.user_menu }}}
