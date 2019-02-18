@@ -477,6 +477,7 @@ $string['diplom'] = 'Diplom';
 $string['cut_of_date'] = 'Cut-off date';
 $string['two_days_before_assignment'] = 'Two days before the assignment';
 $string['one_days_before_assignment'] = 'One day before the assignment';
+$string['today_assignment'] = 'Assignment day';
 $string['nofinishedcourses'] = 'No finished courses';
 $string['noanycourses'] = 'No courses';
 $string['noanyactivities'] = 'You have no open events';

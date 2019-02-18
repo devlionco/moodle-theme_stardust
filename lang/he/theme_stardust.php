@@ -68,6 +68,7 @@ $string['diplom'] = 'תעודה';
 $string['cut_of_date'] = 'מועד ההגשה עבר';
 $string['two_days_before_assignment'] = 'יומיים להגשה';
 $string['one_days_before_assignment'] = 'יום אחד להגשה';
+$string['today_assignment'] = 'Assignment day';
 $string['nofinishedcourses'] = 'אין קורסים שסיימת';
 $string['noanycourses'] = 'אין קורסים';
 $string['noanyactivities'] = 'אין לך בנתיים פעיליות פתוחות';
