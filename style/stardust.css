@@ -1018,7 +1018,7 @@ body#page-login-signup {
   display: none; }
 
 #page-mod-forum-view #page-wrapper {
-  width: 100vw;
+  width: 100%;
   overflow-x: hidden; }
 
 #page-my-index .mform {
@@ -2285,7 +2285,7 @@ body#page-login-signup {
     background: url([[pix:theme|pagemy/help-dblue]]) no-repeat center;
     outline: none; }
   #help-menu .menu {
-    z-index: 2000;
+    z-index: 1010;
     margin-top: 0;
     top: -15px;
     padding: 24px 24px 36px;
@@ -2310,7 +2310,8 @@ body#page-login-signup {
         border: none;
         outline: none;
         background-size: contain;
-        padding: 0; }
+        padding: 0;
+        cursor: pointer; }
     #help-menu .menu .menu-content .item {
       display: -ms-flexbox;
       display: flex;
@@ -2320,7 +2321,9 @@ body#page-login-signup {
       padding-left: 5px;
       background: none; }
       #help-menu .menu .menu-content .item:hover {
-        text-decoration: none; }
+        text-decoration: none;
+        cursor: pointer;
+        text-shadow: 0 0 2px #fff; }
       #help-menu .menu .menu-content .item .item-icon {
         min-width: 20px;
         min-height: 20px; }
@@ -2338,9 +2341,14 @@ body#page-login-signup {
         padding-top: 16px;
         padding-left: 20px;
         padding-bottom: 18px; }
+  #help-menu .teacher_list {
+    display: none; }
+    #help-menu .teacher_list .teacher {
+      display: block;
+      padding: 0 1rem;
+      padding-left: 2rem; }
 
 #course-main-content #help-menu .btn-help, .incourse-header #help-menu .btn-help {
-  /*   transform: scale(.85); */
   background: url([[pix:theme|pagemy/help-dblue]]) no-repeat center;
   cursor: pointer; }
 

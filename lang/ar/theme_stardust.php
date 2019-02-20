@@ -191,3 +191,11 @@ $string['userspassreport'] = 'איפוס סיסמאות לתלמידים';
 // help menu
 $string['contact_teacher'] = 'Contact the teacher';
 $string['technical_support'] = 'Technical support';
+$string['send_mail'] = 'Send mail to ';
+
+// Help contacts settings
+$string['help_contacts_tab'] = 'Help contacts';
+$string['help_contacts_header'] = 'Help contacts roles';
+$string['help_contacts_header_desc'] = 'Define roles, who\'s contacts must appear in the help box';
+$string['help_contact_roles'] = 'Help contact roles';
+$string['help_contact_roles_desc'] = 'Choose one or couple of them';

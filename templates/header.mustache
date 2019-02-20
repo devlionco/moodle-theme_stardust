@@ -31,7 +31,7 @@
             href="{{{ config.wwwroot }}}"
             data-tooltip = "tooltip"
             data-placement = "bottom"
-            data-original-title = "{{# str }} gohomepage, theme_stardust {{/ str }}"
+            title = "{{# str }} gohomepage, theme_stardust {{/ str }}"
             class="dheader__logo navbar-brand
               {{# output.should_display_navbar_logo }}
                   has-logo
@@ -72,7 +72,7 @@
             data-action="tool_usertours/resetpagetour"
             data-tooltip = "tooltip"
             data-placement = "bottom"
-            data-original-title = ""
+            title = ""
             >
             <div class='tutorial__toggler'>
               <div class='point'></div>
@@ -102,7 +102,9 @@
         </nav>
         <div class="d-flex flex-row-reverse">
           <!-- navbar_plugin_output: messages, notifications -->
-          {{{ output.navbar_plugin_output }}}
+          {{#output.is_user_messaging_enabled}}
+              {{{ output.navbar_plugin_output }}}
+          {{/output.is_user_messaging_enabled}}
         </div>
         <!-- user -->
         {{{ output.user_menu }}}

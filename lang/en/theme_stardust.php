@@ -477,6 +477,7 @@ $string['diplom'] = 'Diplom';
 $string['cut_of_date'] = 'Cut-off date';
 $string['two_days_before_assignment'] = 'Two days before the assignment';
 $string['one_days_before_assignment'] = 'One day before the assignment';
+$string['today_assignment'] = 'Assignment day';
 $string['nofinishedcourses'] = 'No finished courses';
 $string['noanycourses'] = 'No courses';
 $string['noanyactivities'] = 'You have no open events';
@@ -515,6 +516,13 @@ $string['mydashboardbgimage'] = 'Background image';
 $string['mydashboardbgimage_desc'] = 'Upload background image for dashboard page';
 $string['mydashboardbgcolor'] = 'Background color';
 $string['mydashboardbgcolor_desc'] = 'Set background color for dashboard page';
+
+// Help contacts settings
+$string['help_contacts_tab'] = 'Help contacts';
+$string['help_contacts_header'] = 'Help contacts roles';
+$string['help_contacts_header_desc'] = 'Define roles, who\'s contacts must appear in the help box';
+$string['help_contact_roles'] = 'Help contact roles';
+$string['help_contact_roles_desc'] = 'Choose one or couple of them';
 
 // header blocks settings
 $string['display_units'] = 'Display study units';
@@ -621,3 +629,4 @@ $string['user_loginas'] = 'Login as...';
 // help menu
 $string['contact_teacher'] = 'Contact the teacher';
 $string['technical_support'] = 'Technical support';
+$string['send_mail'] = 'Send mail to ';

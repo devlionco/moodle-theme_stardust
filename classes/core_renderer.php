@@ -204,6 +204,9 @@ class core_renderer extends \theme_boost\output\core_renderer {
           $navitemcount = count($opts->navitems);
           $idx = 0;
           foreach ($opts->navitems as $key => $value) {
+              if (isset($value->titleidentifier) && $value->titleidentifier == 'messages,message') {
+                    if (!$this->is_user_messaging_enabled()) continue; // Skip message menu item for some users.
+              }
 
               switch ($value->itemtype) {
                   case 'divider':
@@ -2168,6 +2171,19 @@ class core_renderer extends \theme_boost\output\core_renderer {
         return $results;
     }
 
+/**
+ * Defines either messaging system is enabled for user or not
+ * @return bool
+ */
+public function is_user_messaging_enabled () {
+    global $USER;
+    $usermessagesdisabled = get_user_preferences('messagesdisabled', 1, $USER);
+    if ($usermessagesdisabled == 1) {
+        return true;
+    } else {
+        return false;
+    }
+}
 
 /**
  * Get badges for user

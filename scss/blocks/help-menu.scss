@@ -1,4 +1,3 @@
-
 #help-menu {
   position: relative;
   .btn-help {
@@ -12,12 +11,11 @@
     outline: none;
   }
   .menu {
-    z-index: 2000;
+    z-index: 1010;
     margin-top: 0;
     top: -15px;
     padding: 24px 24px 36px;
     background: $primary-color-1;
-    // min-height: 331px;
     min-height: 200px;
     min-width: 242px;
     border: none;
@@ -37,6 +35,7 @@
         outline: none;
         background-size: contain;
         padding: 0;
+        cursor: pointer;
       }
     }
     .menu-content {
@@ -48,6 +47,8 @@
         background: none;
         &:hover {
           text-decoration: none;
+          cursor: pointer;
+          text-shadow: 0 0 2px #fff;
         }
         .item-icon {
           min-width: 20px;
@@ -75,10 +76,17 @@
       }
     }
   }
+  .teacher_list {
+    display: none;
+    .teacher {
+      display: block;
+      padding: 0 1rem;
+      padding-left: 2rem;
+    }
+  }
 }
 #course-main-content, .incourse-header {
   #help-menu .btn-help{
-  /*   transform: scale(.85); */
     background: url([[pix:theme|pagemy/help-dblue]]) no-repeat center;
     cursor: pointer;
   }

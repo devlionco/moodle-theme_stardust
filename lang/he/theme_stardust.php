@@ -68,6 +68,7 @@ $string['diplom'] = 'תעודה';
 $string['cut_of_date'] = 'מועד ההגשה עבר';
 $string['two_days_before_assignment'] = 'יומיים להגשה';
 $string['one_days_before_assignment'] = 'יום אחד להגשה';
+$string['today_assignment'] = 'Assignment day';
 $string['nofinishedcourses'] = 'אין קורסים שסיימת';
 $string['noanycourses'] = 'אין קורסים';
 $string['noanyactivities'] = 'אין לך כרגע פעילויות פתוחות';
@@ -184,6 +185,13 @@ $string['list_of_courses'] = 'לרשימת הקורסים';
 $string['davidson_institute_wesite'] = 'לאתר מכון דוידסון';
 $string['download_application'] = 'להורדת האפליקציה';
 
+// Help contacts settings
+$string['help_contacts_tab'] = 'אנשי קשר של עזרה';
+$string['help_contacts_header'] = 'הגדרת תפקידים אנשי קשר בקורס';
+$string['help_contacts_header_desc'] = "הגדר תפקידים, אנשי הקשר חייבים להופיע בתיבה 'עזרה'";
+$string['help_contact_roles'] = 'הגדרת תפקיד איש קשר בקורס';
+$string['help_contact_roles_desc'] = 'בחר אחד או כמה מהם';
+
 // Footer settings
 $string['footersettigs'] = 'Footer';
 $string['footersettigs_header'] = 'Footer links';
@@ -266,3 +274,4 @@ $string['user_loginas'] = 'מזוהים כ:';
 // help menu
 $string['contact_teacher'] = 'פניה למורה';
 $string['technical_support'] = 'תמיכה טכנית';
+$string['send_mail'] = 'לשלוח מייל ל';

@@ -445,12 +445,19 @@ function stardust_activity_status($module) {
             $turntotheteacher = true;
             $nosubmissiondate = true; //SG - consider (mark) as 'no submission date', when submission date passed (to filter module on page MY)
         // one day before assignment
-        }elseif ( 0 < ($mincutoffdate - $currenttime) &&  ($mincutoffdate - $currenttime) <= (1*24*60*60)) {
+        } elseif ( 0 < ($mincutoffdate - $currenttime) &&  ($mincutoffdate - $currenttime) <= (1*24*60*60)) {
             $modstyle = 'mod_orange';
-            $modstatus = get_string('one_days_before_assignment', 'theme_stardust');
             $openforsubmission = true;
+            $today = new DateTime('', core_date::get_user_timezone_object());
+            $mincutoffdateobj = clone $today;
+            $mincutoffdateobj = $mincutoffdateobj->setTimestamp($mincutoffdate);
+            if ($today->format('d') == $mincutoffdateobj->format('d')) {
+                $modstatus = get_string('today_assignment', 'theme_stardust');
+            } else {
+                $modstatus = get_string('one_days_before_assignment', 'theme_stardust');
+            }
         // two day before assignment
-        }elseif ( (1*24*60*60) < ($mincutoffdate - $currenttime) &&  ($mincutoffdate - $currenttime) <= (2*24*60*60)) {
+        } elseif ( (1*24*60*60) < ($mincutoffdate - $currenttime) &&  ($mincutoffdate - $currenttime) <= (2*24*60*60)) {
             $modstyle = 'mod_orange';
             $modstatus = get_string('two_days_before_assignment', 'theme_stardust');
             $openforsubmission = true;
@@ -682,4 +689,24 @@ function get_courses_cover_images ($course) {
   }
 
   return $coursecoverimgurl->out();
+}
+
+/**
+ * Theme callback for page init
+ * @param $page
+ * 
+ * Here we check:
+ * - if user is prohibited to use messaging system -
+ *     we will avoid him visiting this module and redirect him to Dashboard
+ * 
+ */
+function theme_stardust_page_init ($page) {
+    global $USER;
+    // Disable using messaging system for users, if they are prohoboted to use it.
+    if (strpos($page->pagetype, 'message') !== false) { 
+        $usermessagesdisabled = get_user_preferences('messagesdisabled', 1, $USER);
+        if ($usermessagesdisabled == 0) {
+            redirect('/');
+        }
+    }
 }
