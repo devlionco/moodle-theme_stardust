@@ -104,11 +104,11 @@
         padding: 0;
         list-style: none;
         display: flex;
-        // flex-wrap: wrap;
+        flex-wrap: wrap;
         // justify-content: center;
         .block {
           cursor: pointer;
-          width: 204px;
+          width: 200px;
           height: 48px;
           background: $white;
           box-shadow: 0 0 10px 3px rgba(0,0,0,0.3);
