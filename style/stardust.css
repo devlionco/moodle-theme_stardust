@@ -3460,10 +3460,12 @@ table .activityicon_wrapper.mod_red {
       padding: 0;
       list-style: none;
       display: -ms-flexbox;
-      display: flex; }
+      display: flex;
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap; }
       .incourse-header .top-wrapper .top .blocks-list .block {
         cursor: pointer;
-        width: 204px;
+        width: 200px;
         height: 48px;
         background: #FFFFFF;
         box-shadow: 0 0 10px 3px rgba(0, 0, 0, 0.3);
