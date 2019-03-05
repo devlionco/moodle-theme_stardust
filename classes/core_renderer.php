@@ -1354,8 +1354,10 @@ class core_renderer extends \theme_boost\output\core_renderer {
 
             // show quiz settings button (show/hide blocks region) at header only for non-students and on specific pages
             // $onquizview = $PAGE->url->compare(new moodle_url('/mod/quiz/view.php'), URL_MATCH_BASE);
+            $onquizedit = $PAGE->url->compare(new moodle_url('/mod/quiz/edit.php'), URL_MATCH_BASE);
             $onquizattempt = $PAGE->url->compare(new moodle_url('/mod/quiz/attempt.php'), URL_MATCH_BASE);
-            if ($hasteacherdash && $onquizattempt) {
+            // if ($hasteacherdash && $onquizattempt) {
+            if ($hasteacherdash && ($onquizedit || $onquizattempt)) {
                 $quizsettingsbutton = true;
             }
         }
