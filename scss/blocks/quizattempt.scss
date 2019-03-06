@@ -81,10 +81,6 @@
       &.view {
         left: 0;
       }
-      #mod_quiz_navblock,
-      .block_navigation {
-        display: none;
-      }
     }
 
     section#region-main.has-blocks {
@@ -540,6 +536,21 @@
   }
 }
 
+#page-mod-quiz-edit {
+    // aside menu cust
+
+    section[data-region="blocks-column"] {
+      position: absolute;
+      left: -100%;
+      transition: .4s;
+      border: 1px solid #ddd;
+      z-index: 1000;
+      top: 276px;
+      &.view {
+        left: 0;
+      }
+    }
+}
 @media #{$less_1344} {
   #page-mod-quiz-summary,
   #page-mod-quiz-attempt {
