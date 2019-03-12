@@ -2052,7 +2052,6 @@ body#page-login-signup {
         opacity: 0.6;
         color: #19284f;
         font-size: 24px;
-        font-size: 21px;
         font-weight: 600;
         text-decoration: none;
         padding-bottom: 3px; }
@@ -3698,10 +3697,10 @@ table .activityicon_wrapper.mod_red {
         #page-mod-quiz-attempt #page-wrapper section#region-main.has-blocks [role="main"] .quiz_header {
           display: -ms-flexbox;
           display: flex;
-          border-bottom: 1px solid #D5D5D4;
+          border-bottom: 1px solid #d5d5d4;
           margin-bottom: 20px; }
           #page-mod-quiz-attempt #page-wrapper section#region-main.has-blocks [role="main"] .quiz_header .quiz_name {
-            color: #3C3C3C;
+            color: #3c3c3c;
             font-family: 'NextExitRound';
             font-size: 48px;
             line-height: 48px;
@@ -3723,9 +3722,9 @@ table .activityicon_wrapper.mod_red {
           display: flex;
           -ms-flex-direction: column;
               flex-direction: column;
-          padding: 51px 44px 44px; }
+          padding: 2rem 0; }
           #page-mod-quiz-attempt #page-wrapper section#region-main.has-blocks [role="main"] .que.notyetanswered .state {
-            color: #A1ADB3; }
+            color: #a1adb3; }
           #page-mod-quiz-attempt #page-wrapper section#region-main.has-blocks [role="main"] .que.answersaved .state {
             color: #19284f; }
           #page-mod-quiz-attempt #page-wrapper section#region-main.has-blocks [role="main"] .que .info {
@@ -3746,9 +3745,9 @@ table .activityicon_wrapper.mod_red {
               font-size: 16px;
               font-weight: 600; }
             #page-mod-quiz-attempt #page-wrapper section#region-main.has-blocks [role="main"] .que .info .grade {
-              color: #3C3C3C; }
+              color: #3c3c3c; }
             #page-mod-quiz-attempt #page-wrapper section#region-main.has-blocks [role="main"] .que .info .questionflag {
-              color: #FF7E99; }
+              color: #ff7e99; }
             #page-mod-quiz-attempt #page-wrapper section#region-main.has-blocks [role="main"] .que .info .no {
               margin-right: auto;
               color: #3C3C3C;
@@ -3813,7 +3812,8 @@ table .activityicon_wrapper.mod_red {
                     background: #19284f; }
                   #page-mod-quiz-attempt #page-wrapper section#region-main.has-blocks [role="main"] .que .content .formulation .ablock .answer > div input[type="radio"] + label::before {
                     border-radius: 50%; }
-                  #page-mod-quiz-attempt #page-wrapper section#region-main.has-blocks [role="main"] .que .content .formulation .ablock .answer > div i.fa-remove, #page-mod-quiz-attempt #page-wrapper section#region-main.has-blocks [role="main"] .que .content .formulation .ablock .answer > div i.fa-check {
+                  #page-mod-quiz-attempt #page-wrapper section#region-main.has-blocks [role="main"] .que .content .formulation .ablock .answer > div i.fa-remove,
+                  #page-mod-quiz-attempt #page-wrapper section#region-main.has-blocks [role="main"] .que .content .formulation .ablock .answer > div i.fa-check {
                     position: absolute;
                     top: 9px;
                     left: -20px; }
@@ -3887,7 +3887,7 @@ table .activityicon_wrapper.mod_red {
               color: #19284f;
               border-width: 2px; }
             #page-mod-quiz-attempt #page-wrapper section#region-main.has-blocks [role="main"] .qn_buttons .qnbutton.notyetanswered {
-              color: #B4C1C7;
+              color: #b4c1c7;
               border-width: 2px; }
             #page-mod-quiz-attempt #page-wrapper section#region-main.has-blocks [role="main"] .qn_buttons .qnbutton.flagged {
               color: #ff7e99 !important;
@@ -3908,8 +3908,8 @@ table .activityicon_wrapper.mod_red {
                 right: -2px;
                 box-sizing: border-box;
                 border: 2px solid #19284f;
-                border-top-color: #B4C1C7;
-                border-left-color: #B4C1C7;
+                border-top-color: #b4c1c7;
+                border-left-color: #b4c1c7;
                 border-radius: 50%; }
         #page-mod-quiz-attempt #page-wrapper section#region-main.has-blocks [role="main"] .submitbtns {
           min-height: 70px; }
@@ -3964,7 +3964,7 @@ table .activityicon_wrapper.mod_red {
     display: -ms-flexbox;
     display: flex; }
   #page-mod-quiz-attempt .filter_legend {
-    color: #3C3C3C; }
+    color: #3c3c3c; }
   #page-mod-quiz-attempt .filter_toggle {
     cursor: pointer;
     width: 30px;
@@ -4004,11 +4004,11 @@ table .activityicon_wrapper.mod_red {
         background-color: #19284f; }
     #page-mod-quiz-attempt .filter_toggle.filter_notanswered {
       background: none;
-      border-color: #B4C1C7; }
+      border-color: #b4c1c7; }
       #page-mod-quiz-attempt .filter_toggle.filter_notanswered:before {
-        background-color: #B4C1C7; }
+        background-color: #b4c1c7; }
       #page-mod-quiz-attempt .filter_toggle.filter_notanswered .filter_pin {
-        background-color: #B4C1C7; }
+        background-color: #b4c1c7; }
     #page-mod-quiz-attempt .filter_toggle .filter_pin {
       width: 10px;
       height: 10px;
