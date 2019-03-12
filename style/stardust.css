@@ -3727,6 +3727,8 @@ table .activityicon_wrapper.mod_red {
             color: #a1adb3; }
           #page-mod-quiz-attempt #page-wrapper section#region-main.has-blocks [role="main"] .que.answersaved .state {
             color: #19284f; }
+          #page-mod-quiz-attempt #page-wrapper section#region-main.has-blocks [role="main"] .que > p {
+            margin: 0; }
           #page-mod-quiz-attempt #page-wrapper section#region-main.has-blocks [role="main"] .que .info {
             display: -ms-flexbox;
             display: flex;
@@ -3786,8 +3788,7 @@ table .activityicon_wrapper.mod_red {
                     -ms-flex-align: center;
                         align-items: center;
                     margin: 0;
-                    padding: 0;
-                    left: 0; }
+                    padding: 0; }
                     #page-mod-quiz-attempt #page-wrapper section#region-main.has-blocks [role="main"] .que .content .formulation .ablock .answer > div label::before {
                       content: '';
                       display: block;

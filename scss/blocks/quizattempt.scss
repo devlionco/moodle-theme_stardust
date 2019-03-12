@@ -162,6 +162,9 @@
                             color: $primary-color;
                         }
                     }
+                    & > p {
+                        margin: 0;
+                    }
                     .info {
                         display: flex;
                         background: none;
@@ -231,7 +234,6 @@
                                             align-items: center;
                                             margin: 0;
                                             padding: 0;
-                                            left: 0;
                                             &::before {
                                                 content: '';
                                                 display: block;
