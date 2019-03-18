@@ -65,17 +65,20 @@
                 <div class="item-name">{{# str }} contact_teacher, theme_stardust {{/ str }}</div>
             </div>
             {{#teachers}}
-              <div class = "teacher_list">
-                  <a
+              <ul class = "teacher_list">
+                  <li
                   class = "teacher item"
-                  href = "mailto:{{email}}"
+                  data-toggle = "modal"
+                  data-target = "#sendMail"
+                  data-email   = "{{email}}"
+                  data-name   = "{{firstname}} {{lastname}}"
                   data-tooltip = "tooltip"
                   data-placement = "bottom"
                   title = "{{# str }} send_mail, theme_stardust {{/ str }}{{firstname}} {{lastname}}"
                   >
-                      <div class="item-name">{{firstname}} {{lastname}}</div>
-                  </a>
-              </div>
+                      <span class="item-name">{{firstname}} {{lastname}}</span>
+                  </li>
+              </ul>
             {{/teachers}}
 
             <a class="item" href="mailto:moodle.davidson@weizmann.ac.il">
@@ -86,11 +89,32 @@
     </div>
 </div>
 
+<!-- Modal -->
+<div class="modal fade" id="sendMail" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Send mail to teacher <span id = "teacherName"></span></h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <textarea id = "mailBody"></textarea>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" id = "sendMailToTeacher" data-email = "">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 {{#js}}
 
 require(['jquery','theme_boost/tooltip'], function($){$('[data-tooltip="tooltip"]').tooltip()});
 
-require(['jquery'], function($){
+require(['jquery', 'core/ajax' ], function($, ajax){
   const KEYCODE_ESC = 27;
     function handleEsc(e) {
         if (e.keyCode == KEYCODE_ESC) {
@@ -112,5 +136,24 @@ require(['jquery'], function($){
       $(".teacher_list").slideToggle();
     })
 
+    // modal window
+    $('#sendMail').on('show.bs.modal', function(e) {
+      var target = e.relatedTarget;
+
+      $('#teacherName').text($(target).attr("data-name"));
+      $('#sendMailToTeacher').attr("data-email", $(target).attr("data-email"));
+
+    })
+    $('#sendMailToTeacher').on('click', function(e){
+      var text = $('#mailBody').val();
+      var email = $('#sendMailToTeacher').attr("data-email");
+
+      ajax.call([{
+          methodname: 'send_mail_to_teacher',
+          args: {text: text, email: email},
+          done: function(response) {},
+          fail: function(response) {}
+      }]);
+    });
 });
 {{/js}}
