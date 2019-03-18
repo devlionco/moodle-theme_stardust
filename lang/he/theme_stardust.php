@@ -275,3 +275,7 @@ $string['user_loginas'] = 'מזוהים כ:';
 $string['contact_teacher'] = 'פניה למורה';
 $string['technical_support'] = 'תמיכה טכנית';
 $string['send_mail'] = 'לשלוח מייל ל';
+
+// Image Settings.
+$string['coursedefaultimage'] = 'Course default image';
+$string['coursedefaultimage_desc'] = 'This image will be displayed as course default image, if nothing else configured in course settings.';

@@ -177,6 +177,8 @@ $string['showcourseheaderimage'] = 'Show Course Images';
 $string['showcourseheaderimage_desc'] = 'Allow teachers to customize the course header image by uploading an image file into course settings.';
 $string['headerlogo'] = 'Header Logo';
 $string['headerlogo_desc'] = 'This logo will be displayed at the top of the page in the header area. It uses bootstrap responsive image scaling.';
+$string['coursedefaultimage'] = 'Course default image';
+$string['coursedefaultimage_desc'] = 'This image will be displayed as course default image, if nothing else configured in course settings.';
 
 //Slideshow
 $string['slideshowsettings'] = 'Slideshow';
