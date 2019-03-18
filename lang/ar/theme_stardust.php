@@ -199,3 +199,7 @@ $string['help_contacts_header'] = 'Help contacts roles';
 $string['help_contacts_header_desc'] = 'Define roles, who\'s contacts must appear in the help box';
 $string['help_contact_roles'] = 'Help contact roles';
 $string['help_contact_roles_desc'] = 'Choose one or couple of them';
+
+// Image Settings.
+$string['coursedefaultimage'] = 'Course default image';
+$string['coursedefaultimage_desc'] = 'This image will be displayed as course default image, if nothing else configured in course settings.';

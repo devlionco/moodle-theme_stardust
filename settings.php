@@ -44,7 +44,7 @@ if ($ADMIN->fulltree) {
     require($CFG->dirroot .'/theme/fordson/settings/colours_settings.php');
     require($CFG->dirroot .'/theme/fordson/settings/menu_settings.php');
     require($CFG->dirroot .'/theme/fordson/settings/content_settings.php');
-    require($CFG->dirroot .'/theme/fordson/settings/image_settings.php');
+    require($CFG->dirroot .'/theme/stardust/settings/image_settings.php'); // Override image settings tab.
     //require($CFG->dirroot .'/theme/fordson/settings/footer_settings.php');
     require($CFG->dirroot .'/theme/fordson/settings/fpicons_settings.php');
     require($CFG->dirroot .'/theme/fordson/settings/markettiles_settings.php');
@@ -272,5 +272,5 @@ if ($ADMIN->fulltree) {
 
     // Must add the page after definiting all the settings!
     $settings->add($page);
-
+    
 }
