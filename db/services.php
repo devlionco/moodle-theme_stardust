@@ -34,16 +34,24 @@
  */
 
 $functions = array(
-
     'send_mail_to_teacher' => array(
         'classname'     => 'theme_stardust_external',
         'methodname'    => 'send_mail_to_teacher',
         'classpath'     => 'theme/stardust/externallib.php',
         'description'   => 'Send message to the teacher',
-        'type'          => 'read',
+        'type'          => 'write',
         'ajax'          => true,
+        'loginrequired' => true,
         //'capabilities'  => 'mod/assign:grade',
         'services'      => array(MOODLE_OFFICIAL_MOBILE_SERVICE)
     ),
+);
 
+// We define the services to install as pre-build services. A pre-build service is not editable by administrator.
+$services = array(
+    'Send message to the teacher' => array(
+        'functions' => array ('theme_stardust_send_mail_to_teacher'),
+        'restrictedusers' => 0,
+        'enabled'=>1,
+    )
 );
