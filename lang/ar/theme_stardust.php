@@ -192,6 +192,13 @@ $string['userspassreport'] = 'איפוס סיסמאות לתלמידים';
 $string['contact_teacher'] = 'Contact the teacher';
 $string['technical_support'] = 'Technical support';
 $string['send_mail'] = 'Send mail to ';
+$string['send_mail_to_teacher'] = 'Send mail to teacher';
+$string['close'] = 'Close';
+$string['send'] = 'Send';
+$string['sending'] = 'Sending...';
+$string['sent'] = 'Sent!';
+$string['message_has_been_sent'] = 'Message has been sent!';
+$string['message_from_a_course_page'] = 'Message from a course page';
 
 // Help contacts settings
 $string['help_contacts_tab'] = 'Help contacts';
