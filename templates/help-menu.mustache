@@ -132,10 +132,11 @@ require(['jquery', 'core/ajax' ], function($, ajax){
         $(document).off('keyup', handleEsc);
     });
 
+    /* test version 
     $(".contact_teacher_btn").click(function(){
-        $(".teacher_list").slideToggle();
+      $(".teacher_list").slideToggle();
     })
-
+    */
     // modal window
     $('#sendMail').on('show.bs.modal', function(e) {
         var target = e.relatedTarget;
@@ -149,7 +150,7 @@ require(['jquery', 'core/ajax' ], function($, ajax){
         var text = $('#mailBody').val();
         var userid = $('#sendMailToTeacher').attr("data-id");
         $('#sendMailToTeacher').html('{{#str}}sending, theme_stardust{{/str}}').attr("disabled", true);
-        
+
         ajax.call([{
             methodname: 'send_mail_to_teacher',
             args: {text: text, userid: userid},
