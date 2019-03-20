@@ -120,6 +120,13 @@ $string['sitenamedesc'] = 'If there is no small logo, the site name is always di
 $string['smalllogo'] = 'Small logo';
 $string['smalllogodesc'] = 'The small logo is displayed in the navigation bar. If there is a header logo for the front page and login page, the small logo is not displayed on these pages. If a logo is not added here, the compact logo in Appearance > Logos will be used.';
 
+$string['logoimages'] = 'Header Logo';
+$string['logoimages_desc'] = 'This logo will be displayed at the top of the page in the header area. It uses bootstrap responsive image scaling.';
+$string['headerlogo'] = 'Header Logo for English language';
+$string['headerlogo_desc'] = 'This logo will be displayed if an user choose English language.';
+$string['headerlogohe'] = 'Header Logo for Hebrew language';
+$string['headerlogohe_desc'] = 'This logo will be displayed if an user choose Hebrew language.';
+
 // profile page
 $string['profile_greeting'] = 'مرحبًا! هذه صفحة حسابك الشخصيّ ›';
 $string['profile_picture'] = 'صورةٌ شخصيّة';

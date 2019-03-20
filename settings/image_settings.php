@@ -45,12 +45,34 @@ $setting = new admin_setting_configstoredfile( $name, $title, $description, 'fav
 $setting->set_updatedcallback ( 'theme_reset_all_caches' );
 $page->add($setting);
 
-// logo image.
-$name = 'theme_fordson/headerlogo';
-$title = get_string('headerlogo', 'theme_fordson');
-$description = get_string('headerlogo_desc', 'theme_fordson');
+// This is the descriptor for logo images.
+$name = 'theme_stardust/logoimages';
+$heading = get_string('logoimages', 'theme_stardust');
+$information = get_string('logoimages_desc', 'theme_stardust');
+$setting = new admin_setting_heading($name, $heading, $information);
+$page->add($setting);
+
+// Logo image for EN.
+$name = 'theme_stardust/headerlogo';
+$title = get_string('headerlogo', 'theme_stardust');
+$description = get_string('headerlogo_desc', 'theme_stardust');
 $setting = new admin_setting_configstoredfile($name, $title, $description, 'headerlogo');
 $setting->set_updatedcallback('theme_reset_all_caches');
+$page->add($setting);
+
+// Logo image for HE.
+$name = 'theme_stardust/headerlogohe';
+$title = get_string('headerlogohe', 'theme_stardust');
+$description = get_string('headerlogohe_desc', 'theme_stardust');
+$setting = new admin_setting_configstoredfile($name, $title, $description, 'headerlogohe');
+$setting->set_updatedcallback('theme_reset_all_caches');
+$page->add($setting);
+
+// This is the descriptor for logo images.
+$name = 'theme_stardust/logoimagesbot';
+$heading = ' ';
+$information = '&nbsp;';
+$setting = new admin_setting_heading($name, $heading, $information);
 $page->add($setting);
 
 // Default header image.
