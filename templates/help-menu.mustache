@@ -70,7 +70,8 @@
                   class = "teacher item"
                   data-toggle = "modal"
                   data-target = "#sendMail"
-                  data-id   = "{{id}}"
+                  data-userid   = "{{id}}"
+                  data-courseid   = "{{courseid}}"
                   data-name   = "{{firstname}} {{lastname}}"
                   data-tooltip = "tooltip"
                   data-placement = "bottom"
@@ -100,11 +101,11 @@
         </button>
       </div>
       <div class="modal-body" id="mailBodyBox">
-        <textarea id = "mailBody"></textarea>
+        <textarea class = "w-100" rows=10 id = "mailBody"></textarea>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">{{#str}}close, theme_stardust{{/str}}</button>
-        <button type="button" class="btn btn-primary" id = "sendMailToTeacher" data-id = "">{{#str}}send, theme_stardust{{/str}}</button>
+        <button type="button" class="btn btn-primary" id = "sendMailToTeacher">{{#str}}send, theme_stardust{{/str}}</button>
       </div>
     </div>
   </div>
@@ -132,28 +133,34 @@ require(['jquery', 'core/ajax' ], function($, ajax){
         $(document).off('keyup', handleEsc);
     });
 
-    /* test version 
+
     $(".contact_teacher_btn").click(function(){
       $(".teacher_list").slideToggle();
     })
-    */
+
     // modal window
     $('#sendMail').on('show.bs.modal', function(e) {
         var target = e.relatedTarget;
 
         $('#teacherName').text($(target).attr("data-name"));
-        $('#sendMailToTeacher').attr("data-id", $(target).attr("data-id")).html('{{#str}}send, theme_stardust{{/str}}').attr("disabled", false);
-        $('#mailBodyBox').html('<textarea id = "mailBody"></textarea>');
+        $('#sendMailToTeacher').attr({
+          "data-userid" : $(target).attr("data-userid"),
+          "data-courseid" : $(target).attr("data-courseid")
+        }).html('{{#str}}send, theme_stardust{{/str}}').attr("disabled", false);
+
+        $('#mailBodyBox').html('<textarea class = "w-100" rows=10 id = "mailBody"></textarea>');
 
     })
     $('#sendMailToTeacher').on('click', function(e){
         var text = $('#mailBody').val();
-        var userid = $('#sendMailToTeacher').attr("data-id");
+        var userid = $('#sendMailToTeacher').attr("data-userid");
+        var courseid = $('#sendMailToTeacher').attr("data-courseid");
+
         $('#sendMailToTeacher').html('{{#str}}sending, theme_stardust{{/str}}').attr("disabled", true);
 
         ajax.call([{
             methodname: 'send_mail_to_teacher',
-            args: {text: text, userid: userid},
+            args: {text: text, userid: userid, courseid: courseid},
             done: function(response) {
                 if (response === '1') {
                     $('#sendMailToTeacher').html('{{#str}}sent, theme_stardust{{/str}}');
@@ -161,6 +168,8 @@ require(['jquery', 'core/ajax' ], function($, ajax){
                         this.remove();
                         $('#mailBodyBox').html('<h3>{{#str}}message_has_been_sent, theme_stardust{{/str}}</h3>');
                     });
+                    setTimeout(function(){$('[data-dismiss="modal"]').trigger('click');}, 3000);
+
                 } else {
                     console.log('Something wrong');
                     console.log(response);
