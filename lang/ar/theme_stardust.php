@@ -120,6 +120,13 @@ $string['sitenamedesc'] = 'If there is no small logo, the site name is always di
 $string['smalllogo'] = 'Small logo';
 $string['smalllogodesc'] = 'The small logo is displayed in the navigation bar. If there is a header logo for the front page and login page, the small logo is not displayed on these pages. If a logo is not added here, the compact logo in Appearance > Logos will be used.';
 
+$string['logoimages'] = 'Header Logo';
+$string['logoimages_desc'] = 'This logo will be displayed at the top of the page in the header area. It uses bootstrap responsive image scaling.';
+$string['headerlogo'] = 'Header Logo for English language';
+$string['headerlogo_desc'] = 'This logo will be displayed if an user choose English language.';
+$string['headerlogohe'] = 'Header Logo for Hebrew language';
+$string['headerlogohe_desc'] = 'This logo will be displayed if an user choose Hebrew language.';
+
 // profile page
 $string['profile_greeting'] = 'مرحبًا! هذه صفحة حسابك الشخصيّ ›';
 $string['profile_picture'] = 'صورةٌ شخصيّة';
@@ -192,6 +199,13 @@ $string['userspassreport'] = 'איפוס סיסמאות לתלמידים';
 $string['contact_teacher'] = 'Contact the teacher';
 $string['technical_support'] = 'Technical support';
 $string['send_mail'] = 'Send mail to ';
+$string['send_mail_to_teacher'] = 'Send mail to teacher';
+$string['close'] = 'Close';
+$string['send'] = 'Send';
+$string['sending'] = 'Sending...';
+$string['sent'] = 'Sent!';
+$string['message_has_been_sent'] = 'Message has been sent!';
+$string['message_from_a_course_page'] = 'Message from a course page';
 
 // Help contacts settings
 $string['help_contacts_tab'] = 'Help contacts';
@@ -199,3 +213,7 @@ $string['help_contacts_header'] = 'Help contacts roles';
 $string['help_contacts_header_desc'] = 'Define roles, who\'s contacts must appear in the help box';
 $string['help_contact_roles'] = 'Help contact roles';
 $string['help_contact_roles_desc'] = 'Choose one or couple of them';
+
+// Image Settings.
+$string['coursedefaultimage'] = 'Course default image';
+$string['coursedefaultimage_desc'] = 'This image will be displayed as course default image, if nothing else configured in course settings.';

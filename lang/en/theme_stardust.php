@@ -175,8 +175,14 @@ $string['learningcontentpadding'] = 'Learning Content Spacing';
 $string['learningcontentpadding_desc'] = 'This controls how much space between the top of the page and the main course content. Generally, you want this to be less than the height of the header image.';
 $string['showcourseheaderimage'] = 'Show Course Images';
 $string['showcourseheaderimage_desc'] = 'Allow teachers to customize the course header image by uploading an image file into course settings.';
-$string['headerlogo'] = 'Header Logo';
-$string['headerlogo_desc'] = 'This logo will be displayed at the top of the page in the header area. It uses bootstrap responsive image scaling.';
+$string['logoimages'] = 'Header Logo';
+$string['logoimages_desc'] = 'This logo will be displayed at the top of the page in the header area. It uses bootstrap responsive image scaling.';
+$string['headerlogo'] = 'Header Logo for English language';
+$string['headerlogo_desc'] = 'This logo will be displayed if an user choose English language.';
+$string['headerlogohe'] = 'Header Logo for Hebrew language';
+$string['headerlogohe_desc'] = 'This logo will be displayed if an user choose Hebrew language.';
+$string['coursedefaultimage'] = 'Course default image';
+$string['coursedefaultimage_desc'] = 'This image will be displayed as course default image, if nothing else configured in course settings.';
 
 //Slideshow
 $string['slideshowsettings'] = 'Slideshow';
@@ -630,3 +636,10 @@ $string['user_loginas'] = 'Login as...';
 $string['contact_teacher'] = 'Contact the teacher';
 $string['technical_support'] = 'Technical support';
 $string['send_mail'] = 'Send mail to ';
+$string['send_mail_to_teacher'] = 'Send mail to teacher';
+$string['close'] = 'Close';
+$string['send'] = 'Send';
+$string['sending'] = 'Sending...';
+$string['sent'] = 'Sent!';
+$string['message_has_been_sent'] = 'Message has been sent!';
+$string['message_from_a_course_page'] = 'Message from a course page';

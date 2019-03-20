@@ -315,11 +315,20 @@ class core_renderer extends \theme_boost\output\core_renderer {
     }
 
     public function get_stardust_logo() {
-        global $OUTPUT;
+        global $OUTPUT, $PAGE;
 
-        $logourl = (current_language() == "he") ? 'header/logo_davidson_he' : 'header/logo_davidson_eng';
-        $output = $OUTPUT->image_url($logourl, 'theme');
-
+        $outputen = $PAGE->theme->setting_file_url('headerlogo', 'headerlogo');
+        $outputhe = $PAGE->theme->setting_file_url('headerlogohe', 'headerlogohe');
+        
+        if (current_language() == "he") {
+            $output = $outputhe ? $outputhe : $outputen; // Is logo for Hebrew not configured, use logo for English.
+        } else {
+            $output = $outputen ? $outputen : $outputhe; // Use English logo for other languages, if no English choose Hebrew.        
+        }
+        if (!$output) {
+            $logourl = (current_language() == "he") ? 'header/logo_davidson_he' : 'header/logo_davidson_eng'; // Default logo, if no logos configured.
+            $output = $OUTPUT->image_url($logourl, 'theme');
+        }
         return $output;
     }
 

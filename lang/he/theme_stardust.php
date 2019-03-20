@@ -126,6 +126,13 @@ $string['sitenamedesc'] = 'If there is no small logo, the site name is always di
 $string['smalllogo'] = 'Small logo';
 $string['smalllogodesc'] = 'The small logo is displayed in the navigation bar. If there is a header logo for the front page and login page, the small logo is not displayed on these pages. If a logo is not added here, the compact logo in Appearance > Logos will be used.';
 
+$string['logoimages'] = 'Header Logo';
+$string['logoimages_desc'] = 'This logo will be displayed at the top of the page in the header area. It uses bootstrap responsive image scaling.';
+$string['headerlogo'] = 'Header Logo for English language';
+$string['headerlogo_desc'] = 'This logo will be displayed if an user choose English language.';
+$string['headerlogohe'] = 'Header Logo for Hebrew language';
+$string['headerlogohe_desc'] = 'This logo will be displayed if an user choose Hebrew language.';
+
 // profile page
 $string['profile_greeting'] = 'הי! זהו עמוד הפרופיל שלך ›';
 $string['profile_picture'] = 'תמונת פרופיל';
@@ -275,3 +282,14 @@ $string['user_loginas'] = 'מזוהים כ:';
 $string['contact_teacher'] = 'פניה למורה';
 $string['technical_support'] = 'תמיכה טכנית';
 $string['send_mail'] = 'לשלוח מייל ל';
+$string['send_mail_to_teacher'] = 'Send mail to teacher';
+$string['close'] = 'Close';
+$string['send'] = 'Send';
+$string['sending'] = 'Sending...';
+$string['sent'] = 'Sent!';
+$string['message_has_been_sent'] = 'Message has been sent!';
+$string['message_from_a_course_page'] = 'Message from a course page';
+
+// Image Settings.
+$string['coursedefaultimage'] = 'Course default image';
+$string['coursedefaultimage_desc'] = 'This image will be displayed as course default image, if nothing else configured in course settings.';

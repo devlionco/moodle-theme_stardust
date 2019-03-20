@@ -214,7 +214,7 @@ function stardust_set_customcss() {
  */
 
 function get_activities_mydashboard($activitiesconf = array(), $numofrelevantactivities = 4, $courseids = array(), $capabilities = array(), $includenotenrolledcourses = false) {
-    global $USER, $DB, $CFG, $OUTPUT;
+    global $USER, $DB, $CFG, $OUTPUT, $PAGE;
 
     // default params for getting courses
     $params = array(
@@ -328,10 +328,17 @@ function get_activities_mydashboard($activitiesconf = array(), $numofrelevantact
         $coursecoverimgurl = '';
         foreach ($courseobj->get_course_overviewfiles() as $file) {
             $isimage = $file->is_valid_image();
-            $coursecoverimgurl = moodle_url::make_pluginfile_url($file->get_contextid(), $file->get_component(), $file->get_filearea(), null, $file->get_filepath(), $file->get_filename());
+            $_coursecoverimgurl = moodle_url::make_pluginfile_url($file->get_contextid(), $file->get_component(), $file->get_filearea(), null, $file->get_filepath(), $file->get_filename());
+            $coursecoverimgurl = $_coursecoverimgurl->out();
         }
         if (empty($coursecoverimgurl)) {
-            $coursecoverimgurl = $OUTPUT->image_url('banner', 'theme'); // define default course cover image in theme's pix folder
+            $coursedefaultimage = $PAGE->theme->setting_file_url('coursedefaultimage', 'coursedefaultimage'); 
+            if (isset($coursedefaultimage)) {
+                $coursecoverimgurl = $coursedefaultimage; // Define course default image from theme settings.
+            } else {
+                $_coursecoverimgurl = $OUTPUT->image_url('banner', 'theme'); // define default course cover image in theme's pix folder
+                $coursecoverimgurl = $_coursecoverimgurl->out();
+            }
         }
 
         // get courses completeinon info
@@ -361,7 +368,7 @@ function get_activities_mydashboard($activitiesconf = array(), $numofrelevantact
                 'timemodified' => $courses[$id]->timemodified,
                 'startdate' => $courses[$id]->startdate,
                 'enddate' => $courses[$id]->enddate,
-                'coursecoverimg' => $coursecoverimgurl->out(),
+                'coursecoverimg' => $coursecoverimgurl,
                 'progress' => $percentage,
                 'isteacher' => $isteacher,
                 'activities' => $activities,
@@ -376,7 +383,7 @@ function get_activities_mydashboard($activitiesconf = array(), $numofrelevantact
                 'timemodified' => $courses[$id]->timemodified,
                 'startdate' => $courses[$id]->startdate,
                 'enddate' => $courses[$id]->enddate,
-                'coursecoverimg' => $coursecoverimgurl->out(),
+                'coursecoverimg' => $coursecoverimgurl,
                 'progress' => $percentage,
                 'isteacher' => $isteacher,
                 'activities' => $activities,
@@ -676,19 +683,27 @@ function is_activity_without_cutoffdate($activityinfo) {
  */
 
 function get_courses_cover_images ($course) {
-  global $OUTPUT;
+    global $OUTPUT;
+    global $PAGE;
 
-  $courseobj = new course_in_list($course);
-  $coursecoverimgurl = '';
-  foreach ($courseobj->get_course_overviewfiles() as $file) {
-      $isimage = $file->is_valid_image();
-      $coursecoverimgurl = moodle_url::make_pluginfile_url($file->get_contextid(), $file->get_component(), $file->get_filearea(), null, $file->get_filepath(), $file->get_filename());
-  }
-  if (empty($coursecoverimgurl)) {
-      $coursecoverimgurl = $OUTPUT->image_url('banner', 'theme'); // define default course cover image in theme's pix folder
-  }
+    $courseobj = new course_in_list($course);
+    $coursecoverimgurl = '';
+    foreach ($courseobj->get_course_overviewfiles() as $file) {
+        $isimage = $file->is_valid_image();
+        $_coursecoverimgurl = moodle_url::make_pluginfile_url($file->get_contextid(), $file->get_component(), $file->get_filearea(), null, $file->get_filepath(), $file->get_filename());
+        $coursecoverimgurl = $_coursecoverimgurl->out();
+    }
+    if (empty($coursecoverimgurl)) {
+        $coursedefaultimage = $PAGE->theme->setting_file_url('coursedefaultimage', 'coursedefaultimage'); 
+        if (isset($coursedefaultimage)) {
+            $coursecoverimgurl = $coursedefaultimage; // Define course default image from theme settings.
+        } else {
+            $_coursecoverimgurl = $OUTPUT->image_url('banner', 'theme'); // define default course cover image in theme's pix folder
+            $coursecoverimgurl = $_coursecoverimgurl->out();
+        }
+    }
 
-  return $coursecoverimgurl->out();
+    return $coursecoverimgurl;
 }
 
 /**
