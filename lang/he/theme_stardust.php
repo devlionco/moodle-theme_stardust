@@ -282,14 +282,15 @@ $string['user_loginas'] = 'מזוהים כ:';
 $string['contact_teacher'] = 'פניה למורה';
 $string['technical_support'] = 'תמיכה טכנית';
 $string['send_mail'] = 'לשלוח מייל ל';
-$string['send_mail_to_teacher'] = 'Send mail to teacher';
-$string['close'] = 'Close';
-$string['send'] = 'Send';
-$string['sending'] = 'Sending...';
-$string['sent'] = 'Sent!';
-$string['message_has_been_sent'] = 'Message has been sent!';
-$string['message_from_a_course_page'] = 'Message from a course page';
+$string['send_mail_to_teacher'] = 'שלח מייל למורה';
+$string['close'] = 'סגור';
+$string['send'] = 'שלח';
+$string['sending'] = 'שולח ...';
+$string['sent'] = 'נשלח!';
+$string['message_has_been_sent'] = 'ההודעה נשלחה!';
+$string['message_from_a_course_page'] = 'הודעה מקורס ';
 
 // Image Settings.
-$string['coursedefaultimage'] = 'Course default image';
-$string['coursedefaultimage_desc'] = 'This image will be displayed as course default image, if nothing else configured in course settings.';
+$string['coursedefaultimage'] = 'תמונת ברירת המחדל של הקורס';
+$string['coursedefaultimage_desc'] = 'תמונה זו תוצג כתמונת ברירת המחדל של הקורס, אם אין הגדרה אחרת בהגדרות הקורס.';
+
