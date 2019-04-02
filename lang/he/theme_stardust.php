@@ -263,6 +263,7 @@ $string['show_flagged'] = 'הצג שאלה מסומנת';
 $string['show_answered'] = 'הצג שאלה שנענתה';
 $string['show_notanswered'] = 'הצג שאלות שלא נענו';
 $string['reset_filter'] = 'Reset filter';
+$string['no_questions_matched_criteria'] = 'No questions matched criteria';
 
 // Teacher dashboard (davidson)
 $string['extendeduserreport'] = 'פרטי משתמשים מורחב';

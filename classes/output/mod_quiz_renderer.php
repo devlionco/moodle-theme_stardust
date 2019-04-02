@@ -79,9 +79,27 @@ class theme_stardust_mod_quiz_renderer extends mod_quiz_renderer {
         $output .= html_writer::tag('div', $attemptobj->get_heading_before_slot(1), array('class' => 'quiz_description')); // SG -- show slot section heading as sub header
 
         $output .= $this->attempt_form($attemptobj, $page, $slots, $id, $nextpage, $showallquestions);
+        $output .= $this->no_questions_matched_criteria();
         $output .= $this->navigation_panel($navbc);
         $output .= $this->footer();
 
+        return $output;
+    }
+
+    /**
+     * Outputs the navigation block panel
+     *
+     * @param quiz_nav_panel_base $panel instance of quiz_nav_panel_base
+     */
+    public function no_questions_matched_criteria() {
+
+        $output = '';
+        $output .= html_writer::start_tag('div', array('class' => "qn_buttons clearfix $bcc"));
+        $output .= html_writer::tag('h3', get_string('no_questions_matched_criteria', 'theme_stardust'), array(
+            'style' => 'display:none',
+            'class' => 'no_questions_matched_criteria'
+        ));
+        $output .= html_writer::end_tag('div');
         return $output;
     }
 
