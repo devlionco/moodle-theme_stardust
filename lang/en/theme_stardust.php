@@ -610,6 +610,7 @@ $string['quizattemptbacktosection'] = 'Back to section - {$a}';
 $string['quizattemptbacktoactivity'] = 'Back to quiz';
 $string['quizattemptfinishlink'] = 'Finish quiz';
 $string['quiz_filter'] = 'Filter by:';
+$string['reset_filter'] = 'Reset filter';
 $string['quizsettings'] = 'Quiz settings';
 $string['show_more'] = 'Show more';
 $string['show_less'] = 'Show less';

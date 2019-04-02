@@ -262,6 +262,7 @@ $string['show_less'] = 'הצג פחות';
 $string['show_flagged'] = 'הצג שאלה מסומנת';
 $string['show_answered'] = 'הצג שאלה שנענתה';
 $string['show_notanswered'] = 'הצג שאלות שלא נענו';
+$string['reset_filter'] = 'Reset filter';
 
 // Teacher dashboard (davidson)
 $string['extendeduserreport'] = 'פרטי משתמשים מורחב';
