@@ -644,4 +644,4 @@ $string['send'] = 'Send';
 $string['sending'] = 'Sending...';
 $string['sent'] = 'Sent!';
 $string['message_has_been_sent'] = 'Message has been sent!';
-$string['message_from_a_course_page'] = 'Message from a course page';
+$string['message_from_a_course_page'] = 'Message from a course ';

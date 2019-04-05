@@ -174,6 +174,14 @@ $bodyattributes = $OUTPUT->body_attributes($extraclasses);
 $blockshtml = $OUTPUT->blocks('side-pre');
 $hasblocks = strpos($blockshtml, 'data-block=') !== false;
 $regionmainsettingsmenu = $OUTPUT->region_main_settings_menu();
+
+// Get help contacts.
+$helpcontactroles = get_config('theme_stardust', 'help_contact_roles');
+
+$course = $PAGE->course;
+$coursecontext = context_course::instance($course->id);
+$helpcontacts = array_values(get_role_users(explode(',', $helpcontactroles), $coursecontext, false, 'ra.id, u.id, u.firstname, u.lastname, u.email'));
+
 $templatecontext = [
     'sitename' => format_string($SITE->shortname, true, ['context' => context_course::instance(SITEID) , "escape" => false]) ,
     'output' => $OUTPUT,
@@ -192,7 +200,9 @@ $templatecontext = [
     'allcoursesections' => $allcoursesectionsinfo['allcoursesections'],
     'allcoursesectionspinned' => $allcoursesectionsinfo['allcoursesectionspinned'],
     'allsectionactivities' => $allsectionactivities = array_values($allsectionactivities),
-    'coursecoverimg' => get_courses_cover_images ($PAGE->course)
+    'coursecoverimg' => get_courses_cover_images ($PAGE->course),
+    'teachers' => $helpcontacts ?? null,
+    'courseid' => $course->id,
 ];
 
 $PAGE->requires->jquery();

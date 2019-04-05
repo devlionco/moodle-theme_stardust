@@ -165,7 +165,7 @@ $templatecontext = [
     'backgroundimg' => isset($backgroundimg) ? $backgroundimg : $mypublicdefaultbgimgurl,
     'gender' => $gender
 ];
-// echo '<pre>'.print_r($user,1).'</pre>'; exit();
+
 // create $jscontext, which later send as param to js_call_amd (mypublicpage)
 $jsuser = clone($user);                         // clone user object to avoid its modification
 $jsuser->locked = $locked;                      // add locked fields array
