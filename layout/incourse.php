@@ -103,6 +103,8 @@ function get_all_course_sections_info($courseinfo, $currentsectionnum = null) {
     return $sectionsinfo;
 }
 
+global $DB;
+
 // get course back link
 $courseformat = course_get_format($PAGE->course);
 $courselink = $courseformat->get_view_url(0);
@@ -175,12 +177,36 @@ $blockshtml = $OUTPUT->blocks('side-pre');
 $hasblocks = strpos($blockshtml, 'data-block=') !== false;
 $regionmainsettingsmenu = $OUTPUT->region_main_settings_menu();
 
-// Get help contacts.
-$helpcontactroles = get_config('theme_stardust', 'help_contact_roles');
-
 $course = $PAGE->course;
 $coursecontext = context_course::instance($course->id);
-$helpcontacts = array_values(get_role_users(explode(',', $helpcontactroles), $coursecontext, false, 'ra.id, u.id, u.firstname, u.lastname, u.email'));
+
+// Get help contacts.
+$coursehelpcontactroles = $DB->get_record('course_format_options', array('courseid' => $PAGE->course->id, 'format' => 'picturelink', 'name' => 'helpcontactroles')); //Get help contact roles setting for the course.
+
+if ($coursehelpcontactroles and $coursehelpcontactroles->value != '') {
+    $helpcontactroles = $coursehelpcontactroles->value;
+} else {
+    $helpcontactroles = get_config('theme_stardust', 'help_contact_roles'); // Use default contact roles from the theme settings.
+}
+
+$helpcontactrolesarray = explode(',', $helpcontactroles);
+$helpcontactsunchecked = array_values(get_role_users($helpcontactrolesarray, $coursecontext, false, 'ra.id, u.id, u.firstname, u.lastname, u.email'));
+
+$usergroupsall = groups_get_user_groups($course->id, $USER->id);
+$usergroups = $usergroupsall[0];
+
+if (count($usergroups)) { // If user assigned to any group then filter contacts 
+    foreach ($helpcontactsunchecked as $key => $contact) {
+        $contactgroupsall = groups_get_user_groups($course->id, $contact->id);
+        $contactgroups = $contactgroupsall[0];
+        if (count($contactgroups)) {
+            if (!count(array_intersect($usergroups, $contactgroups))) { // If student and teacher are not in the same groups remove teacher from the list
+                unset($helpcontactsunchecked[$key]);
+            }
+        }
+    }
+}
+$helpcontacts = array_values($helpcontactsunchecked);
 
 $templatecontext = [
     'sitename' => format_string($SITE->shortname, true, ['context' => context_course::instance(SITEID) , "escape" => false]) ,
