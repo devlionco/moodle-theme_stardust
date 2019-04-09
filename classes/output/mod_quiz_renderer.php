@@ -49,16 +49,17 @@ class theme_stardust_mod_quiz_renderer extends mod_quiz_renderer {
      */
     public function attempt_page($attemptobj, $page, $accessmanager, $messages, $slots, $id, $nextpage) {
         global $PAGE;
-        
+
         $showallquestions = optional_param('showallquestions', 0, PARAM_INT);
+
         $filter = optional_param('filter', '',  'alphaext');
-        
+
         if($showallquestions) {
             $nextpage = -1;
             $page = 0;
-            $slots = $attemptobj->get_slots('all'); 
+            $slots = $attemptobj->get_slots('all');
         }
-        
+
         $PAGE->requires->js_call_amd('theme_stardust/quizfilter', 'init'); // filter
         $PAGE->requires->js_call_amd('theme_stardust/questionsnav', 'init'); // slider for paging
         // $PAGE->requires->js_call_amd('theme_stardust/swipepaging', 'init'); // slider for paging
@@ -156,45 +157,47 @@ class theme_stardust_mod_quiz_renderer extends mod_quiz_renderer {
      */
     public function quiestion_filter($showallquestions, $filter) {
       global $PAGE;
-      
+
       $params = $PAGE->url->params();
       $paginatedurl = new moodle_url($PAGE->url, $params);
       $params['showallquestions'] = 1;
       $allquestionsurl = new moodle_url($PAGE->url, $params);
-        
+
       $output = '';
       $output .= html_writer::start_tag('div', array(
           'class' => $showallquestions ? 'filter_wrap quiz_all_questions' : 'filter_wrap',
-          'data-allquestionspage' => str_replace("&amp;", "&", $allquestionsurl->out())
+          'data-allquestionspage' => $allquestionsurl->out(false)
           ));
 
       $output .= html_writer::tag('span', get_string('quiz_filter', 'theme_stardust') , array('class' => 'filter_legend'));
       $output .= html_writer::tag('button', '<span class = "filter_pin"></span>', array(
         'data-placement' =>"bottom",
         'data-tooltip' =>"tooltip",
-        'data-original-title' =>get_string('show_flagged', 'theme_stardust'),
+        'title' =>get_string('show_flagged', 'theme_stardust'),
         'data-handler' => 'filter_flag',
         'class' => 'filter_toggle filter_flag' . ($filter == 'filter_flag' ? ' filter_preset' : '')
       ));
       $output .= html_writer::tag('button', '<span class = "filter_pin"></span>', array(
         'data-placement' =>"bottom",
         'data-tooltip' =>"tooltip",
-        'data-original-title' =>get_string('show_answered', 'theme_stardust'),
+        'title' =>get_string('show_answered', 'theme_stardust'),
         'data-handler' => 'filter_answered',
         'class' => 'filter_toggle filter_answered' . ($filter == 'filter_answered' ? ' filter_preset' : '')
       ));
       $output .= html_writer::tag('button', '<span class = "filter_pin"></span>', array(
         'data-placement' =>"bottom",
         'data-tooltip' =>"tooltip",
-        'data-original-title' =>get_string('show_notanswered', 'theme_stardust'),
+        'title' =>get_string('show_notanswered', 'theme_stardust'),
         'data-handler' => 'filter_notanswered',
         'class' => 'filter_toggle filter_notanswered' . ($filter == 'filter_notanswered' ? ' filter_preset' : '')
       ));
       if ($showallquestions) {
-        $output .= html_writer::tag('a', get_string('reset_filter', 'theme_stardust'), array(
-          'href' => str_replace("&amp;", "&", $paginatedurl->out()),
-          'class' => 'filter_reset',
-          'style' => 'margin: 0 10px; font-size: 13px; color: #555; height: 18px; text-decoration: underline;'  
+        $output .= html_writer::tag('a', '<span class = "filter_pin"></span>', array(
+          'href' => $paginatedurl->out(false),
+          'class' => 'filter_toggle filter_reset',
+          'data-tooltip' =>"tooltip",
+          'data-placement' =>"bottom",
+          'title' => get_string('reset_filter', 'theme_stardust')
         ));
       }
 
@@ -233,7 +236,7 @@ class theme_stardust_mod_quiz_renderer extends mod_quiz_renderer {
         return $output;
     }
 
-    
+
     /**
      * Ouputs the form for making an attempt
      *
@@ -282,7 +285,7 @@ class theme_stardust_mod_quiz_renderer extends mod_quiz_renderer {
         }
 
         $navmethod = $attemptobj->get_quiz()->navmethod;
-        $islastpage = $showallquestions ? true : $attemptobj->is_last_page($page); 
+        $islastpage = $showallquestions ? true : $attemptobj->is_last_page($page);
         $output .= $this->attempt_navigation_buttons($page, $islastpage, $navmethod);
 
         // Some hidden fields to trach what is going on.
