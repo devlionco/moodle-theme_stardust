@@ -192,17 +192,6 @@ class theme_stardust_mod_quiz_renderer extends mod_quiz_renderer {
         'data-handler' => 'filter_notanswered',
         'class' => 'filter_toggle filter_notanswered' . ($filter == 'filter_notanswered' ? ' filter_preset' : '')
       ));
-      /*
-      if ($showallquestions) {
-        $output .= html_writer::tag('a', '<span class = "filter_pin"></span>', array(
-          'href' => $paginatedurl->out(false),
-          'class' => 'filter_toggle filter_reset',
-          'data-tooltip' =>"tooltip",
-          'data-placement' =>"bottom",
-          'title' => get_string('reset_filter', 'theme_stardust')
-        ));
-      }
-      */
       $output .= html_writer::end_tag('div');
 
       return $output;
