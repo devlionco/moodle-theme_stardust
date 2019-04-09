@@ -1,87 +1,92 @@
 define(['jquery'], function ($) {
   'use strict';
 
-  const filter = document.querySelector(`.filter_wrap`);
+  const filter = $(`.filter_wrap`);
 
   return {
     init: function () {
 
-      filter.addEventListener('click', function(e){
-        let target = e.target;
-        while(target != filter) {
+        $(document).on('click', '.filter_toggle', function(e){
 
-          if (target.dataset.handler === `filter_flag`) {
-            $.each($('.filter_toggle.filter_active:not(.filter_flag)'), function(){
-              this.click();
-            });
-            if (target.classList.contains('filter_active')) {
-              $.each($('form .que'), function(){
-                $(this).fadeIn();
-              });
-              target.classList.remove('filter_active');
-            }else {
-              $.each($('form .que'), function(){
-                // var flaggedCollection = $(this).has('input[alt="Flagged"]');
-                var flaggedCollection = $(this).has('.questionflagvalue[value="1"]');
-                if(flaggedCollection.length > 0){
-                  $(this).fadeIn();
-                } else {
-                  $(this).fadeOut();
+            let target = $(this);//.target;
+
+            if (!filter.hasClass('quiz_all_questions')) { // The first click lead to reload page containing all questions.
+
+                let allquestionspage = filter.data('allquestionspage');
+                let buttontarget = target;
+                if (buttontarget.hasClass('filter_pin')) {
+                    buttontarget = buttontarget.parent();
                 }
-              });
-              target.classList.add('filter_active');
-            }
-
-            return
-          }
-
-          if (target.dataset.handler === `filter_answered`) {
-            $.each($('.filter_toggle.filter_active:not(.filter_answered)'), function(){
-              this.click();
-            });
-            if (target.classList.contains('filter_active')) {
-              $.each($('form .que'), function(){
-                $(this).fadeIn();
-              });
-              target.classList.remove('filter_active');
-            }else {
-              $.each($('form .que'), function(){
-                if ($(this).hasClass('answersaved')){
-                  $(this).fadeIn();
-                } else {
-                  $(this).fadeOut();
+                if (buttontarget.data('handler') === 'filter_flag' 
+                      || buttontarget.data('handler') === 'filter_answered' 
+                      || buttontarget.data('handler') === 'filter_notanswered') {
+                    allquestionspage += "&filter=" + buttontarget.data('handler');
                 }
-              });
-              target.classList.add('filter_active');
-            }
-            return
-          }
+                window.location = allquestionspage;
 
-          if (target.dataset.handler === `filter_notanswered`) {
-            $.each($('.filter_toggle.filter_active:not(.filter_notanswered)'), function(){
-              this.click();
-            });
-            if (target.classList.contains('filter_active')) {
-              $.each($('form .que'), function(){
-                $(this).fadeIn();
-              });
-              target.classList.remove('filter_active');
-            } else {
-              $.each($('form .que'), function(){
-                if ($(this).hasClass('notyetanswered')){
-                  $(this).fadeIn();
-                } else {
-                  $(this).fadeOut();
+            } else {  
+                
+                let buttontarget = target;
+                if (buttontarget.hasClass('filter_pin')) {
+                    buttontarget = buttontarget.parent();
                 }
-              });
-              target.classList.add('filter_active');
+                
+                $('.que').removeClass('hidden_question');
+                if (buttontarget.data('handler') === 'filter_flag') {
+                    if (buttontarget.hasClass('filter_active')) {
+                        buttontarget.removeClass('filter_active');
+                    } else {
+                        $.each($('form .que'), function(){
+                            var flaggedCollection = $(this).has('.questionflagvalue[value="1"]');
+                            if(flaggedCollection.length > 0){
+                              $(this).removeClass("hidden_question");
+                            } else {
+                              $(this).addClass("hidden_question");
+                            }
+                        });
+                        $('.filter_toggle').removeClass('filter_active');
+                        buttontarget.addClass('filter_active');
+                    }
+                }
+                
+                if (buttontarget.data('handler') === 'filter_answered') {
+                    if (buttontarget.hasClass('filter_active')) {
+                        buttontarget.removeClass('filter_active');
+                    } else {
+                        $('form .que:not(.answersaved)').addClass("hidden_question");
+                        $('.filter_toggle').removeClass('filter_active');
+                        buttontarget.addClass('filter_active');
+                    }
+                }
+                
+                
+                if (buttontarget.data('handler') === 'filter_notanswered') {
+                    if (buttontarget.hasClass('filter_active')) {
+                        buttontarget.removeClass('filter_active');
+                    } else {
+                        $('form .que:not(.notyetanswered)').addClass("hidden_question");
+                        $('.filter_toggle').removeClass('filter_active');
+                        buttontarget.addClass('filter_active');
+                    }
+                }
+                
+                $('.que.hidden_question').fadeOut();
+                $('.que:not(.hidden_question)').fadeIn();
+
+                let hiddenquestions = $('.que.hidden_question').length;
+                let allquestions = $('.que').length;
+
+                if (allquestions > hiddenquestions) {
+                    $('.no_questions_matched_criteria').fadeOut();
+                } else {
+                    $('.no_questions_matched_criteria').fadeIn();
+                }
             }
-          }
-
-          target = target.parentNode;
-        }
-      });
-
+        });
+      
+        $.each($('.filter_toggle.filter_preset'), function(){
+            this.click();
+        });
     }
   }
 });

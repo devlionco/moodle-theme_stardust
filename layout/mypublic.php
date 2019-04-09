@@ -121,11 +121,11 @@ foreach ($fields as $field) {
 
 user_preference_allow_ajax_update('drawer-open-nav', PARAM_ALPHA);
 require_once($CFG->libdir . '/behat/lib.php');
-// $hasfhsdrawer = isset($PAGE->theme->settings->shownavdrawer) && $PAGE->theme->settings->shownavdrawer == 1;
+//$hasfhsdrawer = isset($PAGE->theme->settings->shownavdrawer) && $PAGE->theme->settings->shownavdrawer == 1;
 // if (isloggedin() && $hasfhsdrawer && isset($PAGE->theme->settings->shownavclosed) && $PAGE->theme->settings->shownavclosed == 0) {
 //     $navdraweropen = (get_user_preferences('drawer-open-nav', 'true') == 'true');
 // } else {
-//     $navdraweropen = false;
+     $navdraweropen = false;
 // }
 $hasfhsdrawer = true;
 $extraclasses = [];
@@ -144,8 +144,8 @@ if (isset($user->gender)) {
     $gender->men = 1;
   }else $gender->woman = 1;
 }
-$a->oldversion = "$CFG->release (".sprintf('%.2f', $CFG->version).")";
-$a->newversion = "$release (".sprintf('%.2f', $version).")";
+//$a->oldversion = "$CFG->release (".sprintf('%.2f', $CFG->version).")";
+//$a->newversion = "$release (".sprintf('%.2f', $version).")";
 $templatecontext = [
 	'sitename' => format_string($SITE->shortname, true, ['context' => context_course::instance(SITEID) , "escape" => false]) ,
     'output' => $OUTPUT,

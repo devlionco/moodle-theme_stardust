@@ -49,12 +49,21 @@ class theme_stardust_mod_quiz_renderer extends mod_quiz_renderer {
      */
     public function attempt_page($attemptobj, $page, $accessmanager, $messages, $slots, $id, $nextpage) {
         global $PAGE;
+
+        $showallquestions = optional_param('showallquestions', 0, PARAM_INT);
+        $filter = optional_param('filter', '', alphaext);
+
+        if($showallquestions) {
+            $nextpage = -1;
+            $page = 0;
+            $slots = $attemptobj->get_slots('all');
+        }
+
         $PAGE->requires->js_call_amd('theme_stardust/quizfilter', 'init'); // filter
         $PAGE->requires->js_call_amd('theme_stardust/questionsnav', 'init'); // slider for paging
         // $PAGE->requires->js_call_amd('theme_stardust/swipepaging', 'init'); // slider for paging
         // $PAGE->set_pagelayout('quizattempt');
         $navbc = new quiz_attempt_nav_panel($attemptobj, $attemptobj->get_display_options(true), $page, $showall);
-        // $navbc = new quiz_attempt_nav_panel($attemptobj, $attemptobj->get_display_options(t), $page, false);
         $output = '';
 
         $output .= $this->header();
@@ -63,15 +72,34 @@ class theme_stardust_mod_quiz_renderer extends mod_quiz_renderer {
         $output .= html_writer::start_tag('div', array('class' => 'quiz_header'));
         $output .= html_writer::start_tag('div', array('class' => 'quiz_header_wrap'));
         $output .= html_writer::tag('p', $attemptobj->get_quiz_name(), array('class' => 'quiz_name'));
-        $output .= $this->quiestion_filter();
+        $output .= $this->quiestion_filter($showallquestions, $filter);
         $output .= html_writer::end_tag('div');
         $output .= html_writer::end_tag('div');
         //$output .= html_writer::tag('div', $PAGE->activityrecord->intro, array('class' => 'quiz_description')); // SG -- show quiz description as sub geader
         $output .= html_writer::tag('div', $attemptobj->get_heading_before_slot(1), array('class' => 'quiz_description')); // SG -- show slot section heading as sub header
-        $output .= $this->attempt_form($attemptobj, $page, $slots, $id, $nextpage);
+        $output .= $this->no_questions_matched_criteria();
+
+        $output .= $this->attempt_form($attemptobj, $page, $slots, $id, $nextpage, $showallquestions);
         $output .= $this->navigation_panel($navbc);
         $output .= $this->footer();
 
+        return $output;
+    }
+
+    /**
+     * Outputs the navigation block panel
+     *
+     * @param quiz_nav_panel_base $panel instance of quiz_nav_panel_base
+     */
+    public function no_questions_matched_criteria() {
+
+        $output = '';
+        $output .= html_writer::start_tag('div', array('class' => "clearfix"));
+        $output .= html_writer::tag('h3', get_string('no_questions_matched_criteria', 'theme_stardust'), array(
+            'style' => 'display:none',
+            'class' => 'no_questions_matched_criteria'
+        ));
+        $output .= html_writer::end_tag('div');
         return $output;
     }
 
@@ -126,32 +154,51 @@ class theme_stardust_mod_quiz_renderer extends mod_quiz_renderer {
      *
      * @param quiz_nav_panel_base $panel instance of quiz_nav_panel_base
      */
-    public function quiestion_filter() {
+    public function quiestion_filter($showallquestions, $filter) {
+      global $PAGE;
+
+      $params = $PAGE->url->params();
+      $paginatedurl = new moodle_url($PAGE->url, $params);
+      $params['showallquestions'] = 1;
+      $allquestionsurl = new moodle_url($PAGE->url, $params);
+
       $output = '';
-      $output .= html_writer::start_tag('div', array('class' => 'filter_wrap'));
+      $output .= html_writer::start_tag('div', array(
+          'class' => $showallquestions ? 'filter_wrap quiz_all_questions' : 'filter_wrap',
+          'data-allquestionspage' => $allquestionsurl->out(false)
+          ));
 
       $output .= html_writer::tag('span', get_string('quiz_filter', 'theme_stardust') , array('class' => 'filter_legend'));
       $output .= html_writer::tag('button', '<span class = "filter_pin"></span>', array(
         'data-placement' =>"bottom",
         'data-tooltip' =>"tooltip",
-        'data-original-title' =>get_string('show_flagged', 'theme_stardust'),
+        'title' =>get_string('show_flagged', 'theme_stardust'),
         'data-handler' => 'filter_flag',
-        'class' => 'filter_toggle filter_flag'
+        'class' => 'filter_toggle filter_flag' . ($filter == 'filter_flag' ? ' filter_preset' : '')
       ));
       $output .= html_writer::tag('button', '<span class = "filter_pin"></span>', array(
         'data-placement' =>"bottom",
         'data-tooltip' =>"tooltip",
-        'data-original-title' =>get_string('show_answered', 'theme_stardust'),
+        'title' =>get_string('show_answered', 'theme_stardust'),
         'data-handler' => 'filter_answered',
-        'class' => 'filter_toggle filter_answered'
+        'class' => 'filter_toggle filter_answered' . ($filter == 'filter_answered' ? ' filter_preset' : '')
       ));
       $output .= html_writer::tag('button', '<span class = "filter_pin"></span>', array(
         'data-placement' =>"bottom",
         'data-tooltip' =>"tooltip",
-        'data-original-title' =>get_string('show_notanswered', 'theme_stardust'),
+        'title' =>get_string('show_notanswered', 'theme_stardust'),
         'data-handler' => 'filter_notanswered',
-        'class' => 'filter_toggle filter_notanswered'
+        'class' => 'filter_toggle filter_notanswered' . ($filter == 'filter_notanswered' ? ' filter_preset' : '')
       ));
+      if ($showallquestions) {
+        $output .= html_writer::tag('a', '<span class = "filter_pin"></span>', array(
+          'href' => $paginatedurl->out(false),
+          'class' => 'filter_toggle filter_reset',
+          'data-tooltip' =>"tooltip",
+          'data-placement' =>"bottom",
+          'title' => get_string('reset_filter', 'theme_stardust')
+        ));
+      }
 
       $output .= html_writer::end_tag('div');
 
@@ -184,6 +231,87 @@ class theme_stardust_mod_quiz_renderer extends mod_quiz_renderer {
         $output .= html_writer::empty_tag('input', array('type' => 'submit', 'name' => 'next',
                 'value' => $nextlabel, 'class' => 'mod_quiz-next-nav btn btn-primary'.$endteststyle));
         $output .= html_writer::end_tag('div');
+
+        return $output;
+    }
+
+
+    /**
+     * Ouputs the form for making an attempt
+     *
+     * @param quiz_attempt $attemptobj
+     * @param int $page Current page number
+     * @param array $slots Array of integers relating to questions
+     * @param int $id ID of the attempt
+     * @param int $nextpage Next page number
+     */
+    public function attempt_form($attemptobj, $page, $slots, $id, $nextpage, $showallquestions) {
+        $output = '';
+
+        // Start the form.
+        $output .= html_writer::start_tag('form',
+                array('action' => new moodle_url($attemptobj->processattempt_url(),
+                array('cmid' => $attemptobj->get_cmid())), 'method' => 'post',
+                'enctype' => 'multipart/form-data', 'accept-charset' => 'utf-8',
+                'id' => 'responseform'));
+        $output .= html_writer::start_tag('div');
+
+        // special quiz page layout settings (show/hide html elements). // nadavkav 26/8/2015
+          // undelete this after copying the DB from moodle31
+        $davidsonlayoutsettings = explode(',', $attemptobj->get_quiz()->davidson);
+        foreach ($davidsonlayoutsettings as $setting) {
+            list($key, $value) = explode('=', $setting);
+            $layoutsetting[$key] = $value;
+        }
+
+        if ($layoutsetting['info'] == '0')
+            $output .= html_writer::tag('style', '.info {display:none;}.dir-rtl .que .content, .que .content{margin:0;}');
+        if ($layoutsetting['info_flag'] == '0')
+            $output .= html_writer::tag('style', '.questionflag {display:none;}');
+        if ($layoutsetting['info_question_number'] == '0')
+            $output .= html_writer::tag('style', '.info .no {display:none;}');
+        if ($layoutsetting['info_grade'] == '0')
+            $output .= html_writer::tag('style', '.grade {display:none;}');
+        if ($layoutsetting['quizsummary'] == '0')
+            $output .= html_writer::tag('style', '.quizreviewsummary {display:none;}');
+
+        // Davidson - end
+
+        // Print all the questions.
+        foreach ($slots as $slot) {
+            $output .= $attemptobj->render_question($slot, false, $this,
+                    $attemptobj->attempt_url($slot, $page), $this);
+        }
+
+        $navmethod = $attemptobj->get_quiz()->navmethod;
+        $islastpage = $showallquestions ? true : $attemptobj->is_last_page($page);
+        $output .= $this->attempt_navigation_buttons($page, $islastpage, $navmethod);
+
+        // Some hidden fields to trach what is going on.
+        $output .= html_writer::empty_tag('input', array('type' => 'hidden', 'name' => 'attempt',
+                'value' => $attemptobj->get_attemptid()));
+        $output .= html_writer::empty_tag('input', array('type' => 'hidden', 'name' => 'thispage',
+                'value' => $page, 'id' => 'followingpage'));
+        $output .= html_writer::empty_tag('input', array('type' => 'hidden', 'name' => 'nextpage',
+                'value' => $nextpage));
+        $output .= html_writer::empty_tag('input', array('type' => 'hidden', 'name' => 'timeup',
+                'value' => '0', 'id' => 'timeup'));
+        $output .= html_writer::empty_tag('input', array('type' => 'hidden', 'name' => 'sesskey',
+                'value' => sesskey()));
+        $output .= html_writer::empty_tag('input', array('type' => 'hidden', 'name' => 'scrollpos',
+                'value' => '', 'id' => 'scrollpos'));
+
+        // Add a hidden field with questionids. Do this at the end of the form, so
+        // if you navigate before the form has finished loading, it does not wipe all
+        // the student's answers.
+        $output .= html_writer::empty_tag('input', array('type' => 'hidden', 'name' => 'slots',
+                'value' => implode(',', $attemptobj->get_active_slots($page))));
+
+        // Finish the form.
+        $output .= html_writer::end_tag('div');
+        $output .= html_writer::end_tag('form');
+
+        $output .= $this->connection_warning();
 
         return $output;
     }
