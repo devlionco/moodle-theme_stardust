@@ -51,7 +51,8 @@ class theme_stardust_mod_quiz_renderer extends mod_quiz_renderer {
         global $PAGE;
 
         $showallquestions = optional_param('showallquestions', 0, PARAM_INT);
-        $filter = optional_param('filter', '', alphaext);
+
+        $filter = optional_param('filter', '',  'alphaext');
 
         if($showallquestions) {
             $nextpage = -1;
@@ -63,7 +64,7 @@ class theme_stardust_mod_quiz_renderer extends mod_quiz_renderer {
         $PAGE->requires->js_call_amd('theme_stardust/questionsnav', 'init'); // slider for paging
         // $PAGE->requires->js_call_amd('theme_stardust/swipepaging', 'init'); // slider for paging
         // $PAGE->set_pagelayout('quizattempt');
-        $navbc = new quiz_attempt_nav_panel($attemptobj, $attemptobj->get_display_options(true), $page, $showall);
+        $navbc = new quiz_attempt_nav_panel($attemptobj, $attemptobj->get_display_options(true), $page, $showallquestions);
         $output = '';
 
         $output .= $this->header();

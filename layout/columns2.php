@@ -30,7 +30,7 @@ require_once($CFG->libdir . '/behat/lib.php');
 // if (isloggedin() && $hasfhsdrawer && isset($PAGE->theme->settings->shownavclosed) && $PAGE->theme->settings->shownavclosed == 0) {
 //     $navdraweropen = (get_user_preferences('drawer-open-nav', 'true') == 'true');
 // } else {
-//     $navdraweropen = false;
+     $navdraweropen = false;
 // }
 $hasfhsdrawer = true;
 $extraclasses = [];
