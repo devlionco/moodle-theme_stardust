@@ -166,7 +166,8 @@ class theme_stardust_mod_quiz_renderer extends mod_quiz_renderer {
       $output = '';
       $output .= html_writer::start_tag('div', array(
           'class' => $showallquestions ? 'filter_wrap quiz_all_questions' : 'filter_wrap',
-          'data-allquestionspage' => $allquestionsurl->out(false)
+          'data-allquestionspage' => $allquestionsurl->out(false),
+          'data-originalquizpage' => $paginatedurl->out(false),
           ));
 
       $output .= html_writer::tag('span', get_string('quiz_filter', 'theme_stardust') , array('class' => 'filter_legend'));
@@ -191,6 +192,7 @@ class theme_stardust_mod_quiz_renderer extends mod_quiz_renderer {
         'data-handler' => 'filter_notanswered',
         'class' => 'filter_toggle filter_notanswered' . ($filter == 'filter_notanswered' ? ' filter_preset' : '')
       ));
+      /*
       if ($showallquestions) {
         $output .= html_writer::tag('a', '<span class = "filter_pin"></span>', array(
           'href' => $paginatedurl->out(false),
@@ -200,7 +202,7 @@ class theme_stardust_mod_quiz_renderer extends mod_quiz_renderer {
           'title' => get_string('reset_filter', 'theme_stardust')
         ));
       }
-
+      */
       $output .= html_writer::end_tag('div');
 
       return $output;

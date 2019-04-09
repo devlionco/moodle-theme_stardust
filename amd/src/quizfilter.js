@@ -9,6 +9,7 @@ define(['jquery'], function ($) {
         $(document).on('click', '.filter_toggle', function(e){
 
             let target = $(this);//.target;
+            let originalquizpage = filter.data('originalquizpage');
 
             if (!filter.hasClass('quiz_all_questions')) { // The first click lead to reload page containing all questions.
 
@@ -35,6 +36,7 @@ define(['jquery'], function ($) {
                 if (buttontarget.data('handler') === 'filter_flag') {
                     if (buttontarget.hasClass('filter_active')) {
                         buttontarget.removeClass('filter_active');
+                        window.location = originalquizpage;
                     } else {
                         $.each($('form .que'), function(){
                             var flaggedCollection = $(this).has('.questionflagvalue[value="1"]');
@@ -52,6 +54,7 @@ define(['jquery'], function ($) {
                 if (buttontarget.data('handler') === 'filter_answered') {
                     if (buttontarget.hasClass('filter_active')) {
                         buttontarget.removeClass('filter_active');
+                        window.location = originalquizpage;
                     } else {
                         $('form .que:not(.answersaved)').addClass("hidden_question");
                         $('.filter_toggle').removeClass('filter_active');
@@ -63,6 +66,7 @@ define(['jquery'], function ($) {
                 if (buttontarget.data('handler') === 'filter_notanswered') {
                     if (buttontarget.hasClass('filter_active')) {
                         buttontarget.removeClass('filter_active');
+                        window.location = originalquizpage;
                     } else {
                         $('form .que:not(.notyetanswered)').addClass("hidden_question");
                         $('.filter_toggle').removeClass('filter_active');
