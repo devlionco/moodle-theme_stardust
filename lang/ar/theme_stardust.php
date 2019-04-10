@@ -190,6 +190,8 @@ $string['quizattemptbacktosection'] = 'Back to section - {$a}';
 $string['quizattemptbacktoactivity'] = 'Back to quiz';
 $string['quizattemptfinishlink'] = 'הגשת המבחן';
 $string['quiz_filter'] = 'حسب الإشارة:';
+$string['reset_filter'] = 'Reset filter';
+$string['no_questions_matched_criteria'] = 'No questions matched criteria';
 
 // Teacher dashboard (davidson)
 $string['extendeduserreport'] = 'פרטי משתמשים מורחב';

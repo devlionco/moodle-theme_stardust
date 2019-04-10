@@ -3662,10 +3662,11 @@ table .activityicon_wrapper.mod_red {
       transition: .4s;
       border: 1px solid #ddd;
       z-index: 1000;
-      top: 276px; }
+      top: 0; }
       #page-mod-quiz-attempt #page-wrapper section[data-region="blocks-column"].view {
         left: 0; }
     #page-mod-quiz-attempt #page-wrapper section#region-main.has-blocks {
+      min-height: calc(100vh - 538px);
       width: 100%; }
       #page-mod-quiz-attempt #page-wrapper section#region-main.has-blocks .finish_quiz {
         cursor: pointer;
@@ -3968,10 +3969,10 @@ table .activityicon_wrapper.mod_red {
   #page-mod-quiz-attempt .filter_legend {
     color: #3c3c3c; }
   #page-mod-quiz-attempt .filter_toggle {
+    background: none;
     cursor: pointer;
     width: 30px;
     height: 20px;
-    background-color: #dc3545;
     border-radius: 10px;
     margin-left: 10px;
     display: -ms-flexbox;
@@ -3991,21 +3992,18 @@ table .activityicon_wrapper.mod_red {
     #page-mod-quiz-attempt .filter_toggle.filter_active .filter_pin {
       transform: translateX(8px); }
     #page-mod-quiz-attempt .filter_toggle.filter_flag {
-      background: none;
       border-color: #ff7e99; }
       #page-mod-quiz-attempt .filter_toggle.filter_flag:before {
         background-color: #ff7e99; }
       #page-mod-quiz-attempt .filter_toggle.filter_flag .filter_pin {
         background-color: #ff7e99; }
     #page-mod-quiz-attempt .filter_toggle.filter_answered {
-      background: none;
       border-color: #19284f; }
       #page-mod-quiz-attempt .filter_toggle.filter_answered:before {
         background-color: #19284f; }
       #page-mod-quiz-attempt .filter_toggle.filter_answered .filter_pin {
         background-color: #19284f; }
     #page-mod-quiz-attempt .filter_toggle.filter_notanswered {
-      background: none;
       border-color: #b4c1c7; }
       #page-mod-quiz-attempt .filter_toggle.filter_notanswered:before {
         background-color: #b4c1c7; }
@@ -4015,7 +4013,7 @@ table .activityicon_wrapper.mod_red {
       width: 10px;
       height: 10px;
       position: relative;
-      background-color: #fff;
+      background-color: #dc3545;
       border-radius: 50%;
       transition: .2s;
       transform: translateX(-2px); }

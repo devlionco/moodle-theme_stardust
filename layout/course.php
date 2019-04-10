@@ -31,6 +31,7 @@ require_once($CFG->libdir . "/completionlib.php");
 global $DB,$COURSE, $USER;
 $course = $PAGE->course;
 $courseformat = course_get_format($course->id)->get_format_options();
+$courseformatname = course_get_format($course->id)->get_format();
 $PAGE->set_title($course->shortname);
 
 /**
@@ -122,6 +123,19 @@ function count_section_cms_completions($secid, $coursefminfo, $ccompetablecms, $
     }
 
     return $sectioncompletion;
+}
+
+function update_helpcontactroles($coursehelpcontactroleslist) {
+    $roles = array();
+    foreach ($coursehelpcontactroleslist as $key => $val) {
+        if ($val->value == '1') {
+            if (substr($val->name, 0, 17) === 'helpcontactroles_') {
+                $num = substr($val->name, strpos($val->name, "_") + 1);
+                $roles[] = $num;
+            }
+        }
+    }
+    return implode(',', $roles);
 }
 
 // get all current user's completions on current course
@@ -254,8 +268,40 @@ if ($coursemessage) {
 }
 
 // Get help contacts.
-$helpcontactroles = get_config('theme_stardust', 'help_contact_roles');
-$helpcontacts = array_values(get_role_users(explode(',', $helpcontactroles), $coursecontext, false, 'ra.id, u.id, u.firstname, u.lastname, u.email'));
+$coursehelpcontactroles = $DB->get_record('course_format_options', array('courseid' => $PAGE->course->id, 'format' => $courseformatname, 'name' => 'helpcontactroles')); //Get help contact roles setting for the course.
+
+if (!$coursehelpcontactroles) {
+    $sql = 'SELECT * FROM {course_format_options} WHERE courseid = :courseid AND format = :format AND name LIKE "helpcontactroles_%"';
+    $coursehelpcontactroleslist = $DB->get_records_sql($sql, ['courseid' => $PAGE->course->id, 'format' => $courseformatname]);
+    $coursehelpcontactrolesupd = update_helpcontactroles($coursehelpcontactroleslist);
+}
+
+if ($coursehelpcontactroles and $coursehelpcontactroles->value != '') {
+    $helpcontactroles = $coursehelpcontactroles->value;
+} elseif ($coursehelpcontactrolesupd and $coursehelpcontactrolesupd != '') {
+    $helpcontactroles = $coursehelpcontactrolesupd;
+} else {
+    $helpcontactroles = get_config('theme_stardust', 'help_contact_roles'); // Use default contact roles from the theme settings.
+}
+
+$helpcontactrolesarray = explode(',', $helpcontactroles);
+$helpcontactsunchecked = array_values(get_role_users($helpcontactrolesarray, $coursecontext, false, 'ra.id, u.id, u.firstname, u.lastname, u.email'));
+
+$usergroupsall = groups_get_user_groups($course->id, $USER->id);
+$usergroups = $usergroupsall[0];
+
+if (count($usergroups)) { // If user assigned to any group then filter contacts 
+    foreach ($helpcontactsunchecked as $key => $contact) {
+        $contactgroupsall = groups_get_user_groups($course->id, $contact->id);
+        $contactgroups = $contactgroupsall[0];
+        if (count($contactgroups)) {
+            if (!count(array_intersect($usergroups, $contactgroups))) { // If student and teacher are not in the same groups remove teacher from the list
+                unset($helpcontactsunchecked[$key]);
+            }
+        }
+    }
+}
+$helpcontacts = array_values($helpcontactsunchecked);
 
 $templatecontext = [
     'sitename' => format_string($SITE->shortname, true, ['context' => context_course::instance(SITEID) , "escape" => false]) ,
