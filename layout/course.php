@@ -126,18 +126,6 @@ function count_section_cms_completions($secid, $coursefminfo, $ccompetablecms, $
     return $sectioncompletion;
 }
 
-function update_helpcontactroles($coursehelpcontactroleslist) {
-    $roles = array();
-    foreach ($coursehelpcontactroleslist as $key => $val) {
-        if ($val->value == '1') {
-            if (substr($val->name, 0, 17) === 'helpcontactroles_') {
-                $num = substr($val->name, strpos($val->name, "_") + 1);
-                $roles[] = $num;
-            }
-        }
-    }
-    return implode(',', $roles);
-}
 
 // get all current user's completions on current course
 $usercourseallcmcraw = $DB->get_records_sql("

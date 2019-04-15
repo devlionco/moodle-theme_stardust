@@ -31,7 +31,7 @@ class StardustHelper {
         if (!$coursehelpcontactroles) {
             $sql = 'SELECT * FROM {course_format_options} WHERE courseid = :courseid AND format = :format AND name LIKE "helpcontactroles_%"';
             $coursehelpcontactroleslist = $DB->get_records_sql($sql, ['courseid' => $courseid, 'format' => $courseformatname]);
-            $coursehelpcontactrolesupd = update_helpcontactroles($coursehelpcontactroleslist);
+            $coursehelpcontactrolesupd = self::update_helpcontactroles($coursehelpcontactroleslist);
         }
 
         if ($coursehelpcontactroles and $coursehelpcontactroles->value != '') {
@@ -73,5 +73,19 @@ class StardustHelper {
             $rolesarray[] = $role->roleid;
         }
         return $rolesarray;
+    }
+    
+    
+    protected static function update_helpcontactroles($coursehelpcontactroleslist) {
+        $roles = array();
+        foreach ($coursehelpcontactroleslist as $key => $val) {
+            if ($val->value == '1') {
+                if (substr($val->name, 0, 17) === 'helpcontactroles_') {
+                    $num = substr($val->name, strpos($val->name, "_") + 1);
+                    $roles[] = $num;
+                }
+            }
+        }
+        return implode(',', $roles);
     }
 }
