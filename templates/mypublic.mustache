@@ -146,7 +146,6 @@
                     <div class="title">{{#str}} profile_picture, theme_stardust{{/str}}</div>
                     <div id="avatar-wrapper" class="avatar-wrapper">
                         <img src="{{userpictureurl}}" class="avatar" alt="avatar">
-                        <!-- <a class="avatar-tooltip" href = "{{config.wwwroot}}/user/editadvanced.php?id={{userinfo.id}}"> -->
                         <a id = "change_picture" class="avatar-tooltip" href = "javascript:void(0)">
                               <div class="icon-camera"></div>
                               <div>{{#str}} change_picture, theme_stardust{{/str}}</div>
@@ -155,17 +154,15 @@
                     <div class="avatar-info">
                         {{#str}} profile_icon_info, theme_stardust{{/str}}
                     </div>
-                    <!-- <a class="btn-blue" href="{{config.wwwroot}}/user/editadvanced.php?id={{userinfo.id}}">{{#str}} save, theme_stardust{{/str}}</a> -->
                 </div>
                 <form id="mypublicpage-profile-shortform" class="profile profile-info">
                     <input type="hidden" id="userid" value="{{userinfo.id}}" />
                     <div class="column">
                         <div class="title">{{#str}} personal_information, theme_stardust{{/str}}</div>
-                        <button class="toggle-info show" type="button">
+                        <!-- <button class="toggle-info show" type="button">
                           <span class = "show_more">{{#str}} show_more, theme_stardust{{/str}}<i class="fa fa-angle-down"></i></span>
                           <span class = "show_less">{{#str}} show_less, theme_stardust{{/str}}<i class="fa fa-angle-up"></i></span>
-                          <!-- <span>show less</span> -->
-                        </button>
+                        </button> -->
                         <ul class="info-list">
                             <li class="info" data-input="username">
                                 {{#canedit}}
@@ -199,7 +196,6 @@
                               <span class="input-label">{{#str}} phone, theme_stardust{{/str}}</span>
                             </li>
 
-                            <!-- additional fields -->
                             <li class="info" data-input="gender">
                               <span id="gender">
                                 <label>{{#str}} man, theme_stardust{{/str}}
@@ -221,6 +217,8 @@
                               <span id="city" class="input">{{userinfo.city}}</span>
                               <span class="input-label">{{#str}} city, theme_stardust{{/str}}</span>
                             </li>
+
+                            <!-- additional fields -->
                             <li class="info" data-input="phone2">
                               <span id="phone2" class="input">{{userinfo.phone2}}</span>
                               <span class="input-label">{{#str}} additional_phone, theme_stardust{{/str}}</span>
@@ -263,29 +261,26 @@
                                     {{/userinfo.interests}}
                                 </div>
                             </li>
-                            <li class="info submit">
-                                <input type="button" id="mypublicprofile-save-btn" class="btn-blue" {{canedit}} value="{{#str}} update_details, theme_stardust{{/str}}">
-                            </li>
                         </ul>
+                        <button class="toggle-info show" type="button">
+                          <span class = "show_more">{{#str}} show_more, theme_stardust{{/str}}<i class="fa fa-angle-down"></i></span>
+                          <span class = "show_less">{{#str}} show_less, theme_stardust{{/str}}<i class="fa fa-angle-up"></i></span>
+                        </button>
                     </div>
                     <div class="column">
                         <div class="title">{{#str}} school_details, theme_stardust{{/str}}</div>
                         <ul class="info-list">
                             <li class="info">
-                                <!-- <input type="text" id="institution" class="input" {{canedit}} {{userinfo.institution_status}} value="{{userinfo.institution}}"> -->
                                 <span id="institution" class="input">{{userinfo.institution}}</span>
                                 <span class="input-label">{{#str}} school, theme_stardust{{/str}}</span>
                             </li>
                             <li class="info">
-                                <!-- <input type="text" id="yahoo" class="input" {{canedit}} {{userinfo.yahoo_status}} value="{{userinfo.yahoo}}"> -->
                                 <span type="text" id="yahoo" class="input">{{userinfo.yahoo}}</span>
                                 <span class="input-label">{{#str}} school_city, theme_stardust{{/str}}</span>
                             </li>
-                            <!-- <li class="info">
-                                <input type="text" id="address" class="input" {{canedit}} value="{{userinfo.address}}">
-                                <span class="input-label">{{#str}} address, theme_stardust{{/str}}</span>
-                            </li> -->
-
+                            <li class="info submit">
+                                <input type="button" id="mypublicprofile-save-btn" class="btn-blue" {{canedit}} value="{{#str}} update_details, theme_stardust{{/str}}">
+                            </li>
                         </ul>
                     </div>
                 </form>
@@ -293,8 +288,6 @@
                     <div class="title">{{#str}} accomplishments, theme_stardust{{/str}}</div>
                     <ul class="achievments">
                         <a href="#accomplishments-wrapper"  onclick="document.getElementById('pills-accomplishments-medals').click();">
-                        <!-- <a href="#pills-accomplishments-medals"  onclick="document.getElementById('pills-accomplishments-medals').click();"> -->
-                        <!-- <a href = "{{config.wwwroot}}/badges/mybadges.php"> -->
                           <li class="achievment">
                               <div class="icon-medal">
                                 {{#output.get_user_badges.count}}
@@ -307,8 +300,6 @@
                           </li>
                         </a>
                         <a href = "#accomplishments-wrapper"   onclick="document.getElementById('pills-accomplishments-grades').click();">
-                        <!-- <a href = "#pills-accomplishments-grades"   onclick="document.getElementById('pills-accomplishments-grades').click();"> -->
-                        <!-- <a href = "{{config.wwwroot}}/grade/report/overview/index.php"> -->
                           <li class="achievment">
                               <div class="icon-grades"></div>
                               <p class="icon-label">{{#str}} grades, theme_stardust{{/str}}</p>
@@ -316,8 +307,6 @@
                           </li>
                         </a>
                         <a href = "#accomplishments-wrapper"  onclick="document.getElementById('pills-accomplishments-certificates').click();">
-                        <!-- <a href = "#pills-accomplishments-certificates"  onclick="document.getElementById('pills-accomplishments-certificates').click();"> -->
-                        <!-- <a href = "{{config.wwwroot}}/user/profile.php#accomplishments-certificates"> -->
                             <li class="achievment">
                                 <div class="icon-diplom"></div>
                                 <p class="icon-label">{{#str}} diplom, theme_stardust{{/str}}</p>
@@ -363,8 +352,6 @@ require(['jquery'], function($) {
     $(this).toggleClass('show');
     $(`
       #aim,
-      #gender,
-      #city,
       #phone2,
       #skype,
       #icq,

@@ -2506,8 +2506,6 @@ body#page-login-signup {
               #mypublic-student .main-wrapper .main-content .profile-info .column .toggle-info {
                 -ms-flex-item-align: end;
                     align-self: flex-end;
-                margin-top: -2.5rem;
-                margin-bottom: 11px;
                 color: #717171;
                 cursor: pointer;
                 background: none;
@@ -2531,7 +2529,15 @@ body#page-login-signup {
                   display: none; }
               #mypublic-student .main-wrapper .main-content .profile-info .column .info-list {
                 list-style: none;
-                padding: 0; }
+                padding: 0;
+                display: -ms-flexbox;
+                display: flex;
+                -ms-flex-positive: 1;
+                    flex-grow: 1;
+                -ms-flex-wrap: wrap;
+                    flex-wrap: wrap;
+                -ms-flex-direction: column;
+                    flex-direction: column; }
                 #mypublic-student .main-wrapper .main-content .profile-info .column .info-list [data-input="aim"],
                 #mypublic-student .main-wrapper .main-content .profile-info .column .info-list [data-input="phone2"],
                 #mypublic-student .main-wrapper .main-content .profile-info .column .info-list [data-input="skype"],
@@ -2565,7 +2571,8 @@ body#page-login-signup {
                     margin-top: 8px; }
                   #mypublic-student .main-wrapper .main-content .profile-info .column .info-list li.info.submit {
                     -ms-flex-align: end;
-                        align-items: flex-end; }
+                        align-items: flex-end;
+                    margin-top: auto; }
                     #mypublic-student .main-wrapper .main-content .profile-info .column .info-list li.info.submit .btn-blue {
                       margin-top: 23px;
                       width: 140px;
