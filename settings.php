@@ -113,9 +113,7 @@ if ($ADMIN->fulltree) {
     $roles = role_get_names(); // Get all system roles.
     $choices = array();
     foreach ($roles as $id => $role) {
-        if ($id != 16) { // Do not show Supporter role. It is used by default.
-            $choices[$id] = $role->localname;
-        }
+        $choices[$id] = $role->localname;
     }
     $defaultchoices = [3 => 'editingteacher']; // By defaut - editingteacher role is defined.
     $page->add(new admin_setting_configmulticheckbox('theme_stardust/help_contact_roles',
