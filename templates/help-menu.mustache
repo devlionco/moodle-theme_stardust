@@ -70,9 +70,9 @@
                   class = "teacher item"
                   data-toggle = "modal"
                   data-target = "#sendMail"
-                  data-userid   = "{{id}}"
-                  data-courseid   = "{{courseid}}"
-                  data-name   = "{{firstname}} {{lastname}}"
+                  data-teacherid = "{{id}}"
+                  data-courseid = "{{courseid}}"
+                  data-name = "{{firstname}} {{lastname}}"
                   data-tooltip = "tooltip"
                   data-placement = "bottom"
                   title = "{{#str}} send_mail, theme_stardust {{/str}}{{firstname}} {{lastname}}"
@@ -82,10 +82,16 @@
               </ul>
             {{/teachers}}
 
-            <a class="item" href="mailto:moodle.davidson@weizmann.ac.il">
+            <div
+              class="item"
+              data-toggle = "modal"
+              data-courseid = "{{courseid}}"
+              data-target = "#sendMail"
+              data-mail="moodle.davidson@weizmann.ac.il"
+            >
                 <div class="item-icon item-icon-tech-support"></div>
                 <div class="item-name">{{#str}} technical_support, theme_stardust {{/str}}</div>
-            </a>
+            </div>
         </div>
     </div>
 </div>
@@ -115,7 +121,7 @@
 
 require(['jquery','theme_boost/tooltip'], function($){$('[data-tooltip="tooltip"]').tooltip()});
 
-require(['jquery', 'core/ajax' ], function($, ajax){
+require(['jquery', 'core/ajax', 'core/notification'], function($, ajax, notification){
     const KEYCODE_ESC = 27;
     function handleEsc(e) {
         if (e.keyCode == KEYCODE_ESC) {
@@ -144,7 +150,7 @@ require(['jquery', 'core/ajax' ], function($, ajax){
 
         $('#teacherName').text($(target).attr("data-name"));
         $('#sendMailToTeacher').attr({
-          "data-userid" : $(target).attr("data-userid"),
+          "data-teacherid" : $(target).attr("data-teacherid") || 0,
           "data-courseid" : $(target).attr("data-courseid")
         }).html('{{#str}}send, theme_stardust{{/str}}').attr("disabled", false);
 
@@ -153,14 +159,15 @@ require(['jquery', 'core/ajax' ], function($, ajax){
     })
     $('#sendMailToTeacher').on('click', function(e){
         var text = $('#mailBody').val();
-        var userid = $('#sendMailToTeacher').attr("data-userid");
+        var teacherid = $('#sendMailToTeacher').attr("data-teacherid");
         var courseid = $('#sendMailToTeacher').attr("data-courseid");
+        var type = 0;
 
         $('#sendMailToTeacher').html('{{#str}}sending, theme_stardust{{/str}}').attr("disabled", true);
 
         ajax.call([{
             methodname: 'send_mail_to_teacher',
-            args: {text: text, userid: userid, courseid: courseid},
+            args: {text: text, teacherid: teacherid, courseid: courseid},
             done: function(response) {
                 if (response === '1') {
                     $('#sendMailToTeacher').html('{{#str}}sent, theme_stardust{{/str}}');
@@ -175,10 +182,7 @@ require(['jquery', 'core/ajax' ], function($, ajax){
                     console.log(response);
                 }
             },
-            fail: function(response) {
-                console.log('fail response');
-                console.log(response);
-            }
+            fail: notification.exception
         }]);
     });
 });
