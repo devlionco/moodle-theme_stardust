@@ -295,3 +295,11 @@ $string['message_from_a_course_page'] = 'הודעה מקורס ';
 // Image Settings.
 $string['coursedefaultimage'] = 'תמונת ברירת המחדל של הקורס';
 $string['coursedefaultimage_desc'] = 'תמונה זו תוצג כתמונת ברירת המחדל של הקורס, אם אין הגדרה אחרת בהגדרות הקורס.';
+
+// Submittion
+$string['complete'] = 'הושלם';
+$string['of'] = 'מתוך';
+$string['submitted'] = 'הוגש';
+$string['tested'] = 'נבדק';
+$string['cancel'] = 'ביטול';
+$string['cut_of_date_label'] = 'מועד ההגשה: {$a->date}';
