@@ -645,11 +645,3 @@ $string['sending'] = 'Sending...';
 $string['sent'] = 'Sent!';
 $string['message_has_been_sent'] = 'Message has been sent!';
 $string['message_from_a_course_page'] = 'Message from a course ';
-
-// Submittion
-$string['complete'] = 'Complete';
-$string['of'] = 'of';
-$string['submitted'] = 'Submitted';
-$string['tested'] = 'Tested';
-$string['cancel'] = 'Cancel';
-$string['cut_of_date_label'] = 'Cut-off date: {$a->date}';
