@@ -1,11 +1,11 @@
 .course-cards {
     background: $gray_light;
     min-height: 100vh;
-    padding: 75px 41px 40px 47px;
+    padding: 60px 41px 40px 47px;
     &-header {
         display: flex;
         justify-content: space-between;
-        margin-bottom: 32px;
+        margin-bottom: 20px;
         .tab-links {
             display: flex;
             .nav-item {
