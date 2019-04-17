@@ -32,7 +32,7 @@ class theme_stardust_external extends external_api {
         return new external_function_parameters(
                 array(
                     'text' => new external_value(PARAM_TEXT, 'A message to a teacher', VALUE_REQUIRED, ''),
-                    'teacherid' => new external_value(PARAM_INT, 'Teacher ID', VALUE_REQUIRED, ''),
+                    'userid' => new external_value(PARAM_INT, 'Teacher ID', VALUE_REQUIRED, ''),
                     'courseid' => new external_value(PARAM_INT, 'Course ID', VALUE_REQUIRED, ''),
                     )
         );
@@ -42,7 +42,7 @@ class theme_stardust_external extends external_api {
      * Returns welcome message
      * @return string welcome message
      */
-    public static function send_mail_to_teacher($text, $teacherid, $courseid) {
+    public static function send_mail_to_teacher($text, $userid, $courseid) {
         global $USER, $DB, $PAGE;
 
         $context = context_course::instance($courseid);
@@ -53,14 +53,12 @@ class theme_stardust_external extends external_api {
         $params = self::validate_parameters(self::send_mail_to_teacher_parameters(),
                 array(
                     'text' => $text,
-                    'teacherid' => (int)$teacherid,
+                    'userid' => (int)$userid,
                     'courseid' => (int)$courseid,
                     )
                 );
 
-        // $test = 'moodle.davidson@weizmann.ac.il';
-        $test = 'pazam@yandex.ru';
-        $teacher = (bool)$params['teacherid'] ? $test : $DB->get_record('user', array('id' => (int)$params['teacherid']));
+        $teacher = $DB->get_record('user', array('id' => (int)$params['userid']));
         $course = $DB->get_record('course', array('id' => $courseid));
 
         return self::send_mail_to_teacher_sender($USER, $teacher, $params['text'], $course);

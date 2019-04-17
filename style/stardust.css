@@ -1085,7 +1085,7 @@ body#page-login-signup {
       max-width: 78%; }
       #my-page .main-wrapper .main-header {
         padding-top: 2vh;
-        margin-bottom: 18px;
+        margin-bottom: 2vh;
         height: 124px;
         color: #FFFFFF;
         display: -ms-flexbox;
@@ -1133,7 +1133,7 @@ body#page-login-signup {
         -ms-grid-columns: 1fr 312px;
             grid-template-columns: 1fr 312px;
         grid-gap: 24px;
-        margin-bottom: 48px; }
+        margin-bottom: 50px; }
         #my-page .main-wrapper .main-content .tasks-container {
           width: 100%;
           background: #FFFFFF;
@@ -1246,11 +1246,11 @@ body#page-login-signup {
 
 /* Track */
 ::-webkit-scrollbar-track {
-  background: #ffffff; }
+  background: #FFFFFF; }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: #d5d5d4; }
+  background: #D5D5D4; }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
@@ -2036,13 +2036,13 @@ body#page-login-signup {
 .course-cards {
   background: #F3F2F0;
   min-height: 100vh;
-  padding: 60px 41px 40px 47px; }
+  padding: 75px 41px 40px 47px; }
   .course-cards-header {
     display: -ms-flexbox;
     display: flex;
     -ms-flex-pack: justify;
         justify-content: space-between;
-    margin-bottom: 20px; }
+    margin-bottom: 32px; }
     .course-cards-header .tab-links {
       display: -ms-flexbox;
       display: flex; }
@@ -2506,6 +2506,8 @@ body#page-login-signup {
               #mypublic-student .main-wrapper .main-content .profile-info .column .toggle-info {
                 -ms-flex-item-align: end;
                     align-self: flex-end;
+                margin-top: -2.5rem;
+                margin-bottom: 11px;
                 color: #717171;
                 cursor: pointer;
                 background: none;
@@ -2529,15 +2531,7 @@ body#page-login-signup {
                   display: none; }
               #mypublic-student .main-wrapper .main-content .profile-info .column .info-list {
                 list-style: none;
-                padding: 0;
-                display: -ms-flexbox;
-                display: flex;
-                -ms-flex-positive: 1;
-                    flex-grow: 1;
-                -ms-flex-wrap: wrap;
-                    flex-wrap: wrap;
-                -ms-flex-direction: column;
-                    flex-direction: column; }
+                padding: 0; }
                 #mypublic-student .main-wrapper .main-content .profile-info .column .info-list [data-input="aim"],
                 #mypublic-student .main-wrapper .main-content .profile-info .column .info-list [data-input="phone2"],
                 #mypublic-student .main-wrapper .main-content .profile-info .column .info-list [data-input="skype"],
@@ -2571,8 +2565,7 @@ body#page-login-signup {
                     margin-top: 8px; }
                   #mypublic-student .main-wrapper .main-content .profile-info .column .info-list li.info.submit {
                     -ms-flex-align: end;
-                        align-items: flex-end;
-                    margin-top: auto; }
+                        align-items: flex-end; }
                     #mypublic-student .main-wrapper .main-content .profile-info .column .info-list li.info.submit .btn-blue {
                       margin-top: 23px;
                       width: 140px;
