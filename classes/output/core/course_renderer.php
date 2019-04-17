@@ -103,7 +103,7 @@ class course_renderer extends \core_course_renderer {
         // Display link itself.
         $modstyle = (!empty($activitystatus['modstyle']))? $activitystatus['modstyle'] : '';
 
-        $activitylink = html_writer::tag('div',  
+        $activitylink = html_writer::tag('div',
         html_writer::empty_tag('img', array('src' => $micon,
                 'class' => 'iconlarge activityicon '.$modstyle,
                 'alt' => ' ',
@@ -230,8 +230,8 @@ class course_renderer extends \core_course_renderer {
 
         return $output;
     }
-    
-    
+
+
     //Get student users of course
     public function get_students_course($courseid){
         global $DB;
@@ -250,7 +250,7 @@ class course_renderer extends \core_course_renderer {
         return array_values($students);
     }
 
-    
+
     /**
      * Renders html for completion box on course page
      *
@@ -269,12 +269,12 @@ class course_renderer extends \core_course_renderer {
     public function course_section_cm_completion($course, &$completioninfo, cm_info $mod, $displayoptions = array()) {
         global $CFG, $DB;
         $output = '';
-        
+
         if (!$mod->is_visible_on_course_page()) {
             $output .= $this->render_block_submission_activity($mod);
             return $output;
         }
-        
+
         if (!empty($displayoptions['hidecompletion']) || !isloggedin() || isguestuser() || !$mod->uservisible) {
             return $output;
         }
@@ -384,7 +384,7 @@ class course_renderer extends \core_course_renderer {
         return $output;
     }
 
-    
+
     /**
      * Renders html to display a course search form
      *
@@ -430,7 +430,7 @@ class course_renderer extends \core_course_renderer {
         return $output;
     }
 
-    
+
     /**
      * Renders HTML to display one course module for display within a section.
      *
@@ -508,14 +508,14 @@ class course_renderer extends \core_course_renderer {
 
         // Start a wrapper for the actual content to keep the indentation consistent
         $output .= html_writer::start_tag('div');
-        
+
         // Display the link to the module (or do nothing if module has no url)
         $cmname = $this->course_section_cm_name($mod, $displayoptions);
 
         if (!empty($cmname)) {
             // Start the div for the activity title, excluding the edit icons.
             $output .= html_writer::start_tag('div', array('class' => 'activityinstance'));
-            
+
             $output .= $cmname;
 
 
@@ -537,7 +537,7 @@ class course_renderer extends \core_course_renderer {
         if (empty($url)) {
             $output .= $contentpart;
         }
-        
+
 
         $modicons = '';
         if ($this->page->user_is_editing()) {
@@ -569,8 +569,8 @@ class course_renderer extends \core_course_renderer {
         $output .= html_writer::end_tag('div');
         return $output;
     }
-    
-    
+
+
     /**
      * Renders html to display the module content on the course page (i.e. text of the labels)
      *
@@ -602,21 +602,14 @@ class course_renderer extends \core_course_renderer {
         return $output;
     }
 
-    
-    
+
+
     public function render_block_submission_activity(cm_info $mod){
         global $CFG, $DB, $COURSE, $USER;
         $html = '';
 
         if ($COURSE->format != 'stardust') {
             return $html;
-        }
-        
-        // for a teacher colleagues don`t show activity status
-        $context = \context_course::instance($COURSE->id);
-        $roles = get_user_roles($context, $USER->id, false);
-        foreach($roles as $role){
-            if($role->shortname == 'teachercolleague') return $html;
         }
 
         // define activity status and icon
@@ -636,8 +629,8 @@ class course_renderer extends \core_course_renderer {
         $tmod = new \stdClass();
         $tmod->id = $mod->id;
         $tmod->added = $mod->added;
-        $mstatus="";
-        $modstyle="";
+        $mstatus='';
+
         if ($mod->modname == 'assign' || $mod->modname == 'quiz' || $mod->modname == 'questionnaire') {
 
             $tmod->duedate = isset($mextra->duedate) ? $mextra->duedate : 0;
@@ -656,8 +649,7 @@ class course_renderer extends \core_course_renderer {
             $count_users = $countobj['users'];
             $count_max_users = $countobj['maxusers'];
 
-            $mstatus  =  isset($activitystatus['grade'])?$activitystatus['grade']:(isset($activitystatus['modstatus'])?$activitystatus['modstatus']:"");
-            $modstyle = isset($activitystatus['modstyle'])?$activitystatus['modstyle']:"";
+            // $mstatus  =  isset($activitystatus['grade'])?$activitystatus['grade']:(isset($activitystatus['modstatus'])?$activitystatus['modstatus']:"");
 
             $coursecontext = context_course::instance($COURSE->id);
             if(is_siteadmin() || has_capability('moodle/course:update', $coursecontext)) {
@@ -678,11 +670,11 @@ class course_renderer extends \core_course_renderer {
                     $gradeurl = '<a target="__blank" href="'.$url.'">'.get_string('grades').'</a>';
                 }
 
-                $mstatus .= '<span class = "mod_gray"> ('.get_string('submitted', 'theme_stardust').' '.$count_users.' '.get_string('of', 'theme_stardust').' '.$count_max_users.') '.$gradeurl.' </span>';
+                $mstatus = get_string('submitted', 'theme_stardust').' ('.$count_users.' '.get_string('of', 'theme_stardust').' '.$count_max_users.') '.$gradeurl;
             }
         }
 
-        $html = html_writer::tag('span', $mstatus, array('class' => 'mod_style '.$modstyle));
+        $html = html_writer::tag('span', $mstatus, array('class' => ''));
         return $html;
     }
 
@@ -846,5 +838,5 @@ class course_renderer extends \core_course_renderer {
         return $activitystatus;
     }
 
-    
+
 } // end class theme_stardust_core_course_renderer
