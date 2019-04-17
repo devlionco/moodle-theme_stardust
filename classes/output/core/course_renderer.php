@@ -608,6 +608,10 @@ class course_renderer extends \core_course_renderer {
         global $CFG, $DB, $COURSE, $USER;
         $html = '';
 
+        if ($COURSE->format != 'stardust') {
+            return $html;
+        }
+        
         // for a teacher colleagues don`t show activity status
         $context = \context_course::instance($COURSE->id);
         $roles = get_user_roles($context, $USER->id, false);
