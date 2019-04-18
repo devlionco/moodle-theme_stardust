@@ -25,7 +25,7 @@
 defined('MOODLE_INTERNAL') || die();
 user_preference_allow_ajax_update('drawer-open-nav', PARAM_ALPHA);
 require_once($CFG->libdir . '/behat/lib.php');
-require_once($CFG->dirroot.'/course/lib.php'); 
+require_once($CFG->dirroot.'/course/lib.php');
 //if we are on module view page, return links 'back to course, section and activity'
 
 if ($PAGE->context && $PAGE->context->contextlevel == CONTEXT_MODULE && $PAGE->cm) {
@@ -70,12 +70,12 @@ $templatecontext = [
     'backtoactivity' => html_writer::link($activitylink, $textquizattemptbacktoactivity)
 ];
 
-$PAGE->requires->jquery();
-if (isset($PAGE->theme->settings->showbacktotop) && $PAGE->theme->settings->showbacktotop == 1) {
-    $PAGE->requires->js('/theme/fordson/javascript/scrolltotop.js');
-    $PAGE->requires->js('/theme/fordson/javascript/scrollspy.js');
-}
-$PAGE->requires->js('/theme/fordson/javascript/tooltipfix.js');
+// $PAGE->requires->jquery();
+// if (isset($PAGE->theme->settings->showbacktotop) && $PAGE->theme->settings->showbacktotop == 1) {
+//     $PAGE->requires->js('/theme/fordson/javascript/scrolltotop.js');
+//     $PAGE->requires->js('/theme/fordson/javascript/scrollspy.js');
+// }
+// $PAGE->requires->js('/theme/fordson/javascript/tooltipfix.js');
 
 $templatecontext['flatnavigation'] = $PAGE->flatnav;
 echo $OUTPUT->render_from_template('theme_stardust/quizattempt', $templatecontext);

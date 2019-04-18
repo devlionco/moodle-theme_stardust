@@ -4,495 +4,491 @@ $avatar-wrapper-margin-top: 66px;
 $achivement-margin-top: 42px;
 
 @keyframes spinDblueAjax {
-  to {
-    border-top-color: $d_blue;
-    -webkit-transform: rotate(360deg);
-            transform: rotate(360deg);
-  }
+    to {
+        border-top-color: $d_blue;
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
 }
+
 @keyframes sussesDblueAjax {
-  0% {stroke-dashoffset: -100;}
-  100% {stroke-dashoffset: 900;}
+    0% {stroke-dashoffset: -100;}
+    100% {stroke-dashoffset: 900;}
 }
 
 
 #mypublic-student {
-  color: $text-color;
-  font-family: "openSans";
-  .main-wrapper {
-    position: relative;
-    padding-left: 162px;
-    padding-right: 162px;
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-color: $primary-color-1;
-    .icon-help {
-      width: 64px;
-      height: 60px;
-      background-image:url([[pix:theme|pagemy/help-dblue]]);
-      position: absolute;
-      bottom: -31px;
-      right: 43px;
-    }
-    .main {
-      padding-bottom: 87px;
-      &-header {
-        padding-top: 44px;
-        margin-bottom: 39px;
-        color: $white;
-        display: flex;
-        justify-content: space-between;
-        .block-left {
-          .subtitle {
-            font-size: 18px;
-            font-weight:$bold;
-            margin-bottom: 0;
-          }
-          .title {
-            font-size: 72px;
-            line-height: 65px;
-            font-family: 'NextExitRound';
-            text-shadow: 0 0 10px rgba(0,0,0,0.1);
-            margin-bottom: 0;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            // width: 600px;
-          }
+    color: $text-color;
+    font-family: "openSans";
+    .main-wrapper {
+        position: relative;
+        padding-left: 162px;
+        padding-right: 162px;
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-color: $primary-color-1;
+        .icon-help {
+            width: 64px;
+            height: 60px;
+            background-image:url([[pix:theme|pagemy/help-dblue]]);
+            position: absolute;
+            bottom: -31px;
+            right: 43px;
         }
-        .block-right {
-          display: flex;
-          align-items: flex-end;
-          .icon-camera {
-            cursor: pointer;
-            width: 20px;
-            height: 18px;
-            background-image:url([[pix:theme|pagemy/camera]]);
-          }
-        }
-      }
-      &-content {
-        display: grid;
-        grid-template-columns: 205px minmax(350px, 3fr) 205px;
-        grid-gap: 24px;
-        justify-content: space-between;
-        .profile {
-          background: $white;
-          display: flex;
-          flex-direction: column;
-          padding: 20px 32px 40px;
-          .title {
-            font-size: 18px;
-            font-weight:$bold;
-            color: $primary-color;
-            width: 100%;
-          }
-          .btn-blue {
-            background: $primary-color-1;
-            min-width: 115px;
-            height: 36px;
-            border: none;
-            border-radius: 50px;
-            color:$white;
-          }
-          &-picture {
-            align-items: center;
-            .avatar-wrapper {
-              position: relative;
-              margin-top: $avatar-wrapper-margin-top;
-              border-radius: 50%;
-              width: 147px;
-              height: 147px;
-              overflow: hidden;
-              display: flex;
-              justify-content: center;
-              align-items: center;
-              &:hover {
-                .avatar-tooltip {
-                  bottom: 0,
-                }
-              }
-              .avatar {
-                width: 100%;
-                height: 100%;
-              }
-              .avatar-tooltip {
-                position: absolute;
-                bottom: -#{$avatar-tooltip-height};
-                width: 100%;
-                height: $avatar-tooltip-height;
-                display: flex;
-                justify-content: center;
-                background-color: rgba(0,0,0,0.6);
-                font-size: 12px;
+        .main {
+            padding-bottom: 87px;
+            &-header {
+                padding-top: 44px;
+                margin-bottom: 39px;
                 color: $white;
                 display: flex;
-                justify-content: center;
-                padding-top: 12px;
-                transition: all 0.2s ease;
-                cursor: pointer;
-
-                & > div {
-                  margin: 0 4px;
+                justify-content: space-between;
+                .block-left {
+                    .subtitle {
+                        font-size: 18px;
+                        font-weight:$bold;
+                        margin-bottom: 0;
+                    }
+                    .title {
+                        font-size: 72px;
+                        line-height: 65px;
+                        font-family: 'NextExitRound';
+                        text-shadow: 0 0 10px rgba(0,0,0,0.1);
+                        margin-bottom: 0;
+                        white-space: nowrap;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                        // width: 600px;
+                    }
                 }
-                .icon-camera {
-                  width: 20px;
-                  height: 18px;
-                  background-image:url([[pix:theme|pagemy/camera]]);
-                }
-              }
-            }
-            .avatar-info {
-              margin-top: 29px;
-              font-size: 12px;
-              width: 100%;
-            }
-            .btn-blue {
-              margin-top: 59px;
-              display: flex;
-              justify-content: center;
-              align-items: center;
-            }
-          }
-          &-info {
-            position: relative;
-            display: grid;
-            grid-gap: 24px;
-            grid-template-columns: repeat(auto-fit, minmax(285px, 1fr));
-            .column {
-              display: flex;
-              flex-direction: column;
-              .title {
-                margin-bottom: 11px;
-              }
-              .toggle-info{
-                align-self: flex-end;
-                margin-top: -2.5rem;
-                margin-bottom: 11px;
-                color: #717171;
-                cursor: pointer;
-                background: none;
-                border: none;
-                & i {
-                  font-size: 2rem;
-                  margin-left: .5rem;
-                }
-                .show_more {
-                  display: none;
-                }
-                .show_less {
-                  display: flex;
-                  align-items: center;
-                }
-                &.show{
-                  .show_more {
+                .block-right {
                     display: flex;
-                    align-items: center;
-                  }
-                  .show_less {
-                    display: none;
-                  }
+                    align-items: flex-end;
+                    .icon-camera {
+                        cursor: pointer;
+                        width: 20px;
+                        height: 18px;
+                        background-image:url([[pix:theme|pagemy/camera]]);
+                    }
                 }
-              }
-              .info-list {
-                list-style: none;
-                padding: 0;
-                & [data-input="aim"],
-                & [data-input="phone2"],
-                & [data-input="skype"],
-                & [data-input="icq"],
-                & [data-input="birthday"],
-                & [data-input="interests"]
+            }
+            &-content {
+                display: grid;
+                grid-template-columns: 205px minmax(350px, 3fr) 205px;
+                grid-gap: 24px;
+                justify-content: space-between;
+                .profile {
+                    background: $white;
+                    display: flex;
+                    flex-direction: column;
+                    padding: 20px 32px 40px;
+                    .title {
+                        font-size: 18px;
+                        font-weight:$bold;
+                        color: $primary-color;
+                        width: 100%;
+                    }
+                    .btn-blue {
+                        background: $primary-color-1;
+                        min-width: 115px;
+                        height: 36px;
+                        border: none;
+                        border-radius: 50px;
+                        color:$white;
+                    }
+                    &-picture {
+                        align-items: center;
+                        .avatar-wrapper {
+                            position: relative;
+                            margin-top: $avatar-wrapper-margin-top;
+                            border-radius: 50%;
+                            width: 147px;
+                            height: 147px;
+                            overflow: hidden;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            &:hover {
+                                .avatar-tooltip {
+                                    bottom: 0,
+                                }
+                            }
+                            .avatar {
+                                width: 100%;
+                                height: 100%;
+                            }
+                            .avatar-tooltip {
+                                position: absolute;
+                                bottom: -#{$avatar-tooltip-height};
+                                width: 100%;
+                                height: $avatar-tooltip-height;
+                                display: flex;
+                                justify-content: center;
+                                background-color: rgba(0,0,0,0.6);
+                                font-size: 12px;
+                                color: $white;
+                                display: flex;
+                                justify-content: center;
+                                padding-top: 12px;
+                                transition: all 0.2s ease;
+                                cursor: pointer;
+
+                                & > div {
+                                    margin: 0 4px;
+                                }
+                                .icon-camera {
+                                    width: 20px;
+                                    height: 18px;
+                                    background-image:url([[pix:theme|pagemy/camera]]);
+                                }
+                            }
+                        }
+                        .avatar-info {
+                            margin-top: 29px;
+                            font-size: 12px;
+                            width: 100%;
+                        }
+                        .btn-blue {
+                            margin-top: 59px;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                        }
+                    }
+                    &-info {
+                        position: relative;
+                        display: grid;
+                        grid-gap: 24px;
+                        grid-template-columns: repeat(auto-fit, minmax(285px, 1fr));
+                        .column {
+                            display: flex;
+                            flex-direction: column;
+                            .title {
+                                margin-bottom: 11px;
+                            }
+                            .toggle-info{
+                                align-self: flex-end;
+                                color: #717171;
+                                cursor: pointer;
+                                background: none;
+                                border: none;
+                                & i {
+                                    font-size: 2rem;
+                                    margin-left: .5rem;
+                                }
+                                .show_more {
+                                    display: none;
+                                }
+                                .show_less {
+                                    display: flex;
+                                    align-items: center;
+                                }
+                                &.show{
+                                    .show_more {
+                                        display: flex;
+                                        align-items: center;
+                                    }
+                                    .show_less {
+                                        display: none;
+                                    }
+                                }
+                            }
+                            .info-list {
+                                list-style: none;
+                                padding: 0;
+                                display: flex;
+                                flex-grow: 1;
+                                flex-wrap: wrap;
+                                flex-direction: column;
+                                & [data-input="aim"],
+                                & [data-input="phone2"],
+                                & [data-input="skype"],
+                                & [data-input="icq"],
+                                & [data-input="birthday"],
+                                & [data-input="interests"]
 
                 {
-                  display: none;
+                                    display: none;
+                                }
+                                li{
+                                    margin-top: 22px;
+                                    display: flex;
+                                    flex-direction: column;
+                                    .input {
+                                        min-height:41px;
+                                        padding:3px 3px 10px;
+                                        width:100%;
+                                        border: none;
+                                        font-size: 18px;
+                                    }
+                                    &.info{
+                                        #gender,
+                                        .input {
+                                            border-bottom: 2px solid $primary-color-1;
+                                            color: $gray_input;
+                                            padding-bottom: 10px;
+                                            outline: none;
+                                        }
+                                        .input:-webkit-autofill {
+                                            -webkit-box-shadow: 0 0 0 30px white inset;
+                                        }
+                                        .input-label {
+                                            font-size: 12px;
+                                            color: $primary-color;
+                                            margin-top: 8px;
+                                        }
+                                        &.submit {
+                                            align-items: flex-end;
+                                            margin-top: auto;
+                                            .btn-blue {
+                                                margin-top: 23px;
+                                                width: 140px;
+                                                cursor:pointer;
+                                            }
+                                        }
+                                    }
+                                    &.warning{
+                                        font-weight: normal;
+                                        .input {
+                                            border-bottom: 2px solid $warning;
+                                            color: $gray_input;
+                                            padding-bottom: 10px;
+                                            outline: none;
+                                        }
+                                        .input:-webkit-autofill {
+                                            -webkit-box-shadow: 0 0 0 30px white inset;
+                                        }
+                                        .input-label {
+                                            display: block;
+                                            width: 100%;
+                                            font-size: 12px;
+                                            margin-top: 8px;
+                                            .warning{
+                                                font-weight: normal;
+                                                display: block;
+                                                float: right;
+                                                text-align: right;
+                                                color: $warning;
+                                            }
+                                        }
+                                        &.submit {
+                                            align-items: flex-end;
+                                            .btn-blue {
+                                                margin-top: 23px;
+                                                width: 140px;
+                                                cursor:pointer;
+                                            }
+                                        }
+                                    }
+                                    &.danger{
+                                        .input {
+                                            border-bottom: 2px solid $error;
+                                            color: $gray_input;
+                                            padding-bottom: 10px;
+                                            outline: none;
+                                        }
+                                        .input:-webkit-autofill {
+                                            -webkit-box-shadow: 0 0 0 30px white inset;
+                                        }
+                                        .input-label {
+                                            display: block;
+                                            width: 100%;
+                                            font-size: 12px;
+                                            margin-top: 8px;
+                                            .error{
+                                                display: block;
+                                                float: right;
+                                                text-align: right;
+                                                color: $error;
+                                            }
+                                        }
+                                        &.submit {
+                                            align-items: flex-end;
+                                            .btn-blue {
+                                                margin-top: 23px;
+                                                width: 140px;
+                                                cursor:pointer;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        #sendajax{
+                            position: absolute;
+                            top:0;
+                            left:0;
+                            width:100%;
+                            height:100%;
+                            display:flex;
+                            flex-flow: column nowrap;
+                            justify-content:center;
+                            align-items:center;
+                            background-color: transparentize($d_blue, .5);
+                            .spinner{
+                                display: block;
+                                width:5rem;
+                                height:5rem;
+                                border-radius: 50%;
+                                -webkit-animation: spinDblueAjax 1s linear infinite;
+                                animation: spinDblueAjax 1s linear infinite;
+                                border: 1px solid transparentize($d_blue, .9);
+                                border-top: 5px solid $d_blue;
+                            }
+                            .ajax-sent{
+                                background: radial-gradient($white 0%, $white 50%, transparentize($d_blue, .5) 120%);
+                                border-radius: 50%;
+                                width: 5em;
+                                height:5em;
+                                display: block;
+                                transition: opacity 1s linear;
+                                .path {
+                                    stroke-dasharray: 1000;
+                                    stroke-dashoffset: 0;
+                                    &.check {
+                                        stroke-dashoffset: -100;
+                                        animation: sussesDblueAjax .9s .35s ease-in-out forwards;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    &-medals {
+                        align-items: center;
+                        .achievments {
+                            width: 100%;
+                            margin-top: calc(#{$avatar-wrapper-margin-top} - #{$achivement-margin-top});
+                            list-style: none;
+                            padding: 0;
+                            display: grid;
+                            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+                            // a[ id="pills-accomplishments-medals" ]:target ~ #pills-tab .tab-link{
+                            //   transform: translateY(0);
+                            //   transition: all .5s linear;
+                            // }
+                            // #pills-accomplishments-medals
+                            // a [ id="pills-accomplishments-grades" ]:target ~ #pills-tab .tab-link{
+                            //   transform: translateY(0);
+                            //   transition: transform .5s linear;
+                            // }
+                            // a [ href="#pills-accomplishments-certificates" ]:target ~ #pills-tab .tab-link{
+                            //   transform: translateY(0);
+                            //   transition: transform .5s linear;
+                            // }
+                            .achievment {
+                                display: flex;
+                                align-items: center;
+                                justify-content: flex-start;
+                                margin-top: $achivement-margin-top;
+                                .icon-label {
+                                    margin: 0 19px;
+                                    color: $text-color;
+                                }
+                                .icon-grades {
+                                    height: 60px;
+                                    width: 50px;
+                                    // margin: 0 5px;
+                                    background:url([[pix:theme|grade_icon]]) no-repeat center center;
+                                    background-size: contain;
+                                }
+                                .icon-medal {
+                                    height: 60px;
+                                    width: 50px;
+                                    background:url([[pix:theme|medal_icon]])  no-repeat center center;
+                                    background-size: contain;
+                                    position: relative;
+                                    .icon-counter {
+                                        position: absolute;
+                                        top: -3px;
+                                        height: 22px;
+                                        width: 22px;
+                                        border-radius: 50%;
+                                        color: #646464;
+                                        background: $gray;
+                                        border: 1.28px solid $white;
+                                        display: flex;
+                                        justify-content: center;
+                                        align-items: center;
+                                        font-size: 12px;
+                                    }
+                                }
+                                .icon-diplom {
+                                    height: 60px;
+                                    width: 50px;
+                                    // margin: 0 2px;
+                                    background:url([[pix:theme|diploma_icon]]) no-repeat center center;
+                                    background-size: contain;
+                                }
+                            }
+                        }
+                    }
                 }
-                li{
-                  margin-top: 22px;
-                  display: flex;
-                  flex-direction: column;
-                  .input {
-                    min-height:41px;
-                    padding:3px 3px 10px;
-                    width:100%;
-                    border: none;
-                    font-size: 18px;
-                  }
-                  &.info{
-                    #gender,
-                    .input {
-                      border-bottom: 2px solid $primary-color-1;
-                      color: $gray_input;
-                      padding-bottom: 10px;
-                      outline: none;
-                    }
-                    .input:-webkit-autofill {
-                      -webkit-box-shadow: 0 0 0 30px white inset;
-                    }
-                    .input-label {
-                      font-size: 12px;
-                      color: $primary-color;
-                      margin-top: 8px;
-                    }
-                    &.submit {
-                      align-items: flex-end;
-                      .btn-blue {
-                        margin-top: 23px;
-                        width: 140px;
-                        cursor:pointer;
-                      }
-                    }
-                  }
-                  &.warning{
-                    font-weight: normal;
-                    .input {
-                        border-bottom: 2px solid $warning;
-                        color: $gray_input;
-                        padding-bottom: 10px;
-                        outline: none;
-                      }
-                      .input:-webkit-autofill {
-                        -webkit-box-shadow: 0 0 0 30px white inset;
-                      }
-                      .input-label {
-                        display: block;
-                        width: 100%;
-                        font-size: 12px;
-                        margin-top: 8px;
-                        .warning{
-                          font-weight: normal;
-                          display: block;
-                          float: right;
-                          text-align: right;
-                          color: $warning;
-                        }
-                      }
-                      &.submit {
-                        align-items: flex-end;
-                        .btn-blue {
-                          margin-top: 23px;
-                          width: 140px;
-                          cursor:pointer;
-                        }
-                    }
-                  }
-                  &.danger{
-                    .input {
-                        border-bottom: 2px solid $error;
-                        color: $gray_input;
-                        padding-bottom: 10px;
-                        outline: none;
-                      }
-                      .input:-webkit-autofill {
-                        -webkit-box-shadow: 0 0 0 30px white inset;
-                      }
-                      .input-label {
-                        display: block;
-                        width: 100%;
-                        font-size: 12px;
-                        margin-top: 8px;
-                        .error{
-                          display: block;
-                          float: right;
-                          text-align: right;
-                          color: $error;
-                        }
-                      }
-                      &.submit {
-                        align-items: flex-end;
-                        .btn-blue {
-                          margin-top: 23px;
-                          width: 140px;
-                          cursor:pointer;
-                        }
-                    }
-                  }
-                }
-              }
             }
-            #sendajax{
-              position: absolute;
-              top:0;
-              left:0;
-              width:100%;
-              height:100%;
-              display:flex;
-              flex-flow: column nowrap;
-              justify-content:center;
-              align-items:center;
-              background-color: transparentize($d_blue, .5);
-              .spinner{
-                display: block;
-                width:5rem;
-                height:5rem;
-                border-radius: 50%;
-                -webkit-animation: spinDblueAjax 1s linear infinite;
-                animation: spinDblueAjax 1s linear infinite;
-                border: 1px solid transparentize($d_blue, .9);
-                border-top: 5px solid $d_blue;
-              }
-              .ajax-sent{
-                background: radial-gradient($white 0%, $white 50%, transparentize($d_blue, .5) 120%);
-                border-radius: 50%;
-                width: 5em;
-                height:5em;
-                display: block;
-                transition: opacity 1s linear;
-                .path {
-                stroke-dasharray: 1000;
-                stroke-dashoffset: 0;
-                  &.check {
-                    stroke-dashoffset: -100;
-                    animation: sussesDblueAjax .9s .35s ease-in-out forwards;
-                  }
-                }
-              }
-            }
-          }
-          &-medals {
-            align-items: center;
-            .achievments {
-              width: 100%;
-              margin-top: calc(#{$avatar-wrapper-margin-top} - #{$achivement-margin-top});
-              list-style: none;
-              padding: 0;
-              display: grid;
-              grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-              // a[ id="pills-accomplishments-medals" ]:target ~ #pills-tab .tab-link{
-              //   transform: translateY(0);
-              //   transition: all .5s linear;
-              // }
-              // #pills-accomplishments-medals
-              // a [ id="pills-accomplishments-grades" ]:target ~ #pills-tab .tab-link{
-              //   transform: translateY(0);
-              //   transition: transform .5s linear;
-              // }
-              // a [ href="#pills-accomplishments-certificates" ]:target ~ #pills-tab .tab-link{
-              //   transform: translateY(0);
-              //   transition: transform .5s linear;
-              // }
-              .achievment {
-                display: flex;
-                align-items: center;
-                justify-content: flex-start;
-                margin-top: $achivement-margin-top;
-                .icon-label {
-                  margin: 0 19px;
-                  color: $text-color;
-                }
-                .icon-grades {
-                  height: 60px;
-                  width: 50px;
-                  // margin: 0 5px;
-                  background:url([[pix:theme|grade_icon]]) no-repeat center center;
-                  background-size: contain;
-                }
-                .icon-medal {
-                  height: 60px;
-                  width: 50px;
-                  background:url([[pix:theme|medal_icon]])  no-repeat center center;
-                  background-size: contain;
-                  position: relative;
-                  .icon-counter {
-                    position: absolute;
-                    top: -3px;
-                    height: 22px;
-                    width: 22px;
-                    border-radius: 50%;
-                    color: #646464;
-                    background: $gray;
-                    border: 1.28px solid $white;
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    font-size: 12px;
-                  }
-                }
-                .icon-diplom {
-                  height: 60px;
-                  width: 50px;
-                  // margin: 0 2px;
-                  background:url([[pix:theme|diploma_icon]]) no-repeat center center;
-                  background-size: contain;
-                }
-              }
-            }
-          }
         }
-      }
     }
-  }
-  .tag-item, .knowledge-item {
-    position: relative;
-    cursor: pointer;
-    display: inline-block;
-    line-height: 32px;
-    margin: 5px;
-    padding: 0 10px;
-    padding-right: 20px;
-    border-radius: 6px;
-    color: #fff;
-    &:after,
-    &:before {
-      position: absolute;
-      content: "";
-      right: 3px;
-      top: 15px;
-      width: 15px;
-      height: 2px;
-      background-color: #fff;
-      transform: rotate(45deg);
+    .tag-item, .knowledge-item {
+        position: relative;
+        cursor: pointer;
+        display: inline-block;
+        line-height: 32px;
+        margin: 5px;
+        padding: 0 10px;
+        padding-right: 20px;
+        border-radius: 6px;
+        color: #fff;
+        &:after,
+        &:before {
+            position: absolute;
+            content: "";
+            right: 3px;
+            top: 15px;
+            width: 15px;
+            height: 2px;
+            background-color: #fff;
+            transform: rotate(45deg);
+        }
+        &:before {
+            transform: rotate(135deg);
+        }
     }
-    &:before {
-      transform: rotate(135deg);
-    }
-  }
 }
 
 #page-user-profile {
-  .mform {
-    display: none;
-    position: fixed;
-    top: 20vh;
-    width: 60%;
-    right: 20%;
-    background: #fff;
-    border: 1px solid #ddd;
-    padding: 10px;
-    box-shadow: 0 0 5px 2px #bababa;
-    >* {
-      margin: 0 1.5rem;
+    .mform {
+        display: none;
+        position: fixed;
+        top: 20vh;
+        width: 60%;
+        right: 20%;
+        background: #fff;
+        border: 1px solid #ddd;
+        padding: 10px;
+        box-shadow: 0 0 5px 2px #bababa;
+        >* {
+            margin: 0 1.5rem;
+        }
     }
-  }
 }
 
 @media only screen and (max-width : 992px) {
-  #mypublic-student {
-    .main-wrapper {
-      .main-content {
-        grid-template-columns: repeat(auto-fill, minmax(200px, 100%));
-        //.profile-medals {
-        //  .achievments {
-        //    margin-top: 0;
-        //    .achievment {
-        //      margin-top: 42px;
-        //    }
-        //  }
-        //}
-      }
+    #mypublic-student {
+        .main-wrapper {
+            .main-content {
+                grid-template-columns: repeat(auto-fill, minmax(200px, 100%));
+            }
+        }
     }
-  }
 }
 
 // rewrite default style
 #page-user-profile {
-  #page-wrapper {
-    // padding-bottom: 1rem;
-    margin-bottom: -90px;
-    min-height: unset;
-  }
+    #page-wrapper {
+        // padding-bottom: 1rem;
+        margin-bottom: -90px;
+        min-height: unset;
+    }
 }
 html{
-  scroll-behavior: smooth;
+    scroll-behavior: smooth;
 }
