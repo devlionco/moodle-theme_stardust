@@ -1,113 +1,107 @@
 
 .display__none {
-  display: none !important;
+    display: none !important;
 }
 
 #page {
-  .course-cards,
-  .row,
-  #page-content #region-main{
-    background-color: $white;
-  }
+    .course-cards,
+    .row,
+    #page-content #region-main {
+        background-color: $white;
+    }
 }
 /*fix for login page*/
 .pagelayout-login #page-content #region-main,
-.pagelayout-login .row{
-  background-color: inherit !important;
+.pagelayout-login .row {
+    background-color: inherit !important;
 }
 #page {
-  margin-top: 45px;
+    margin-top: 45px;
 }
 .visuallyhidden {
-  position: absolute;
-  overflow: hidden;
-  clip: rect(0 0 0 0);
-  height: 1px; width: 1px;
-  margin: -1px; padding: 0; border: 0;
-}
-.test {
-  color: red;
+    position: absolute;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    width: 1px;
+    margin: -1px;
+    padding: 0;
+    border: 0;
 }
 
 .coursecontrols {
-  .teacherdash,
-  .siteadminlink  {
-    padding: 0;
-    margin: 0 5px !important;
-  }
+    .teacherdash,
+    .siteadminlink {
+        padding: 0;
+        margin: 0 5px !important;
+    }
 }
 .modal-dialog {
-  max-width: 80%;
+    max-width: 80%;
 }
 
 .row {
-  background: #f4f3f0;
-  // display: block;
+    background: #f4f3f0;
 }
-  #region-main-box {
+#region-main-box {
     flex-grow: 1;
-  }
+}
 .modal-body {
-  .row  {
-    // display: flex;
-  }
-  i {
-    margin-right: 10px;
-  }
+    i {
+        margin-right: 10px;
+    }
 }
 
 .btn-secondary {
-  border-color: #bebebe;
+    border-color: #bebebe;
 }
 
 #page-footer {
-  // background-color: #e1e1e1;
-  background-color: #fff;
-  .container {
-    justify-content: space-between;
-    max-width: 1140px;
-    display: flex;
-    align-items: center;
-  }
-  a {
-    color: #373a3c;
-  }
+    background-color: #fff;
+    .container {
+        justify-content: space-between;
+        max-width: 1140px;
+        display: flex;
+        align-items: center;
+    }
+    a {
+        color: #373a3c;
+    }
 }
 
-#region-main>.card {
-  overflow-x: unset;
+#region-main > .card {
+    overflow-x: unset;
 }
 #region-main .card.card-block {
-  background: none;
-  border: none;
+    background: none;
+    border: none;
 }
 
 
 .card.card-block {
-  min-height: auto;
-  max-width: 1344px;
-  margin: 0 auto;
+    min-height: auto;
+    max-width: 1344px;
+    margin: 0 auto;
 }
 
 @media #{$less_1344} {
-  .card.card-block  {
-    min-height: auto;
-    max-width: 1344px;
-    margin: 0 4%;
-  }
+    .card.card-block {
+        min-height: auto;
+        max-width: 1344px;
+        margin: 0 4%;
+    }
 }
-
-#learningcontent .m-t-2.m-b-1 {
-// .header.backto {
-  display: none;
-}
-// .region_main_settings_menu_proxy {
-//   background: none;
-// }
 
 #page-mod-forum-view {
-  #page-wrapper{
-    width: 100%;
-overflow-x: hidden;
-  }
+    #page-wrapper {
+        width: 100%;
+        overflow-x: hidden;
+    }
+}
+
+// override buttons
+
+.btn-primary {
+    background-color: $d_blue;
+    border-color: $d_blue;
 }
