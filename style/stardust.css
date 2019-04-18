@@ -1085,7 +1085,7 @@ body#page-login-signup {
       max-width: 78%; }
       #my-page .main-wrapper .main-header {
         padding-top: 2vh;
-        margin-bottom: 2vh;
+        margin-bottom: 18px;
         height: 124px;
         color: #FFFFFF;
         display: -ms-flexbox;
@@ -1133,7 +1133,7 @@ body#page-login-signup {
         -ms-grid-columns: 1fr 312px;
             grid-template-columns: 1fr 312px;
         grid-gap: 24px;
-        margin-bottom: 50px; }
+        margin-bottom: 48px; }
         #my-page .main-wrapper .main-content .tasks-container {
           width: 100%;
           background: #FFFFFF;
@@ -1246,11 +1246,11 @@ body#page-login-signup {
 
 /* Track */
 ::-webkit-scrollbar-track {
-  background: #FFFFFF; }
+  background: #ffffff; }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: #D5D5D4; }
+  background: #d5d5d4; }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
@@ -2036,13 +2036,13 @@ body#page-login-signup {
 .course-cards {
   background: #F3F2F0;
   min-height: 100vh;
-  padding: 75px 41px 40px 47px; }
+  padding: 60px 41px 40px 47px; }
   .course-cards-header {
     display: -ms-flexbox;
     display: flex;
     -ms-flex-pack: justify;
         justify-content: space-between;
-    margin-bottom: 32px; }
+    margin-bottom: 20px; }
     .course-cards-header .tab-links {
       display: -ms-flexbox;
       display: flex; }

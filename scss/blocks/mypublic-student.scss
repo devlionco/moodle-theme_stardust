@@ -1,4 +1,3 @@
-
 $avatar-tooltip-height: 53px;
 $avatar-wrapper-margin-top: 66px;
 $achivement-margin-top: 42px;
@@ -476,6 +475,14 @@ $achivement-margin-top: 42px;
         .main-wrapper {
             .main-content {
                 grid-template-columns: repeat(auto-fill, minmax(200px, 100%));
+                //.profile-medals {
+                //  .achievments {
+                //    margin-top: 0;
+                //    .achievment {
+                //      margin-top: 42px;
+                //    }
+                //  }
+                //}
             }
         }
     }
