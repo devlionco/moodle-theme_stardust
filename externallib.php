@@ -62,9 +62,9 @@ class theme_stardust_external extends external_api {
                 );
 
         $techsupport = new stdClass;
-        $techsupport->id=1;
-        $techsupport->email='ilya@devlion.co';
-
+        $techsupport->id = 1;
+        $techsupport->email = get_config('theme_stardust', 'technical_support_email');
+        
         $teacher = (bool)$params['userid'] ? $DB->get_record('user', array('id' => (int)$params['userid'])) : $techsupport;
         $course = (bool)$params['courseid'] ? $DB->get_record('course', array('id' => $courseid)) : (bool)$params['courseid'];
 
