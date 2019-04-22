@@ -637,6 +637,7 @@ $string['user_loginas'] = 'Login as...';
 // help menu
 $string['contact_teacher'] = 'Contact the teacher';
 $string['technical_support'] = 'Technical support';
+$string['technical_support_email'] = 'Technical support email';
 $string['send_mail'] = 'Send mail to ';
 $string['send_mail_to_teacher'] = 'Send mail to teacher';
 $string['close'] = 'Close';

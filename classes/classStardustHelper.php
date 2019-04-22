@@ -25,7 +25,6 @@ class StardustHelper {
         $coursecontext = context_course::instance($courseid);
         $courseformatname = course_get_format($courseid)->get_format();
         
-        //error_log(" \r\n HELP FOR COURSE $courseid =============================================== \r\n", 3, '/home/ice/proj/devlion/davidson/logs/teacherrole.log');
         $coursehelpcontactroles = $DB->get_record('course_format_options', array('courseid' => $courseid, 'format' => $courseformatname, 'name' => 'helpcontactroles')); //Get help contact roles setting for the course.
 
         if (!$coursehelpcontactroles) {

@@ -124,6 +124,14 @@ if ($ADMIN->fulltree) {
          $defaultchoices,
          $choices));
 
+    $name = 'theme_stardust/technical_support_email';
+    $title = get_string('technical_support_email', 'theme_stardust');
+    $description = '';
+    $default = '';
+    $setting = new admin_setting_configtext($name, $title, $description, $default);
+    $setting->set_updatedcallback('theme_reset_all_caches');
+    $page->add($setting);
+    
     // Must add the page after definiting all the settings!
     $settings->add($page);
 

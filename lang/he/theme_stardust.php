@@ -283,6 +283,7 @@ $string['user_loginas'] = 'מזוהים כ:';
 // help menu
 $string['contact_teacher'] = 'פניה למורה';
 $string['technical_support'] = 'תמיכה טכנית';
+$string['technical_support_email'] = 'Technical support email';
 $string['send_mail'] = 'לשלוח מייל ל';
 $string['send_mail_to_teacher'] = 'שלח מייל למורה';
 $string['close'] = 'סגור';
