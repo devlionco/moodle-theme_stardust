@@ -45,8 +45,11 @@ class theme_stardust_external extends external_api {
     public static function send_mail_to_teacher($text, $userid, $courseid) {
         global $USER, $DB, $PAGE;
 
-        $context = context_course::instance($courseid);
+        $context = context_system::instance();
         $PAGE->set_context($context);
+
+        // $context = context_course::instance($courseid);
+        // $PAGE->set_context($context);
 
         //Parameter validation
         //REQUIRED
@@ -58,8 +61,12 @@ class theme_stardust_external extends external_api {
                     )
                 );
 
-        $teacher = $DB->get_record('user', array('id' => (int)$params['userid']));
-        $course = $DB->get_record('course', array('id' => $courseid));
+        $techsupport = new stdClass;
+        $techsupport->id=1;
+        $techsupport->email='ilya@devlion.co';
+
+        $teacher = (bool)$params['userid'] ? $DB->get_record('user', array('id' => (int)$params['userid'])) : $techsupport;
+        $course = (bool)$params['courseid'] ? $DB->get_record('course', array('id' => $courseid)) : (bool)$params['courseid'];
 
         return self::send_mail_to_teacher_sender($USER, $teacher, $params['text'], $course);
     }
@@ -79,7 +86,7 @@ class theme_stardust_external extends external_api {
     protected static function send_mail_to_teacher_sender($userfrom, $userto, $text, $course) {
         global $SITE;
 
-        $subject = $SITE->fullname.' - '.get_string('message_from_a_course_page', 'theme_stardust').' '.$course->fullname;
+        $subject = (bool)$course ? $SITE->fullname.' - '.get_string('message_from_a_course_page', 'theme_stardust').' '.$course->fullname :  $SITE->fullname;
         $messagetext = trim(nl2br((string)$text));
 
         return email_to_user($userto, $userfrom, $subject, $messagetext, '', '', '', true, $userfrom->email);

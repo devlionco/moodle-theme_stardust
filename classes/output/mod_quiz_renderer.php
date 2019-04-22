@@ -62,7 +62,6 @@ class theme_stardust_mod_quiz_renderer extends mod_quiz_renderer {
 
         $PAGE->requires->js_call_amd('theme_stardust/quizfilter', 'init'); // filter
         $PAGE->requires->js_call_amd('theme_stardust/questionsnav', 'init'); // slider for paging
-        // $PAGE->requires->js_call_amd('theme_stardust/swipepaging', 'init'); // slider for paging
         // $PAGE->set_pagelayout('quizattempt');
         $navbc = new quiz_attempt_nav_panel($attemptobj, $attemptobj->get_display_options(true), $page, $showallquestions);
         $output = '';

@@ -211,8 +211,6 @@ class classAjax
 
         // general context for week
         $data['time'] = $firstweekdayunixtime;
-        // print_object($data);
-        // echo '<pre style = "direction: ltr;">'.print_r($data,1).'</pre>'; exit();
 
         $html = $OUTPUT->render_from_template('theme_stardust/tabweek', $data);
 

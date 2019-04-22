@@ -69,7 +69,7 @@ require_once($CFG->libdir . '/behat/lib.php');
     // 'lti' => '',
     // 'page' => '',
     'quiz' => 'm.timeopen as opendate',
-    'questionnaire' => 'm.closedate as cutoffdate, m.opendate', 
+    'questionnaire' => 'm.closedate as cutoffdate, m.opendate',
     // 'resource' => '',
     // 'scorm' => '',
     // 'survey' => '',
@@ -216,14 +216,14 @@ $templatecontext = [
     // 'hasregionmainsettingsmenu' => !empty($regionmainsettingsmenu)
 ];
 
-$PAGE->requires->jquery();
-if (isset($PAGE->theme->settings->showbacktotop) && $PAGE->theme->settings->showbacktotop == 1) {
-    $PAGE->requires->js('/theme/fordson/javascript/scrolltotop.js');
-}
-$PAGE->requires->js('/theme/fordson/javascript/scrolltotop.js');
-$PAGE->requires->js('/theme/fordson/javascript/tooltipfix.js');
+// $PAGE->requires->jquery();
+// if (isset($PAGE->theme->settings->showbacktotop) && $PAGE->theme->settings->showbacktotop == 1) {
+//     $PAGE->requires->js('/theme/fordson/javascript/scrolltotop.js');
+// }
+// $PAGE->requires->js('/theme/fordson/javascript/scrolltotop.js');
+// $PAGE->requires->js('/theme/fordson/javascript/tooltipfix.js');
 
-$PAGE->requires->js_call_amd('theme_stardust/tabweek', 'init');
+// $PAGE->requires->js_call_amd('theme_stardust/tabweek', 'init');
 $PAGE->requires->js_call_amd('theme_stardust/filter', 'init');
 
 $templatecontext['flatnavigation'] = $PAGE->flatnav;
