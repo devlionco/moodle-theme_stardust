@@ -174,12 +174,12 @@ unset ($jsuser->password);                      // remove password hash from the
 $jscontext = json_encode($jsuser);              // make JSON
 
 
-$PAGE->requires->jquery();
-if (isset($PAGE->theme->settings->showbacktotop) && $PAGE->theme->settings->showbacktotop == 1) {
-    $PAGE->requires->js('/theme/fordson/javascript/scrolltotop.js');
-}
-$PAGE->requires->js('/theme/fordson/javascript/scrolltotop.js');
-$PAGE->requires->js('/theme/fordson/javascript/tooltipfix.js');
+// $PAGE->requires->jquery();
+// if (isset($PAGE->theme->settings->showbacktotop) && $PAGE->theme->settings->showbacktotop == 1) {
+//     $PAGE->requires->js('/theme/fordson/javascript/scrolltotop.js');
+// }
+// $PAGE->requires->js('/theme/fordson/javascript/scrolltotop.js');
+// $PAGE->requires->js('/theme/fordson/javascript/tooltipfix.js');
 $PAGE->requires->js_call_amd('theme_stardust/mypublicpage', 'init', array($jscontext));
 
 $templatecontext['flatnavigation'] = $PAGE->flatnav;

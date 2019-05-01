@@ -83,7 +83,7 @@ if ($ADMIN->fulltree) {
 //    // Show / hide the "Grades - Medals - Certificates" box (default = display)
 //    $page->add(new admin_setting_configcheckbox('theme_stardust/display_grades', get_string('display_grades','theme_stardust'),
 //    get_string('display_grades_desc', 'theme_stardust'), 1));
-    
+
 
     // Background color.
     // $name = 'theme_stardust/mydashboardbgcolor';
@@ -113,7 +113,9 @@ if ($ADMIN->fulltree) {
     $roles = role_get_names(); // Get all system roles.
     $choices = array();
     foreach ($roles as $id => $role) {
-        $choices[$id] = $role->localname;
+        if ($id != 16) { // Do not show Supporter role. It is used by default.
+            $choices[$id] = $role->localname;
+        }
     }
     $defaultchoices = [3 => 'editingteacher']; // By defaut - editingteacher role is defined.
     $page->add(new admin_setting_configmulticheckbox('theme_stardust/help_contact_roles',
@@ -121,6 +123,14 @@ if ($ADMIN->fulltree) {
          get_string('help_contact_roles_desc', 'theme_stardust'),
          $defaultchoices,
          $choices));
+
+    $name = 'theme_stardust/technical_support_email';
+    $title = get_string('technical_support_email', 'theme_stardust');
+    $description = get_string('technical_support_email_description', 'theme_stardust');
+    $default = 'moodle.davidson@weizmann.ac.il';
+    $setting = new admin_setting_configtext($name, $title, $description, $default);
+    $setting->set_updatedcallback('theme_reset_all_caches');
+    $page->add($setting);
 
     // Must add the page after definiting all the settings!
     $settings->add($page);
@@ -272,5 +282,5 @@ if ($ADMIN->fulltree) {
 
     // Must add the page after definiting all the settings!
     $settings->add($page);
-    
+
 }

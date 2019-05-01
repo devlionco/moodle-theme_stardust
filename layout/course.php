@@ -28,6 +28,7 @@ user_preference_allow_ajax_update('drawer-open-nav', PARAM_ALPHA);
 require_once($CFG->libdir . '/behat/lib.php');
 require_once($CFG->dirroot . '/mod/attendance/classes/summary.php');
 require_once($CFG->libdir . "/completionlib.php");
+include_once(__DIR__ . '../../classes/classStardustHelper.php');
 global $DB,$COURSE, $USER;
 $course = $PAGE->course;
 $courseformat = course_get_format($course->id)->get_format_options();
@@ -125,18 +126,6 @@ function count_section_cms_completions($secid, $coursefminfo, $ccompetablecms, $
     return $sectioncompletion;
 }
 
-function update_helpcontactroles($coursehelpcontactroleslist) {
-    $roles = array();
-    foreach ($coursehelpcontactroleslist as $key => $val) {
-        if ($val->value == '1') {
-            if (substr($val->name, 0, 17) === 'helpcontactroles_') {
-                $num = substr($val->name, strpos($val->name, "_") + 1);
-                $roles[] = $num;
-            }
-        }
-    }
-    return implode(',', $roles);
-}
 
 // get all current user's completions on current course
 $usercourseallcmcraw = $DB->get_records_sql("
@@ -267,41 +256,7 @@ if ($coursemessage) {
 
 }
 
-// Get help contacts.
-$coursehelpcontactroles = $DB->get_record('course_format_options', array('courseid' => $PAGE->course->id, 'format' => $courseformatname, 'name' => 'helpcontactroles')); //Get help contact roles setting for the course.
-
-if (!$coursehelpcontactroles) {
-    $sql = 'SELECT * FROM {course_format_options} WHERE courseid = :courseid AND format = :format AND name LIKE "helpcontactroles_%"';
-    $coursehelpcontactroleslist = $DB->get_records_sql($sql, ['courseid' => $PAGE->course->id, 'format' => $courseformatname]);
-    $coursehelpcontactrolesupd = update_helpcontactroles($coursehelpcontactroleslist);
-}
-
-if ($coursehelpcontactroles and $coursehelpcontactroles->value != '') {
-    $helpcontactroles = $coursehelpcontactroles->value;
-} elseif ($coursehelpcontactrolesupd and $coursehelpcontactrolesupd != '') {
-    $helpcontactroles = $coursehelpcontactrolesupd;
-} else {
-    $helpcontactroles = get_config('theme_stardust', 'help_contact_roles'); // Use default contact roles from the theme settings.
-}
-
-$helpcontactrolesarray = explode(',', $helpcontactroles);
-$helpcontactsunchecked = array_values(get_role_users($helpcontactrolesarray, $coursecontext, false, 'ra.id, u.id, u.firstname, u.lastname, u.email'));
-
-$usergroupsall = groups_get_user_groups($course->id, $USER->id);
-$usergroups = $usergroupsall[0];
-
-if (count($usergroups)) { // If user assigned to any group then filter contacts 
-    foreach ($helpcontactsunchecked as $key => $contact) {
-        $contactgroupsall = groups_get_user_groups($course->id, $contact->id);
-        $contactgroups = $contactgroupsall[0];
-        if (count($contactgroups)) {
-            if (!count(array_intersect($usergroups, $contactgroups))) { // If student and teacher are not in the same groups remove teacher from the list
-                unset($helpcontactsunchecked[$key]);
-            }
-        }
-    }
-}
-$helpcontacts = array_values($helpcontactsunchecked);
+$helpcontacts = StardustHelper::getHelpContacts($course->id);
 
 $templatecontext = [
     'sitename' => format_string($SITE->shortname, true, ['context' => context_course::instance(SITEID) , "escape" => false]) ,
@@ -339,12 +294,12 @@ $templatecontext = [
     'teachers' => $helpcontacts ?? null,
 ];
 
-$PAGE->requires->jquery();
-if (isset($PAGE->theme->settings->showbacktotop) && $PAGE->theme->settings->showbacktotop == 1) {
-    $PAGE->requires->js('/theme/fordson/javascript/scrolltotop.js');
-    $PAGE->requires->js('/theme/fordson/javascript/scrollspy.js');
-}
-$PAGE->requires->js('/theme/fordson/javascript/tooltipfix.js');
+// $PAGE->requires->jquery();
+// if (isset($PAGE->theme->settings->showbacktotop) && $PAGE->theme->settings->showbacktotop == 1) {
+//     $PAGE->requires->js('/theme/fordson/javascript/scrolltotop.js');
+//     $PAGE->requires->js('/theme/fordson/javascript/scrollspy.js');
+// }
+// $PAGE->requires->js('/theme/fordson/javascript/tooltipfix.js');
 
 if ($isteacher) $PAGE->requires->js_call_amd('theme_stardust/teacher-messages', 'init');
 

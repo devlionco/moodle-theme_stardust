@@ -50,10 +50,48 @@
 }}
 
 <div id="help-menu">
-    <a
-        id="btn-help"
+    <span
         class="btn-help"
-        href='mailto:moodle.davidson@weizmann.ac.il'
-        target="_blank"
-    ></a>
+        data-ref = "techsupport"
+        data-toggle = "modal"
+        data-target = "#sendMail"
+    >
+    </span>
+    <!-- <span
+      class="item"
+      data-ref = "techsupport"
+      data-toggle = "modal"
+      data-target = "#sendMail"
+      >
+        <div class="item-icon item-icon-tech-support"></div>
+        <div class="item-name">{{#str}} technical_support, theme_stardust {{/str}}</div>
+    </span> -->
+
+    <!-- Modal -->
+    <div class="modal fade" id="sendMail" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title techsupport">{{#str}}send_mail_to_techsupport, theme_stardust{{/str}}</h5>
+            <h5 class="modal-title">{{#str}}send_mail_to_teacher, theme_stardust{{/str}} <span id = "teacherName"></span></h5>
+            <button type="button" class="modal-close" data-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <div class = "techsupport">
+              <h5 class = "modal-head">{{#str}}have_you_a_question, theme_stardust{{/str}}</h5>
+              <p class = "modal-text">{{#str}}asq_questions_and_report_everything, theme_stardust{{/str}}</p>
+              <p class = "modal-head">{{#str}}reference_content, theme_stardust{{/str}}</p>
+            </div>
+            <textarea class = "w-100 modal-textarea" id = "mailBody"></textarea>
+          </div>
+          <div class="modal-footer justify-content-center">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">{{#str}}close, theme_stardust{{/str}}</button>
+            <button type="button" class="btn btn-primary" id = "sendMailToTeacher">{{#str}}send, theme_stardust{{/str}}</button>
+          </div>
+        </div>
+      </div>
+    </div>
 </div>
+{{#js}}
+require(['theme_stardust/helpmenu']);
+{{/js}}

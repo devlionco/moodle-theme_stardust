@@ -9,7 +9,7 @@
  * @param string $filearea
  * @return string protocol relative URL or null if not present
  */
- public function setting_file_url($setting, $filearea) {
+ function setting_file_url($setting, $filearea) {
     global $CFG;
 
     if (empty($this->settings->$setting)) {

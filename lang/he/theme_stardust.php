@@ -283,6 +283,8 @@ $string['user_loginas'] = 'מזוהים כ:';
 // help menu
 $string['contact_teacher'] = 'פניה למורה';
 $string['technical_support'] = 'תמיכה טכנית';
+$string['technical_support_email'] = 'דוא"ל תמיכה טכנית';
+$string['technical_support_email_description'] = 'דוא"ל תמיכה טכנית';
 $string['send_mail'] = 'לשלוח מייל ל';
 $string['send_mail_to_teacher'] = 'שלח מייל למורה';
 $string['close'] = 'סגור';
@@ -291,8 +293,22 @@ $string['sending'] = 'שולח ...';
 $string['sent'] = 'נשלח!';
 $string['message_has_been_sent'] = 'ההודעה נשלחה!';
 $string['message_from_a_course_page'] = 'הודעה מקורס ';
+$string['noteacheroncourse'] = 'אין מורה תומך בקורס זה';
+$string['error_sending_message'] = 'אירעה שגיאה בעת שליחת ההודעה';
+$string['send_mail_to_techsupport'] = 'שלח דואר לתמיכה טכנית';
+$string['reference_content'] = 'תוכן הפניה';
+$string['have_you_a_question'] = 'יש לכם שאלה או בעיה טכנית?';
+$string['asq_questions_and_report_everything'] = 'כאן תוכלו לשאול את צוות מוודל שאלות ולדווח לנו על תקלות. אנו נדאג לחזור אליכם בהקדם עם תשובה או פתרון לבעיה';
 
 // Image Settings.
 $string['coursedefaultimage'] = 'תמונת ברירת המחדל של הקורס';
 $string['coursedefaultimage_desc'] = 'תמונה זו תוצג כתמונת ברירת המחדל של הקורס, אם אין הגדרה אחרת בהגדרות הקורס.';
+
+// Submittion
+$string['complete'] = 'הושלם';
+$string['of'] = 'מתוך';
+$string['submitted'] = 'הוגש';
+$string['tested'] = 'נבדק';
+$string['cancel'] = 'ביטול';
+$string['cut_of_date_label'] = 'מועד ההגשה: {$a->date}';
 

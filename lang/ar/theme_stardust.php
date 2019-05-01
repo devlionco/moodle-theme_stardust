@@ -200,6 +200,8 @@ $string['userspassreport'] = 'איפוס סיסמאות לתלמידים';
 // help menu
 $string['contact_teacher'] = 'Contact the teacher';
 $string['technical_support'] = 'Technical support';
+$string['technical_support_email'] = 'Technical support email';
+$string['technical_support_email_description'] = 'Technical support email';
 $string['send_mail'] = 'Send mail to ';
 $string['send_mail_to_teacher'] = 'Send mail to teacher';
 $string['close'] = 'Close';
@@ -208,6 +210,12 @@ $string['sending'] = 'Sending...';
 $string['sent'] = 'Sent!';
 $string['message_has_been_sent'] = 'Message has been sent!';
 $string['message_from_a_course_page'] = 'Message from a course ';
+$string['noteacheroncourse'] = 'No support teacher on this course';
+$string['send_mail_to_techsupport'] = 'Send mail to technical support';
+$string['reference_content'] = 'Reference content';
+$string['have_you_a_question'] = 'Do you have a question or a technical problem ?';
+$string['asq_questions_and_report_everything'] = 'Here you can ask the Moodle team questions and report problems. We will get back to you as soon as possible with an answer or a solution to the problem';
+$string['error_sending_message'] = 'An error occurred while sending the message';
 
 // Help contacts settings
 $string['help_contacts_tab'] = 'Help contacts';
