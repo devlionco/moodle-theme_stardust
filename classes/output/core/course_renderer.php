@@ -608,7 +608,9 @@ class course_renderer extends \core_course_renderer {
         global $CFG, $DB, $COURSE, $USER;
         $html = '';
 
-        if ($COURSE->format != 'stardust') {
+        $suitableformats  = array('stardust', 'grid');
+
+        if (!in_array($COURSE->format, $suitableformats)) {
             return $html;
         }
 
