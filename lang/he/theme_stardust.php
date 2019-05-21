@@ -313,3 +313,9 @@ $string['submitted'] = 'הוגש';
 $string['tested'] = 'נבדק';
 $string['cancel'] = 'ביטול';
 $string['cut_of_date_label'] = 'מועד ההגשה: {$a->date}';
+
+// Reminders.
+$string['reminders'] = 'Reminders';
+$string['addnewreminder'] = 'Add a new reminder';
+$string['delete'] = 'Delete';
+$string['yes'] = 'Yes';

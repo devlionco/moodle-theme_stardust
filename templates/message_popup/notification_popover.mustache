@@ -41,7 +41,10 @@
 {{< core/popover_region }}
     {{$classes}}popover-region-notifications{{/classes}}
     {{$attributes}}id="nav-notification-popover-container" data-userid="{{userid}}"{{/attributes}}
-
+    {{$notificationsdiv}}<div class="popover-region-notifications-div" style="width: 48%; margin-left: 1%; margin-right: 1%; display: inline-block; float: left;">{{/notificationsdiv}}
+    {{$enddiv}}</div>{{/enddiv}}
+    {{$reminderdiv}}<div class="popover-region-reminder-div" style="width: 48%; margin-left: 1%; margin-right: 1%; display: inline-block; float: left;"></div>{{/reminderdiv}}
+    
     {{$togglelabel}}{{#str}} shownotificationwindownonew, message {{/str}}{{/togglelabel}}
     {{$togglecontent}}
         <div class = "img-wrap">

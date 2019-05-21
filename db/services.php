@@ -45,6 +45,36 @@ $functions = array(
         //'capabilities'  => 'mod/assign:grade',
         'services'      => array(MOODLE_OFFICIAL_MOBILE_SERVICE)
     ),
+    'theme_stardust_get_reminders' => array(
+        'classname'     => 'theme_stardust_external',
+        'methodname'    => 'get_reminders',
+        'classpath'     => 'theme/stardust/externallib.php',
+        'description'   => 'Get all user reminders',
+        'type'          => 'read',
+        'ajax'          => true,
+        'loginrequired' => true,
+        'services'      => array(MOODLE_OFFICIAL_MOBILE_SERVICE)
+    ),
+    'theme_stardust_add_reminder' => array(
+        'classname'     => 'theme_stardust_external',
+        'methodname'    => 'add_reminder',
+        'classpath'     => 'theme/stardust/externallib.php',
+        'description'   => 'Add reminder',
+        'type'          => 'write',
+        'ajax'          => true,
+        'loginrequired' => true,
+        'services'      => array(MOODLE_OFFICIAL_MOBILE_SERVICE)
+    ),
+    'theme_stardust_del_reminder' => array(
+        'classname'     => 'theme_stardust_external',
+        'methodname'    => 'del_reminder',
+        'classpath'     => 'theme/stardust/externallib.php',
+        'description'   => 'Delete reminder',
+        'type'          => 'write',
+        'ajax'          => true,
+        'loginrequired' => true,
+        'services'      => array(MOODLE_OFFICIAL_MOBILE_SERVICE)
+    ),
 );
 
 // We define the services to install as pre-build services. A pre-build service is not editable by administrator.
@@ -53,5 +83,14 @@ $services = array(
         'functions' => array ('theme_stardust_send_mail_to_teacher'),
         'restrictedusers' => 0,
         'enabled'=>1,
+    ),
+    'Reminder services' => array(
+        'functions' => array (
+            'theme_stardust_get_reminders',
+            'theme_stardust_add_reminder',
+            'theme_stardust_del_reminder',
+        ),
+        'enabled'=>1,
+        'shortname'=>'reminders'
     )
 );
