@@ -227,3 +227,11 @@ $string['help_contact_roles_desc'] = 'Choose one or couple of them';
 // Image Settings.
 $string['coursedefaultimage'] = 'Course default image';
 $string['coursedefaultimage_desc'] = 'This image will be displayed as course default image, if nothing else configured in course settings.';
+
+// Reminders.
+$string['reminders'] = 'Reminders';
+$string['addnewreminder'] = 'Add a new reminder';
+$string['delete'] = 'Delete';
+$string['yes'] = 'Yes';
+$string['dontforget'] = 'Don`t forget...';
+$string['requiredfiled'] = 'It is necessary to fill the field';

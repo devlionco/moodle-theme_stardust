@@ -20,10 +20,10 @@
     min-width: 14px;
     height: 14px;
     border-radius: 50%;
-    color: #3C3C3C;
+    color: #3c3c3c;
     text-align: center;
-    background-color: #FF7E99;
-    box-shadow: 0 0 0 1px #F3F2F0;
+    background-color: #ff7e99;
+    box-shadow: 0 0 0 1px #f3f2f0;
 }
 
 .dheader {
@@ -31,19 +31,16 @@
     top: 0;
     right: 0;
     left: 0;
-    z-index: 1030;
+    z-index: 1051;
     max-height: 45px;
     padding: 0;
     border-bottom: none;
-    // background-color: $gray_light;
     background-color: $d_blue;
-    // box-shadow: 0 0px 8px #b1b1b1;
     .dheader__inner {
         display: flex;
         flex-flow: row nowrap;
         justify-content: space-between;
         align-items: center;
-        // max-width: 1344px;
         height: 45px;
         padding: 0 23px;
         .dheader__left {
@@ -56,7 +53,6 @@
                 padding: 0;
                 margin-right: 60px;
                 .dheader__logo-img {
-                    display: inline-block;
                     height: 45px;
                     padding: 4px 0;
                     width: 128px;
@@ -94,7 +90,6 @@
                     width: 160px;
                     font: $bold 12px 'openSans';
                     color: #fff;
-                    /* padding-left: 37px; */
                     display: flex;
 
                     //custom toggler
@@ -125,10 +120,8 @@
                             width: 4px;
                             height: 4px;
                             border-radius: 4px;
-                            position: absolute;
                             top: 8px;
                             left: 22px;
-
                         }
 
                     }
@@ -158,7 +151,6 @@
             // .hidden-md-down{}
             .dheader__lang {
                 margin: 0 1vw;
-                // color: $text-color-gray !important;
                 color: #fff !important;
                 font: $bold 12px 'openSans';
                 padding-left: 27px;
@@ -184,7 +176,6 @@
                     }
                 }
                 .popover-region-container {
-                    // right: auto;
                     left: auto;
                     .img-wrap img {
                         margin: 0;
@@ -195,10 +186,6 @@
                         align-items: center;
                         justify-content: center;
                     }
-                }
-                &.popover-region-messages {}
-                &.popover-region-notifications {
-                    .popover-region-container {}
                 }
             }
             .usermenu {

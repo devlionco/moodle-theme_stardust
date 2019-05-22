@@ -41,6 +41,11 @@
 {{< core/popover_region }}
     {{$classes}}popover-region-notifications{{/classes}}
     {{$attributes}}id="nav-notification-popover-container" data-userid="{{userid}}"{{/attributes}}
+    {{$d-flex}} d-flex {{/d-flex}}
+    {{$w50}} w-50 {{/w50}}
+    {{$nd-none}} d-none {{/nd-none}}
+
+    {{$reminders}}<div class="popover-region-content popover-region-reminder-div p-3"> </div>{{/reminders}}
 
     {{$togglelabel}}{{#str}} shownotificationwindownonew, message {{/str}}{{/togglelabel}}
     {{$togglecontent}}

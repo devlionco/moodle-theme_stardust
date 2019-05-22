@@ -715,7 +715,7 @@ function get_courses_cover_images ($course) {
  * 
  */
 function theme_stardust_page_init ($page) {
-    global $USER;
+    global $USER, $PAGE;
     // Disable using messaging system for users, if they are prohoboted to use it.
     if (strpos($page->pagetype, 'message') !== false) { 
         $usermessagesdisabled = get_user_preferences('messagesdisabled', 1, $USER);
@@ -723,4 +723,7 @@ function theme_stardust_page_init ($page) {
             redirect('/');
         }
     }
+
+    $PAGE->requires->js_call_amd('theme_stardust/reminder', 'init', array());
 }
+

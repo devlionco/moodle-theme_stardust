@@ -21,6 +21,7 @@
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 require_once($CFG->libdir . "/externallib.php");
+include_once(__DIR__ . '/classes/reminders.php');
 
 class theme_stardust_external extends external_api {
 
@@ -92,4 +93,92 @@ class theme_stardust_external extends external_api {
         return email_to_user($userto, $userfrom, $subject, $messagetext, '', '', '', true, $userfrom->email);
 
     }
+    
+    /**
+     * Returns description of method parameters
+     * @return external_function_parameters
+     */
+    public static function get_reminders_parameters() {
+        return new external_function_parameters(
+            array(
+            )
+        );
+    }
+    /**
+     * @return string all user reminders
+     */
+    public static function get_reminders() {
+        return reminders::get_reminders();
+    }
+    /**
+     * Returns description of method result value
+     * @return external_description
+     */
+    public static function get_reminders_returns() {
+        return new external_value(PARAM_RAW, 'All user reminders');
+    }
+    
+    /**
+     * Returns description of method parameters
+     * @return external_function_parameters
+     */
+
+    public static function add_reminder_parameters() {
+        return new external_function_parameters(
+            array(
+                'text' => new external_value(PARAM_TEXT, 'Reminder text'),
+                'date' => new external_value(PARAM_TEXT, 'Reminder date'),
+                'time' => new external_value(PARAM_TEXT, 'Reminder time'),
+            )
+        );
+    }
+    /**
+     * @return string add reminder
+     */
+    public static function add_reminder($text, $date, $time) {
+
+        $params = self::validate_parameters(self::add_reminder_parameters(),
+            array(
+                'text' => $text,
+                'date' => $date,
+                'time' => $time,
+            )
+        );
+        return reminders::add_reminder($params);
+    }
+    /**
+     * Returns description of method result value
+     * @return external_description
+     */
+    public static function add_reminder_returns() {
+        return new external_value(PARAM_TEXT, 'The result of add reminder');
+    }
+
+    public static function del_reminder_parameters() {
+        return new external_function_parameters(
+            array(
+                'reminderid' => new external_value(PARAM_INT, 'Reminder ID')
+            )
+        );
+    }
+    /**
+     * @return string delete reminder
+     */
+    public static function del_reminder($reminderid) {
+
+        $params = self::validate_parameters(self::del_reminder_parameters(),
+            array(
+                'reminderid' => $reminderid,
+            )
+        );
+        return reminders::del_reminder($params['reminderid']);
+    }
+    /**
+     * Returns description of method result value
+     * @return external_description
+     */
+    public static function del_reminder_returns() {
+        return new external_value(PARAM_TEXT, 'The result of delete reminder');
+    }
+
 }

@@ -661,3 +661,11 @@ $string['submitted'] = 'Submitted';
 $string['tested'] = 'Tested';
 $string['cancel'] = 'Cancel';
 $string['cut_of_date_label'] = 'Cut-off date: {$a->date}';
+
+// Reminders.
+$string['reminders'] = 'Reminders';
+$string['addnewreminder'] = 'Add a new reminder';
+$string['delete'] = 'Delete';
+$string['yes'] = 'Yes';
+$string['dontforget'] = 'Don`t forget...';
+$string['requiredfiled'] = 'It is necessary to fill the field';

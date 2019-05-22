@@ -313,3 +313,11 @@ $string['submitted'] = 'הוגש';
 $string['tested'] = 'נבדק';
 $string['cancel'] = 'ביטול';
 $string['cut_of_date_label'] = 'מועד ההגשה: {$a->date}';
+
+// Reminders.
+$string['reminders'] = 'תזכורות';
+$string['addnewreminder'] = 'הוספת תזכורות';
+$string['delete'] = 'מחק';
+$string['yes'] = 'כן';
+$string['dontforget'] = 'לא לשכוח...';
+$string['requiredfiled'] = 'שדה נדרש';
