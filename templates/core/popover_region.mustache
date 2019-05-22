@@ -53,17 +53,18 @@
         aria-hidden="true"
         aria-label="{{$containerlabel}}{{/containerlabel}}"
         role="region">
-        {{$notificationsdiv}}{{/notificationsdiv}}
+
         <div class="popover-region-header-container">
             <!-- <h3 class="popover-region-header-text" data-region="popover-region-header-text">{{$headertext}}{{/headertext}}</h3> -->
              <div class="popover-region-header-actions" data-region="popover-region-header-actions">{{$headeractions}}{{/headeractions}}             </div>
         </div>
-        <div class="popover-region-content-container" data-region="popover-region-content-container">
-            <div class="popover-region-content" data-region="popover-region-content">
-                <p class = "">{{#str}} messages, theme_stardust {{/str}}</p>
-                <p class = "">{{#str}} notifications, theme_stardust {{/str}}</p>
+        <div class="popover-region-content-container {{$d-flex}}{{/d-flex}}" data-region="popover-region-content-container">
+            <div class="popover-region-content p-3 {{$w50}}{{/w50}}" data-region="popover-region-content">
+                <p class = "{{$nd-none}}{{/nd-none}}">{{#str}} messages, theme_stardust {{/str}}</p>
+                <p class = "{{$md-none}}{{/md-none}}">{{#str}} notifications, theme_stardust {{/str}}</p>
                 {{$content}}{{/content}}
             </div>
+            {{$reminders}}{{/reminders}}
             {{> core/loading }}
         </div>
         <!--
@@ -78,7 +79,5 @@
             {{/urls.seeall}}
         {{/anchor}}
         -->
-        {{$enddiv}}{{/enddiv}}
-        {{$reminderdiv}}{{/reminderdiv}}
     </div>
 </div>

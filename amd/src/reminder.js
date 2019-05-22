@@ -30,10 +30,9 @@ define([
    'core/templates',
    'core/notification',
 ], function($, Str, Ajax, templates, notification) {
-    `use strict`;
 
     return {
-        
+
         TEMPLATE: {
             reminders: {
               src: 'theme_stardust/reminders',
@@ -44,45 +43,45 @@ define([
               id: 'reminder'
             },
         },
-        
+
         init: function() {
             var context = this;
             context.getReminders();
-            
+
             // Events.
-            $(document).on('click', '#opennewreminder', function(){
+            $(document).on('click', '#opennewreminder', function() {
                 context.openReminderForm();
             });
-            
-            $(document).on('click', '#addnewreminder', function(){
+
+            $(document).on('click', '#addnewreminder', function() {
                 context.addReminder();
             });
-            
-            $(document).on('click', '.deletereminder', function(){
+
+            $(document).on('click', '.deletereminder', function() {
                 context.delReminder($(this));
             });
         },
-        
+
         getReminders: function() {
             Ajax.call([{
                 methodname: 'theme_stardust_get_reminders',
                 args: {
                 },
-                done: function (res) {
+                done: function(res) {
                     var response = JSON.parse(res);
                     var data = response;
-                    
+
                     templates.render(this.TEMPLATE.reminders.src, data)
-                    .then(function(html, js) {
+                    .then(function(html) {
                          $('.popover-region-notifications .popover-region-reminder-div').append(html);
                     }.bind(this))
                     .fail(notification.exception);
-            
+
                     if (data.counthappend > 0) {
-                        setTimeout(function () {
+                        setTimeout(function() {
                             var allcount = $('.popover-region-notifications .count-container').html();
                             if (allcount) {
-                                allcount = + allcount + data.counthappend;
+                                allcount = +allcount + data.counthappend;
                             } else {
                                 allcount = data.counthappend;
                             }
@@ -93,11 +92,18 @@ define([
                 fail: notification.exception
             }]);
         },
-        
+
         addReminder: function() {
             var text = $('#newremindertext').val();
             var date = $('#newreminderdate').val();
             var time = $('#newremindertime').val();
+            if (!text.length) {
+              Str.get_string('requiredfiled', 'theme_stardust').done(function(s) {
+                  $('#newremindertext').attr("placeholder", s);
+                  $('#newremindertext').addClass('requared');
+              });
+              return;
+            }
             $('#addnewreminder .fa-plus').addClass('fa-spin');
             Ajax.call([{
                 methodname: 'theme_stardust_add_reminder',
@@ -106,14 +112,14 @@ define([
                     date: date,
                     time: time
                 },
-                done: function (res) {
+                done: function(res) {
                     if (res) {
                         var response = JSON.parse(res);
                         var data = response;
 
                         templates.render(this.TEMPLATE.reminder.src, data)
-                        .then(function(html, js) {
-                             $('.popover-region-notifications .popover-region-reminder-div .allreminders').append(html);
+                        .then(function(html) {
+                             $(html).insertBefore('#opennewreminder');
                         }.bind(this))
                         .fail(notification.exception);
                     }
@@ -122,7 +128,7 @@ define([
                 fail: notification.exception
             }]);
         },
-        
+
         delReminder: function(target) {
             var reminder = target.parents('.reminder');
             var reminderid = reminder.data('reminderid');
@@ -132,7 +138,7 @@ define([
                 args: {
                     reminderid: reminderid
                 },
-                done: function (response) {
+                done: function(response) {
                     if (response == 1) {
                         reminder.slideUp().remove();
                     }
@@ -140,14 +146,15 @@ define([
                 fail: notification.exception
             }]);
         },
-        
+
         openReminderForm: function() {
             $('.addanewreminder').toggle('fast');
             $('#addnewreminder .fa-plus').removeClass('fa-spin');
-            $('#newremindertext').val('');
             $('#newreminderdate').val('');
             $('#newremindertime').val('');
-            
+            Str.get_string('dontforget', 'theme_stardust').done(function(s) {
+              $('#newremindertext').val('').removeClass('requared').attr("placeholder", s);
+            });
         }
     };
 });

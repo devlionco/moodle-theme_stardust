@@ -667,3 +667,5 @@ $string['reminders'] = 'Reminders';
 $string['addnewreminder'] = 'Add a new reminder';
 $string['delete'] = 'Delete';
 $string['yes'] = 'Yes';
+$string['dontforget'] = 'Don`t forget...';
+$string['requiredfiled'] = 'It is necessary to fill the field';
