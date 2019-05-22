@@ -4311,7 +4311,7 @@ table .activityicon_wrapper.mod_red {
 
 #page-content .slidingblockpanel {
   position: fixed;
-  z-index: 100;
+  z-index: 1051;
   top: 45px;
   bottom: 0;
   background-color: #f2f2f2;
