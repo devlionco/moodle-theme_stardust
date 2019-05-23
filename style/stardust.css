@@ -4286,7 +4286,7 @@ table .activityicon_wrapper.mod_red {
 .blocksliderbutton_open i {
   transform: rotate(90deg); }
 
-.blockpanelbtn_clone {
+a.blockpanelbtn_clone {
   position: fixed;
   right: 285px;
   top: 50px;
@@ -4305,7 +4305,7 @@ table .activityicon_wrapper.mod_red {
   -ms-flex-align: center;
       align-items: center;
   text-decoration: none; }
-  .blockpanelbtn_clone:hover {
+  a.blockpanelbtn_clone:hover {
     color: #fff;
     text-decoration: none; }
 
