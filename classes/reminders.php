@@ -52,9 +52,10 @@ class reminders {
             if ($coursemessages) {
                 foreach($coursemessages as $rem) {
                     $counthappend ++;
+                    $remindtime = self::get_remind_time($rem->timestatusupdate);
                     $allreminders[] = array(
                         'id' => $rem->id,
-                        'text' => $rem->message,
+                        'text' => $remindtime . $rem->message,
                         'time' => $rem->timestatusupdate,
                         'happend' => 1,
                         'removable' => 0
@@ -68,9 +69,10 @@ class reminders {
             foreach($reminders as $rem) {
                 $happend = (time() > $rem->timeremind) ? 1 : 0;
                 $counthappend += $happend;
+                $remindtime = self::get_remind_time($rem->timeremind, $rem->timecreated);
                 $allreminders[] = array(
                     'id' => $rem->id,
-                    'text' => $rem->text,
+                    'text' => $remindtime . $rem->text,
                     'time' => $rem->timeremind,
                     'happend' => $happend,
                     'removable' => 1
@@ -103,4 +105,18 @@ class reminders {
         return $res ? 1 : 0;
     }
    
+    protected static function get_remind_time($timeremind, $timecreated=0) {
+        $time = '';
+        if ($timeremind != $timecreated) {
+            $hours = date('H',$timeremind);
+            $mins = date('i',$timeremind);
+            $time = date('d.m.y',$timeremind) . " ";
+            
+            if ((int)$hours != 0 or (int)$mins != 0) {
+                $time .= $hours . ":" . $mins . " ";
+            }
+            $time .= "- ";
+        } 
+        return $time;
+    }
 }
