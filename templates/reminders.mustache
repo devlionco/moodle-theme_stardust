@@ -22,6 +22,7 @@
         <div class="remindertext flex" style="{{#happend}}font-weight: bold{{/happend}}">
         {{text}}
         </div>
+        {{#removable}}
         <div class="reminder_close d-flex">
             <span
                 class = "d-flex"
@@ -38,6 +39,7 @@
                 </div>
             </div>
         </div>
+        {{/removable}}
     </div>
 {{/reminders}}
 <button class="btn-blue" id="opennewreminder">{{#str}} addnewreminder, theme_stardust {{/str}}</button>
