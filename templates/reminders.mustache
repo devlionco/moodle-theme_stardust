@@ -16,11 +16,12 @@
 }}
 
 <p>{{#str}} reminders, theme_stardust {{/str}}</p>
-<div class="allreminders">
+<div class="allreminders test">
 {{#reminders}}
     <div class="reminder pb-2 pt-2 d-flex {{#happend}}happendreminder{{/happend}}" data-reminderid="{{id}}">
         <div class="remindertext flex" style="{{#happend}}font-weight: bold{{/happend}}">
         {{text}}
+        <span class = "text-info"> {{remindtime}} </span>
         </div>
         {{#removable}}
         <div class="reminder_close d-flex">
