@@ -15,7 +15,7 @@
     along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 }}
 
-<div class="reminder d-flex pt-2 pb-2 {{#happend}}happendreminder{{/happend}}" data-reminderid="{{id}}">
+<div class="reminder d-flex pt-2 pb-2 {{#happend}}happendreminder{{/happend}} {{#istoday}}border-danger{{/istoday}}" data-reminderid="{{id}}">
     <div class="remindertext d-flex" style="{{#happend}}font-weight: bold{{/happend}}">
       {{text}}
       <span class = "text-info"> {{remindtime}} </span>

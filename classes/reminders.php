@@ -51,7 +51,7 @@ class reminders {
             $coursemessages = $DB->get_records_sql($sql);
             if ($coursemessages) {
                 foreach($coursemessages as $rem) {
-                    $counthappend ++;
+                    // $counthappend ++;
                     $remindtime = self::get_remind_time($rem->timestatusupdate);
                     $allreminders[] = array(
                         'id' => $rem->id,
@@ -70,6 +70,7 @@ class reminders {
             foreach($reminders as $rem) {
                 $happend = (time() > $rem->timeremind) ? 1 : 0;
                 $counthappend += $happend;
+                $istoday = ( date('Ymd') == date('Ymd', $rem->timeremind) ) ? 1 : 0;
                 $remindtime = self::get_remind_time($rem->timeremind, $rem->timecreated);
                 $allreminders[] = array(
                     'id' => $rem->id,
@@ -77,6 +78,7 @@ class reminders {
                     'remindtime' => $remindtime,
                     'time' => $rem->timeremind,
                     'happend' => $happend,
+                    'istoday' => $istoday,
                     'removable' => 1
                 );
             }
