@@ -300,8 +300,6 @@ $string['reference_content'] = 'תוכן הפניה';
 $string['have_you_a_question'] = 'יש לכם שאלה או בעיה טכנית?';
 $string['asq_questions_and_report_everything'] = 'כאן תוכלו לשאול את צוות מוודל שאלות ולדווח לנו על תקלות. אנו נדאג לחזור אליכם בהקדם עם תשובה או פתרון לבעיה';
 
-
-
 // Image Settings.
 $string['coursedefaultimage'] = 'תמונת ברירת המחדל של הקורס';
 $string['coursedefaultimage_desc'] = 'תמונה זו תוצג כתמונת ברירת המחדל של הקורס, אם אין הגדרה אחרת בהגדרות הקורס.';
@@ -321,3 +319,13 @@ $string['delete'] = 'מחק';
 $string['yes'] = 'כן';
 $string['dontforget'] = 'לא לשכוח...';
 $string['requiredfiled'] = 'שדה נדרש';
+
+// Custom login message.
+$string['showloginmessage'] = 'Show message on the Login page';
+$string['showloginmessage_desc'] = 'Enable or disable message for users on the Login page';
+$string['loginmessageen'] = 'Login page message EN';
+$string['loginmessageen_desc'] = '';
+$string['loginmessagehe'] = 'Login page message HE';
+$string['loginmessagehe_desc'] = '';
+$string['loginmessagear'] = 'Login page message AR';
+$string['loginmessagear_desc'] = '';

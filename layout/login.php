@@ -29,7 +29,11 @@ $bodyattributes = $OUTPUT->body_attributes();
 $templatecontext = [
     'sitename' => format_string($SITE->shortname, true, ['context' => context_course::instance(SITEID), "escape" => false]),
     'output' => $OUTPUT,
-    'bodyattributes' => $bodyattributes
+    'bodyattributes' => $bodyattributes,
+    'showmessage' => get_config('theme_stardust', 'showloginmessage'),
+    'messageen' => get_config('theme_stardust', 'loginmessageen'),
+    'messagehe' => get_config('theme_stardust', 'loginmessagehe'),
+    'messagear' => get_config('theme_stardust', 'loginmessagear'),
     // 'rememberusername' => $CFG->rememberusername
 ];
 

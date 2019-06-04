@@ -89,7 +89,26 @@
         }
 
     </style>
+    
 
+    {{#showmessage}}
+    <div class="alert alert-danger" style="text-align: center; margin-top: 80px;">
+        <span style="font-size: xxx-large;">
+            <span class="multilang" lang="he">
+            {{messagehe}}
+            </span>
+
+            <span class="multilang" lang="en">
+            {{messageen}}
+            </span>
+
+            <span class="multilang" lang="ar">
+            {{messagear}}
+            </span>
+
+        </span>
+    </div>
+    {{/showmessage}}
     <div id="page" class="container-fluid">
         <div id="page-content" class="row">
             <div id="region-main-box">
