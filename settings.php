@@ -146,31 +146,31 @@ if ($ADMIN->fulltree) {
     $setting = new admin_setting_configcheckbox($name, $title, $description, $default);
     $setting->set_updatedcallback('theme_reset_all_caches');
     $page->add($setting);
-    
+
     // Message EN language
     $name = 'theme_stardust/loginmessageen';
     $title = get_string('loginmessageen', 'theme_stardust');
     $description = get_string('loginmessageen_desc', 'theme_stardust');
     $default = '';
-    $setting = new admin_setting_configtext($name, $title, $description, $default);
+    $setting = new admin_setting_configtextarea($name, $title, $description, $default);
     $setting->set_updatedcallback('theme_reset_all_caches');
     $page->add($setting);
-    
+
     // Message HE language
     $name = 'theme_stardust/loginmessagehe';
     $title = get_string('loginmessagehe', 'theme_stardust');
     $description = get_string('loginmessagehe_desc', 'theme_stardust');
     $default = '';
-    $setting = new admin_setting_configtext($name, $title, $description, $default);
+    $setting = new admin_setting_configtextarea($name, $title, $description, $default);
     $setting->set_updatedcallback('theme_reset_all_caches');
     $page->add($setting);
-    
+
     // Message AR language
     $name = 'theme_stardust/loginmessagear';
     $title = get_string('loginmessagear', 'theme_stardust');
     $description = get_string('loginmessagear_desc', 'theme_stardust');
     $default = '';
-    $setting = new admin_setting_configtext($name, $title, $description, $default);
+    $setting = new admin_setting_configtextarea($name, $title, $description, $default);
     $setting->set_updatedcallback('theme_reset_all_caches');
     $page->add($setting);
 
