@@ -273,7 +273,7 @@ $templatecontext = [
     'hasregionmainsettingsmenu' => !empty($regionmainsettingsmenu),
     'sitesettingsbutton' => true,
     'coursename' => $course->shortname,
-    'coursfullname' => $course->fullname,
+    'coursfullname' => ($courseformat['showcoursefullname'] == 1) ? $course->fullname : false,
     'display_units' => (isset($courseformat['displayunits'])) ? $courseformat['displayunits'] : false,
     // 'display_messages' => (isset($courseformat['displaymessages'])) ? $courseformat['displaymessages'] : false, // SG - T-322
     'display_messages' => true, // always show teacher messages block -- SG T-322
