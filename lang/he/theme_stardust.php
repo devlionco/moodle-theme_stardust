@@ -321,8 +321,8 @@ $string['dontforget'] = 'לא לשכוח...';
 $string['requiredfiled'] = 'שדה נדרש';
 
 // Custom login message.
-$string['showloginmessage'] = 'Show message on the Login page';
-$string['showloginmessage_desc'] = 'Enable or disable message for users on the Login page';
+$string['showloginmessage'] = 'הצג הודעה בדף ההתחברות';
+$string['showloginmessage_desc'] = 'הפעל או השבת הודעה עבור משתמשים בדף ההתחברות';
 $string['loginmessageen'] = 'Login page message EN';
 $string['loginmessageen_desc'] = '';
 $string['loginmessagehe'] = 'Login page message HE';
