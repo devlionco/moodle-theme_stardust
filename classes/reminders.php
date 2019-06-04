@@ -99,7 +99,7 @@ class reminders {
         $reminder->id = $DB->insert_record('theme_stardust_reminders', $reminder);
 
         $reminder->happend = (time() > $reminder->timeremind) ? 1 : 0;
-
+        $reminder->remindtime = self::get_remind_time($reminder->timeremind, $reminder->timecreated);
         return ($reminder->id) ? json_encode((array)$reminder) : 0;
     }
 

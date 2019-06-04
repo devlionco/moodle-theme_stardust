@@ -53,6 +53,10 @@ define([
                 context.openReminderForm();
             });
 
+            $(document).on('click', '#closereminder', function() {
+                context.closeReminderForm();
+            });
+
             $(document).on('click', '#addnewreminder', function() {
                 context.addReminder();
             });
@@ -155,6 +159,10 @@ define([
             Str.get_string('dontforget', 'theme_stardust').done(function(s) {
               $('#newremindertext').val('').removeClass('requared').attr("placeholder", s);
             });
+        },
+
+        closeReminderForm: function() {
+            $('.addanewreminder').toggle('fast');
         }
     };
 });

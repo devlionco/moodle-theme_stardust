@@ -4186,23 +4186,25 @@ table .activityicon_wrapper.mod_red {
         color: #3c3c3c; }
 
 .popover-region-notifications .popover-region-reminder-div {
-  width: 47%;
-  position: relative; }
+  width: 47%; }
   .popover-region-notifications .popover-region-reminder-div::before {
     content: '';
     position: absolute;
     width: 1px;
-    bottom: 0;
-    top: 17px;
-    left: 0;
+    bottom: 10px;
+    top: 40px;
+    left: 360px;
     background-color: #ddd; }
 
 .popover-region-notifications .addanewreminder {
   display: none;
   position: absolute;
-  bottom: 0;
+  bottom: 10px;
+  right: 10px;
   background: #fff;
-  width: 90%; }
+  width: 48%;
+  border: 1px solid #ddd;
+  padding: 5px; }
   .popover-region-notifications .addanewreminder input[type="text"] {
     border: none;
     border-bottom: 1px solid #19284f; }
