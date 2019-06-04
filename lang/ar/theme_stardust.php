@@ -235,3 +235,13 @@ $string['delete'] = 'Delete';
 $string['yes'] = 'Yes';
 $string['dontforget'] = 'Don`t forget...';
 $string['requiredfiled'] = 'It is necessary to fill the field';
+
+// Custom login message.
+$string['showloginmessage'] = 'Show message on the Login page';
+$string['showloginmessage_desc'] = 'Enable or disable message for users on the Login page';
+$string['loginmessageen'] = 'Login page message EN';
+$string['loginmessageen_desc'] = '';
+$string['loginmessagehe'] = 'Login page message HE';
+$string['loginmessagehe_desc'] = '';
+$string['loginmessagear'] = 'Login page message AR';
+$string['loginmessagear_desc'] = '';
