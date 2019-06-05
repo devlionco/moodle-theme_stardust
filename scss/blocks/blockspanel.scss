@@ -30,7 +30,7 @@
     }
 }
 
-.blockpanelbtn_clone {
+a.blockpanelbtn_clone {
     position: fixed;
     right: 285px;
     top: 50px;
@@ -55,7 +55,7 @@
 #page-content {
     .slidingblockpanel {
         position: fixed;
-        z-index: 100;
+        z-index: 1051;
         top: 45px;
         bottom: 0;
         background-color: #f2f2f2;
@@ -67,11 +67,11 @@
             // padding: 0;
         }
         .row {
-          background-color: #f2f2f2;
+            background-color: #f2f2f2;
         }
         .fp-blocks{
-          height: 100%;
-          overflow-y: auto;
+            height: 100%;
+            overflow-y: auto;
         }
     }
 }

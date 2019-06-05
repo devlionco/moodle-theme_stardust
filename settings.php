@@ -51,7 +51,7 @@ if ($ADMIN->fulltree) {
     require($CFG->dirroot .'/theme/fordson/settings/slideshow_settings.php');
     // OCJ HILLBROOK MOD
     require($CFG->dirroot .'/theme/fordson/settings/modchooser_settings.php');
-    require($CFG->dirroot .'/theme/fordson/settings/customlogin_settings.php');
+    //require($CFG->dirroot .'/theme/fordson/settings/customlogin_settings.php');
 
 
     /* My dahsboard setup PAGE */
@@ -129,6 +129,48 @@ if ($ADMIN->fulltree) {
     $description = get_string('technical_support_email_description', 'theme_stardust');
     $default = 'moodle.davidson@weizmann.ac.il';
     $setting = new admin_setting_configtext($name, $title, $description, $default);
+    $setting->set_updatedcallback('theme_reset_all_caches');
+    $page->add($setting);
+
+    // Must add the page after definiting all the settings!
+    $settings->add($page);
+
+    /* Custom login */
+    $page = new admin_settingpage('theme_stardust_customlogin', get_string('customloginheading', 'theme_stardust'));
+
+    // Enable/disable custom message
+    $name = 'theme_stardust/showloginmessage';
+    $title = get_string('showloginmessage', 'theme_stardust');
+    $description = get_string('showloginmessage_desc', 'theme_stardust');
+    $default = 0;
+    $setting = new admin_setting_configcheckbox($name, $title, $description, $default);
+    $setting->set_updatedcallback('theme_reset_all_caches');
+    $page->add($setting);
+
+    // Message EN language
+    $name = 'theme_stardust/loginmessageen';
+    $title = get_string('loginmessageen', 'theme_stardust');
+    $description = get_string('loginmessageen_desc', 'theme_stardust');
+    $default = '';
+    $setting = new admin_setting_configtextarea($name, $title, $description, $default);
+    $setting->set_updatedcallback('theme_reset_all_caches');
+    $page->add($setting);
+
+    // Message HE language
+    $name = 'theme_stardust/loginmessagehe';
+    $title = get_string('loginmessagehe', 'theme_stardust');
+    $description = get_string('loginmessagehe_desc', 'theme_stardust');
+    $default = '';
+    $setting = new admin_setting_configtextarea($name, $title, $description, $default);
+    $setting->set_updatedcallback('theme_reset_all_caches');
+    $page->add($setting);
+
+    // Message AR language
+    $name = 'theme_stardust/loginmessagear';
+    $title = get_string('loginmessagear', 'theme_stardust');
+    $description = get_string('loginmessagear_desc', 'theme_stardust');
+    $default = '';
+    $setting = new admin_setting_configtextarea($name, $title, $description, $default);
     $setting->set_updatedcallback('theme_reset_all_caches');
     $page->add($setting);
 

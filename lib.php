@@ -332,7 +332,7 @@ function get_activities_mydashboard($activitiesconf = array(), $numofrelevantact
             $coursecoverimgurl = $_coursecoverimgurl->out();
         }
         if (empty($coursecoverimgurl)) {
-            $coursedefaultimage = $PAGE->theme->setting_file_url('coursedefaultimage', 'coursedefaultimage'); 
+            $coursedefaultimage = $PAGE->theme->setting_file_url('coursedefaultimage', 'coursedefaultimage');
             if (isset($coursedefaultimage)) {
                 $coursecoverimgurl = $coursedefaultimage; // Define course default image from theme settings.
             } else {
@@ -649,7 +649,7 @@ function is_activity_without_cutoffdate($activityinfo) {
             if (empty($activityinfo['opendate'])) {
                 return true;
             }
-            
+
             // compute dates
             $now = new DateTime('', core_date::get_user_timezone_object());
             $cmopened = clone $now;
@@ -694,7 +694,7 @@ function get_courses_cover_images ($course) {
         $coursecoverimgurl = $_coursecoverimgurl->out();
     }
     if (empty($coursecoverimgurl)) {
-        $coursedefaultimage = $PAGE->theme->setting_file_url('coursedefaultimage', 'coursedefaultimage'); 
+        $coursedefaultimage = $PAGE->theme->setting_file_url('coursedefaultimage', 'coursedefaultimage');
         if (isset($coursedefaultimage)) {
             $coursecoverimgurl = $coursedefaultimage; // Define course default image from theme settings.
         } else {
@@ -709,19 +709,22 @@ function get_courses_cover_images ($course) {
 /**
  * Theme callback for page init
  * @param $page
- * 
+ *
  * Here we check:
  * - if user is prohibited to use messaging system -
  *     we will avoid him visiting this module and redirect him to Dashboard
- * 
+ *
  */
 function theme_stardust_page_init ($page) {
-    global $USER;
+    global $USER, $PAGE;
+    if (!isloggedin()) return;
     // Disable using messaging system for users, if they are prohoboted to use it.
-    if (strpos($page->pagetype, 'message') !== false) { 
+    if (strpos($page->pagetype, 'message') !== false) {
         $usermessagesdisabled = get_user_preferences('messagesdisabled', 1, $USER);
         if ($usermessagesdisabled == 0) {
             redirect('/');
         }
     }
+
+    $PAGE->requires->js_call_amd('theme_stardust/reminder', 'init', array());
 }

@@ -742,17 +742,17 @@ body#page-login-signup {
   min-width: 14px;
   height: 14px;
   border-radius: 50%;
-  color: #3C3C3C;
+  color: #3c3c3c;
   text-align: center;
-  background-color: #FF7E99;
-  box-shadow: 0 0 0 1px #F3F2F0; }
+  background-color: #ff7e99;
+  box-shadow: 0 0 0 1px #f3f2f0; }
 
 .dheader {
   position: fixed;
   top: 0;
   right: 0;
   left: 0;
-  z-index: 1030;
+  z-index: 1051;
   max-height: 45px;
   padding: 0;
   border-bottom: none;
@@ -781,7 +781,6 @@ body#page-login-signup {
         padding: 0;
         margin-right: 60px; }
         .dheader .dheader__inner .dheader__left .dheader__logo .dheader__logo-img {
-          display: inline-block;
           height: 45px;
           padding: 4px 0;
           width: 128px;
@@ -824,7 +823,6 @@ body#page-login-signup {
           width: 160px;
           font: 600 12px "openSans";
           color: #fff;
-          /* padding-left: 37px; */
           display: -ms-flexbox;
           display: flex; }
           .dheader .dheader__inner .dheader__right .dheader__tutorial .dheader__tutorial-link .tutorial__toggler {
@@ -852,7 +850,6 @@ body#page-login-signup {
               width: 4px;
               height: 4px;
               border-radius: 4px;
-              position: absolute;
               top: 8px;
               left: 22px; }
           .dheader .dheader__inner .dheader__right .dheader__tutorial .dheader__tutorial-link.active .point {
@@ -4125,13 +4122,11 @@ table .activityicon_wrapper.mod_red {
   top: 55px;
   left: 10px;
   box-shadow: 0 5px 10px 3px rgba(0, 0, 0, 0.3); }
-  .popover-region-messages .popover-region-container .popover-region-content > p:nth-child(1) {
+  .popover-region-messages .popover-region-container .popover-region-content > p {
     font-size: 24px;
     font-weight: bold;
     color: #ee2d68;
     margin: 32px 32px 16px; }
-  .popover-region-messages .popover-region-container .popover-region-content > p:nth-child(2) {
-    display: none; }
 
 .popover-region-messages .messages {
   margin: 0; }
@@ -4169,17 +4164,14 @@ table .activityicon_wrapper.mod_red {
     z-index: 2; }
 
 .popover-region-notifications .popover-region-container {
-  width: 580px;
+  width: 740px;
   top: 55px;
   left: 10px;
   box-shadow: 0 5px 10px 3px rgba(0, 0, 0, 0.3); }
-  .popover-region-notifications .popover-region-container .popover-region-content > p:nth-child(1) {
-    display: none; }
-  .popover-region-notifications .popover-region-container .popover-region-content > p:nth-child(2) {
+  .popover-region-notifications .popover-region-container .popover-region-content > p {
     font-size: 24px;
     font-weight: bold;
-    color: #ee2d68;
-    margin: 32px 32px 16px; }
+    color: #ee2d68; }
 
 .popover-region-notifications .all-notifications {
   margin: 0; }
@@ -4199,6 +4191,72 @@ table .activityicon_wrapper.mod_red {
         font-size: 18px;
         line-height: 24px;
         color: #3c3c3c; }
+
+.popover-region-notifications .popover-region-reminder-div {
+  width: 47%; }
+  .popover-region-notifications .popover-region-reminder-div::before {
+    content: '';
+    position: absolute;
+    width: 1px;
+    bottom: 10px;
+    top: 40px;
+    left: 360px;
+    background-color: #ddd; }
+
+.popover-region-notifications .addanewreminder {
+  display: none;
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  background: #fff;
+  width: 48%;
+  border: 1px solid #ddd;
+  padding: 5px; }
+  .popover-region-notifications .addanewreminder input[type="text"] {
+    border: none;
+    border-bottom: 1px solid #19284f; }
+  .popover-region-notifications .addanewreminder div input {
+    border: none;
+    border-bottom: 1px solid #19284f; }
+
+.popover-region-notifications .reminder {
+  border-bottom: 1px solid #ddd; }
+
+.popover-region-notifications .remindertext {
+  -ms-flex-positive: 1;
+      flex-grow: 1; }
+
+.popover-region-notifications .reminder_close {
+  position: relative;
+  cursor: pointer; }
+
+.popover-region-notifications .btn-blue {
+  cursor: pointer;
+  background: #19284f;
+  min-width: 115px;
+  height: 36px;
+  border: none;
+  border-radius: 50px;
+  color: #fff;
+  margin-top: 10px;
+  padding: 5px 10px;
+  font-size: 14px;
+  font-weight: 600;
+  transition: .2s; }
+  .popover-region-notifications .btn-blue:hover {
+    box-shadow: 2px 2px 3px 0 #19284f; }
+
+.popover-region-notifications .requared:-ms-input-placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: red;
+  opacity: 1;
+  /* Firefox */ }
+
+.popover-region-notifications .requared::placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: red;
+  opacity: 1;
+  /* Firefox */ }
 
 .usermenu {
   position: relative; }
@@ -4237,7 +4295,7 @@ table .activityicon_wrapper.mod_red {
 .blocksliderbutton_open i {
   transform: rotate(90deg); }
 
-.blockpanelbtn_clone {
+a.blockpanelbtn_clone {
   position: fixed;
   right: 285px;
   top: 50px;
@@ -4256,13 +4314,13 @@ table .activityicon_wrapper.mod_red {
   -ms-flex-align: center;
       align-items: center;
   text-decoration: none; }
-  .blockpanelbtn_clone:hover {
+  a.blockpanelbtn_clone:hover {
     color: #fff;
     text-decoration: none; }
 
 #page-content .slidingblockpanel {
   position: fixed;
-  z-index: 100;
+  z-index: 1051;
   top: 45px;
   bottom: 0;
   background-color: #f2f2f2;

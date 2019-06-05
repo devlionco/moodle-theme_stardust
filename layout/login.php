@@ -26,10 +26,20 @@ defined('MOODLE_INTERNAL') || die();
 
 $bodyattributes = $OUTPUT->body_attributes();
 
+$message = get_config('theme_stardust', 'loginmessageen');
+if (current_language() == 'he') {
+    $message = get_config('theme_stardust', 'loginmessagehe');
+}
+if (current_language() == 'ar') {
+    $message = get_config('theme_stardust', 'loginmessagear');
+}
+
 $templatecontext = [
     'sitename' => format_string($SITE->shortname, true, ['context' => context_course::instance(SITEID), "escape" => false]),
     'output' => $OUTPUT,
-    'bodyattributes' => $bodyattributes
+    'bodyattributes' => $bodyattributes,
+    'showmessage' => get_config('theme_stardust', 'showloginmessage'),
+    'message' => $message,
     // 'rememberusername' => $CFG->rememberusername
 ];
 

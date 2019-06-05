@@ -113,9 +113,6 @@ function count_section_cms_completions($secid, $coursefminfo, $ccompetablecms, $
         }
     }
 
-    // $sectioncompletion['completedsectionscount'] = $completedsectionscount; // SG -- need for debug
-    // $sectioncompletion['childrencount'] = $childrencount;                   // SG -- need for debug
-
     // if completed sections count are equal to children sections + 1 - all bunch is completed
     if ($completedsectionscount == $childrencount+1) {
         $sectioncompletion['completed'] = 1;
@@ -276,7 +273,7 @@ $templatecontext = [
     'hasregionmainsettingsmenu' => !empty($regionmainsettingsmenu),
     'sitesettingsbutton' => true,
     'coursename' => $course->shortname,
-    'coursfullname' => $course->fullname,
+    'coursfullname' => ($courseformat['showcoursefullname'] == 1) ? $course->fullname : false,
     'display_units' => (isset($courseformat['displayunits'])) ? $courseformat['displayunits'] : false,
     // 'display_messages' => (isset($courseformat['displaymessages'])) ? $courseformat['displaymessages'] : false, // SG - T-322
     'display_messages' => true, // always show teacher messages block -- SG T-322
@@ -294,15 +291,7 @@ $templatecontext = [
     'teachers' => $helpcontacts ?? null,
 ];
 
-// $PAGE->requires->jquery();
-// if (isset($PAGE->theme->settings->showbacktotop) && $PAGE->theme->settings->showbacktotop == 1) {
-//     $PAGE->requires->js('/theme/fordson/javascript/scrolltotop.js');
-//     $PAGE->requires->js('/theme/fordson/javascript/scrollspy.js');
-// }
-// $PAGE->requires->js('/theme/fordson/javascript/tooltipfix.js');
-
 if ($isteacher) $PAGE->requires->js_call_amd('theme_stardust/teacher-messages', 'init');
 
 $templatecontext['flatnavigation'] = $PAGE->flatnav;
-// echo $OUTPUT->render_from_template('theme_stardust/columns-course', $templatecontext);
 echo $OUTPUT->render_from_template('theme_stardust/course', $templatecontext);
