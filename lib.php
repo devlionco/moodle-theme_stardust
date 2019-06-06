@@ -23,6 +23,7 @@
 
 use core_completion\progress;
 require_once("$CFG->dirroot/mod/assign/locallib.php");
+require_once(__DIR__ . "/classes/theme_stardust_get_add_form.php");
 require_once("{$CFG->libdir}/completionlib.php");
 
 /**
@@ -726,4 +727,17 @@ function theme_stardust_page_init ($page) {
     }
 
     $PAGE->requires->js_call_amd('theme_stardust/reminder', 'init', array());
+}
+
+function theme_stardust_output_fragment_get_add_form($args) {
+    global $CFG;
+    
+    $mform = new theme_stardust_get_add_form(null, $args);
+
+    ob_start();
+    $mform->display();
+    $o .= ob_get_contents();
+    ob_end_clean();
+
+    return $o;
 }

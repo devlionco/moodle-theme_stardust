@@ -29,9 +29,11 @@ define([
    'core/ajax',
    'core/templates',
    'core/notification',
-], function($, Str, Ajax, templates, notification) {
+   'core/fragment',
+], function($, Str, Ajax, templates, notification, Fragment) {
 
     return {
+
 
         TEMPLATE: {
             reminders: {
@@ -77,7 +79,13 @@ define([
 
                     templates.render(this.TEMPLATE.reminders.src, data)
                     .then(function(html) {
-                         $('.popover-region-notifications .popover-region-reminder-div').append(html);
+                        $('.popover-region-notifications .popover-region-reminder-div').append(html);
+                        this.getAddForm().then(function(html, js) {
+                                templates.replaceNode($('#newreminderdate'), html, js);
+                                $('.addanewreminder').find('form.mform').removeClass('mform');
+                                return;
+                            })
+                            .fail(Notification.exception);
                     }.bind(this))
                     .fail(notification.exception);
 
@@ -99,8 +107,13 @@ define([
 
         addReminder: function() {
             var text = $('#newremindertext').val();
-            var date = $('#newreminderdate').val();
-            var time = $('#newremindertime').val();
+            var year = $('select[name="reminderdate[year]"]').val();
+            var month = $('select[name="reminderdate[month]"]').val();
+            var day = $('select[name="reminderdate[day]"]').val();
+            var hour = $('select[name="reminderdate[hour]"]').val();
+            var min = $('select[name="reminderdate[minute]"]').val();
+            var date = year + '-' + month + '-' + day;
+            var time = hour + ':' + min;
             if (!text.length) {
               Str.get_string('requiredfiled', 'theme_stardust').done(function(s) {
                   $('#newremindertext').attr("placeholder", s);
@@ -163,6 +176,11 @@ define([
 
         closeReminderForm: function() {
             $('.addanewreminder').toggle('fast');
-        }
+        },
+
+        getAddForm: function() {
+            return Fragment.loadFragment('theme_stardust', 'get_add_form', 42, {})
+                     .fail(notification.exception);
+        },
     };
 });

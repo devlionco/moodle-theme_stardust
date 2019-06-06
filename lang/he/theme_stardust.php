@@ -319,6 +319,7 @@ $string['delete'] = 'מחק';
 $string['yes'] = 'כן';
 $string['dontforget'] = 'לא לשכוח...';
 $string['requiredfiled'] = 'שדה נדרש';
+$string['dateandtime'] = 'Date & time';
 
 // Custom login message.
 $string['showloginmessage'] = 'הצג הודעה בדף ההתחברות';

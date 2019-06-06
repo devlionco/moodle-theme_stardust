@@ -669,6 +669,7 @@ $string['delete'] = 'Delete';
 $string['yes'] = 'Yes';
 $string['dontforget'] = 'Don`t forget...';
 $string['requiredfiled'] = 'It is necessary to fill the field';
+$string['dateandtime'] = 'Date & time';
 
 // Custom login message.
 $string['showloginmessage'] = 'Show message on the Login page';
