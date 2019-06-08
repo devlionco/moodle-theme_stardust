@@ -85,7 +85,7 @@ define([
                                 $('.addanewreminder').find('form.mform').removeClass('mform');
                                 return;
                             })
-                            .fail(Notification.exception);
+                            .fail(notification.exception);
                     }.bind(this))
                     .fail(notification.exception);
 

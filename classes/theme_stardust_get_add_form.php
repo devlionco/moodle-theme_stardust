@@ -36,7 +36,7 @@ class theme_stardust_get_add_form extends moodleform {
         require_once($CFG->dirroot . '/enrol/locallib.php');
 
         $mform = $this->_form;
-        $mform->addElement('date_time_selector', 'reminderdate', get_string('dateandtime', 'theme_stardust'));
-        $mform->addHelpButton('reminderdate', 'reminderdate');
+        // $mform->addElement('date_time_selector', 'reminderdate', get_string('dateandtime', 'theme_stardust'));
+        $mform->addElement('date_time_selector', 'reminderdate');
     }
 }

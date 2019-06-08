@@ -61,7 +61,6 @@
 
     .popover-region-reminder-div {
         width: 47%;
-        // position: relative;
 
         &::before {
             content: '';
@@ -90,12 +89,29 @@
             border: none;
             border-bottom: 1px solid $d_blue;
         }
+
+        .row {
+            background: none;
+            margin-bottom: 0;
+        }
+        .col-md-3 {
+            display: none;
+        }
+        .col-md-9 {
+            max-width: 100%;
+            flex-basis: 100%;
+            .form-group {
+                margin-bottom: 5px;
+            }
+        }
+
     }
     .reminder {
         border-bottom: 1px solid #ddd;
     }
     .remindertext {
         flex-grow: 1;
+        justify-content: space-between;
     }
     .reminder_close {
         position: relative;
@@ -121,5 +137,24 @@
     .requared::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
         color: red;
         opacity: 1; /* Firefox */
+    }
+}
+#{$RTL} {
+    .popover-region-notifications {
+        .addanewreminder {
+            .form-group:nth-child(2) > span {
+                margin-right: 150px;
+            }
+        }
+    }
+}
+
+#{$LTR} {
+    .popover-region-notifications {
+        .addanewreminder {
+            .form-group:nth-child(3) > span {
+                margin-right: 65px;
+            }
+        }
     }
 }
