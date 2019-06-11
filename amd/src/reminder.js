@@ -179,7 +179,7 @@ define([
         },
 
         getAddForm: function() {
-            return Fragment.loadFragment('theme_stardust', 'get_add_form', 42, {})
+            return Fragment.loadFragment('theme_stardust', 'get_add_form', 10, {})
                      .fail(notification.exception);
         },
     };
