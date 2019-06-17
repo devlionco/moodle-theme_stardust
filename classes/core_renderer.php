@@ -47,7 +47,7 @@ require_once ($CFG->libdir . '/coursecatlib.php');
 require_once ($CFG->dirroot . "/message/lib.php");
 require_once ($CFG->libdir . '/badgeslib.php');
 require_once ($CFG->libdir . '/externallib.php');
-
+require_once($CFG->dirroot.'/message/output/popup/lib.php');
 /**
  * Renderers to align Moodle's HTML with that expected by Bootstrap
  *
@@ -269,7 +269,6 @@ class core_renderer extends \theme_boost\output\core_renderer {
      */
     public function navbar_plugin_output() {
         $output = '';
-
         if ($pluginsfunction = get_plugins_with_function('render_navbar_output')) {
             foreach ($pluginsfunction as $plugintype => $plugins) {
                 foreach ($plugins as $pluginfunction) {
@@ -277,10 +276,21 @@ class core_renderer extends \theme_boost\output\core_renderer {
                 }
             }
         }
-
         return $output;
     }
 
+    /**
+     * Allow plugins to provide some content to be rendered in the navbar. Without notifications.
+     * the HTML they wish to add to the navbar.
+     *
+     * @return string HTML for the navbar
+     */
+    public function notifications_output() {
+        $result = message_popup_render_navbar_output($this);
+        $output = preg_replace('/(<!--topblockpopover-region-messages--><div)/m', '(<!--topblockpopover-region-messages--><div style="display: none;" ', $result);
+        return $output;
+    }
+    
     protected function render_custom_menu(custom_menu $menu) {
         global $CFG;
 
