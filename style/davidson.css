@@ -48,6 +48,15 @@ div#menu2 {
     background: #def2f8;
 }
 
+/* add sections button */
+.add-sections {
+    background-color: #eee;
+    font-size: 1.2em;
+    border: solid 1px #ccc;
+    border-radius: 6px;
+    padding: 9px;
+}
+
 /* Custom CSS Settings
 -------------------------*/
 [[setting:customcss]]

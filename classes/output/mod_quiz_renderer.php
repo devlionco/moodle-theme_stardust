@@ -259,6 +259,8 @@ class theme_stardust_mod_quiz_renderer extends mod_quiz_renderer {
             $output .= html_writer::tag('style', '.info {display:none;}.dir-rtl .que .content, .que .content{margin:0;}');
         if ($layoutsetting['info_flag'] == '0')
             $output .= html_writer::tag('style', '.questionflag {display:none;}');
+        if ($layoutsetting['info_state'] == '0')
+            $output .= html_writer::tag('style', '.state {display:none;}'); // hanna 5/5/19
         if ($layoutsetting['info_question_number'] == '0')
             $output .= html_writer::tag('style', '.info .no {display:none;}');
         if ($layoutsetting['info_grade'] == '0')
