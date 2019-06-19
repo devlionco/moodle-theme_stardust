@@ -937,6 +937,13 @@ body#page-login-signup {
 #page #page-content #region-main {
   background-color: #fff; }
 
+/*
+.davidson .course-cards,
+.davidson .row,
+.davidson #page-content #region-main {
+  background-color: #FFFFFF; }
+*/
+
 /*fix for login page*/
 .pagelayout-login #page-content #region-main,
 .pagelayout-login .row {

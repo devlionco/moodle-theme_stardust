@@ -420,7 +420,8 @@ function stardust_activity_status($module) {
     $cmcomplstate = $cmcomplstateraw ? true : false; // completed or not activity
 
     // get module overrides
-    $module = get_module_overrides($module);
+    // TODO: FIX error invalidcoursemodule - userid = 1318 (nadavkav)
+    //$module = get_module_overrides($module);
 
     $activitystatus = array();
 
@@ -731,7 +732,7 @@ function theme_stardust_page_init ($page) {
 
 function theme_stardust_output_fragment_get_add_form($args) {
     global $CFG;
-    
+
     $mform = new theme_stardust_get_add_form(null, $args);
 
     ob_start();

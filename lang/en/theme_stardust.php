@@ -33,7 +33,7 @@ $string['tutorial_is_on'] = 'Tutorial is on';
 $string['tutorialisoffonthispage'] = 'Tutorial not defined on this page';
 $string['tutorialstart'] = 'Start tutorial on this page';
 //login page
-$string['entrance_to_moodle'] = 'Entrance to the Moodle system by the Stardust Institute';
+$string['entrance_to_moodle'] = 'Entrance to the Moodle system by the Davidson Institute';
 $string['username'] = 'Username';
 $string['password'] = 'Password';
 $string['forgot_username'] = 'Forgot username';
@@ -42,7 +42,7 @@ $string['enter'] = 'Enter';
 $string['sign_google'] = 'Sign in via Google';
 $string['sign_facebook'] = 'Sign via Facebook';
 $string['entry_ministry_education'] = 'Entry through the Ministry of Education';
-$string['stardust_website'] = 'To the Stardust Institute website';
+$string['stardust_website'] = 'To the Davidson Institute website';
 $string['to_list_courses'] = 'To the list of courses';
 $string['greeting'] = 'Welcome!';
 $string['about'] = 'About';

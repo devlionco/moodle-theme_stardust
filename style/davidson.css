@@ -38,6 +38,25 @@ div#menu2 {
     top: 0 !important;
 }
 
+/* quiz */
+#page-mod-quiz-review .mod_quiz-next-nav{
+    font-size: 1.4em;
+    border: #0A246A solid 1px;
+    border-radius:8px;
+    margin: 15px;
+    padding: 8px;
+    background: #def2f8;
+}
+
+/* add sections button */
+.add-sections {
+    background-color: #eee;
+    font-size: 1.2em;
+    border: solid 1px #ccc;
+    border-radius: 6px;
+    padding: 9px;
+}
+
 /* Custom CSS Settings
 -------------------------*/
 [[setting:customcss]]
