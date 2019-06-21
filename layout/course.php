@@ -26,7 +26,6 @@ defined('MOODLE_INTERNAL') || die();
 
 user_preference_allow_ajax_update('drawer-open-nav', PARAM_ALPHA);
 require_once($CFG->libdir . '/behat/lib.php');
-require_once($CFG->dirroot . '/mod/attendance/classes/summary.php');
 require_once($CFG->libdir . "/completionlib.php");
 include_once(__DIR__ . '../../classes/classStardustHelper.php');
 global $DB,$COURSE, $USER;
@@ -38,24 +37,25 @@ $PAGE->set_title($course->shortname);
 /**
  *  Get attednance info
  */
-$attmodid = $DB->get_record('modules', array('name' => 'attendance'), 'id')->id; // get attendance module id in system
-$att = $DB->get_record('course_modules', array('course' => $course->id, 'module' => $attmodid, 'deletioninprogress' => 0), 'instance', IGNORE_MULTIPLE); // get first attedndance instance on current course
-if (!$att) {
-    // don't get attendance info
-} else {
-    $attsummaryobj = new mod_attendance_summary($att->instance, $USER->id); // get attendance summary object for current user
-    $attendanceinfo = $attsummaryobj->get_all_sessions_summary_for($USER->id);
+$attmod = $DB->get_record('modules', array('name' => 'attendance'), 'id'); // get attendance module id in system
+if ($attmod) {
+    $att = $DB->get_record('course_modules', array('course' => $course->id, 'module' => $attmod->id, 'deletioninprogress' => 0), 'instance', IGNORE_MULTIPLE); // get first attedndance instance on current course
 
-    $attendanceinfo->takensessionspoints = round($attendanceinfo->takensessionspoints);
-    $attendanceinfo->allsessionsmaxpoints = round($attendanceinfo->allsessionsmaxpoints);
+    if ($att) {
+        require_once($CFG->dirroot . '/mod/attendance/classes/summary.php');
+        $attsummaryobj = new mod_attendance_summary($att->instance, $USER->id); // get attendance summary object for current user
+        $attendanceinfo = $attsummaryobj->get_all_sessions_summary_for($USER->id);
 
-    $attendanceinfo->percent = 0;
-    $attendanceinfo->angle = 0;
-    if ($attendanceinfo->allsessionsmaxpoints) {
-      $attendanceinfo->percent = round($attendanceinfo->takensessionspoints/ $attendanceinfo->allsessionsmaxpoints, 2 ,PHP_ROUND_HALF_UP);
-      $attendanceinfo->angle = round(M_PI * 2 * $attendanceinfo->percent, 2, PHP_ROUND_HALF_UP);
+        $attendanceinfo->takensessionspoints = round($attendanceinfo->takensessionspoints);
+        $attendanceinfo->allsessionsmaxpoints = round($attendanceinfo->allsessionsmaxpoints);
+
+        $attendanceinfo->percent = 0;
+        $attendanceinfo->angle = 0;
+        if ($attendanceinfo->allsessionsmaxpoints) {
+          $attendanceinfo->percent = round($attendanceinfo->takensessionspoints/ $attendanceinfo->allsessionsmaxpoints, 2 ,PHP_ROUND_HALF_UP);
+          $attendanceinfo->angle = round(M_PI * 2 * $attendanceinfo->percent, 2, PHP_ROUND_HALF_UP);
+        }
     }
-
 }
 ////////// end attendance info
 
@@ -273,7 +273,7 @@ $templatecontext = [
     'hasregionmainsettingsmenu' => !empty($regionmainsettingsmenu),
     'sitesettingsbutton' => true,
     'coursename' => $course->shortname,
-    'coursfullname' => ($courseformat['showcoursefullname'] == 1) ? $course->fullname : false,
+    'coursfullname' => (isset($courseformat['showcoursefullname']) and $courseformat['showcoursefullname'] == 1) ? $course->fullname : false,
     'display_units' => (isset($courseformat['displayunits'])) ? $courseformat['displayunits'] : false,
     // 'display_messages' => (isset($courseformat['displaymessages'])) ? $courseformat['displaymessages'] : false, // SG - T-322
     'display_messages' => true, // always show teacher messages block -- SG T-322

@@ -69,7 +69,7 @@ require_once($CFG->libdir . '/behat/lib.php');
     // 'lti' => '',
     // 'page' => '',
     'quiz' => 'm.timeopen as opendate',
-    'questionnaire' => 'm.closedate as cutoffdate, m.opendate',
+    //'questionnaire' => 'm.closedate as cutoffdate, m.opendate',
     // 'resource' => '',
     // 'scorm' => '',
     // 'survey' => '',

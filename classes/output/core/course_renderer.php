@@ -10,7 +10,7 @@ use stdClass;
 use completion_info;
 
 use cm_info;
-use Locker\XApi\Object;
+//use Locker\XApi\Object;
 use moodle_url;
 use context_course;
 use pix_icon;

@@ -28,7 +28,7 @@ defined('MOODLE_INTERNAL') || die();
 $page = new admin_settingpage('theme_fordson_images', get_string('imagesettings', 'theme_fordson'));
 
 // Show hide user enrollment toggle.
-$name = 'theme_fordson/showcourseheaderimage';
+$name = 'theme_stardust/showcourseheaderimage';
 $title = get_string('showcourseheaderimage', 'theme_fordson');
 $description = get_string('showcourseheaderimage_desc', 'theme_fordson');
 $default = 1;
@@ -37,7 +37,7 @@ $setting->set_updatedcallback('theme_reset_all_caches');
 $page->add($setting);
 
 // Favicon upload.
-$name = 'theme_fordson/favicon';
+$name = 'theme_stardust/favicon';
 $title = get_string ( 'favicon', 'theme_fordson' );
 $description = get_string ( 'favicon_desc', 'theme_fordson' );
 $setting = new admin_setting_configstoredfile( $name, $title, $description, 'favicon', 0,
@@ -76,7 +76,7 @@ $setting = new admin_setting_heading($name, $heading, $information);
 $page->add($setting);
 
 // Default header image.
-$name = 'theme_fordson/headerdefaultimage';
+$name = 'theme_stardust/headerdefaultimage';
 $title = get_string('headerdefaultimage', 'theme_fordson');
 $description = get_string('headerdefaultimage_desc', 'theme_fordson');
 $setting = new admin_setting_configstoredfile($name, $title, $description, 'headerdefaultimage');
@@ -84,7 +84,7 @@ $setting->set_updatedcallback('theme_reset_all_caches');
 $page->add($setting);
 
 // Default background image.
-$name = 'theme_fordson/backgroundimage';
+$name = 'theme_stardust/backgroundimage';
 $title = get_string('backgroundimage', 'theme_fordson');
 $description = get_string('backgroundimage_desc', 'theme_fordson');
 $setting = new admin_setting_configstoredfile($name, $title, $description, 'backgroundimage');
@@ -92,7 +92,7 @@ $setting->set_updatedcallback('theme_reset_all_caches');
 $page->add($setting);
 
 // Default login page image.
-$name = 'theme_fordson/loginimage';
+$name = 'theme_stardust/loginimage';
 $title = get_string('loginimage', 'theme_fordson');
 $description = get_string('loginimage_desc', 'theme_fordson');
 $setting = new admin_setting_configstoredfile($name, $title, $description, 'loginimage');

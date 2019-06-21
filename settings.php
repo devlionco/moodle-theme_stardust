@@ -40,23 +40,24 @@ if ($ADMIN->fulltree) {
     // Note new tabs layout for admin settings pages.
     $settings = new theme_boost_admin_settingspage_tabs('themesettingstardust', get_string('configtitle', 'theme_stardust'));
 
-    require($CFG->dirroot .'/theme/fordson/settings/presets_settings.php');
-    require($CFG->dirroot .'/theme/fordson/settings/colours_settings.php');
-    require($CFG->dirroot .'/theme/fordson/settings/menu_settings.php');
-    require($CFG->dirroot .'/theme/fordson/settings/content_settings.php');
-    require($CFG->dirroot .'/theme/stardust/settings/image_settings.php'); // Override image settings tab.
-    //require($CFG->dirroot .'/theme/fordson/settings/footer_settings.php');
-    require($CFG->dirroot .'/theme/fordson/settings/fpicons_settings.php');
-    require($CFG->dirroot .'/theme/fordson/settings/markettiles_settings.php');
-    require($CFG->dirroot .'/theme/fordson/settings/slideshow_settings.php');
+    require($CFG->dirroot .'/theme/stardust/settings/presets_settings.php');
+    require($CFG->dirroot .'/theme/stardust/settings/presets_adjustments_settings.php');
+    require($CFG->dirroot .'/theme/stardust/settings/image_settings.php'); 
+    require($CFG->dirroot .'/theme/stardust/settings/colours_settings.php');
+    require($CFG->dirroot .'/theme/stardust/settings/content_settings.php');
+    require($CFG->dirroot .'/theme/stardust/settings/menu_settings.php');
+    require($CFG->dirroot .'/theme/stardust/settings/fpicons_settings.php');
+    require($CFG->dirroot .'/theme/stardust/settings/modchooser_settings.php');
+    require($CFG->dirroot .'/theme/stardust/settings/slideshow_settings.php');
+    require($CFG->dirroot .'/theme/stardust/settings/markettiles_settings.php');
+    //require($CFG->dirroot .'/theme/stardust/settings/footer_settings.php');
     // OCJ HILLBROOK MOD
-    require($CFG->dirroot .'/theme/fordson/settings/modchooser_settings.php');
-    //require($CFG->dirroot .'/theme/fordson/settings/customlogin_settings.php');
+    //require($CFG->dirroot .'/theme/stardust/settings/customlogin_settings.php');
 
 
     /* My dahsboard setup PAGE */
     $page = new admin_settingpage('theme_stardust_mydashboardsettigs', get_string('mydashboardsettigs', 'theme_stardust'));
-
+    
     // My dahsboard heading
     $name = 'theme_stardust/mydashboardsettigs';
     $heading = get_string('mydashboardsettigs', 'theme_stardust');
