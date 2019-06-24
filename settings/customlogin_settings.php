@@ -17,7 +17,7 @@
 /**
 * Social networking settings page file.
 *
-* @package    theme_fordson
+* @package    theme_stardust
 * @copyright  2016 Chris Kenniburg
 * 
 * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
@@ -26,7 +26,7 @@
 defined('MOODLE_INTERNAL') || die();
 
 // Icon Navigation);
-$page = new admin_settingpage('theme_fordson_customlogin', get_string('customloginheading', 'theme_fordson'));
+$page = new admin_settingpage('theme_stardust_customlogin', get_string('customloginheading', 'theme_fordson'));
 
 // This is the descriptor for icon One.
 $name = 'theme_stardust/customlogininfo';

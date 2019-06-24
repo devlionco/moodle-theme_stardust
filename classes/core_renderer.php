@@ -42,8 +42,10 @@ use action_menu_filler;
 use action_menu_link_secondary;
 use core_text;
 
+
 defined('MOODLE_INTERNAL') || die;
 
+require_once ($CFG->dirroot . "/course/renderer.php");
 require_once ($CFG->dirroot . "/message/lib.php");
 require_once ($CFG->libdir . '/badgeslib.php');
 require_once ($CFG->libdir . '/externallib.php');
@@ -265,7 +267,7 @@ class core_renderer extends \theme_fordson\output\core_renderer {
      * @return string HTML for the navbar
      */
     public function navbar_plugin_output() {
-        
+
         $output = '';
         if ($pluginsfunction = get_plugins_with_function('render_navbar_output')) {
             foreach ($pluginsfunction as $plugintype => $plugins) {
@@ -324,7 +326,7 @@ class core_renderer extends \theme_fordson\output\core_renderer {
 
     public function get_stardust_logo() {
         global $OUTPUT, $PAGE;
-        
+
         $outputen = $PAGE->theme->setting_file_url('headerlogo', 'headerlogo');
         $outputhe = $PAGE->theme->setting_file_url('headerlogohe', 'headerlogohe');
 

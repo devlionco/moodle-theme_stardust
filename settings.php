@@ -137,7 +137,7 @@ if ($ADMIN->fulltree) {
     $settings->add($page);
 
     /* Custom login */
-    $page = new admin_settingpage('theme_stardust_customlogin', get_string('customloginheading', 'theme_stardust'));
+    $page = new admin_settingpage('theme_stardust_login', get_string('loginheading', 'theme_stardust'));
 
     // Enable/disable custom message
     $name = 'theme_stardust/showloginmessage';

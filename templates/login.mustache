@@ -89,7 +89,6 @@
         }
 
     </style>
-    
 
     {{#showmessage}}
     <div class="alert alert-danger" style="text-align: center; margin-top: 80px;">
@@ -106,7 +105,9 @@
                 <section id="region-main" class="col-xs-12">
                     <p class = "dlogin__greeting">{{#str}}greeting , theme_stardust{{/str}}</p>
                     {{{ output.course_content_header }}}
+                    <!-- Before main-->
                     {{{ output.main_content }}}
+                    <!-- After main-->
                     {{{ output.course_content_footer }}}
                 </section>
             </div>
