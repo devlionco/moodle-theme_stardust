@@ -623,23 +623,28 @@ class core_renderer extends \theme_fordson\output\core_renderer {
         global $CFG, $DB, $USER;
         $certificates = array();
 
-        // get all user certificates from DB
-        $ucertdbraw = $DB->get_records_sql("
-        SELECT
-             ci.*, c.*, ci.timecreated as ctimecreated
-        FROM
-            {certificate_issues} ci
-            INNER JOIN {certificate} c ON c.id=ci.certificateid
-        WHERE
-            ci.userid = ?", array($USER->id));
+        // Check if table exists.
+        $exist = $DB->get_record_sql("SELECT * FROM information_schema.tables WHERE table_schema = ? AND table_name = '{certificate_issues}' LIMIT 1", array($CFG->dbname));
+        $exist2 = $DB->get_record_sql("SELECT * FROM information_schema.tables WHERE table_schema = ? AND table_name = '{certificate}' LIMIT 1", array($CFG->dbname));
+        
+        if ($exist and $exist2) {
+            // get all user certificates from DB
+            $ucertdbraw = $DB->get_records_sql("
+            SELECT
+                 ci.*, c.*, ci.timecreated as ctimecreated
+            FROM
+                {certificate_issues} ci
+                INNER JOIN {certificate} c ON c.id=ci.certificateid
+            WHERE
+                ci.userid = ?", array($USER->id));
 
-        // process each cert to add info
-        foreach ($ucertdbraw as $ucert) {
-            list($ccourse, $ccm) = get_course_and_cm_from_instance($ucert->id, 'certificate');
-            $ucert->cmid = $ccm->id;
-            $certificates[] = $ucert; // reorder certificates for mustache
+            // process each cert to add info
+            foreach ($ucertdbraw as $ucert) {
+                list($ccourse, $ccm) = get_course_and_cm_from_instance($ucert->id, 'certificate');
+                $ucert->cmid = $ccm->id;
+                $certificates[] = $ucert; // reorder certificates for mustache
+            }
         }
-
         return $certificates;
     }
 
