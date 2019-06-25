@@ -325,7 +325,7 @@ function get_activities_mydashboard($activitiesconf = array(), $numofrelevantact
         $relevantactivities = get_relevant_activities($activities, $numofrelevantactivities); // slice relevant activities to this amount
 
         // get courses cover images
-        $courseobj = new course_in_list($course);
+        $courseobj = new core_course_list_element($course);
         $coursecoverimgurl = '';
         foreach ($courseobj->get_course_overviewfiles() as $file) {
             $isimage = $file->is_valid_image();
@@ -686,7 +686,7 @@ function get_courses_cover_images ($course) {
     global $OUTPUT;
     global $PAGE;
 
-    $courseobj = new course_in_list($course);
+    $courseobj = new core_course_list_element($course);
     $coursecoverimgurl = '';
     foreach ($courseobj->get_course_overviewfiles() as $file) {
         $isimage = $file->is_valid_image();
@@ -725,16 +725,6 @@ function theme_stardust_page_init ($page) {
             redirect('/');
         }
     }
-
-    
-        
-        //error_log("\r\n SETTINGS ================  \n\r", 3, "/home/vad/proj/devlion/davidson/logs/set.log");
-        //error_log(print_r($PAGE->theme->settings, true), 3, "/home/vad/proj/devlion/davidson/logs/set.log");
-        //error_log("\r\n PARRENT --------------------  \n\r", 3, "/home/vad/proj/devlion/davidson/logs/set.log");
-        //$parentconfig = theme_config::load('fordson');
-        //error_log(print_r($parentconfig->settings, true), 3, "/home/vad/proj/devlion/davidson/logs/set.log");
-        
-        
     
     $PAGE->requires->js_call_amd('theme_stardust/reminder', 'init', array());
 }

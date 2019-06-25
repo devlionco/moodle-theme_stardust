@@ -34,7 +34,7 @@
  */
 
 $functions = array(
-    'send_mail_to_teacher' => array(
+    'theme_stardust_send_mail_to_teacher' => array(
         'classname'     => 'theme_stardust_external',
         'methodname'    => 'send_mail_to_teacher',
         'classpath'     => 'theme/stardust/externallib.php',

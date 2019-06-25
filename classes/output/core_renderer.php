@@ -49,7 +49,7 @@ require_once ($CFG->dirroot . "/course/renderer.php");
 require_once ($CFG->dirroot . "/message/lib.php");
 require_once ($CFG->libdir . '/badgeslib.php');
 require_once ($CFG->libdir . '/externallib.php');
-require_once($CFG->dirroot . '/message/output/popup/lib.php');
+require_once ($CFG->dirroot . '/message/output/popup/lib.php');
 
 /**
  * Renderers to align Moodle's HTML with that expected by Bootstrap
@@ -259,6 +259,14 @@ class core_renderer extends \theme_fordson\output\core_renderer {
         );
     }
 
+    public function edit_button_fhs() {
+        return parent::edit_button_fhs();
+    }
+    
+    public function teacherdashmenu() {
+        return parent::teacherdashmenu();
+    }
+    
     /**
      * Allow plugins to provide some content to be rendered in the navbar.
      * The plugin must define a PLUGIN_render_navbar_output function that returns

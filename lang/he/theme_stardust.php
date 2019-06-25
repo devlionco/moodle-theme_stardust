@@ -133,6 +133,8 @@ $string['headerlogo_desc'] = 'This logo will be displayed if an user choose Engl
 $string['headerlogohe'] = 'Header Logo for Hebrew language';
 $string['headerlogohe_desc'] = 'This logo will be displayed if an user choose Hebrew language.';
 
+$string['loginheading'] = 'Login Page';
+
 // profile page
 $string['profile_greeting'] = 'הי! זהו עמוד הפרופיל שלך ›';
 $string['profile_picture'] = 'תמונת פרופיל';

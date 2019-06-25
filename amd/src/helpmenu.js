@@ -87,7 +87,7 @@ define(['jquery', 'core/ajax', 'core/log', 'core/str'], function($, Ajax, log, S
       });
 
       Ajax.call([{
-          methodname: 'send_mail_to_teacher',
+          methodname: 'theme_stardust_send_mail_to_teacher',
           args: {text: text, userid: userid, courseid: courseid},
           done: function(response) {
               if (response === '1') {

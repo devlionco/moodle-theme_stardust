@@ -76,12 +76,13 @@ $string['smalllogodesc'] = 'The small logo is displayed in the navigation bar. I
 // setting from fordson
 
 // Theme strings.
-$string['choosereadme'] = 'Fordson provides a unique visual experience to the default Boost theme with customization features such as color choosers and enhanced homepage experience.';
+$string['choosereadme'] = 'Stardust provides a unique visual experience to the default Boost theme with customization features such as color choosers and enhanced homepage experience.';
 $string['region-side-pre'] = 'Right';
 $string['generalsettings'] = 'General settings';
 $string['advancedsettings'] = 'Advanced settings';
 $string['iconnavheading'] = 'Icon Navigation';
 $string['customloginheading'] = 'Custom Login Page';
+$string['loginheading'] = 'Login Page';
 $string['iconnavheadingsub'] = 'Create Buttons with Icons for use on the homepage.  Links can go anywhere.';
 $string['section_mods'] = 'Modules:';
 $string['nomycourses'] = 'You are not enrolled in any courses.';
