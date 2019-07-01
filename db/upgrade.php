@@ -2,7 +2,9 @@
 function xmldb_theme_stardust_upgrade($oldversion) {
     global $CFG, $DB;
 
-    if ($oldversion < 2019052020) {
+    $dbman = $DB->get_manager();
+
+    if ($oldversion < 2019070100) {
 
       // Define table theme_stardust_reminders to be created.
       $table = new xmldb_table('theme_stardust_reminders');
@@ -23,7 +25,7 @@ function xmldb_theme_stardust_upgrade($oldversion) {
       }
 
       // Stardust savepoint reached.
-      upgrade_plugin_savepoint(true, 2019052000, 'theme', 'stardust');
+      upgrade_plugin_savepoint(true, 2019070100, 'theme', 'stardust');
     }
 
     $result = TRUE;
