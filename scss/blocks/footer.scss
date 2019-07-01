@@ -1,12 +1,14 @@
 
-#page-wrapper{
-  margin-bottom: -90px;
+ #page-wrapper{
+  /* margin-bottom: -90px; */
+  height: auto;
+  min-height: 100%;
   padding-bottom: 0;
   &:after {
     min-height:90px;
   }
 }
-
+ 
   #page-footer{
     color: $white;
     background-color: $d_blue !important;
