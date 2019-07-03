@@ -16,7 +16,7 @@
 
 /**
  *
- * @package    themestardust_reminders
+ * @package    theme_stardust
  * @copyright  devlion.co
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
@@ -26,7 +26,7 @@ require_once(dirname(__FILE__) . '/../../../config.php');
 require_once($CFG->libdir . '/enrollib.php');
 
 /**
- * Description of hypertext_request
+ * themestardust_reminders
  *
  */
 class reminders {
@@ -36,34 +36,6 @@ class reminders {
 
         $allreminders = array();
         $counthappend = 0;
-
-        // Check course messages and show it in the reminders list at first.
-        $courses = enrol_get_users_courses($USER->id, true);
-        if ($courses) {
-
-            $courseids = implode(",", array_keys($courses));
-
-            $sql = "SELECT *
-                    FROM {theme_stardust_messages}
-                    WHERE status = 1
-                        AND courseid IN ($courseids)
-            ";
-            $coursemessages = $DB->get_records_sql($sql);
-            if ($coursemessages) {
-                foreach($coursemessages as $rem) {
-                    // $counthappend ++;
-                    $remindtime = self::get_remind_time($rem->timestatusupdate);
-                    $allreminders[] = array(
-                        'id' => $rem->id,
-                        'text' => $rem->message,
-                        'remindtime' => $remindtime,
-                        'time' => $rem->timestatusupdate,
-                        'happend' => 1,
-                        'removable' => 0
-                    );
-                }
-            }
-        }
 
         $reminders = $DB->get_records('theme_stardust_reminders', array('userid' => $USER->id), 'timeremind');
         if (count($reminders)) {

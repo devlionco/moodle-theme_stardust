@@ -1,6 +1,7 @@
 <?php
 //require_once('../../../config.php');
 require_once($CFG->libdir . '/datalib.php');
+require_once($CFG->libdir . '/enrollib.php');
 include_once($CFG->dirroot . '/theme/stardust/lib.php');
 
 
@@ -222,7 +223,7 @@ class classAjax
      *
      */
     private function send_course_message() {
-        global $CFG, $DB;
+        global $CFG, $DB, $USER, $COURSE;
         $userid  = required_param('user', PARAM_INT);
         $courseid = required_param('courseid', PARAM_INT);
         $message = required_param('message', PARAM_RAW);
@@ -245,7 +246,36 @@ class classAjax
         } else {
             $DB->insert_record('theme_stardust_messages', $record);
         }
-
+        
+        if ($status) {
+            // Send message in notifications.
+            
+            $coursename = $COURSE->shortname;
+            $coursefullname = $COURSE->fullname;
+            $fullmessage = "A new message from " . $USER->firstname . " " . $USER->lastname . " in the course " . $coursefullname . ":<br>" . $message;
+            
+            $notif = new \core\message\message();
+            $notif->component = 'theme_stardust';
+            $notif->name = 'stardust_course_notification';
+            $notif->userfrom = $USER->id;
+            $notif->subject = 'Teacher message from the course '.$coursename;
+            $notif->fullmessage = '';
+            $notif->fullmessageformat = FORMAT_HTML;
+            $notif->fullmessagehtml = $fullmessage;
+            $notif->smallmessage = '';
+            $notif->notification = '1';
+            $notif->contexturl = $CFG->wwwroot . "/course/view.php?id=" . $courseid;
+            $notif->contexturlname = $coursename;
+            $notif->courseid = $courseid; 
+            
+            $users = enrol_get_course_users($courseid);
+            if ($users) {
+                foreach ($users as $courseuser) {
+                    $notif->userto = $courseuser->id;
+                    $notifid = message_send($notif);
+                }
+            }
+        }
     }
     /**
      * Funtion saves teachers course message show/hide status to theme_stardust_messages table

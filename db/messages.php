@@ -15,20 +15,19 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Version file.
- *
- *
+ * Theme startdust messages
+ * 
  * @package    theme_stardust
- * @copyright  2013 Moodle, moodle.org
+ * @copyright  devlion.co
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
+defined('MOODLE_INTERNAL') || die();
 
-defined('MOODLE_INTERNAL') || die;
-
-$plugin->version   = 2019052013;
-$plugin->requires  = 2017110800;
-$plugin->component = 'theme_stardust';
-$plugin->dependencies = array(
-    'theme_fordson'  => 2018020300,
-    'theme_boost'  => 2016120500,
+$messageproviders = array (
+    // Teacher course message.
+    'stardust_course_notification' => array(
+        'defaults' => array(
+            'popup' => MESSAGE_PERMITTED + MESSAGE_DEFAULT_LOGGEDIN + MESSAGE_DEFAULT_LOGGEDOFF,
+        ),
+    )
 );

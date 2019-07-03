@@ -731,7 +731,7 @@ function theme_stardust_page_init ($page) {
 
 function theme_stardust_output_fragment_get_add_form($args) {
     global $CFG;
-    
+    $o = '';
     $mform = new theme_stardust_get_add_form(null, $args);
 
     ob_start();

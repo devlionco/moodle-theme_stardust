@@ -101,4 +101,4 @@ $THEME->layouts = [
 
 $THEME->rendererfactory = 'theme_overridden_renderer_factory';
 $THEME->csspostprocess = 'theme_stardust_process_css';
-
+$THEME->settings->showcustomlogin = 0;
