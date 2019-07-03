@@ -58,9 +58,6 @@ define(['jquery', 'theme_stardust/ajax'], function($, ajax){
         e.preventDefault();
         message.removeAttribute('readonly');
       }, true);
-      message.addEventListener('blur', function(e) {
-        submit.click();
-      }, true);
 
       message.addEventListener('keyup', function(e) {
         e.preventDefault();
