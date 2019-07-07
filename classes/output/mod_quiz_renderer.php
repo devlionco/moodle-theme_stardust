@@ -111,15 +111,15 @@ class theme_stardust_mod_quiz_renderer extends mod_quiz_renderer {
     public function navigation_panel(quiz_nav_panel_base $panel) {
 
         $output = '';
-        $userpicture = $panel->user_picture();
-        if ($userpicture) {
-            $fullname = fullname($userpicture->user);
-            if ($userpicture->size === true) {
-                $fullname = html_writer::div($fullname);
-            }
-            $output .= html_writer::tag('div', $this->render($userpicture) . $fullname,
-                    array('id' => 'user-picture', 'class' => 'clearfix'));
-        }
+        // $userpicture = $panel->user_picture();
+        // if ($userpicture) {
+        //     $fullname = fullname($userpicture->user);
+        //     if ($userpicture->size === true) {
+        //         $fullname = html_writer::div($fullname);
+        //     }
+        //     $output .= html_writer::tag('div', $this->render($userpicture) . $fullname,
+        //             array('id' => 'user-picture', 'class' => 'clearfix'));
+        // }
         $output .= $panel->render_before_button_bits($this);
 
         $bcc = $panel->get_button_container_class();
