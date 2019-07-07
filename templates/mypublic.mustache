@@ -381,12 +381,12 @@ require(['jquery'], function($) {
 
   $('#change_picture').on('click', function(e){
     e.stopPropagation();
-    $('#mform1').fadeToggle();
+    $('[data-form="useravatarform"]').fadeToggle();
   });
 
   $('#change_background').on('click', function(e){
     e.stopPropagation();
-    $('#mform2').fadeToggle();
+    $('[data-form="userbackgroundform"]').fadeToggle();
   });
 
 });

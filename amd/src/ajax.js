@@ -1,7 +1,6 @@
-define(['core/yui' , 'theme_stardust/popup'], function(Y, popup) {
-`use strict`;
+define(['core/yui', 'theme_stardust/popup'], function(Y, popup) {
 
-  let ajax = {
+  var ajax = {
 
     url: '/theme/stardust/ajax.php',
 
@@ -9,21 +8,19 @@ define(['core/yui' , 'theme_stardust/popup'], function(Y, popup) {
 
     sesskey: M.cfg.sesskey,
 
-    send: function(){
+    send: function() {
 
       this.data.sesskey = this.sesskey;
 
       Y.io(M.cfg.wwwroot + this.url, {
           method: 'POST',
           data: this.data,
-          headers: {
-              //'Content-Type': 'application/json'
-          },
+          headers: {},
           on: {
-              success: function (id, response) {
+              success: function(id, response) {
 
               },
-              failure: function () {
+              failure: function() {
                 popup.error();
               }
           }
@@ -31,21 +28,19 @@ define(['core/yui' , 'theme_stardust/popup'], function(Y, popup) {
 
     },
 
-    runWithRender: function(blockToRender){
+    runWithRender: function(blockToRender) {
 
       this.data.sesskey = this.sesskey;
 
       Y.io(M.cfg.wwwroot + this.url, {
           method: 'POST',
           data: this.data,
-          headers: {
-              //'Content-Type': 'application/json'
-          },
+          headers: {},
           on: {
-              success: function (id, response) {
+              success: function(id, response) {
                 blockToRender.innerHTML = response.responseText;
               },
-              failure: function () {
+              failure: function() {
                 popup.error();
               }
           }
@@ -53,27 +48,22 @@ define(['core/yui' , 'theme_stardust/popup'], function(Y, popup) {
 
     },
 
-    runPopup: function(){
-
-      let result;
+    runPopup: function() {
 
       this.data.sesskey = this.sesskey;
 
       Y.io(M.cfg.wwwroot + this.url, {
           method: 'POST',
           data: this.data,
-          headers: {
-              //'Content-Type': 'application/json'
-          },
+          headers: {},
           on: {
-              success: function (id, response) {
-                // popup.text = response.responseText;
-                let result = JSON.parse(response.responseText);
+              success: function(id, response) {
+                var result = JSON.parse(response.responseText);
                 popup.textHead = result.header;
                 popup.text = result.content;
                 popup.show();
               },
-              failure: function () {
+              failure: function() {
                 popup.error();
               }
           }
@@ -81,32 +71,30 @@ define(['core/yui' , 'theme_stardust/popup'], function(Y, popup) {
 
     },
 
-    setHTML: function(){
+    setHTML: function() {
 
       this.data.sesskey = this.sesskey;
-      const targetBlock = document.querySelector(this.data.target_block);
+      var targetBlock = document.querySelector(this.data.target_block);
 
       Y.io(M.cfg.wwwroot + this.url, {
           method: 'POST',
           data: this.data,
-          headers: {
-              //'Content-Type': 'application/json'
-          },
+          headers: {},
           on: {
-              success: function (id, response) {
+              success: function(id, response) {
                 popup.remove();
-                let result = JSON.parse(response.responseText);
-                targetBlock.innerHTML = result.content;;
+                var result = JSON.parse(response.responseText);
+                targetBlock.innerHTML = result.content;
               },
-              failure: function () {
+              failure: function() {
                 popup.error();
               }
           }
       });
     },
 
-  }
+  };
 
-  return ajax
+  return ajax;
 
 });

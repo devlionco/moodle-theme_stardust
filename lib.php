@@ -54,6 +54,39 @@ function theme_stardust_process_css($css, $theme) {
 }
 
 /**
+ * Returns the main SCSS content.
+ *
+ * @param theme_config $theme The theme config object.
+ * @return string
+ */
+function theme_stardust_get_main_scss_content($theme) {
+    global $CFG;
+
+    $scss = '';
+
+    // include css styles form boost
+    $scss .= file_get_contents($CFG->dirroot . '/theme/boost/scss/preset/default.scss');
+    // include styles form fordson
+    // $scss .= file_get_contents($CFG->dirroot . '/theme/fordson/scss/fordson_variables.scss');
+    // $scss .= file_get_contents($CFG->dirroot . '/theme/fordson/scss/styles.scss');
+    // include styles form stardust
+    $scss .= file_get_contents($CFG->dirroot . '/theme/stardust/scss/main.scss');
+
+    return $scss;
+}
+
+/**
+ * Post process the CSS tree.
+ *
+ * @param string $tree The CSS tree.
+ * @param theme_config $theme The theme config object.
+ */
+function theme_stardust_css_tree_post_processor($tree, $theme) {
+    $prefixer = new theme_boost\autoprefixer($tree);
+    $prefixer->prefix();
+}
+
+/**
  * Adds the logo to CSS.
  *
  * @param string $css The CSS.
@@ -725,7 +758,7 @@ function theme_stardust_page_init ($page) {
             redirect('/');
         }
     }
-    
+
     $PAGE->requires->js_call_amd('theme_stardust/reminder', 'init', array());
 }
 
@@ -740,4 +773,29 @@ function theme_stardust_output_fragment_get_add_form($args) {
     ob_end_clean();
 
     return $o;
+}
+
+/**
+ * Updates the provided users backround image at mypublic page
+ *
+ * @param stdClass $formdata An object that contains  information from form
+ * @param array $filemanageroptions
+ * @return bool True if the user was updated, false if it stayed the same.
+ */
+function update_background_img(stdClass $formdata, $filemanageroptions = array()) {
+    global $CFG, $DB;
+
+    $context = context_user::instance($formdata->id, MUST_EXIST);
+    $user = core_user::get_user($formdata->id, 'id', MUST_EXIST);
+
+    // Get file_storage to process files.
+    $fs = get_file_storage();
+    if (!empty($formdata->deletebackgroundimg)) {
+        // The user has chosen to delete the selected background
+        $fs->delete_area_files($context->id, 'theme_stardust', 'backgroundimg', $formdata->id); // Drop all images in area.
+    } else {
+        // Save newly uploaded file, this will avoid context mismatch for newly created users.
+        $fs->delete_area_files($context->id, 'theme_stardust', 'backgroundimg', $formdata->id); // Drop all images in area.
+        file_save_draft_area_files($formdata->backgroundimg, $context->id, 'theme_stardust', 'backgroundimg', $formdata->id, $filemanageroptions);
+    }
 }
