@@ -47,7 +47,7 @@ define(['jquery', 'jqueryui', 'core/str'], function($, jqui, str) {
             if (target.nodeName === "SPAN"){
               var inputNode = document.createElement('input');
               inputNode.classList += "input";
-              inputNode.type = (target.id === `birthday`)? 'date' : 'text';
+              inputNode.type = (target.id === 'birthday')? 'date' : 'text';
               inputNode.id = target.id;
               inputNode.dataset.edited = false;
               if (target.dataset.placeholder){
@@ -97,11 +97,9 @@ define(['jquery', 'jqueryui', 'core/str'], function($, jqui, str) {
             idnumber = dbdata.idnumber,
             fullname = dbdata.firstname +' '+ dbdata.lastname,
             email = dbdata.email,
-            // email2 = dbdata.email2,
             aim = dbdata.aim,
             phone1 = dbdata.phone1,
             phone2 = dbdata.phone2,
-            // gender = dbdata.gender,
             city = dbdata.city,
             address = dbdata.address,
             skype = dbdata.skype,

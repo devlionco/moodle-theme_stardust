@@ -26,12 +26,9 @@ defined('MOODLE_INTERNAL') || die();
 
 user_preference_allow_ajax_update('drawer-open-nav', PARAM_ALPHA);
 require_once($CFG->libdir . '/behat/lib.php');
-// $hasfhsdrawer = isset($PAGE->theme->settings->shownavdrawer) && $PAGE->theme->settings->shownavdrawer == 1;
-// if (isloggedin() && $hasfhsdrawer && isset($PAGE->theme->settings->shownavclosed) && $PAGE->theme->settings->shownavclosed == 0) {
-//     $navdraweropen = (get_user_preferences('drawer-open-nav', 'true') == 'true');
-// } else {
+
 //     $navdraweropen = false;
-// }
+
 
     /**
      * Returns an array of courses the user is enrolled, and for each course all of the assignments that the user can
@@ -88,31 +85,6 @@ if ($userbackgroundformdata = $userbackgroundform->get_data()) {
     echo '<meta http-equiv="refresh" content="0; url='.$CFG->wwwroot.'/my/" />';
 }
 
-/**
- * Updates the provided users backround image at mydashboard page
- *
- * @param stdClass $formdata An object that contains  information from form
- * @param array $filemanageroptions
- * @return bool True if the user was updated, false if it stayed the same.
- */
-function update_background_img(stdClass $formdata, $filemanageroptions = array()) {
-    global $CFG, $DB;
-
-    $context = context_user::instance($formdata->id, MUST_EXIST);
-    $user = core_user::get_user($formdata->id, 'id', MUST_EXIST);
-
-    // Get file_storage to process files.
-    $fs = get_file_storage();
-    if (!empty($formdata->deletebackgroundimg)) {
-        // The user has chosen to delete the selected background
-        $fs->delete_area_files($context->id, 'theme_stardust', 'dashbackgroundimg', $formdata->id); // Drop all images in area.
-    } else {
-        // Save newly uploaded file, this will avoid context mismatch for newly created users.
-        $fs->delete_area_files($context->id, 'theme_stardust', 'dashbackgroundimg', $formdata->id); // Drop all images in area.
-        file_save_draft_area_files($formdata->dashbackgroundimg, $context->id, 'theme_stardust', 'dashbackgroundimg', $formdata->id, $filemanageroptions);
-    }
-}
-
 $hasfhsdrawer = true;
 $extraclasses = [];
 if (isset($navdraweropen)) {
@@ -134,8 +106,6 @@ $blockshtmlc = $OUTPUT->blocks('fp-c');
 $checkblocka = strpos($blockshtmla, 'data-block=') !== false;
 $checkblockb = strpos($blockshtmlb, 'data-block=') !== false;
 $checkblockc = strpos($blockshtmlc, 'data-block=') !== false;
-//TODO  add to theme_stardust settings
-// $hasfpblockregion = ($PAGE->theme->settings->blockdisplay == 1) !== false;
 $hasfpblockregion = 1;
 
 $hascourseblocks = false;

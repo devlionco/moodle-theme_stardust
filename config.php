@@ -19,7 +19,7 @@
  * For full information about creating Moodle themes, see:
  * http://docs.moodle.org/dev/Themes_2.0
  *
- * @package   theme_clean
+ * @package   theme_stardust
  * @copyright 2013 Moodle, moodle.org
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
@@ -28,17 +28,10 @@ $THEME->name = 'stardust';
 
 $THEME->doctype = 'html5';
 $THEME->parents = array('boost', 'fordson');
-// $THEME->sheets = array('custom', 'stardust');
-$THEME->sheets = array('davidson');
+$THEME->sheets = array('custom');
 
-// SG - ugly hack to avoid warnings
-// TODO - need to import settings from Fordson correctly in settings.php or here, because now settings are saved under theme_fordson namesapce in DB at config_plugins table
-//$THEME->settings->blockdisplay = 1;
-//$THEME->settings->enhancedmydashboard = 1;
-
-// $THEME->scss = 'style';
 $THEME->scss = function($theme) {
-    return theme_boost_get_main_scss_content($theme);
+    return theme_stardust_get_main_scss_content($theme);
 };
 $THEME->yuicssmodules = array();
 $THEME->enable_dock = true;
@@ -100,5 +93,6 @@ $THEME->layouts = [
 ];
 
 $THEME->rendererfactory = 'theme_overridden_renderer_factory';
+$THEME->csstreepostprocessor = 'theme_stardust_css_tree_post_processor';
 $THEME->csspostprocess = 'theme_stardust_process_css';
 $THEME->settings->showcustomlogin = 0;

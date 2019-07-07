@@ -25,6 +25,7 @@ use core_completion\progress;
 
 require_once('mypublic_avatar_form.php');
 require_once('mypublic_background_form.php');
+require_once($CFG->libdir . '/behat/lib.php');
 
 defined('MOODLE_INTERNAL') || die();
 
@@ -103,30 +104,9 @@ foreach ($fields as $field) {
     } // !site admin
 }
 
-// first realization (for form) with disabled status -- SG TOREMOVE lately if jscontext works fine
-// foreach ($fields as $field) {
-//     $configvariable = 'field_lock_' . $field;
-//     if (isset($authplugin->config->{$configvariable})) {
-//         if ($authplugin->config->{$configvariable} === 'locked') {
-//             $fieldstatus = "{$field}_status";
-//             $user->{$fieldstatus} = 'disabled';
-//         } else if ($authplugin->config->{$configvariable} === 'unlockedifempty' and $user->{$field}!= '') {
-//             $fieldstatus = "{$field}_status";
-//             $user->{$fieldstatus} = 'disabled';
-//         }
-//     }
-// }
-
-
-
 user_preference_allow_ajax_update('drawer-open-nav', PARAM_ALPHA);
-require_once($CFG->libdir . '/behat/lib.php');
-//$hasfhsdrawer = isset($PAGE->theme->settings->shownavdrawer) && $PAGE->theme->settings->shownavdrawer == 1;
-// if (isloggedin() && $hasfhsdrawer && isset($PAGE->theme->settings->shownavclosed) && $PAGE->theme->settings->shownavclosed == 0) {
-//     $navdraweropen = (get_user_preferences('drawer-open-nav', 'true') == 'true');
-// } else {
-     $navdraweropen = false;
-// }
+
+$navdraweropen = false;
 $hasfhsdrawer = true;
 $extraclasses = [];
 if ($navdraweropen) {
@@ -144,8 +124,7 @@ if (isset($user->gender)) {
     $gender->men = 1;
   }else $gender->woman = 1;
 }
-//$a->oldversion = "$CFG->release (".sprintf('%.2f', $CFG->version).")";
-//$a->newversion = "$release (".sprintf('%.2f', $version).")";
+
 $templatecontext = [
 	'sitename' => format_string($SITE->shortname, true, ['context' => context_course::instance(SITEID) , "escape" => false]) ,
     'output' => $OUTPUT,
@@ -167,64 +146,40 @@ $templatecontext = [
 ];
 
 // create $jscontext, which later send as param to js_call_amd (mypublicpage)
-$jsuser = clone($user);                         // clone user object to avoid its modification
+$jsuser = $user;
+unset ($jsuser->password);
 $jsuser->locked = $locked;                      // add locked fields array
 $jsuser->unlockedifempty = $unlockedifempty;    // add unlockedifempty fields array
-unset ($jsuser->password);                      // remove password hash from the object
-$jscontext = json_encode($jsuser);              // make JSON
+$jscontext = json_encode($jsuser);
 
 $PAGE->requires->js_call_amd('theme_stardust/mypublicpage', 'init', array($jscontext));
 
 $templatecontext['flatnavigation'] = $PAGE->flatnav;
 echo $OUTPUT->render_from_template('theme_stardust/mypublic', $templatecontext);
 
-// Add form to update user avatar
-$useravatarform = new mypublic_avatar_form(new moodle_url($PAGE->url), array(
+
+// Add forms to update avatar and background
+// user avatar form
+$action = new moodle_url($PAGE->url);
+$customdata = array(
     //'editoroptions' => $editoroptions,
-    'filemanageroptions' => $filemanageroptions,
-    'user' => $user));
+    // 'filemanageroptions' => $filemanageroptions,
+    'user' => $user);
+$attruseravatar = array('data-form' => 'useravatarform');
+$useravatarform = new mypublic_avatar_form($action, $customdata, 'post', '', $attruseravatar);
 
 if ($useravatarformdata = $useravatarform->get_data()) {
     core_user::update_picture($useravatarformdata);
-    echo "<meta http-equiv='refresh' content='0; url=/user/profile.php' />";
+    echo "<meta http-equiv='refresh' content='0; url=".$CFG->wwwroot."/user/profile.php' />";
 }
 $useravatarform->display();
 
-// Add form to update user background img at mypublic page
-$userbackgroundform = new mypublic_background_form(new moodle_url($PAGE->url), array(
-    //'editoroptions' => $editoroptions,
-    //'filemanageroptions' => $filemanageroptions,
-    'user' => $user));
+// Background form
+$attruserbackground = array('data-form' => 'userbackgroundform');
+$userbackgroundform = new mypublic_background_form($action, $customdata, 'post', '', $attruserbackground);
 
 if ($userbackgroundformdata = $userbackgroundform->get_data()) {
     update_background_img($userbackgroundformdata);
-    echo "<meta http-equiv='refresh' content='0; url=/user/profile.php' />";
-    //redirect(new moodle_url('/user/profile.php', array('id' => $user->id)));
+    echo "<meta http-equiv='refresh' content='0; url=".$CFG->wwwroot."/user/profile.php' />";
 }
 $userbackgroundform->display();
-
-
-/**
- * Updates the provided users backround image at mypublic page
- *
- * @param stdClass $formdata An object that contains  information from form
- * @param array $filemanageroptions
- * @return bool True if the user was updated, false if it stayed the same.
- */
-function update_background_img(stdClass $formdata, $filemanageroptions = array()) {
-    global $CFG, $DB;
-
-    $context = context_user::instance($formdata->id, MUST_EXIST);
-    $user = core_user::get_user($formdata->id, 'id', MUST_EXIST);
-
-    // Get file_storage to process files.
-    $fs = get_file_storage();
-    if (!empty($formdata->deletebackgroundimg)) {
-        // The user has chosen to delete the selected background
-        $fs->delete_area_files($context->id, 'theme_stardust', 'backgroundimg', $formdata->id); // Drop all images in area.
-    } else {
-        // Save newly uploaded file, this will avoid context mismatch for newly created users.
-        $fs->delete_area_files($context->id, 'theme_stardust', 'backgroundimg', $formdata->id); // Drop all images in area.
-        file_save_draft_area_files($formdata->backgroundimg, $context->id, 'theme_stardust', 'backgroundimg', $formdata->id, $filemanageroptions);
-    }
-}
