@@ -25,7 +25,7 @@
 
 defined('MOODLE_INTERNAL') || die;
 
-$plugin->version   = 2019052002;
+$plugin->version   = 2019070300;
 $plugin->requires  = 2017110800;
 $plugin->component = 'theme_stardust';
 $plugin->dependencies = array(

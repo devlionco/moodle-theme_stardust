@@ -73,7 +73,7 @@ function xmldb_theme_stardust_upgrade($oldversion) {
         }
 
         // Stardust savepoint reached.
-        upgrade_plugin_savepoint(true, 2019052000, 'theme', 'stardust');
+        upgrade_plugin_savepoint(true, 2019052010, 'theme', 'stardust');
     }
 
     $result = TRUE;
