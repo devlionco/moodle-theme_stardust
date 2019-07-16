@@ -41,6 +41,7 @@ use theme_config;
 use action_menu_filler;
 use action_menu_link_secondary;
 use core_text;
+use theme_stardust_setting_menu;
 
 
 defined('MOODLE_INTERNAL') || die;
@@ -264,7 +265,62 @@ class core_renderer extends \theme_fordson\output\core_renderer {
     }
     
     public function teacherdashmenu() {
-        return parent::teacherdashmenu();
+        global $PAGE, $COURSE, $CFG, $DB, $OUTPUT;
+        $course = $this->page->course;
+        $context = context_course::instance($course->id);
+        $showincourseonly = isset($COURSE->id) && $COURSE->id > 1 && $PAGE->theme->settings->coursemanagementtoggle && isloggedin() && !isguestuser();
+        $haspermission = has_capability('enrol/category:config', $context) && $PAGE->theme->settings->coursemanagementtoggle && isset($COURSE->id) && $COURSE->id > 1;
+        $togglebutton = '';
+        $togglebuttonstudent = '';
+        $hasteacherdash = '';
+        $hasstudentdash = '';
+        $globalhaseasyenrollment = enrol_get_plugin('easy');
+        $coursehaseasyenrollment = '';
+        if ($globalhaseasyenrollment) {
+            $coursehaseasyenrollment = $DB->record_exists('enrol', array(
+                'courseid' => $COURSE->id,
+                'enrol' => 'easy'
+            ));
+            $easyenrollinstance = $DB->get_record('enrol', array(
+                'courseid' => $COURSE->id,
+                'enrol' => 'easy'
+            ));
+        }
+        if ($coursehaseasyenrollment && isset($COURSE->id) && $COURSE->id > 1) {
+            $easycodetitle = get_string('header_coursecodes', 'enrol_easy');
+            $easycodelink = new moodle_url('/enrol/editinstance.php', array(
+                'courseid' => $PAGE->course->id,
+                'id' => $easyenrollinstance->id,
+                'type' => 'easy'
+            ));
+        }
+        if (isloggedin() && ISSET($COURSE->id) && $COURSE->id > 1) {
+            $course = $this->page->course;
+            $context = context_course::instance($course->id);
+            $hasteacherdash = has_capability('moodle/course:viewhiddenactivities', $context);
+            $hasstudentdash = !has_capability('moodle/course:viewhiddenactivities', $context);
+            if (has_capability('moodle/course:viewhiddenactivities', $context)) {
+                $togglebutton = get_string('coursemanagementbutton', 'theme_fordson');
+            }
+            else {
+                $togglebuttonstudent = get_string('studentdashbutton', 'theme_fordson');
+            }
+        }
+        $siteadmintitle = get_string('siteadminquicklink', 'theme_fordson');
+        $siteadminurl = new moodle_url('/admin/search.php');
+        $hasadminlink = is_siteadmin();
+        $course = $this->page->course;
+        // Send to template.
+        $dashmenu = ['showincourseonly' => $showincourseonly, 'togglebutton' => $togglebutton, 'togglebuttonstudent' => $togglebuttonstudent, 'hasteacherdash' => $hasteacherdash, 'hasstudentdash' => $hasstudentdash, 'haspermission' => $haspermission, 'hasadminlink' => $hasadminlink, 'siteadmintitle' => $siteadmintitle, 'siteadminurl' => $siteadminurl, ];
+        // Attach easy enrollment links if active.
+        if ($globalhaseasyenrollment && $coursehaseasyenrollment) {
+            $dashmenu['dashmenu'][] = array(
+                'haseasyenrollment' => $coursehaseasyenrollment,
+                'title' => $easycodetitle,
+                'url' => $easycodelink
+            );
+        }
+        return $this->render_from_template('theme_stardust/teacherdashmenu', $dashmenu);
     }
     
     /**
@@ -299,6 +355,21 @@ class core_renderer extends \theme_fordson\output\core_renderer {
         return $output;
     }
 
+    public function edit_settings_button() {
+        global $COURSE;
+
+        $html = '';
+        $context = context_course::instance($COURSE->id);
+
+        if (has_capability('moodle/course:update', $context)){
+            $main_button = new theme_stardust_setting_menu();
+            $html .= $this->render($main_button->get_menu());
+        }
+
+        return $html;
+
+    }
+    
     protected function render_custom_menu(custom_menu $menu) {
         global $CFG;
 
