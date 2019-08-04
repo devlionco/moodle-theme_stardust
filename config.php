@@ -95,4 +95,12 @@ $THEME->layouts = [
 $THEME->rendererfactory = 'theme_overridden_renderer_factory';
 $THEME->csstreepostprocessor = 'theme_stardust_css_tree_post_processor';
 $THEME->csspostprocess = 'theme_stardust_process_css';
+//TODO Override theme settings fordson
 $THEME->settings->showcustomlogin = 0;
+$THEME->settings->blockdisplay = 0;
+$THEME->settings->enhancedmydashboard = 0;
+$THEME->settings->coursemanagementtoggle = 0;
+$THEME->settings->studentdashboardtextbox = 0;
+$THEME->settings->showstudentgrades = 0;
+$THEME->settings->showcourseadminstudents = 0;
+$THEME->settings->courseeditingcog = 0;
