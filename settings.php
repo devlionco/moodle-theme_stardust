@@ -45,4 +45,16 @@ if ($ADMIN->fulltree) {
     require($CFG->dirroot .'/theme/stardust/settings/helpcontact.php');
     require($CFG->dirroot .'/theme/stardust/settings/footer.php');
 
+    // Override theme settings fordson
+    require($CFG->dirroot .'/theme/stardust/settings/fordson/presets_settings.php');
+    require($CFG->dirroot .'/theme/stardust/settings/fordson/presets_adjustments_settings.php');
+    require($CFG->dirroot .'/theme/stardust/settings/fordson/image_settings.php');
+    require($CFG->dirroot .'/theme/stardust/settings/fordson/colours_settings.php');
+    require($CFG->dirroot .'/theme/stardust/settings/fordson/content_settings.php');
+    require($CFG->dirroot .'/theme/stardust/settings/fordson/menu_settings.php');
+    require($CFG->dirroot .'/theme/stardust/settings/fordson/fpicons_settings.php');
+    require($CFG->dirroot .'/theme/stardust/settings/fordson/modchooser_settings.php');
+    require($CFG->dirroot .'/theme/stardust/settings/fordson/slideshow_settings.php');
+    require($CFG->dirroot .'/theme/stardust/settings/fordson/markettiles_settings.php');
+
 }
