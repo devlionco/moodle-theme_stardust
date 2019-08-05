@@ -147,7 +147,16 @@ $templatecontext = [
 
 // create $jscontext, which later send as param to js_call_amd (mypublicpage)
 $jsuser = $user;
-unset ($jsuser->password);
+unset (
+  $jsuser->password,
+  $jsuser->firstaccess,
+  $jsuser->lastaccess,
+  $jsuser->lastlogin,
+  $jsuser->currentlogin,
+  $jsuser->descriptionformat,
+  $jsuser->lastnamephonetic,
+  $jsuser->firstnamephonetic
+);
 $jsuser->locked = $locked;                      // add locked fields array
 $jsuser->unlockedifempty = $unlockedifempty;    // add unlockedifempty fields array
 $jscontext = json_encode($jsuser);
