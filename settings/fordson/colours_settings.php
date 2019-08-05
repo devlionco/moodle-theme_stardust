@@ -144,4 +144,4 @@ $page->add(new admin_setting_heading('theme_fordson_colours', get_string('colour
     $page->add($setting);
 
 // Must add the page after definiting all the settings!
-// $settings->add($page);
+$settings->add($page);

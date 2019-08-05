@@ -251,4 +251,4 @@ $setting = new admin_setting_configtext($name, $title, $description, $default);
 $page->add($setting);
 
 // Must add the page after definiting all the settings!
-// $settings->add($page);
+$settings->add($page);

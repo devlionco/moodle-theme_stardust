@@ -165,4 +165,4 @@ $setting->set_updatedcallback('theme_reset_all_caches');
 $page->add($setting);
 
 // Must add the page after definiting all the settings!
-// $settings->add($page);
+$settings->add($page);
