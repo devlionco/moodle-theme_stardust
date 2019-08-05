@@ -1,14 +1,9 @@
-// Import moodle.scss from Boost to bring in all Boostrap/FA/Moodle scss components
-// @import "../../boost/scss/bootstrap/bootstrap";
-// // @import "../../boost/scss/fontawesome/moodle-path";
-// @import "../../boost/scss/fontawesome/font-awesome";
-// @import "../../boost/scss/moodle";
 
 @import "globals/font";
 @import "globals/slick"; // slider css
 @import "globals/slick-theme"; // slider css
 @import "variables";
-
+// main part
 @import "blocks/login";
 @import "blocks/footer";
 @import "blocks/header";
@@ -24,12 +19,10 @@
 @import "blocks/coursesactive";
 @import "blocks/coursesfinished";
 @import "blocks/help-menu";
-
 @import "blocks/mypublic-student";
 @import "blocks/accomplishments";
 @import "blocks/accomplishments-medals";
 @import "blocks/accomplishments-grades";
-
 @import "blocks/course-main-content";
 @import "blocks/incourse-header";
 @import "blocks/quizattempt";
