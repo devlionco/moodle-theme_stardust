@@ -74,12 +74,18 @@
         <div id="learningcontent">
 
         {{{ output.teacherdash }}}
-
-            <!--{{{ output.full_header }}}-->
+        
+            {{^showincourseheader}}
+              {{{ output.full_header }}}
+            {{/showincourseheader}}
 
             <div id="page-content" class="row">
                 <div id="region-main-box">
-                  {{>theme_stardust/incourse_header}}
+
+                  {{#showincourseheader}}
+                      {{>theme_stardust/incourse_header}}
+                  {{/showincourseheader}}
+
                     {{#hasregionmainsettingsmenu}}
                     <div id="region-main-settings-menu" class="hidden-print {{#hasblocks}}has-blocks{{/hasblocks}}">
                         <div> {{{ output.region_main_settings_menu }}} </div>

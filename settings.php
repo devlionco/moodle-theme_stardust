@@ -56,5 +56,6 @@ if ($ADMIN->fulltree) {
     require($CFG->dirroot .'/theme/stardust/settings/fordson/modchooser_settings.php');
     require($CFG->dirroot .'/theme/stardust/settings/fordson/slideshow_settings.php');
     require($CFG->dirroot .'/theme/stardust/settings/fordson/markettiles_settings.php');
+    require($CFG->dirroot .'/theme/stardust/settings/fordson/customlogin_settings.php');
 
 }

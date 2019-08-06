@@ -116,9 +116,16 @@ if ($PAGE->context && $PAGE->context->contextlevel == CONTEXT_COURSE) {
     $allcoursesectionsinfo = get_all_course_sections_info(get_fast_modinfo($PAGE->course));
 }
 
+$showincourseheader = false;
+$sectionlink = '';
+$textbacktosection = '';
+$activitylink = '';
+$textbacktoactivity = '';
+$allsectionactivities = array();
 // get info for header in cm level pages
 if ($PAGE->context && $PAGE->context->contextlevel == CONTEXT_MODULE && $PAGE->cm) {
     // define current section
+    $showincourseheader = true;
     $currentsectionnum = $PAGE->cm->sectionnum;
     $sectionlink = $courseformat->get_view_url($currentsectionnum);
     $textbacktosection = new lang_string('backtosection', 'theme_stardust', $courseformat->get_section_name($currentsectionnum));
@@ -204,6 +211,7 @@ $templatecontext = [
     'coursecoverimg' => get_courses_cover_images ($PAGE->course),
     'teachers' => $helpcontacts ?? null,
     'courseid' => $course->id,
+    'showincourseheader' => $showincourseheader,
 ];
 
 $templatecontext['flatnavigation'] = $PAGE->flatnav;
