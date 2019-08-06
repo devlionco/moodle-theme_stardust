@@ -158,7 +158,7 @@ if (isset($filterstate['pagemy_filterstate'])) {
 }
 
 $templatecontext = [
-	'sitename' => format_string($SITE->shortname, true, ['context' => context_course::instance(SITEID) , "escape" => false]) ,
+	  'sitename' => format_string($SITE->shortname, true, ['context' => context_course::instance(SITEID) , "escape" => false]) ,
     'output' => $OUTPUT,
     'showbacktotop' => isset($PAGE->theme->settings->showbacktotop) && $PAGE->theme->settings->showbacktotop == 1,
     'sidepreblocks' => $blockshtml,

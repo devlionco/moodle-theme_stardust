@@ -135,10 +135,10 @@ require(['theme_boost/drawer'], function(mod) {
 // cards course filter
 `use strict`;
 
-const container = document.querySelector(`.tab-pane.active ul`);
+const container = document.querySelector(`.courses-active`);
 const courses = Array.from(container.querySelectorAll(`li`));
 const filters = document.querySelector(`.filters`);
-
+console.dir(courses);
 const azfilter = document.querySelector(`.filters .az`);
 const zafilter = document.querySelector(`.filters .za`);
 
@@ -158,7 +158,7 @@ const compareNumeric = (a, b) => {
 }
 
 
-//(function (){
+(function (){
   if (azfilter){
     if (azfilter.classList.contains(`filter-abc`)){
       courses.sort(compareByCourseName);
@@ -176,7 +176,7 @@ const compareNumeric = (a, b) => {
   courses.forEach((course)=>{
     container.appendChild(course);
   });
-//})();
+})();
 
 filters.addEventListener('click', function(e){
   //e.target.classList.add(`active`);
