@@ -801,8 +801,3 @@ function update_background_img(stdClass $formdata, $filemanageroptions = array()
         file_save_draft_area_files($formdata->backgroundimg, $context->id, 'theme_stardust', 'backgroundimg', $formdata->id, $filemanageroptions);
     }
 }
-
-function change_layout_to_message() {
-  global $PAGE;
-  echo '<pre>'.print_r($PAGE,1).'</pre>'; exit();
-}
