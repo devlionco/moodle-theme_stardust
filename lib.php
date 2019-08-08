@@ -753,6 +753,8 @@ function theme_stardust_page_init ($page) {
     if (!isloggedin()) return;
     // Disable using messaging system for users, if they are prohoboted to use it.
     if (strpos($page->pagetype, 'message') !== false) {
+        // TODO Changes default layout for messages, in the theme_stardust the default layout (mydashbord) is heavily changed
+        $PAGE->set_pagelayout('standard');
         $usermessagesdisabled = get_user_preferences('messagesdisabled', 1, $USER);
         if ($usermessagesdisabled == 0) {
             redirect('/');
@@ -798,4 +800,9 @@ function update_background_img(stdClass $formdata, $filemanageroptions = array()
         $fs->delete_area_files($context->id, 'theme_stardust', 'backgroundimg', $formdata->id); // Drop all images in area.
         file_save_draft_area_files($formdata->backgroundimg, $context->id, 'theme_stardust', 'backgroundimg', $formdata->id, $filemanageroptions);
     }
+}
+
+function change_layout_to_message() {
+  global $PAGE;
+  echo '<pre>'.print_r($PAGE,1).'</pre>'; exit();
 }
