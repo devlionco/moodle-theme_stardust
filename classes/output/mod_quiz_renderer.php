@@ -236,7 +236,7 @@ class theme_stardust_mod_quiz_renderer extends mod_quiz_renderer {
      * @param int $id ID of the attempt
      * @param int $nextpage Next page number
      */
-    public function attempt_form($attemptobj, $page, $slots, $id, $nextpage, $showallquestions) {
+    public function attempt_form($attemptobj, $page, $slots, $id, $nextpage, $showallquestions = null) {
         $output = '';
 
         // Start the form.
@@ -249,6 +249,7 @@ class theme_stardust_mod_quiz_renderer extends mod_quiz_renderer {
 
         // special quiz page layout settings (show/hide html elements). // nadavkav 26/8/2015
           // undelete this after copying the DB from moodle31
+          /*
         $davidsonlayoutsettings = explode(',', $attemptobj->get_quiz()->davidson);
         foreach ($davidsonlayoutsettings as $setting) {
             list($key, $value) = explode('=', $setting);
@@ -265,7 +266,7 @@ class theme_stardust_mod_quiz_renderer extends mod_quiz_renderer {
             $output .= html_writer::tag('style', '.grade {display:none;}');
         if ($layoutsetting['quizsummary'] == '0')
             $output .= html_writer::tag('style', '.quizreviewsummary {display:none;}');
-
+*/
         // Davidson - end
 
         // Print all the questions.

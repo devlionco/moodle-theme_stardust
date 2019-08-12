@@ -45,10 +45,12 @@ function get_all_course_sections_info($courseinfo, $currentsectionnum = null) {
     // get pinned sctions array for picturelink course format
     if ($courseformat == "picturelink") {
         $plpinnedsecsraw = json_decode(course_get_format($PAGE->course)->get_course()->picturelinkpinnedsections);
-        $plpinnedsecs = array();
-        foreach ($plpinnedsecsraw as $num => $psec) {
-            if ($psec[1] == 1) {
-                $plpinnedsecs[] = substr($psec[0], 1);
+        $plpinnedsecs = array(); 
+        if ($plpinnedsecsraw) {
+            foreach ($plpinnedsecsraw as $num => $psec) {
+                if ($psec[1] == 1) {
+                    $plpinnedsecs[] = substr($psec[0], 1);
+                }
             }
         }
     }
