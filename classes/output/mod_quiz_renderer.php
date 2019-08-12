@@ -111,15 +111,15 @@ class theme_stardust_mod_quiz_renderer extends mod_quiz_renderer {
     public function navigation_panel(quiz_nav_panel_base $panel) {
 
         $output = '';
-        $userpicture = $panel->user_picture();
-        if ($userpicture) {
-            $fullname = fullname($userpicture->user);
-            if ($userpicture->size === true) {
-                $fullname = html_writer::div($fullname);
-            }
-            $output .= html_writer::tag('div', $this->render($userpicture) . $fullname,
-                    array('id' => 'user-picture', 'class' => 'clearfix'));
-        }
+        // $userpicture = $panel->user_picture();
+        // if ($userpicture) {
+        //     $fullname = fullname($userpicture->user);
+        //     if ($userpicture->size === true) {
+        //         $fullname = html_writer::div($fullname);
+        //     }
+        //     $output .= html_writer::tag('div', $this->render($userpicture) . $fullname,
+        //             array('id' => 'user-picture', 'class' => 'clearfix'));
+        // }
         $output .= $panel->render_before_button_bits($this);
 
         $bcc = $panel->get_button_container_class();
@@ -260,6 +260,8 @@ class theme_stardust_mod_quiz_renderer extends mod_quiz_renderer {
             $output .= html_writer::tag('style', '.info {display:none;}.dir-rtl .que .content, .que .content{margin:0;}');
         if ($layoutsetting['info_flag'] == '0')
             $output .= html_writer::tag('style', '.questionflag {display:none;}');
+        if ($layoutsetting['info_state'] == '0')
+            $output .= html_writer::tag('style', '.state {display:none;}'); // hanna 5/5/19
         if ($layoutsetting['info_question_number'] == '0')
             $output .= html_writer::tag('style', '.info .no {display:none;}');
         if ($layoutsetting['info_grade'] == '0')

@@ -37,6 +37,8 @@
 {{/hascourseblocks}}
 
 {{#js}}
+require(['jquery'], function($){
+
 const windowWidth = $(window).width();
 const blockWidth = $(".card-block").width();
 const curentLang = document.querySelector("html").dir;
@@ -98,4 +100,5 @@ $(".blockpanelbtn_clone").click(function() {
   }
 });
 
+});
 {{/js}}

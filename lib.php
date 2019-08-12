@@ -453,7 +453,8 @@ function stardust_activity_status($module) {
     $cmcomplstate = $cmcomplstateraw ? true : false; // completed or not activity
 
     // get module overrides
-    $module = get_module_overrides($module);
+    // TODO: FIX error invalidcoursemodule - userid = 1318 (nadavkav)
+    //$module = get_module_overrides($module);
 
     $activitystatus = array();
 
