@@ -47,10 +47,10 @@ use theme_stardust_setting_menu;
 defined('MOODLE_INTERNAL') || die;
 
 require_once ($CFG->dirroot . "/course/renderer.php");
-require_once ($CFG->dirroot . "/message/lib.php");
-require_once ($CFG->libdir . '/badgeslib.php');
-require_once ($CFG->libdir . '/externallib.php');
-require_once ($CFG->dirroot . '/message/output/popup/lib.php');
+//require_once ($CFG->dirroot . "/message/lib.php");
+//require_once ($CFG->libdir . '/badgeslib.php');
+//require_once ($CFG->libdir . '/externallib.php');
+//require_once ($CFG->dirroot . '/message/output/popup/lib.php');
 
 /**
  * Renderers to align Moodle's HTML with that expected by Bootstrap
@@ -263,7 +263,7 @@ class core_renderer extends \theme_fordson\output\core_renderer {
     public function edit_button_fhs() {
         return parent::edit_button_fhs();
     }
-    
+
     public function teacherdashmenu() {
         global $PAGE, $COURSE, $CFG, $DB, $OUTPUT;
         $course = $this->page->course;
@@ -322,14 +322,14 @@ class core_renderer extends \theme_fordson\output\core_renderer {
         }
         return $this->render_from_template('theme_stardust/teacherdashmenu', $dashmenu);
     }
-    
+
     /**
      * Allow plugins to provide some content to be rendered in the navbar.
      * The plugin must define a PLUGIN_render_navbar_output function that returns
      * the HTML they wish to add to the navbar.
      *
      * @return string HTML for the navbar
-     */
+
     public function navbar_plugin_output() {
 
         $output = '';
@@ -342,7 +342,7 @@ class core_renderer extends \theme_fordson\output\core_renderer {
         }
         return $output;
     }
-
+    */
     /**
      * Allow plugins to provide some content to be rendered in the navbar. Without notifications.
      * the HTML they wish to add to the navbar.
@@ -352,7 +352,7 @@ class core_renderer extends \theme_fordson\output\core_renderer {
     public function notifications_output() {
         $result = message_popup_render_navbar_output($this);
         $output = preg_replace('/(<!--topblockpopover-region-messages--><div)/m', '(<!--topblockpopover-region-messages--><div style="display: none;" ', $result);
-        return $output;
+        return $result;
     }
 
     public function edit_settings_button() {
@@ -369,7 +369,7 @@ class core_renderer extends \theme_fordson\output\core_renderer {
         return $html;
 
     }
-    
+
     protected function render_custom_menu(custom_menu $menu) {
         global $CFG;
 
@@ -697,7 +697,7 @@ class core_renderer extends \theme_fordson\output\core_renderer {
         // Check if table exists.
         $exist = $DB->get_record_sql("SELECT * FROM information_schema.tables WHERE table_schema = ? AND table_name = '{certificate_issues}' LIMIT 1", array($CFG->dbname));
         $exist2 = $DB->get_record_sql("SELECT * FROM information_schema.tables WHERE table_schema = ? AND table_name = '{certificate}' LIMIT 1", array($CFG->dbname));
-        
+
         if ($exist and $exist2) {
             // get all user certificates from DB
             $ucertdbraw = $DB->get_records_sql("
