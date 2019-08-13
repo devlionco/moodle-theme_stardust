@@ -18,12 +18,12 @@
     .messages_notifications {
         .float-right.popover-region.collapsed {
             background-image: url("[[pix:theme|header/message]]");
-            background-size: 20px;
+            background-size: 16px;
             background-repeat: no-repeat;
-            background-position: 50% 50%;
+            background-position: 50% 60%;
             i {
-                    display: none !important;
-                }
+                display: none !important;
+            }
         }
         .popover-region-notifications {
             .img-wrap {
