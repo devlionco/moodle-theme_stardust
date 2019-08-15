@@ -194,7 +194,8 @@ $sectionscompletion = array (
 );
 ////////// end study units counter (sectioncompletion info)
 
-$hasfhsdrawer = isset($PAGE->theme->settings->shownavdrawer) && $PAGE->theme->settings->shownavdrawer == 1;
+$hasviewcap = has_capability('moodle/course:ignoreavailabilityrestrictions', $PAGE->context);
+$hasfhsdrawer = isset($PAGE->theme->settings->shownavdrawer) && $PAGE->theme->settings->shownavdrawer == 1 && $hasviewcap;
 if (isloggedin() && $hasfhsdrawer && isset($PAGE->theme->settings->shownavclosed) && $PAGE->theme->settings->shownavclosed == 0) {
     $navdraweropen = (get_user_preferences('drawer-open-nav', 'true') == 'true');
 } else {

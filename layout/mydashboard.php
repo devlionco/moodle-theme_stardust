@@ -85,7 +85,8 @@ if ($userbackgroundformdata = $userbackgroundform->get_data()) {
     echo '<meta http-equiv="refresh" content="0; url='.$CFG->wwwroot.'/my/" />';
 }
 
-$hasfhsdrawer = true;
+$hasviewcap = has_capability('moodle/course:ignoreavailabilityrestrictions', $PAGE->context);
+$hasfhsdrawer = $hasviewcap;
 $extraclasses = [];
 if (isset($navdraweropen)) {
     $extraclasses[] = 'drawer-open-left';

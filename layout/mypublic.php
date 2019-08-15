@@ -107,7 +107,8 @@ foreach ($fields as $field) {
 user_preference_allow_ajax_update('drawer-open-nav', PARAM_ALPHA);
 
 $navdraweropen = false;
-$hasfhsdrawer = true;
+$hasviewcap = has_capability('moodle/course:ignoreavailabilityrestrictions', $PAGE->context);
+$hasfhsdrawer = $hasviewcap;
 $extraclasses = [];
 if ($navdraweropen) {
     $extraclasses[] = 'drawer-open-left';

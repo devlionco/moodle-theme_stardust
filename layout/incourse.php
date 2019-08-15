@@ -45,7 +45,7 @@ function get_all_course_sections_info($courseinfo, $currentsectionnum = null) {
     // get pinned sctions array for picturelink course format
     if ($courseformat == "picturelink") {
         $plpinnedsecsraw = json_decode(course_get_format($PAGE->course)->get_course()->picturelinkpinnedsections);
-        $plpinnedsecs = array(); 
+        $plpinnedsecs = array();
         if ($plpinnedsecsraw) {
             foreach ($plpinnedsecsraw as $num => $psec) {
                 if ($psec[1] == 1) {
@@ -106,7 +106,7 @@ function get_all_course_sections_info($courseinfo, $currentsectionnum = null) {
     return $sectionsinfo;
 }
 
-global $DB;
+global $DB, $PAGE;
 
 // get course back link
 $courseformat = course_get_format($PAGE->course);
@@ -157,7 +157,9 @@ if ($PAGE->context && $PAGE->context->contextlevel == CONTEXT_MODULE && $PAGE->c
     }
 }
 
-$hasfhsdrawer = isset($PAGE->theme->settings->shownavdrawer) && $PAGE->theme->settings->shownavdrawer == 1;
+
+$hasviewcap = has_capability('moodle/course:ignoreavailabilityrestrictions', $PAGE->context);
+$hasfhsdrawer = isset($PAGE->theme->settings->shownavdrawer) && $PAGE->theme->settings->shownavdrawer == 1 && $hasviewcap;
 if (isloggedin() && $hasfhsdrawer && isset($PAGE->theme->settings->shownavclosed) && $PAGE->theme->settings->shownavclosed == 0) {
     $navdraweropen = (get_user_preferences('drawer-open-nav', 'true') == 'true');
 } else {
