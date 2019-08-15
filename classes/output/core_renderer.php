@@ -298,7 +298,7 @@ class core_renderer extends \theme_fordson\output\core_renderer {
             $course = $this->page->course;
             $context = context_course::instance($course->id);
             $hasteacherdash = has_capability('moodle/course:viewhiddenactivities', $context);
-            $hasstudentdash = !has_capability('moodle/course:viewhiddenactivities', $context);
+            $hasstudentdash = ''; // !has_capability('moodle/course:viewhiddenactivities', $context); // Hide from students.
             if (has_capability('moodle/course:viewhiddenactivities', $context)) {
                 $togglebutton = get_string('coursemanagementbutton', 'theme_fordson');
             }
