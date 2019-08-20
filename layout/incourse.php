@@ -84,7 +84,7 @@ function get_all_course_sections_info($courseinfo, $currentsectionnum = null) {
             }
         }
 
-        //pinned sections for picturelink format
+        //Pinned sections for picturelink format
         if ($courseformat == "picturelink" && in_array($secinfo->id, $plpinnedsecs)) {
             $sectionsinfo['allcoursesectionspinned'][$secnum]['name'] = $secname;
             $sectionsinfo['allcoursesectionspinned'][$secnum]['customnumber'] = $seccustomnum;
@@ -92,6 +92,13 @@ function get_all_course_sections_info($courseinfo, $currentsectionnum = null) {
             if ($secnum == $currentsectionnum) {
                 $sectionsinfo['allcoursesectionspinned'][$secnum]['current'] = $secname;
             }
+        }
+
+        //Pinned sections for tiles format
+        if ($courseformat == "tiles" && !empty($secinfo->pinned)) {
+            $securl = new moodle_url('/course/view.php', array('id' => $PAGE->course->id));
+            $securl->param('section', $secnum);
+            $sectionsinfo['allcoursesectionspinned'][$secnum]['url'] = $securl;
         }
     }
 
