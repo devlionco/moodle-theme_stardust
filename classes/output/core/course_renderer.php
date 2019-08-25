@@ -700,18 +700,18 @@ class course_renderer extends \core_course_renderer {
         }
 
         //Questionnaire
-        if($mod->modname == 'questionnaire'){
-            $sid = $DB->get_record('questionnaire', array('id' => $mod->instance), 'sid');
-            $sql = "
-            SELECT *
-            FROM {questionnaire_response}
-            WHERE survey_id=? AND complete='y'
-            GROUP BY userid;
-        ";
-
-            $query = $DB->get_records_sql($sql, array($sid->sid));
-            $count = count($query);
-        }
+        // if($mod->modname == 'questionnaire'){
+        //     $sid = $DB->get_record('questionnaire', array('id' => $mod->instance), 'sid');
+        //     $sql = "
+        //     SELECT *
+        //     FROM {questionnaire_response}
+        //     WHERE survey_id=? AND complete='y'
+        //     GROUP BY userid;
+        // ";
+        //
+        //     $query = $DB->get_records_sql($sql, array($sid->sid));
+        //     $count = count($query);
+        // }
 
         //Assign
         if($mod->modname == 'assign'){
