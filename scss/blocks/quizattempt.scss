@@ -163,6 +163,11 @@
                             color: $primary-color;
                         }
                     }
+                    &.description {
+                        .qno {
+                            display: none;
+                        }
+                    }
                     p {
                         margin: 0;
                     }
