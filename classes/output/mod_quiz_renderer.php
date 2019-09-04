@@ -25,6 +25,7 @@
 
 defined('MOODLE_INTERNAL') || die();
 require_once($CFG->dirroot . '/mod/quiz/renderer.php');
+require_once($CFG->dirroot . '/mod/quiz/attemptlib.php');
 
 /**
  * The renderer for the quiz module.
@@ -237,6 +238,8 @@ class theme_stardust_mod_quiz_renderer extends mod_quiz_renderer {
      * @param int $nextpage Next page number
      */
     public function attempt_form($attemptobj, $page, $slots, $id, $nextpage, $showallquestions = null) {
+        global $PAGE;
+
         $output = '';
 
         // Start the form.
