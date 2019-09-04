@@ -65,7 +65,8 @@ class theme_stardust_setting_menu {
                     $this->renderablelinks = $this->create_menu_by_user($this->quiz_links(), $this->quiz_defineded_links());
                     break;
                 case 'quiz_attempt':
-                    $this->renderablelinks = $this->create_menu_by_user($this->quiz_links(), $this->quiz_defineded_links());
+                    //$this->renderablelinks = $this->create_menu_by_user($this->quiz_links(), $this->quiz_defineded_links());
+                    $this->renderablelinks = $this->create_menu_by_user($this->course_links(), $this->course_defineded_links());
                     break;
                 case 'category_index':
                 $this->renderablelinks = $this->create_menu_by_user($this->category_links(), $this->category_defineded_links());
@@ -601,10 +602,13 @@ class theme_stardust_setting_menu {
             $showcoursemenu = true;
         }
 
+        if ($PAGE->is_settings_menu_forced()) {
+            $showcoursemenu = true;
+        }
+
         $courseformat = course_get_format($PAGE->course);
         // This is a single activity course format, always show the course menu on the activity main page.
-        if ($context->contextlevel == CONTEXT_MODULE &&
-            !$courseformat->has_view_page()) {
+        if ($context->contextlevel == CONTEXT_MODULE) {
 
             $PAGE->navigation->initialise();
             $activenode = $PAGE->navigation->find_active_node();
@@ -614,6 +618,7 @@ class theme_stardust_setting_menu {
             } else if (!empty($activenode) && ($activenode->type == navigation_node::TYPE_ACTIVITY ||
                     $activenode->type == navigation_node::TYPE_RESOURCE)) {
 
+                $showcoursemenu = true;
                 // We only want to show the menu on the first page of the activity. This means
                 // the breadcrumb has no additional nodes.
                 if ($currentnode && ($currentnode->key == $activenode->key && $currentnode->type == $activenode->type)) {
