@@ -223,6 +223,7 @@ $templatecontext = [
     'teachers' => $helpcontacts ?? null,
     'courseid' => $course->id,
     'showincourseheader' => $showincourseheader,
+    'coursename' => $course->shortname,
 ];
 
 $templatecontext['flatnavigation'] = $PAGE->flatnav;

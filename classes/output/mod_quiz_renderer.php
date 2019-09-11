@@ -72,7 +72,10 @@ class theme_stardust_mod_quiz_renderer extends mod_quiz_renderer {
 
         $output .= html_writer::start_tag('div', array('class' => 'quiz_header'));
         $output .= html_writer::start_tag('div', array('class' => 'quiz_header_wrap'));
-        $output .= html_writer::tag('p', $attemptobj->get_quiz_name(), array('class' => 'quiz_name'));
+        $output .= html_writer::start_tag('p', array('class' => 'quiz_name'));
+        $url = new moodle_url('/mod/quiz/view.php', array('id' => $attemptobj->get_cmid()));
+        $output .= html_writer::link($url, $attemptobj->get_quiz_name());
+        $output .= html_writer::end_tag('p');
         $output .= $this->quiestion_filter($showallquestions, $filter);
         $output .= html_writer::end_tag('div');
         $output .= html_writer::end_tag('div');
