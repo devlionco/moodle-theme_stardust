@@ -4,7 +4,9 @@
       <div class="top">
 
           <div class="title-wrapper">
-            <h1 class="title"><a href="{{config.wwwroot}}/course/view.php?id={{courseid}}">{{coursename}}</a></h1>
+            <h1 class="title">
+              <a href="{{config.wwwroot}}/course/view.php?id={{courseid}}">{{coursename}}<span class='endline'></span></a>
+            </h1>
             {{#coursfullname}}
             <p class="title">{{coursfullname}}</p>
             {{/coursfullname}}
@@ -59,25 +61,10 @@
 </div>
 {{#js}}
 require(['jquery'], function($){
-$('.title a').each(function(index, elem) {
-	//create <span> element and append it into title
-	$(elem).html($(elem).html() + "<span class='endline'></span>");
 
-	var endline = $(elem).find('.endline');
-
-	let linewidth;
-	//calculate element width
-	if (document.documentElement.lang === 'he') {
-		var width = endline.offset().left - $('.title').offset().left;
-		linewidth = $('.title').width() - width;
-	} else {
-		linewidth = endline.offset().left;
-	}
-	//set <span> width
-	endline.css('width', parseInt(linewidth));
-	//add class - create underline
-	endline.addClass('processed');
-});
+    var endline = $('.endline'),
+        linewidth = $('body').hasClass('dir-ltr') ? endline.offset().left : $('body').width() - endline.offset().left;
+    endline.css('width', parseInt(linewidth)).addClass('processed');
 
 });
 
