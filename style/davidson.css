@@ -1,0 +1,102 @@
+/* Custom CSS
+-------------------------*/
+div.logo {
+    background: url([[setting:logo]]) 0 0 no-repeat;
+    display: block;
+    float: left;
+    height: 75px;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+img.small-logo {
+    float: left;
+    height: 35px;
+    margin: 3px 10px 3px 0;
+}
+
+@media (max-width: 767px) {
+    img.small-logo {
+        margin: 3px;
+    }
+}
+
+@media (max-width: 480px) {
+    .navbar img.small-logo {
+        max-width: 150px;
+    }
+    /* Applying accesshide styles */
+    .navbar .small-logo-container + .brand {
+        position: absolute;
+        left: -10000px;
+        font-size: 1em;
+        font-weight: normal;
+    }
+}
+
+/* davidson custom styles */
+@import url('https://fonts.googleapis.com/css?family=Alef');
+
+/* Davidson */
+.pagelayout-incourse .m-t-2.m-b-1 {
+    display: none;
+}
+
+/* Renderer - user menu
+*/
+.yui3-menu.useractionmenu {
+    /*width: 40px;*/
+    width: 36px;
+    position: relative;
+    float: left;
+}
+.profilepicture .fullname {
+    /* float: right; */
+    top: 12px;
+    position: relative;
+    left: 10px;
+}
+
+.yui3-menu.useractionmenu .yui3-menu-content {border: none;padding: 0;}
+.yui3-skin-sam .yui3-menu .yui3-menu.yui3-loading .yui3-menu-content {
+    display: none;
+}
+.dir-rtl.yui3-skin-sam .yui3-menu.yui3-menu.useractionmenu .yui3-menu .yui3-menu-content {
+    font-size: 100%;
+    right: 110px;
+    position: relative;
+}
+.dir-rtl.yui3-skin-sam .yui3-menu-label,
+.dir-rtl.yui3-skin-sam .yui3-menu .yui3-menu .yui3-menu-label,
+.dir-rtl.yui3-skin-sam .yui3-menuitem-content,
+.dir-rtl.yui3-skin-sam .yui3-menu .yui3-menu .yui3-menuitem-content {text-align: right;}
+
+div#menu2 {
+    top: 0 !important;
+}
+
+/* Fixed atto image preview width */
+.atto_image_preview {
+    width: 100% !important;
+    height: 100% !important;
+}
+
+/* quiz */
+#page-mod-quiz-review .mod_quiz-next-nav{
+    font-size: 1.4em;
+    border: #0A246A solid 1px;
+    border-radius:8px;
+    margin: 15px;
+    padding: 8px;
+    background: #def2f8;
+}
+
+/* add sections button */
+.add-sections {
+    background-color: #eee;
+    font-size: 1.2em;
+    border: solid 1px #ccc;
+    border-radius: 6px;
+    padding: 9px;
+}
