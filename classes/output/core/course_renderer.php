@@ -646,7 +646,8 @@ class course_renderer extends \core_course_renderer {
                 $tmod->cutoffdate= isset($mextra->closedate) ? $mextra->closedate:0;
             }
 
-            $activitystatus = $this->davidson_activity_status($tmod, $mod);
+            // TODO: Might be some issues with following function (nadavkav) 28-8-2019
+            //$activitystatus = $this->davidson_activity_status($tmod, $mod);
             $countobj = $this->davidson_activity_count_users_attempt($mod);
             $count_users = $countobj['users'];
             $count_max_users = $countobj['maxusers'];
@@ -700,18 +701,18 @@ class course_renderer extends \core_course_renderer {
         }
 
         //Questionnaire
-        // if($mod->modname == 'questionnaire'){
-        //     $sid = $DB->get_record('questionnaire', array('id' => $mod->instance), 'sid');
-        //     $sql = "
-        //     SELECT *
-        //     FROM {questionnaire_response}
-        //     WHERE survey_id=? AND complete='y'
-        //     GROUP BY userid;
-        // ";
-        //
-        //     $query = $DB->get_records_sql($sql, array($sid->sid));
-        //     $count = count($query);
-        // }
+        if($mod->modname == 'questionnaire'){
+            $sid = $DB->get_record('questionnaire', array('id' => $mod->instance), 'sid');
+            $sql = "
+            SELECT *
+            FROM {questionnaire_response}
+            WHERE questionnaireid=? AND complete='y'
+            GROUP BY userid;
+        ";
+
+            $query = $DB->get_records_sql($sql, array($sid->sid));
+            $count = count($query);
+        }
 
         //Assign
         if($mod->modname == 'assign'){

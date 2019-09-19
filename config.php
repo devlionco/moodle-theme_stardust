@@ -28,7 +28,7 @@ $THEME->name = 'stardust';
 
 $THEME->doctype = 'html5';
 $THEME->parents = array('boost', 'fordson');
-$THEME->sheets = array('custom');
+$THEME->sheets = array('davidson', 'custom');
 
 $THEME->scss = function($theme) {
     return theme_stardust_get_main_scss_content($theme);
